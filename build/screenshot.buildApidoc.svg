@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T17:09:55.222Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T17:28:05.177Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-puppeteer-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/\</tspan>
 <tspan x="10" y="122">build/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 35193</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 50841</tspan>
 
 <tspan x="10" y="154">db - dropping database ...</tspan>
 
@@ -50,17 +50,17 @@
 
 <tspan x="10" y="426"></tspan>
 
-<tspan x="10" y="442">testRunDefault - 226 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="442">testRunDefault - 235 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="458">jslint - 211ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
+<tspan x="10" y="458">jslint - 215ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
 
-<tspan x="10" y="474">jslint - 79ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js</tspan>
+<tspan x="10" y="474">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="490">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="490">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
 
-<tspan x="10" y="506">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
+<tspan x="10" y="506">jslint - 29ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
 
-<tspan x="10" y="522">jslint - 9ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
+<tspan x="10" y="522">jslint - 65ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js</tspan>
 
 <tspan x="10" y="538"></tspan>
 
@@ -71,22 +71,22 @@
 
 <tspan x="10" y="602">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="618">| test-report - buildApidoc - node - linux v12.9.1 - 2019-08-31T17:09:55.333Z</tspan>
+<tspan x="10" y="618">| test-report - buildApidoc - node - linux v12.9.1 - 2019-08-31T17:28:05.285Z</tspan>
 
-<tspan x="10" y="634">|     229 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="634">|     236 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="650">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="666">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="682">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T17:09:47.024Z</tspan>
+<tspan x="10" y="682">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T17:27:57.001Z</tspan>
 
-<tspan x="10" y="698">|    1004 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="698">|    1021 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="714">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="730">| test-report - npmTest - node - linux v12.9.1 - 2019-08-31T17:09:43.347Z</tspan>
+<tspan x="10" y="730">| test-report - npmTest - node - linux v12.9.1 - 2019-08-31T17:27:53.382Z</tspan>
 
-<tspan x="10" y="746">|    7932 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="746">|    8040 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="762">-------------------------------------------------------</tspan>
 
@@ -105,7 +105,7 @@
 
 <tspan x="10" y="890"></tspan>
 
-<tspan x="10" y="906">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T17:09:56.902Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="906">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T17:28:06.853Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
