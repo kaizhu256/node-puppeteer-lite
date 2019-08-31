@@ -56889,7 +56889,7 @@ local.stateInit({
 /* jslint ignore:start */
 local.assetsDict["/assets.puppeteer_lite.js"] = "// usr/bin/env node\n\
 /*\n\
- * lib.puppeteer_lite.js (0.0.1)\n\
+ * lib.puppeteer_lite.js (2019.8.31)\n\
  * https://github.com/kaizhu256/node-puppeteer-lite\n\
  * the greatest app in the world!\n\
  *\n\
@@ -57076,7 +57076,7 @@ return;\n\
 
 // usr/bin/env node
 /*
- * lib.puppeteer_lite.js (0.0.1)
+ * lib.puppeteer_lite.js (2019.8.31)
  * https://github.com/kaizhu256/node-puppeteer-lite
  * the greatest app in the world!
  *

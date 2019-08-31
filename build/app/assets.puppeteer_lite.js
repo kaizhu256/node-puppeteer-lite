@@ -1,6 +1,6 @@
 // usr/bin/env node
 /*
- * lib.puppeteer_lite.js (0.0.1)
+ * lib.puppeteer_lite.js (2019.8.31)
  * https://github.com/kaizhu256/node-puppeteer-lite
  * the greatest app in the world!
  *

@@ -1,9 +1,9 @@
-<svg height="1022" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="1022" fill="#555" width="720"></rect>
+<svg height="1166" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1166" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T16:13:28.751Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T16:18:08.080Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-puppeteer-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/\</tspan>
 <tspan x="10" y="122">build/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 62409</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 46548</tspan>
 
 <tspan x="10" y="154">db - dropping database ...</tspan>
 
@@ -53,17 +53,17 @@
 
 <tspan x="10" y="458"></tspan>
 
-<tspan x="10" y="474">testRunDefault - 121665 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="474">testRunDefault - 401038 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="490">jslint - 184ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
+<tspan x="10" y="490">jslint - 192ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
 
-<tspan x="10" y="506">jslint - 35ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer_lite.js</tspan>
+<tspan x="10" y="506">jslint - 22ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer_lite.js</tspan>
 
-<tspan x="10" y="522">jslint - 2ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="522">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
 
 <tspan x="10" y="538">jslint - 0ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
 
-<tspan x="10" y="554">jslint - 8ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
+<tspan x="10" y="554">jslint - 34ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
 
 <tspan x="10" y="570"></tspan>
 
@@ -76,7 +76,7 @@
 
 <tspan x="10" y="650">| test-report - buildApidoc - node - linux v12.9.1 - 2019-08-31T16:11:27.359Z</tspan>
 
-<tspan x="10" y="666">|  121669 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="666">|  401042 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="682">-------------------------------------------------------</tspan>
 
@@ -86,36 +86,51 @@
 
 <tspan x="10" y="730">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="746">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="762">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:11:19.291Z</tspan>
+<tspan x="10" y="746">| test-report - deployGithubTest - browser - /node-puppeteer-lite/build..alpha..travis-ci.org/ap\</tspan>
+<tspan x="10" y="762">p/ - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100\</tspan>
+<tspan x="10" y="778"> Electron/2.0.18 Safari/537.36 - 2019-08-31T16:14:24.507Z</tspan>
 
-<tspan x="10" y="778">|    1006 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="794">|    1017 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="794">-------------------------------------------------------</tspan>
+<tspan x="10" y="810">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="810">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="826">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:13:21.102Z</tspan>
+<tspan x="10" y="826">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="842">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:11:19.291Z</tspan>
 
-<tspan x="10" y="842">|    1005 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="858">|    1006 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="858">-------------------------------------------------------</tspan>
+<tspan x="10" y="874">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="874"></tspan>
+<tspan x="10" y="890">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="906">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:13:21.102Z</tspan>
 
-<tspan x="10" y="890">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="906">html</tspan>
+<tspan x="10" y="922">|    1005 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="922"></tspan>
+<tspan x="10" y="938">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="938"></tspan>
+<tspan x="10" y="954">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="970">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:18:00.470Z</tspan>
 
-<tspan x="10" y="954">buildApidoc - 0 failed tests</tspan>
+<tspan x="10" y="986">|    1011 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="970"></tspan>
+<tspan x="10" y="1002">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="986"></tspan>
+<tspan x="10" y="1018"></tspan>
 
-<tspan x="10" y="1002">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T16:13:30.321Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1034">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="1050">html</tspan>
+
+<tspan x="10" y="1066"></tspan>
+
+<tspan x="10" y="1082"></tspan>
+
+<tspan x="10" y="1098">buildApidoc - 0 failed tests</tspan>
+
+<tspan x="10" y="1114"></tspan>
+
+<tspan x="10" y="1130"></tspan>
+
+<tspan x="10" y="1146">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2019-08-31T16:18:09.692Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
