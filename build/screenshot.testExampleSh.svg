@@ -1,5 +1,5 @@
-<svg height="574" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="574" fill="#555" width="720"></rect>
+<svg height="558" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="558" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</tspan>
 
@@ -7,46 +7,45 @@
 
 <tspan x="10" y="58"></tspan>
 <tspan x="10" y="74">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</tspan>
-<tspan x="10" y="90">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</tspan>
-<tspan x="10" y="106">100 2050k  100 2050k    0     0  3286k      0 --:--:-- --:--:-- --:--:-- 3286k</tspan>
+<tspan x="10" y="90">100 2050k  100 2050k    0     0  4943k      0 --:--:-- --:--:-- --:--:-- 4953k</tspan>
 
-<tspan x="10" y="122"></tspan>
+<tspan x="10" y="106"></tspan>
 
-<tspan x="10" y="138">testExampleSh - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tm\</tspan>
-<tspan x="10" y="154">p/build/test-report.json</tspan>
+<tspan x="10" y="122">testExampleSh - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tm\</tspan>
+<tspan x="10" y="138">p/build/test-report.json</tspan>
 
-<tspan x="10" y="170">&gt; http-server listening on port 8081</tspan>
+<tspan x="10" y="154">&gt; http-server listening on port 8081</tspan>
 
-<tspan x="10" y="186"></tspan>
+<tspan x="10" y="170"></tspan>
 
-<tspan x="10" y="202">testExampleSh - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tm\</tspan>
-<tspan x="10" y="218">p/build/test-report.json</tspan>
+<tspan x="10" y="186">testExampleSh - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tm\</tspan>
+<tspan x="10" y="202">p/build/test-report.json</tspan>
 
-<tspan x="10" y="234">jslint - 1ms /tmp/app/example.sh</tspan>
+<tspan x="10" y="218">jslint - 0ms /tmp/app/example.sh</tspan>
 
-<tspan x="10" y="250">serverLog - {"time":"2019-08-31T16:15:09.819Z","type":"serverResponse","method":"GET","url":"/",\</tspan>
-<tspan x="10" y="266">"statusCode":200,"timeElapsed":24,"requestContentLength":0,"resContentLength":0,"requestHeaderXF\</tspan>
-<tspan x="10" y="282">orwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"","requestHeaderUserAgent":"Moz\</tspan>
-<tspan x="10" y="298">illa/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/62.0.3202.94\</tspan>
-<tspan x="10" y="314"> HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
+<tspan x="10" y="234">serverLog - {"time":"2019-08-31T16:19:49.318Z","type":"serverResponse","method":"GET","url":"/",\</tspan>
+<tspan x="10" y="250">"statusCode":200,"timeElapsed":17,"requestContentLength":0,"resContentLength":0,"requestHeaderXF\</tspan>
+<tspan x="10" y="266">orwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"","requestHeaderUserAgent":"Moz\</tspan>
+<tspan x="10" y="282">illa/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/62.0.3202.94\</tspan>
+<tspan x="10" y="298"> HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
 
-<tspan x="10" y="330">serverLog - {"time":"2019-08-31T16:15:09.847Z","type":"serverResponse","method":"GET","url":"/",\</tspan>
-<tspan x="10" y="346">"statusCode":200,"timeElapsed":26,"requestContentLength":0,"resContentLength":0,"requestHeaderXF\</tspan>
-<tspan x="10" y="362">orwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"","requestHeaderUserAgent":"Moz\</tspan>
-<tspan x="10" y="378">illa/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/62.0.3202.94\</tspan>
-<tspan x="10" y="394"> HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
+<tspan x="10" y="314">serverLog - {"time":"2019-08-31T16:19:49.345Z","type":"serverResponse","method":"GET","url":"/",\</tspan>
+<tspan x="10" y="330">"statusCode":200,"timeElapsed":19,"requestContentLength":0,"resContentLength":0,"requestHeaderXF\</tspan>
+<tspan x="10" y="346">orwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"","requestHeaderUserAgent":"Moz\</tspan>
+<tspan x="10" y="362">illa/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/62.0.3202.94\</tspan>
+<tspan x="10" y="378"> HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
 
-<tspan x="10" y="410">serverLog - {"time":"2019-08-31T16:15:09.845Z","type":"serverResponse","method":"GET","url":"/as\</tspan>
-<tspan x="10" y="426">sets.app.js","statusCode":200,"timeElapsed":202,"requestContentLength":0,"resContentLength":0,"r\</tspan>
-<tspan x="10" y="442">equestHeaderXForwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"http://127.0.0.1:\</tspan>
-<tspan x="10" y="458">8081/","requestHeaderUserAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like\</tspan>
-<tspan x="10" y="474"> Gecko) Ubuntu Chromium/62.0.3202.94 HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
+<tspan x="10" y="394">serverLog - {"time":"2019-08-31T16:19:49.343Z","type":"serverResponse","method":"GET","url":"/as\</tspan>
+<tspan x="10" y="410">sets.app.js","statusCode":200,"timeElapsed":197,"requestContentLength":0,"resContentLength":0,"r\</tspan>
+<tspan x="10" y="426">equestHeaderXForwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"http://127.0.0.1:\</tspan>
+<tspan x="10" y="442">8081/","requestHeaderUserAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like\</tspan>
+<tspan x="10" y="458"> Gecko) Ubuntu Chromium/62.0.3202.94 HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
 
-<tspan x="10" y="490">serverLog - {"time":"2019-08-31T16:15:09.895Z","type":"serverResponse","method":"GET","url":"/as\</tspan>
-<tspan x="10" y="506">sets.app.js","statusCode":200,"timeElapsed":157,"requestContentLength":0,"resContentLength":0,"r\</tspan>
-<tspan x="10" y="522">equestHeaderXForwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"http://127.0.0.1:\</tspan>
-<tspan x="10" y="538">8081/","requestHeaderUserAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like\</tspan>
-<tspan x="10" y="554"> Gecko) Ubuntu Chromium/62.0.3202.94 HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
+<tspan x="10" y="474">serverLog - {"time":"2019-08-31T16:19:49.387Z","type":"serverResponse","method":"GET","url":"/as\</tspan>
+<tspan x="10" y="490">sets.app.js","statusCode":200,"timeElapsed":154,"requestContentLength":0,"resContentLength":0,"r\</tspan>
+<tspan x="10" y="506">equestHeaderXForwardedFor":"","requestHeaderOrigin":"","requestHeaderReferer":"http://127.0.0.1:\</tspan>
+<tspan x="10" y="522">8081/","requestHeaderUserAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like\</tspan>
+<tspan x="10" y="538"> Gecko) Ubuntu Chromium/62.0.3202.94 HeadlessChrome/62.0.3202.94 Safari/537.36"}</tspan>
 
 </text>
 </svg>
