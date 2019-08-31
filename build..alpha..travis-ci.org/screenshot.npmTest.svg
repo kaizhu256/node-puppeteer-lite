@@ -1,9 +1,9 @@
-<svg height="2238" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="2238" fill="#555" width="720"></rect>
+<svg height="2350" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2350" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-31T16:11:16.920Z - npm-testing /home/travis/build/\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-31T16:13:19.007Z - npm-testing /home/travis/build/\</tspan>
 <tspan x="10" y="58">kaizhu256/node-puppeteer-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -23,86 +23,86 @@
 <tspan x="10" y="202">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/buil\</tspan>
 <tspan x="10" y="218">d/test-report.json</tspan>
 
-<tspan x="10" y="234">http-server listening on port 51479</tspan>
+<tspan x="10" y="234">http-server listening on port 58019</tspan>
 
 <tspan x="10" y="250">db - dropping database ...</tspan>
 
-<tspan x="10" y="266">testRunDefault - 12934 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="266">testRunDefault - 112223 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="282">testRunDefault - 12975 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="282">testRunDefault - 112282 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="298">testRunDefault - 12988 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="298">testRunDefault - 112296 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="314">testRunDefault - 12992 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="314">testRunDefault - 112301 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="330">testRunDefault - 12997 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="330">testRunDefault - 112305 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
 
 <tspan x="10" y="346">jslint - 317ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
 
-<tspan x="10" y="362">jslint - 62ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer_lite.js</tspan>
+<tspan x="10" y="362">jslint - 84ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer_lite.js</tspan>
 
-<tspan x="10" y="378">jslint - 2ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="378">jslint - 13ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
 
 <tspan x="10" y="394">jslint - 0ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
 
-<tspan x="10" y="410">jslint - 26ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
+<tspan x="10" y="410">jslint - 36ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
 
-<tspan x="10" y="426">http-server listening on port 47849</tspan>
+<tspan x="10" y="426">http-server listening on port 53098</tspan>
 
 <tspan x="10" y="442">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="458">[5877:0831/161118.639461:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="458">[8269:0831/161320.551973:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
 <tspan x="10" y="474"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="490">[5877:0831/161118.646889:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="490">[8269:0831/161320.559665:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
 <tspan x="10" y="506"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="522">[5938:0831/161118.805473:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="522">[8330:0831/161320.664820:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
 <tspan x="10" y="538">hreads in process gpu-process.</tspan>
 
-<tspan x="10" y="554">[5877:0831/161119.027629:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="554">[8269:0831/161320.870038:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="570">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
 <tspan x="10" y="586">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="602">[5877:0831/161119.044318:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="602">[8269:0831/161320.893785:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="618">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
 <tspan x="10" y="634">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="650">[5877:0831/161119.746895:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="666">:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="650">[8269:0831/161321.565885:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="666">:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="682">[5877:0831/161119.779073:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
+<tspan x="10" y="682">[8269:0831/161321.588668:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
 <tspan x="10" y="698">ngs.</tspan>
 
-<tspan x="10" y="714">[5877:0831/161119.780975:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="730">:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="714">[8269:0831/161321.600340:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="730">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
+<tspan x="10" y="746">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="746">[5877:0831/161119.785209:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="762">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
-<tspan x="10" y="778">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="762">[8269:0831/161321.608967:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="778">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="794">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="794">[5877:0831/161119.798753:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="810">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
-<tspan x="10" y="826">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="810">[8269:0831/161321.619433:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="826">:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="842">[5877:0831/161119.813987:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="842">[8269:0831/161321.646098:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
 <tspan x="10" y="858">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
 <tspan x="10" y="874">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="890">[5877:0831/161119.816310:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="890">[8269:0831/161321.647291:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="906">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
 <tspan x="10" y="922">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="938">[5877:0831/161119.828455:INFO:CONSOLE(8)] "testRunDefault - 7 ms - [browser test-case 1 of 1 pas\</tspan>
-<tspan x="10" y="954">sed] - testCase_nop_default", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="938">[8269:0831/161321.663278:INFO:CONSOLE(8)] "testRunDefault - 21 ms - [browser test-case 1 of 1 pa\</tspan>
+<tspan x="10" y="954">ssed] - testCase_nop_default", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="970">[5877:0831/161119.843134:INFO:CONSOLE(8)] "testRunDefault - 8 ms - [browser test-case 1 of 1 pas\</tspan>
-<tspan x="10" y="986">sed] - testCase_nop_default", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="970">[8269:0831/161321.672511:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 1 pas\</tspan>
+<tspan x="10" y="986">sed] - testCase_nop_default", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1002">testRunDefault - 15829 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defau\</tspan>
-<tspan x="10" y="1018">lt ...</tspan>
+<tspan x="10" y="1002">testRunDefault - 115059 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defa\</tspan>
+<tspan x="10" y="1018">ult ...</tspan>
 
-<tspan x="10" y="1034">[5877:0831/161120.843013:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1034">[8269:0831/161322.679225:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
 <tspan x="10" y="1050">-----|</tspan>
 
 <tspan x="10" y="1066">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
@@ -115,12 +115,12 @@
 
 <tspan x="10" y="1130">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1146">", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="1146">", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1162">[5877:0831/161120.854732:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1178">html", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="1162">[8269:0831/161322.684179:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1178">html", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1194">[5877:0831/161120.858253:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1194">[8269:0831/161322.713722:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
 <tspan x="10" y="1210">-----|</tspan>
 
 <tspan x="10" y="1226">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
@@ -133,20 +133,20 @@
 
 <tspan x="10" y="1290">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1306">", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="1306">", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1322">[5877:0831/161120.865594:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1338">html", source: http://127.0.0.1:51479/assets.example.js (8)</tspan>
+<tspan x="10" y="1322">[8269:0831/161322.713909:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1338">html", source: http://127.0.0.1:58019/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1354">testRunDefault - 18424 ms - [node test-case 6 of 7 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="1354">testRunDefault - 117770 ms - [node test-case 6 of 7 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="1370">[5877:0831/161124.767908:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:51479/assets.example.\</tspan>
+<tspan x="10" y="1370">[8269:0831/161326.582880:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:58019/assets.example.\</tspan>
 <tspan x="10" y="1386">js (8)</tspan>
 
-<tspan x="10" y="1402">[5877:0831/161124.861436:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
-<tspan x="10" y="1418">me/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.16ce871f2b60.a62ca107879ae.html' -&gt; '\</tspan>
+<tspan x="10" y="1402">[8269:0831/161326.760882:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
+<tspan x="10" y="1418">me/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.16ce873d0370.f0374efc1c076.html' -&gt; '\</tspan>
 <tspan x="10" y="1434">/home/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.html'", source: http://127.0.0.1:5\</tspan>
-<tspan x="10" y="1450">1479/assets.example.js (8)</tspan>
+<tspan x="10" y="1450">8019/assets.example.js (8)</tspan>
 
 <tspan x="10" y="1466"></tspan>
 
@@ -168,9 +168,9 @@
 <tspan x="10" y="1626">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
 <tspan x="10" y="1642">/screenshot.npmTest.browser.%2F.html</tspan>
 
-<tspan x="10" y="1658">testRunDefault - 20780 ms - [node test-case 7 of 7 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="1658">testRunDefault - 119350 ms - [node test-case 7 of 7 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="1674">testRunDefault - 20839 ms - testCase pending -  ...</tspan>
+<tspan x="10" y="1674">testRunDefault - 120070 ms - testCase pending -  ...</tspan>
 
 <tspan x="10" y="1690">----------------------------|-----------|-----------|-----------|-----------|</tspan>
 
@@ -206,35 +206,48 @@
 
 <tspan x="10" y="1962">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1978">| test-report - buildApp - node - linux v12.9.1 - 2019-08-31T16:11:04.400Z</tspan>
+<tspan x="10" y="1978">| test-report - buildApidoc - node - linux v12.9.1 - 2019-08-31T16:11:27.359Z</tspan>
 
-<tspan x="10" y="1994">|   20784 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="1994">|  119351 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="2010">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2026">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="2042">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:11:19.291Z</tspan>
+<tspan x="10" y="2026">| test-report - buildApp - node - linux v12.9.1 - 2019-08-31T16:11:04.400Z</tspan>
 
-<tspan x="10" y="2058">|    1006 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="2042">|   20784 ms            0 failed        7 passed      |</tspan>
 
-<tspan x="10" y="2074">-------------------------------------------------------</tspan>
+<tspan x="10" y="2058">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2090"></tspan>
+<tspan x="10" y="2074">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="2090">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:11:19.291Z</tspan>
 
-<tspan x="10" y="2106">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="2122">html</tspan>
+<tspan x="10" y="2106">|    1006 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="2138"></tspan>
+<tspan x="10" y="2122">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2154"></tspan>
+<tspan x="10" y="2138">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="2154">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-31T16:13:21.102Z</tspan>
 
-<tspan x="10" y="2170">npmTest - 0 failed tests</tspan>
+<tspan x="10" y="2170">|    1005 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="2186"></tspan>
+<tspan x="10" y="2186">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="2202"></tspan>
 
-<tspan x="10" y="2218">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-31T16:11:26.529Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2218">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="2234">html</tspan>
+
+<tspan x="10" y="2250"></tspan>
+
+<tspan x="10" y="2266"></tspan>
+
+<tspan x="10" y="2282">npmTest - 0 failed tests</tspan>
+
+<tspan x="10" y="2298"></tspan>
+
+<tspan x="10" y="2314"></tspan>
+
+<tspan x="10" y="2330">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-31T16:13:28.027Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
