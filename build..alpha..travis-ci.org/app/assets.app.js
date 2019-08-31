@@ -7,7 +7,7 @@
 /*
 assets.app.js
 
-the greatest app in the world!
+this package will provide a zero-dependency version puppeteer v1.19.0
 
 instruction
     1. save this script as assets.app.js
@@ -56858,20 +56858,20 @@ if (process.argv[2]) {\n\
 local.stateInit({
     "utility2": {
         "assetsDict": {
-            "/assets.example.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (0.0.1)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n<!-- utility2-comment\n    <a\n        {{#if env.npm_package_homepage}}\n        href=\"{{env.npm_package_homepage}}\"\n        {{/if env.npm_package_homepage}}\n        target=\"_blank\"\n    >\nutility2-comment -->\n        puppeteer-lite (0.0.1)\n<!-- utility2-comment\n    </a>\nutility2-comment -->\n</h1>\n<h3>the greatest app in the world!</h3>\n<!-- utility2-comment\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\nutility2-comment -->\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n<!-- utility2-comment\n{{#if isRollup}}\n<script src=\"assets.app.js\"></script>\n{{#unless isRollup}}\nutility2-comment -->\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.counter += 1;</script>\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\n<script src=\"assets.puppeteer_lite.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>window.utility2_onReadyBefore();</script>\n<!-- utility2-comment\n{{/if isRollup}}\nutility2-comment -->\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
-            "/assets.example.js": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\nexample.js\n\nthis script will run a web-demo of puppeteer-lite\n\ninstruction\n    1. save this script as example.js\n    2. run shell-command:\n        $ npm install kaizhu256/node-puppeteer-lite#alpha && \\\n            PORT=8081 node example.js\n    3. open a browser to http://127.0.0.1:8081 and play with web-demo\n    4. edit this script to suit your needs\n*/\n\n\n\n/* istanbul instrument in package puppeteer_lite */\n/* istanbul ignore next */\n/* jslint utility2:true */\n(function (globalThis) {\n    \"use strict\";\n    var consoleError;\n    var local;\n    // init globalThis\n    globalThis.globalThis = globalThis.globalThis || globalThis;\n    // init debug_inline\n    if (!globalThis[\"debug\\u0049nline\"]) {\n        consoleError = console.error;\n        globalThis[\"debug\\u0049nline\"] = function () {\n        /*\n         * this function will both print <arguments> to stderr\n         * and return <arguments>[0]\n         */\n            var argList;\n            argList = Array.from(arguments); // jslint ignore:line\n            // debug arguments\n            globalThis[\"debug\\u0049nlineArguments\"] = argList;\n            consoleError(\"\\n\\ndebug\\u0049nline\");\n            consoleError.apply(console, argList);\n            consoleError(\"\\n\");\n            // return arg0 for inspection\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof window === \"object\"\n        && window === globalThis\n        && typeof window.XMLHttpRequest === \"function\"\n        && window.document\n        && typeof window.document.querySelector === \"function\"\n    );\n    // init function\n    local.assertThrow = function (passed, message) {\n    /*\n     * this function will throw err.<message> if <passed> is falsy\n     */\n        var err;\n        if (passed) {\n            return;\n        }\n        err = (\n            (\n                message\n                && typeof message.message === \"string\"\n                && typeof message.stack === \"string\"\n            )\n            // if message is errObj, then leave as is\n            ? message\n            : new Error(\n                typeof message === \"string\"\n                // if message is a string, then leave as is\n                ? message\n                // else JSON.stringify message\n                : JSON.stringify(message, null, 4)\n            )\n        );\n        throw err;\n    };\n    local.functionOrNop = function (fnc) {\n    /*\n     * this function will if <fnc> exists,\n     * them return <fnc>,\n     * else return <nop>\n     */\n        return fnc || local.nop;\n    };\n    local.identity = function (value) {\n    /*\n     * this function will return <value>\n     */\n        return value;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (target, source) {\n    /*\n     * this function will if items from <target> are\n     * null, undefined, or empty-string,\n     * then overwrite them with items from <source>\n     */\n        target = target || {};\n        Object.keys(source || {}).forEach(function (key) {\n            if (\n                target[key] === null\n                || target[key] === undefined\n                || target[key] === \"\"\n            ) {\n                target[key] = target[key] || source[key];\n            }\n        });\n        return target;\n    };\n    // require builtin\n    if (!local.isBrowser) {\n        local.assert = require(\"assert\");\n        local.buffer = require(\"buffer\");\n        local.child_process = require(\"child_process\");\n        local.cluster = require(\"cluster\");\n        local.crypto = require(\"crypto\");\n        local.dgram = require(\"dgram\");\n        local.dns = require(\"dns\");\n        local.domain = require(\"domain\");\n        local.events = require(\"events\");\n        local.fs = require(\"fs\");\n        local.http = require(\"http\");\n        local.https = require(\"https\");\n        local.net = require(\"net\");\n        local.os = require(\"os\");\n        local.path = require(\"path\");\n        local.querystring = require(\"querystring\");\n        local.readline = require(\"readline\");\n        local.repl = require(\"repl\");\n        local.stream = require(\"stream\");\n        local.string_decoder = require(\"string_decoder\");\n        local.timers = require(\"timers\");\n        local.tls = require(\"tls\");\n        local.tty = require(\"tty\");\n        local.url = require(\"url\");\n        local.util = require(\"util\");\n        local.vm = require(\"vm\");\n        local.zlib = require(\"zlib\");\n    }\n}((typeof globalThis === \"object\" && globalThis) || (function () {\n    return Function(\"return this\")(); // jslint ignore:line\n}())));\n\n\n\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2_rollup\n    || globalThis.utility2_puppeteer_lite\n    || globalThis.utility2_moduleExports\n);\n// init exports\nglobalThis.local = local;\n}());\n\n\n\n/* istanbul ignore next */\n// run browser js-env code - init-test\n(function () {\nif (!local.isBrowser) {\n    return;\n}\n// log stderr and stdout to #outputStdout1\n[\"error\", \"log\"].forEach(function (key) {\n    var argList;\n    var elem;\n    var fnc;\n    elem = document.querySelector(\n        \"#outputStdout1\"\n    );\n    if (!elem) {\n        return;\n    }\n    fnc = console[key];\n    console[key] = function () {\n        argList = Array.from(arguments); // jslint ignore:line\n        fnc.apply(console, argList);\n        // append text to #outputStdout1\n        elem.textContent += argList.map(function (arg) {\n            return (\n                typeof arg === \"string\"\n                ? arg\n                : JSON.stringify(arg, null, 4)\n            );\n        }).join(\" \").replace((\n            /\\u001b\\[\\d*m/g\n        ), \"\") + \"\\n\";\n        // scroll textarea to bottom\n        elem.scrollTop = elem.scrollHeight;\n    };\n});\nlocal.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\nglobalThis.domOnEventDelegateDict = local;\nlocal.onEventDomDb = local.db && local.db.onEventDomDb;\nlocal.testRunBrowser = function (evt) {\n/*\n * this function will run browser-tests\n */\n    switch (\n        !evt.ctrlKey\n        && !evt.metaKey\n        && (\n            evt.modeInit\n            || (evt.type + \".\" + (evt.target && evt.target.id))\n        )\n    ) {\n    // custom-case\n    case true:\n        return;\n    // run browser-tests\n    default:\n        if (\n            (evt.target && evt.target.id) !== \"testRunButton1\"\n            && !(evt.modeInit && (\n                /\\bmodeTest=1\\b/\n            ).test(location.search))\n        ) {\n            return;\n        }\n        // show browser-tests\n        if (document.querySelector(\n            \"#testReportDiv1\"\n        ).style.maxHeight === \"0px\") {\n            globalThis.domOnEventDelegateDict.domOnEventResetOutput();\n            local.uiAnimateSlideDown(document.querySelector(\n                \"#testReportDiv1\"\n            ));\n            document.querySelector(\n                \"#testRunButton1\"\n            ).textContent = \"hide internal test\";\n            local.modeTest = 1;\n            local.testRunDefault(local);\n            return;\n        }\n        // hide browser-tests\n        local.uiAnimateSlideUp(document.querySelector(\n            \"#testReportDiv1\"\n        ));\n        document.querySelector(\n            \"#testRunButton1\"\n        ).textContent = \"run internal test\";\n    }\n};\n\nlocal.testRunBrowser({\n    modeInit: true\n});\n}());\n\n\n\n/* istanbul ignore next */\n// run node js-env code - init-test\n(function () {\nif (local.isBrowser) {\n    return;\n}\n// init exports\nmodule.exports = local;\n/* validateLineSortedReset */\n// init assets\nlocal.assetsDict = local.assetsDict || {};\n[\n    \"assets.index.template.html\",\n    \"assets.swgg.swagger.json\",\n    \"assets.swgg.swagger.server.json\"\n].forEach(function (file) {\n    file = \"/\" + file;\n    local.assetsDict[file] = local.assetsDict[file] || \"\";\n    if (local.fs.existsSync(local.__dirname + file)) {\n        local.assetsDict[file] = local.fs.readFileSync(\n            local.__dirname + file,\n            \"utf8\"\n        );\n    }\n});\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.index.template.html\"] = '\\\n<!doctype html>\\n\\\n<html lang=\"en\">\\n\\\n<head>\\n\\\n<meta charset=\"utf-8\">\\n\\\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n\\\n<!-- \"assets.utility2.template.html\" -->\\n\\\n<title>{{env.npm_package_name}} ({{env.npm_package_version}})</title>\\n\\\n<style>\\n\\\n/* jslint utility2:true */\\n\\\n/*csslint\\n\\\n*/\\n\\\n/* csslint ignore:start */\\n\\\n*,\\n\\\n*:after,\\n\\\n*:before {\\n\\\n    box-sizing: border-box;\\n\\\n}\\n\\\n/* csslint ignore:end */\\n\\\n@keyframes uiAnimateShake {\\n\\\n0%,\\n\\\n50% {\\n\\\n    transform: translateX(10px);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: translateX(0);\\n\\\n}\\n\\\n25%,\\n\\\n75% {\\n\\\n    transform: translateX(-10px);\\n\\\n}\\n\\\n}\\n\\\n@keyframes uiAnimateSpin {\\n\\\n0% {\\n\\\n    transform: rotate(0deg);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: rotate(360deg);\\n\\\n}\\n\\\n}\\n\\\na {\\n\\\n    overflow-wrap: break-word;\\n\\\n}\\n\\\nbody {\\n\\\n    background: #eef;\\n\\\n    font-family: Arial, Helvetica, sans-serif;\\n\\\n    font-size: small;\\n\\\n    margin: 0 40px;\\n\\\n}\\n\\\nbody > div,\\n\\\nbody > form > div,\\n\\\nbody > form > input,\\n\\\nbody > form > pre,\\n\\\nbody > form > .button,\\n\\\nbody > form > .textarea,\\n\\\nbody > input,\\n\\\nbody > pre,\\n\\\nbody > .button,\\n\\\nbody > .textarea {\\n\\\n    margin-bottom: 20px;\\n\\\n    margin-top: 0;\\n\\\n}\\n\\\nbody > form > input,\\n\\\nbody > form > .button,\\n\\\nbody > input,\\n\\\nbody > .button {\\n\\\n    width: 20rem;\\n\\\n}\\n\\\nbody > form > .textarea,\\n\\\nbody > .textarea {\\n\\\n    height: 10rem;\\n\\\n    width: 100%;\\n\\\n}\\n\\\nbody > .readonly {\\n\\\n    background: #ddd;\\n\\\n}\\n\\\ncode,\\n\\\npre,\\n\\\n.textarea {\\n\\\n    font-family: Consolas, Menlo, monospace;\\n\\\n    font-size: smaller;\\n\\\n}\\n\\\npre {\\n\\\n    overflow-wrap: break-word;\\n\\\n    white-space: pre-wrap;\\n\\\n}\\n\\\n.button {\\n\\\n    background: #ddd;\\n\\\n    border: 1px solid #999;\\n\\\n    color: #000;\\n\\\n    cursor: pointer;\\n\\\n    display: inline-block;\\n\\\n    padding: 2px 5px;\\n\\\n    text-align: center;\\n\\\n    text-decoration: none;\\n\\\n}\\n\\\n.button:hover {\\n\\\n    background: #bbb;\\n\\\n}\\n\\\n.colorError {\\n\\\n    color: #d00;\\n\\\n}\\n\\\n.textarea {\\n\\\n    background: #fff;\\n\\\n    border: 1px solid #999;\\n\\\n    border-radius: 0;\\n\\\n    cursor: auto;\\n\\\n    overflow: auto;\\n\\\n    padding: 2px;\\n\\\n}\\n\\\n.uiAnimateShake {\\n\\\n    animation-duration: 500ms;\\n\\\n    animation-name: uiAnimateShake;\\n\\\n}\\n\\\n.uiAnimateSlide {\\n\\\n    overflow-y: hidden;\\n\\\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\\n\\\n}\\n\\\n.utility2FooterDiv {\\n\\\n    text-align: center;\\n\\\n}\\n\\\n.zeroPixel {\\n\\\n    border: 0;\\n\\\n    height: 0;\\n\\\n    margin: 0;\\n\\\n    padding: 0;\\n\\\n    width: 0;\\n\\\n}\\n\\\n</style>\\n\\\n</head>\\n\\\n<body>\\n\\\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\\n\\\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\\n\\\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\\n\\\n<script>\\n\\\n/* jslint utility2:true */\\n\\\n// init domOnEventWindowOnloadTimeElapsed\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will measure and print time-elapsed for window.onload\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (window.domOnEventWindowOnloadTimeElapsed) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\\n\\\n    window.addEventListener(\"load\", function () {\\n\\\n        setTimeout(function () {\\n\\\n            window.domOnEventWindowOnloadTimeElapsed = (\\n\\\n                Date.now()\\n\\\n                - window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n            console.error(\\n\\\n                \"domOnEventWindowOnloadTimeElapsed = \"\\n\\\n                + window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n        }, 100);\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventAjaxProgressUpdate\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will display incrementing ajax-progress-bar\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    var opt;\\n\\\n    if (window.domOnEventAjaxProgressUpdate) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\\n\\\n        gotoState = (gotoState | 0) + 1;\\n\\\n        switch (gotoState) {\\n\\\n        // ajaxProgress - show\\n\\\n        case 1:\\n\\\n            // init timerInterval and timerTimeout\\n\\\n            opt.timerInterval = (\\n\\\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\\n\\\n            );\\n\\\n            opt.timerTimeout = (\\n\\\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\\n\\\n            );\\n\\\n            // show ajaxProgress\\n\\\n            if (opt.width !== -1) {\\n\\\n                opt.style.background = opt.background;\\n\\\n            }\\n\\\n            setTimeout(opt, 50, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - increment\\n\\\n        case 2:\\n\\\n            // show ajaxProgress\\n\\\n            if (opt.width === -1) {\\n\\\n                return;\\n\\\n            }\\n\\\n            opt.style.background = opt.background;\\n\\\n            // reset ajaxProgress if it goes too high\\n\\\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\\n\\\n                opt.width = 0;\\n\\\n            }\\n\\\n            // this algorithm will indefinitely increment ajaxProgress\\n\\\n            // with successively smaller increments without ever reaching 100%\\n\\\n            opt.width += 1;\\n\\\n            opt.style.width = Math.max(\\n\\\n                100 - 75 * Math.exp(-0.125 * opt.width),\\n\\\n                opt.style.width.slice(0, -1) | 0\\n\\\n            ) + \"%\";\\n\\\n            if (!opt.counter) {\\n\\\n                setTimeout(opt, 0, gotoState, onError);\\n\\\n            }\\n\\\n            break;\\n\\\n        // ajaxProgress - 100%\\n\\\n        case 3:\\n\\\n            opt.width = -1;\\n\\\n            opt.style.width = \"100%\";\\n\\\n            setTimeout(opt, 1000, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - hide\\n\\\n        case 4:\\n\\\n            // cleanup timerInterval and timerTimeout\\n\\\n            clearInterval(opt.timerInterval);\\n\\\n            opt.timerInterval = null;\\n\\\n            clearTimeout(opt.timerTimeout);\\n\\\n            opt.timerTimeout = null;\\n\\\n            // hide ajaxProgress\\n\\\n            opt.style.background = \"transparent\";\\n\\\n            if (onError) {\\n\\\n                onError();\\n\\\n            }\\n\\\n            setTimeout(opt, 250, gotoState);\\n\\\n            break;\\n\\\n        // ajaxProgress - reset\\n\\\n        default:\\n\\\n            // reset ajaxProgress\\n\\\n            opt.counter = 0;\\n\\\n            opt.width = 0;\\n\\\n            opt.style.width = \"0%\";\\n\\\n        }\\n\\\n    };\\n\\\n    opt = window.domOnEventAjaxProgressUpdate;\\n\\\n    opt.end = function (onError) {\\n\\\n        opt.counter = 0;\\n\\\n        window.domOnEventAjaxProgressUpdate(2, onError);\\n\\\n    };\\n\\\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\\n\\\n    if (!opt.elem) {\\n\\\n        opt.elem = document.createElement(\"div\");\\n\\\n        setTimeout(function () {\\n\\\n            document.body.insertBefore(opt.elem, document.body.firstChild);\\n\\\n        });\\n\\\n    }\\n\\\n    opt.elem.id = \"domElementAjaxProgress1\";\\n\\\n    opt.style = opt.elem.style;\\n\\\n    // init style\\n\\\n    Object.entries({\\n\\\n        background: \"#d00\",\\n\\\n        height: \"2px\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"background 250ms, width 750ms\",\\n\\\n        width: \"0%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init state\\n\\\n    opt.background = opt.style.background;\\n\\\n    opt.counter = 0;\\n\\\n    opt.width = 0;\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventDelegateDict\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will handle delegated dom-event\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    var timerTimeoutDict;\\n\\\n    if (window.domOnEventDelegateDict) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventDelegateDict = {};\\n\\\n    timerTimeoutDict = {};\\n\\\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\\n\\\n        evt.targetOnEvent = evt.target.closest(\\n\\\n            \"[data-onevent]\"\\n\\\n        );\\n\\\n        if (\\n\\\n            !evt.targetOnEvent\\n\\\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\\n\\\n            || evt.target.closest(\\n\\\n                \".disabled, .readonly\"\\n\\\n            )\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n        // rate-limit high-frequency-event\\n\\\n        switch (evt.type) {\\n\\\n        case \"keydown\":\\n\\\n        case \"keyup\":\\n\\\n            // filter non-input keyboard-event\\n\\\n            if (!evt.target.closest(\\n\\\n                \"input, option, select, textarea\"\\n\\\n            )) {\\n\\\n                return;\\n\\\n            }\\n\\\n            if (timerTimeoutDict[evt.type] !== true) {\\n\\\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\\n\\\n                    evt.type\\n\\\n                ] || setTimeout(function () {\\n\\\n                    timerTimeoutDict[evt.type] = true;\\n\\\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\\n\\\n                }, 50);\\n\\\n                return;\\n\\\n            }\\n\\\n            timerTimeoutDict[evt.type] = null;\\n\\\n            break;\\n\\\n        }\\n\\\n        switch (evt.targetOnEvent.tagName) {\\n\\\n        case \"BUTTON\":\\n\\\n        case \"FORM\":\\n\\\n            evt.preventDefault();\\n\\\n            break;\\n\\\n        }\\n\\\n        evt.stopPropagation();\\n\\\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\\n\\\n            evt\\n\\\n        );\\n\\\n    };\\n\\\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\\n\\\n        document.querySelectorAll(\\n\\\n            \".onevent-reset-output\"\\n\\\n        ).forEach(function (elem) {\\n\\\n            switch (elem.tagName) {\\n\\\n            case \"INPUT\":\\n\\\n            case \"TEXTAREA\":\\n\\\n                elem.value = \"\";\\n\\\n                break;\\n\\\n            case \"PRE\":\\n\\\n                elem.textContent = \"\";\\n\\\n                break;\\n\\\n            default:\\n\\\n                elem.innerHTML = \"\";\\n\\\n            }\\n\\\n        });\\n\\\n    };\\n\\\n    // init event-handling\\n\\\n    [\\n\\\n        \"change\",\\n\\\n        \"click\",\\n\\\n        \"keydown\",\\n\\\n        \"submit\"\\n\\\n    ].forEach(function (eventType) {\\n\\\n        document.addEventListener(\\n\\\n            eventType,\\n\\\n            window.domOnEventDelegateDict.domOnEventDelegate\\n\\\n        );\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventSelectAllWithinPre\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\\n\\\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (window.domOnEventSelectAllWithinPre) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventSelectAllWithinPre = function (evt) {\\n\\\n        var range;\\n\\\n        var selection;\\n\\\n        if (\\n\\\n            evt\\n\\\n            && evt.key === \"a\"\\n\\\n            && (evt.ctrlKey || evt.metaKey)\\n\\\n            && evt.target.closest(\\n\\\n                \"pre\"\\n\\\n            )\\n\\\n        ) {\\n\\\n            range = document.createRange();\\n\\\n            range.selectNodeContents(evt.target.closest(\\n\\\n                \"pre\"\\n\\\n            ));\\n\\\n            selection = window.getSelection();\\n\\\n            selection.removeAllRanges();\\n\\\n            selection.addRange(range);\\n\\\n            evt.preventDefault();\\n\\\n        }\\n\\\n    };\\n\\\n    // init event-handling\\n\\\n    document.addEventListener(\\n\\\n        \"keydown\",\\n\\\n        window.domOnEventSelectAllWithinPre\\n\\\n    );\\n\\\n}());\\n\\\n</script>\\n\\\n<h1>\\n\\\n<!-- utility2-comment\\n\\\n    <a\\n\\\n        {{#if env.npm_package_homepage}}\\n\\\n        href=\"{{env.npm_package_homepage}}\"\\n\\\n        {{/if env.npm_package_homepage}}\\n\\\n        target=\"_blank\"\\n\\\n    >\\n\\\nutility2-comment -->\\n\\\n        {{env.npm_package_name}} ({{env.npm_package_version}})\\n\\\n<!-- utility2-comment\\n\\\n    </a>\\n\\\nutility2-comment -->\\n\\\n</h1>\\n\\\n<h3>{{env.npm_package_description}}</h3>\\n\\\n<!-- utility2-comment\\n\\\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\\n\\\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\\n\\\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\\n\\\nutility2-comment -->\\n\\\n\\n\\\n\\n\\\n\\n\\\n<label>stderr and stdout</label>\\n\\\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\\n\\\n<!-- utility2-comment\\n\\\n{{#if isRollup}}\\n\\\n<script src=\"assets.app.js\"></script>\\n\\\n{{#unless isRollup}}\\n\\\nutility2-comment -->\\n\\\n<script src=\"assets.utility2.rollup.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore.counter += 1;</script>\\n\\\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\\n\\\n<script src=\"assets.puppeteer_lite.js\"></script>\\n\\\n<script src=\"assets.example.js\"></script>\\n\\\n<script src=\"assets.test.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore();</script>\\n\\\n<!-- utility2-comment\\n\\\n{{/if isRollup}}\\n\\\nutility2-comment -->\\n\\\n<div class=\"utility2FooterDiv\">\\n\\\n    [ this app was created with\\n\\\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\\n\\\n    ]\\n\\\n</div>\\n\\\n</body>\\n\\\n</html>\\n\\\n';\n/* jslint ignore:end */\n/* validateLineSortedReset */\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.puppeteer_lite.js\"] =\n    local.assetsDict[\"/assets.puppeteer_lite.js\"] ||\n    local.fs.readFileSync(local.__dirname + \"/lib.puppeteer_lite.js\", \"utf8\"\n).replace((/^#!\\//), \"// \");\n/* jslint ignore:end */\n/* validateLineSortedReset */\nlocal.assetsDict[\"/\"] = local.assetsDict[\n    \"/assets.index.template.html\"\n].replace((\n    /\\{\\{env\\.(\\w+?)\\}\\}/g\n), function (match0, match1) {\n    switch (match1) {\n    case \"npm_package_description\":\n        return \"the greatest app in the world!\";\n    case \"npm_package_name\":\n        return \"puppeteer-lite\";\n    case \"npm_package_nameLib\":\n        return \"puppeteer_lite\";\n    case \"npm_package_version\":\n        return \"0.0.1\";\n    default:\n        return match0;\n    }\n});\nlocal.assetsDict[\"/assets.example.html\"] = local.assetsDict[\"/\"];\nlocal.assetsDict[\"/index.html\"] = local.assetsDict[\"/\"];\n// init cli\nif (module !== require.main || globalThis.utility2_rollup) {\n    return;\n}\n/* validateLineSortedReset */\nlocal.assetsDict[\"/assets.example.js\"] = (\n    local.assetsDict[\"/assets.example.js\"]\n    || local.fs.readFileSync(__filename, \"utf8\")\n);\nlocal.assetsDict[\"/favicon.ico\"] = local.assetsDict[\"/favicon.ico\"] || \"\";\n// if $npm_config_timeout_exit exists,\n// then exit this process after $npm_config_timeout_exit ms\nif (Number(process.env.npm_config_timeout_exit)) {\n    setTimeout(process.exit, Number(process.env.npm_config_timeout_exit));\n}\n// start server\nif (globalThis.utility2_serverHttp1) {\n    return;\n}\nprocess.env.PORT = process.env.PORT || \"8081\";\nconsole.error(\"http-server listening on port \" + process.env.PORT);\nlocal.http.createServer(function (req, res) {\n    req.urlParsed = local.url.parse(req.url);\n    if (local.assetsDict[req.urlParsed.pathname] !== undefined) {\n        res.end(local.assetsDict[req.urlParsed.pathname]);\n        return;\n    }\n    res.statusCode = 404;\n    res.end();\n}).listen(process.env.PORT);\n}());\n}());",
+            "/assets.example.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (0.0.1)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n<!-- utility2-comment\n    <a\n        {{#if env.npm_package_homepage}}\n        href=\"{{env.npm_package_homepage}}\"\n        {{/if env.npm_package_homepage}}\n        target=\"_blank\"\n    >\nutility2-comment -->\n        puppeteer-lite (0.0.1)\n<!-- utility2-comment\n    </a>\nutility2-comment -->\n</h1>\n<h3>the greatest app in the world!</h3>\n<!-- utility2-comment\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\nutility2-comment -->\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n<!-- utility2-comment\n{{#if isRollup}}\n<script src=\"assets.app.js\"></script>\n{{#unless isRollup}}\nutility2-comment -->\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.counter += 1;</script>\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\n<script src=\"assets.puppeteer.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>window.utility2_onReadyBefore();</script>\n<!-- utility2-comment\n{{/if isRollup}}\nutility2-comment -->\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
+            "/assets.example.js": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\nexample.js\n\nthis script will run a web-demo of puppeteer-lite\n\ninstruction\n    1. save this script as example.js\n    2. run shell-command:\n        $ npm install kaizhu256/node-puppeteer-lite#alpha && \\\n            PORT=8081 node example.js\n    3. open a browser to http://127.0.0.1:8081 and play with web-demo\n    4. edit this script to suit your needs\n*/\n\n\n\n/* istanbul instrument in package puppeteer */\n/* istanbul ignore next */\n/* jslint utility2:true */\n(function (globalThis) {\n    \"use strict\";\n    var consoleError;\n    var local;\n    // init globalThis\n    globalThis.globalThis = globalThis.globalThis || globalThis;\n    // init debug_inline\n    if (!globalThis[\"debug\\u0049nline\"]) {\n        consoleError = console.error;\n        globalThis[\"debug\\u0049nline\"] = function () {\n        /*\n         * this function will both print <arguments> to stderr\n         * and return <arguments>[0]\n         */\n            var argList;\n            argList = Array.from(arguments); // jslint ignore:line\n            // debug arguments\n            globalThis[\"debug\\u0049nlineArguments\"] = argList;\n            consoleError(\"\\n\\ndebug\\u0049nline\");\n            consoleError.apply(console, argList);\n            consoleError(\"\\n\");\n            // return arg0 for inspection\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof window === \"object\"\n        && window === globalThis\n        && typeof window.XMLHttpRequest === \"function\"\n        && window.document\n        && typeof window.document.querySelector === \"function\"\n    );\n    // init function\n    local.assertThrow = function (passed, message) {\n    /*\n     * this function will throw err.<message> if <passed> is falsy\n     */\n        var err;\n        if (passed) {\n            return;\n        }\n        err = (\n            (\n                message\n                && typeof message.message === \"string\"\n                && typeof message.stack === \"string\"\n            )\n            // if message is errObj, then leave as is\n            ? message\n            : new Error(\n                typeof message === \"string\"\n                // if message is a string, then leave as is\n                ? message\n                // else JSON.stringify message\n                : JSON.stringify(message, null, 4)\n            )\n        );\n        throw err;\n    };\n    local.functionOrNop = function (fnc) {\n    /*\n     * this function will if <fnc> exists,\n     * them return <fnc>,\n     * else return <nop>\n     */\n        return fnc || local.nop;\n    };\n    local.identity = function (value) {\n    /*\n     * this function will return <value>\n     */\n        return value;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (target, source) {\n    /*\n     * this function will if items from <target> are\n     * null, undefined, or empty-string,\n     * then overwrite them with items from <source>\n     */\n        target = target || {};\n        Object.keys(source || {}).forEach(function (key) {\n            if (\n                target[key] === null\n                || target[key] === undefined\n                || target[key] === \"\"\n            ) {\n                target[key] = target[key] || source[key];\n            }\n        });\n        return target;\n    };\n    // require builtin\n    if (!local.isBrowser) {\n        local.assert = require(\"assert\");\n        local.buffer = require(\"buffer\");\n        local.child_process = require(\"child_process\");\n        local.cluster = require(\"cluster\");\n        local.crypto = require(\"crypto\");\n        local.dgram = require(\"dgram\");\n        local.dns = require(\"dns\");\n        local.domain = require(\"domain\");\n        local.events = require(\"events\");\n        local.fs = require(\"fs\");\n        local.http = require(\"http\");\n        local.https = require(\"https\");\n        local.net = require(\"net\");\n        local.os = require(\"os\");\n        local.path = require(\"path\");\n        local.querystring = require(\"querystring\");\n        local.readline = require(\"readline\");\n        local.repl = require(\"repl\");\n        local.stream = require(\"stream\");\n        local.string_decoder = require(\"string_decoder\");\n        local.timers = require(\"timers\");\n        local.tls = require(\"tls\");\n        local.tty = require(\"tty\");\n        local.url = require(\"url\");\n        local.util = require(\"util\");\n        local.vm = require(\"vm\");\n        local.zlib = require(\"zlib\");\n    }\n}((typeof globalThis === \"object\" && globalThis) || (function () {\n    return Function(\"return this\")(); // jslint ignore:line\n}())));\n\n\n\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2_rollup\n    || globalThis.utility2_puppeteer\n    || globalThis.utility2_moduleExports\n);\n// init exports\nglobalThis.local = local;\n}());\n\n\n\n/* istanbul ignore next */\n// run browser js-env code - init-test\n(function () {\nif (!local.isBrowser) {\n    return;\n}\n// log stderr and stdout to #outputStdout1\n[\"error\", \"log\"].forEach(function (key) {\n    var argList;\n    var elem;\n    var fnc;\n    elem = document.querySelector(\n        \"#outputStdout1\"\n    );\n    if (!elem) {\n        return;\n    }\n    fnc = console[key];\n    console[key] = function () {\n        argList = Array.from(arguments); // jslint ignore:line\n        fnc.apply(console, argList);\n        // append text to #outputStdout1\n        elem.textContent += argList.map(function (arg) {\n            return (\n                typeof arg === \"string\"\n                ? arg\n                : JSON.stringify(arg, null, 4)\n            );\n        }).join(\" \").replace((\n            /\\u001b\\[\\d*m/g\n        ), \"\") + \"\\n\";\n        // scroll textarea to bottom\n        elem.scrollTop = elem.scrollHeight;\n    };\n});\nlocal.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\nglobalThis.domOnEventDelegateDict = local;\nlocal.onEventDomDb = local.db && local.db.onEventDomDb;\nlocal.testRunBrowser = function (evt) {\n/*\n * this function will run browser-tests\n */\n    switch (\n        !evt.ctrlKey\n        && !evt.metaKey\n        && (\n            evt.modeInit\n            || (evt.type + \".\" + (evt.target && evt.target.id))\n        )\n    ) {\n    // custom-case\n    case true:\n        return;\n    // run browser-tests\n    default:\n        if (\n            (evt.target && evt.target.id) !== \"testRunButton1\"\n            && !(evt.modeInit && (\n                /\\bmodeTest=1\\b/\n            ).test(location.search))\n        ) {\n            return;\n        }\n        // show browser-tests\n        if (document.querySelector(\n            \"#testReportDiv1\"\n        ).style.maxHeight === \"0px\") {\n            globalThis.domOnEventDelegateDict.domOnEventResetOutput();\n            local.uiAnimateSlideDown(document.querySelector(\n                \"#testReportDiv1\"\n            ));\n            document.querySelector(\n                \"#testRunButton1\"\n            ).textContent = \"hide internal test\";\n            local.modeTest = 1;\n            local.testRunDefault(local);\n            return;\n        }\n        // hide browser-tests\n        local.uiAnimateSlideUp(document.querySelector(\n            \"#testReportDiv1\"\n        ));\n        document.querySelector(\n            \"#testRunButton1\"\n        ).textContent = \"run internal test\";\n    }\n};\n\nlocal.testRunBrowser({\n    modeInit: true\n});\n}());\n\n\n\n/* istanbul ignore next */\n// run node js-env code - init-test\n(function () {\nif (local.isBrowser) {\n    return;\n}\n// init exports\nmodule.exports = local;\n/* validateLineSortedReset */\n// init assets\nlocal.assetsDict = local.assetsDict || {};\n[\n    \"assets.index.template.html\",\n    \"assets.swgg.swagger.json\",\n    \"assets.swgg.swagger.server.json\"\n].forEach(function (file) {\n    file = \"/\" + file;\n    local.assetsDict[file] = local.assetsDict[file] || \"\";\n    if (local.fs.existsSync(local.__dirname + file)) {\n        local.assetsDict[file] = local.fs.readFileSync(\n            local.__dirname + file,\n            \"utf8\"\n        );\n    }\n});\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.index.template.html\"] = '\\\n<!doctype html>\\n\\\n<html lang=\"en\">\\n\\\n<head>\\n\\\n<meta charset=\"utf-8\">\\n\\\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n\\\n<!-- \"assets.utility2.template.html\" -->\\n\\\n<title>{{env.npm_package_name}} ({{env.npm_package_version}})</title>\\n\\\n<style>\\n\\\n/* jslint utility2:true */\\n\\\n/*csslint\\n\\\n*/\\n\\\n/* csslint ignore:start */\\n\\\n*,\\n\\\n*:after,\\n\\\n*:before {\\n\\\n    box-sizing: border-box;\\n\\\n}\\n\\\n/* csslint ignore:end */\\n\\\n@keyframes uiAnimateShake {\\n\\\n0%,\\n\\\n50% {\\n\\\n    transform: translateX(10px);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: translateX(0);\\n\\\n}\\n\\\n25%,\\n\\\n75% {\\n\\\n    transform: translateX(-10px);\\n\\\n}\\n\\\n}\\n\\\n@keyframes uiAnimateSpin {\\n\\\n0% {\\n\\\n    transform: rotate(0deg);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: rotate(360deg);\\n\\\n}\\n\\\n}\\n\\\na {\\n\\\n    overflow-wrap: break-word;\\n\\\n}\\n\\\nbody {\\n\\\n    background: #eef;\\n\\\n    font-family: Arial, Helvetica, sans-serif;\\n\\\n    font-size: small;\\n\\\n    margin: 0 40px;\\n\\\n}\\n\\\nbody > div,\\n\\\nbody > form > div,\\n\\\nbody > form > input,\\n\\\nbody > form > pre,\\n\\\nbody > form > .button,\\n\\\nbody > form > .textarea,\\n\\\nbody > input,\\n\\\nbody > pre,\\n\\\nbody > .button,\\n\\\nbody > .textarea {\\n\\\n    margin-bottom: 20px;\\n\\\n    margin-top: 0;\\n\\\n}\\n\\\nbody > form > input,\\n\\\nbody > form > .button,\\n\\\nbody > input,\\n\\\nbody > .button {\\n\\\n    width: 20rem;\\n\\\n}\\n\\\nbody > form > .textarea,\\n\\\nbody > .textarea {\\n\\\n    height: 10rem;\\n\\\n    width: 100%;\\n\\\n}\\n\\\nbody > .readonly {\\n\\\n    background: #ddd;\\n\\\n}\\n\\\ncode,\\n\\\npre,\\n\\\n.textarea {\\n\\\n    font-family: Consolas, Menlo, monospace;\\n\\\n    font-size: smaller;\\n\\\n}\\n\\\npre {\\n\\\n    overflow-wrap: break-word;\\n\\\n    white-space: pre-wrap;\\n\\\n}\\n\\\n.button {\\n\\\n    background: #ddd;\\n\\\n    border: 1px solid #999;\\n\\\n    color: #000;\\n\\\n    cursor: pointer;\\n\\\n    display: inline-block;\\n\\\n    padding: 2px 5px;\\n\\\n    text-align: center;\\n\\\n    text-decoration: none;\\n\\\n}\\n\\\n.button:hover {\\n\\\n    background: #bbb;\\n\\\n}\\n\\\n.colorError {\\n\\\n    color: #d00;\\n\\\n}\\n\\\n.textarea {\\n\\\n    background: #fff;\\n\\\n    border: 1px solid #999;\\n\\\n    border-radius: 0;\\n\\\n    cursor: auto;\\n\\\n    overflow: auto;\\n\\\n    padding: 2px;\\n\\\n}\\n\\\n.uiAnimateShake {\\n\\\n    animation-duration: 500ms;\\n\\\n    animation-name: uiAnimateShake;\\n\\\n}\\n\\\n.uiAnimateSlide {\\n\\\n    overflow-y: hidden;\\n\\\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\\n\\\n}\\n\\\n.utility2FooterDiv {\\n\\\n    text-align: center;\\n\\\n}\\n\\\n.zeroPixel {\\n\\\n    border: 0;\\n\\\n    height: 0;\\n\\\n    margin: 0;\\n\\\n    padding: 0;\\n\\\n    width: 0;\\n\\\n}\\n\\\n</style>\\n\\\n</head>\\n\\\n<body>\\n\\\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\\n\\\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\\n\\\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\\n\\\n<script>\\n\\\n/* jslint utility2:true */\\n\\\n// init domOnEventWindowOnloadTimeElapsed\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will measure and print time-elapsed for window.onload\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (window.domOnEventWindowOnloadTimeElapsed) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\\n\\\n    window.addEventListener(\"load\", function () {\\n\\\n        setTimeout(function () {\\n\\\n            window.domOnEventWindowOnloadTimeElapsed = (\\n\\\n                Date.now()\\n\\\n                - window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n            console.error(\\n\\\n                \"domOnEventWindowOnloadTimeElapsed = \"\\n\\\n                + window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n        }, 100);\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventAjaxProgressUpdate\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will display incrementing ajax-progress-bar\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    var opt;\\n\\\n    if (window.domOnEventAjaxProgressUpdate) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\\n\\\n        gotoState = (gotoState | 0) + 1;\\n\\\n        switch (gotoState) {\\n\\\n        // ajaxProgress - show\\n\\\n        case 1:\\n\\\n            // init timerInterval and timerTimeout\\n\\\n            opt.timerInterval = (\\n\\\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\\n\\\n            );\\n\\\n            opt.timerTimeout = (\\n\\\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\\n\\\n            );\\n\\\n            // show ajaxProgress\\n\\\n            if (opt.width !== -1) {\\n\\\n                opt.style.background = opt.background;\\n\\\n            }\\n\\\n            setTimeout(opt, 50, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - increment\\n\\\n        case 2:\\n\\\n            // show ajaxProgress\\n\\\n            if (opt.width === -1) {\\n\\\n                return;\\n\\\n            }\\n\\\n            opt.style.background = opt.background;\\n\\\n            // reset ajaxProgress if it goes too high\\n\\\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\\n\\\n                opt.width = 0;\\n\\\n            }\\n\\\n            // this algorithm will indefinitely increment ajaxProgress\\n\\\n            // with successively smaller increments without ever reaching 100%\\n\\\n            opt.width += 1;\\n\\\n            opt.style.width = Math.max(\\n\\\n                100 - 75 * Math.exp(-0.125 * opt.width),\\n\\\n                opt.style.width.slice(0, -1) | 0\\n\\\n            ) + \"%\";\\n\\\n            if (!opt.counter) {\\n\\\n                setTimeout(opt, 0, gotoState, onError);\\n\\\n            }\\n\\\n            break;\\n\\\n        // ajaxProgress - 100%\\n\\\n        case 3:\\n\\\n            opt.width = -1;\\n\\\n            opt.style.width = \"100%\";\\n\\\n            setTimeout(opt, 1000, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - hide\\n\\\n        case 4:\\n\\\n            // cleanup timerInterval and timerTimeout\\n\\\n            clearInterval(opt.timerInterval);\\n\\\n            opt.timerInterval = null;\\n\\\n            clearTimeout(opt.timerTimeout);\\n\\\n            opt.timerTimeout = null;\\n\\\n            // hide ajaxProgress\\n\\\n            opt.style.background = \"transparent\";\\n\\\n            if (onError) {\\n\\\n                onError();\\n\\\n            }\\n\\\n            setTimeout(opt, 250, gotoState);\\n\\\n            break;\\n\\\n        // ajaxProgress - reset\\n\\\n        default:\\n\\\n            // reset ajaxProgress\\n\\\n            opt.counter = 0;\\n\\\n            opt.width = 0;\\n\\\n            opt.style.width = \"0%\";\\n\\\n        }\\n\\\n    };\\n\\\n    opt = window.domOnEventAjaxProgressUpdate;\\n\\\n    opt.end = function (onError) {\\n\\\n        opt.counter = 0;\\n\\\n        window.domOnEventAjaxProgressUpdate(2, onError);\\n\\\n    };\\n\\\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\\n\\\n    if (!opt.elem) {\\n\\\n        opt.elem = document.createElement(\"div\");\\n\\\n        setTimeout(function () {\\n\\\n            document.body.insertBefore(opt.elem, document.body.firstChild);\\n\\\n        });\\n\\\n    }\\n\\\n    opt.elem.id = \"domElementAjaxProgress1\";\\n\\\n    opt.style = opt.elem.style;\\n\\\n    // init style\\n\\\n    Object.entries({\\n\\\n        background: \"#d00\",\\n\\\n        height: \"2px\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"background 250ms, width 750ms\",\\n\\\n        width: \"0%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init state\\n\\\n    opt.background = opt.style.background;\\n\\\n    opt.counter = 0;\\n\\\n    opt.width = 0;\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventDelegateDict\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will handle delegated dom-event\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    var timerTimeoutDict;\\n\\\n    if (window.domOnEventDelegateDict) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventDelegateDict = {};\\n\\\n    timerTimeoutDict = {};\\n\\\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\\n\\\n        evt.targetOnEvent = evt.target.closest(\\n\\\n            \"[data-onevent]\"\\n\\\n        );\\n\\\n        if (\\n\\\n            !evt.targetOnEvent\\n\\\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\\n\\\n            || evt.target.closest(\\n\\\n                \".disabled, .readonly\"\\n\\\n            )\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n        // rate-limit high-frequency-event\\n\\\n        switch (evt.type) {\\n\\\n        case \"keydown\":\\n\\\n        case \"keyup\":\\n\\\n            // filter non-input keyboard-event\\n\\\n            if (!evt.target.closest(\\n\\\n                \"input, option, select, textarea\"\\n\\\n            )) {\\n\\\n                return;\\n\\\n            }\\n\\\n            if (timerTimeoutDict[evt.type] !== true) {\\n\\\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\\n\\\n                    evt.type\\n\\\n                ] || setTimeout(function () {\\n\\\n                    timerTimeoutDict[evt.type] = true;\\n\\\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\\n\\\n                }, 50);\\n\\\n                return;\\n\\\n            }\\n\\\n            timerTimeoutDict[evt.type] = null;\\n\\\n            break;\\n\\\n        }\\n\\\n        switch (evt.targetOnEvent.tagName) {\\n\\\n        case \"BUTTON\":\\n\\\n        case \"FORM\":\\n\\\n            evt.preventDefault();\\n\\\n            break;\\n\\\n        }\\n\\\n        evt.stopPropagation();\\n\\\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\\n\\\n            evt\\n\\\n        );\\n\\\n    };\\n\\\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\\n\\\n        document.querySelectorAll(\\n\\\n            \".onevent-reset-output\"\\n\\\n        ).forEach(function (elem) {\\n\\\n            switch (elem.tagName) {\\n\\\n            case \"INPUT\":\\n\\\n            case \"TEXTAREA\":\\n\\\n                elem.value = \"\";\\n\\\n                break;\\n\\\n            case \"PRE\":\\n\\\n                elem.textContent = \"\";\\n\\\n                break;\\n\\\n            default:\\n\\\n                elem.innerHTML = \"\";\\n\\\n            }\\n\\\n        });\\n\\\n    };\\n\\\n    // init event-handling\\n\\\n    [\\n\\\n        \"change\",\\n\\\n        \"click\",\\n\\\n        \"keydown\",\\n\\\n        \"submit\"\\n\\\n    ].forEach(function (eventType) {\\n\\\n        document.addEventListener(\\n\\\n            eventType,\\n\\\n            window.domOnEventDelegateDict.domOnEventDelegate\\n\\\n        );\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventSelectAllWithinPre\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\\n\\\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (window.domOnEventSelectAllWithinPre) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventSelectAllWithinPre = function (evt) {\\n\\\n        var range;\\n\\\n        var selection;\\n\\\n        if (\\n\\\n            evt\\n\\\n            && evt.key === \"a\"\\n\\\n            && (evt.ctrlKey || evt.metaKey)\\n\\\n            && evt.target.closest(\\n\\\n                \"pre\"\\n\\\n            )\\n\\\n        ) {\\n\\\n            range = document.createRange();\\n\\\n            range.selectNodeContents(evt.target.closest(\\n\\\n                \"pre\"\\n\\\n            ));\\n\\\n            selection = window.getSelection();\\n\\\n            selection.removeAllRanges();\\n\\\n            selection.addRange(range);\\n\\\n            evt.preventDefault();\\n\\\n        }\\n\\\n    };\\n\\\n    // init event-handling\\n\\\n    document.addEventListener(\\n\\\n        \"keydown\",\\n\\\n        window.domOnEventSelectAllWithinPre\\n\\\n    );\\n\\\n}());\\n\\\n</script>\\n\\\n<h1>\\n\\\n<!-- utility2-comment\\n\\\n    <a\\n\\\n        {{#if env.npm_package_homepage}}\\n\\\n        href=\"{{env.npm_package_homepage}}\"\\n\\\n        {{/if env.npm_package_homepage}}\\n\\\n        target=\"_blank\"\\n\\\n    >\\n\\\nutility2-comment -->\\n\\\n        {{env.npm_package_name}} ({{env.npm_package_version}})\\n\\\n<!-- utility2-comment\\n\\\n    </a>\\n\\\nutility2-comment -->\\n\\\n</h1>\\n\\\n<h3>{{env.npm_package_description}}</h3>\\n\\\n<!-- utility2-comment\\n\\\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\\n\\\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\\n\\\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\\n\\\nutility2-comment -->\\n\\\n\\n\\\n\\n\\\n\\n\\\n<label>stderr and stdout</label>\\n\\\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\\n\\\n<!-- utility2-comment\\n\\\n{{#if isRollup}}\\n\\\n<script src=\"assets.app.js\"></script>\\n\\\n{{#unless isRollup}}\\n\\\nutility2-comment -->\\n\\\n<script src=\"assets.utility2.rollup.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore.counter += 1;</script>\\n\\\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\\n\\\n<script src=\"assets.puppeteer.js\"></script>\\n\\\n<script src=\"assets.example.js\"></script>\\n\\\n<script src=\"assets.test.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore();</script>\\n\\\n<!-- utility2-comment\\n\\\n{{/if isRollup}}\\n\\\nutility2-comment -->\\n\\\n<div class=\"utility2FooterDiv\">\\n\\\n    [ this app was created with\\n\\\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\\n\\\n    ]\\n\\\n</div>\\n\\\n</body>\\n\\\n</html>\\n\\\n';\n/* jslint ignore:end */\n/* validateLineSortedReset */\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.puppeteer.js\"] =\n    local.assetsDict[\"/assets.puppeteer.js\"] ||\n    local.fs.readFileSync(local.__dirname + \"/lib.puppeteer.js\", \"utf8\"\n).replace((/^#!\\//), \"// \");\n/* jslint ignore:end */\n/* validateLineSortedReset */\nlocal.assetsDict[\"/\"] = local.assetsDict[\n    \"/assets.index.template.html\"\n].replace((\n    /\\{\\{env\\.(\\w+?)\\}\\}/g\n), function (match0, match1) {\n    switch (match1) {\n    case \"npm_package_description\":\n        return \"the greatest app in the world!\";\n    case \"npm_package_name\":\n        return \"puppeteer-lite\";\n    case \"npm_package_nameLib\":\n        return \"puppeteer\";\n    case \"npm_package_version\":\n        return \"0.0.1\";\n    default:\n        return match0;\n    }\n});\nlocal.assetsDict[\"/assets.example.html\"] = local.assetsDict[\"/\"];\nlocal.assetsDict[\"/index.html\"] = local.assetsDict[\"/\"];\n// init cli\nif (module !== require.main || globalThis.utility2_rollup) {\n    return;\n}\n/* validateLineSortedReset */\nlocal.assetsDict[\"/assets.example.js\"] = (\n    local.assetsDict[\"/assets.example.js\"]\n    || local.fs.readFileSync(__filename, \"utf8\")\n);\nlocal.assetsDict[\"/favicon.ico\"] = local.assetsDict[\"/favicon.ico\"] || \"\";\n// if $npm_config_timeout_exit exists,\n// then exit this process after $npm_config_timeout_exit ms\nif (Number(process.env.npm_config_timeout_exit)) {\n    setTimeout(process.exit, Number(process.env.npm_config_timeout_exit));\n}\n// start server\nif (globalThis.utility2_serverHttp1) {\n    return;\n}\nprocess.env.PORT = process.env.PORT || \"8081\";\nconsole.error(\"http-server listening on port \" + process.env.PORT);\nlocal.http.createServer(function (req, res) {\n    req.urlParsed = local.url.parse(req.url);\n    if (local.assetsDict[req.urlParsed.pathname] !== undefined) {\n        res.end(local.assetsDict[req.urlParsed.pathname]);\n        return;\n    }\n    res.statusCode = 404;\n    res.end();\n}).listen(process.env.PORT);\n}());\n}());",
             "/assets.swgg.swagger.json": "",
-            "/assets.test.js": "/* istanbul instrument in package puppeteer_lite */\n/* istanbul ignore next */\n/* jslint utility2:true */\n(function (globalThis) {\n    \"use strict\";\n    var consoleError;\n    var local;\n    // init globalThis\n    globalThis.globalThis = globalThis.globalThis || globalThis;\n    // init debug_inline\n    if (!globalThis[\"debug\\u0049nline\"]) {\n        consoleError = console.error;\n        globalThis[\"debug\\u0049nline\"] = function () {\n        /*\n         * this function will both print <arguments> to stderr\n         * and return <arguments>[0]\n         */\n            var argList;\n            argList = Array.from(arguments); // jslint ignore:line\n            // debug arguments\n            globalThis[\"debug\\u0049nlineArguments\"] = argList;\n            consoleError(\"\\n\\ndebug\\u0049nline\");\n            consoleError.apply(console, argList);\n            consoleError(\"\\n\");\n            // return arg0 for inspection\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof window === \"object\"\n        && window === globalThis\n        && typeof window.XMLHttpRequest === \"function\"\n        && window.document\n        && typeof window.document.querySelector === \"function\"\n    );\n    // init function\n    local.assertThrow = function (passed, message) {\n    /*\n     * this function will throw err.<message> if <passed> is falsy\n     */\n        var err;\n        if (passed) {\n            return;\n        }\n        err = (\n            (\n                message\n                && typeof message.message === \"string\"\n                && typeof message.stack === \"string\"\n            )\n            // if message is errObj, then leave as is\n            ? message\n            : new Error(\n                typeof message === \"string\"\n                // if message is a string, then leave as is\n                ? message\n                // else JSON.stringify message\n                : JSON.stringify(message, null, 4)\n            )\n        );\n        throw err;\n    };\n    local.functionOrNop = function (fnc) {\n    /*\n     * this function will if <fnc> exists,\n     * them return <fnc>,\n     * else return <nop>\n     */\n        return fnc || local.nop;\n    };\n    local.identity = function (value) {\n    /*\n     * this function will return <value>\n     */\n        return value;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (target, source) {\n    /*\n     * this function will if items from <target> are\n     * null, undefined, or empty-string,\n     * then overwrite them with items from <source>\n     */\n        target = target || {};\n        Object.keys(source || {}).forEach(function (key) {\n            if (\n                target[key] === null\n                || target[key] === undefined\n                || target[key] === \"\"\n            ) {\n                target[key] = target[key] || source[key];\n            }\n        });\n        return target;\n    };\n    // require builtin\n    if (!local.isBrowser) {\n        local.assert = require(\"assert\");\n        local.buffer = require(\"buffer\");\n        local.child_process = require(\"child_process\");\n        local.cluster = require(\"cluster\");\n        local.crypto = require(\"crypto\");\n        local.dgram = require(\"dgram\");\n        local.dns = require(\"dns\");\n        local.domain = require(\"domain\");\n        local.events = require(\"events\");\n        local.fs = require(\"fs\");\n        local.http = require(\"http\");\n        local.https = require(\"https\");\n        local.net = require(\"net\");\n        local.os = require(\"os\");\n        local.path = require(\"path\");\n        local.querystring = require(\"querystring\");\n        local.readline = require(\"readline\");\n        local.repl = require(\"repl\");\n        local.stream = require(\"stream\");\n        local.string_decoder = require(\"string_decoder\");\n        local.timers = require(\"timers\");\n        local.tls = require(\"tls\");\n        local.tty = require(\"tty\");\n        local.url = require(\"url\");\n        local.util = require(\"util\");\n        local.vm = require(\"vm\");\n        local.zlib = require(\"zlib\");\n    }\n}((typeof globalThis === \"object\" && globalThis) || (function () {\n    return Function(\"return this\")(); // jslint ignore:line\n}())));\n\n\n\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2 || require(\"utility2\")\n).requireReadme();\nglobalThis.local = local;\n// init test\nlocal.testRunDefault(local);\n}());\n\n\n\n// run shared js-env code - function\n(function () {\nreturn;\n}());\n}());\n",
-            "/assets.utility2.base.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>the greatest app in the world!</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
-            "/index.rollup.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>the greatest app in the world!</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
-            "/": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>the greatest app in the world!</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.counter += 1;</script>\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\n<script src=\"assets.puppeteer_lite.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>window.utility2_onReadyBefore();</script>\n\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n"
+            "/assets.test.js": "/* istanbul instrument in package puppeteer */\n/* istanbul ignore next */\n/* jslint utility2:true */\n(function (globalThis) {\n    \"use strict\";\n    var consoleError;\n    var local;\n    // init globalThis\n    globalThis.globalThis = globalThis.globalThis || globalThis;\n    // init debug_inline\n    if (!globalThis[\"debug\\u0049nline\"]) {\n        consoleError = console.error;\n        globalThis[\"debug\\u0049nline\"] = function () {\n        /*\n         * this function will both print <arguments> to stderr\n         * and return <arguments>[0]\n         */\n            var argList;\n            argList = Array.from(arguments); // jslint ignore:line\n            // debug arguments\n            globalThis[\"debug\\u0049nlineArguments\"] = argList;\n            consoleError(\"\\n\\ndebug\\u0049nline\");\n            consoleError.apply(console, argList);\n            consoleError(\"\\n\");\n            // return arg0 for inspection\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof window === \"object\"\n        && window === globalThis\n        && typeof window.XMLHttpRequest === \"function\"\n        && window.document\n        && typeof window.document.querySelector === \"function\"\n    );\n    // init function\n    local.assertThrow = function (passed, message) {\n    /*\n     * this function will throw err.<message> if <passed> is falsy\n     */\n        var err;\n        if (passed) {\n            return;\n        }\n        err = (\n            (\n                message\n                && typeof message.message === \"string\"\n                && typeof message.stack === \"string\"\n            )\n            // if message is errObj, then leave as is\n            ? message\n            : new Error(\n                typeof message === \"string\"\n                // if message is a string, then leave as is\n                ? message\n                // else JSON.stringify message\n                : JSON.stringify(message, null, 4)\n            )\n        );\n        throw err;\n    };\n    local.functionOrNop = function (fnc) {\n    /*\n     * this function will if <fnc> exists,\n     * them return <fnc>,\n     * else return <nop>\n     */\n        return fnc || local.nop;\n    };\n    local.identity = function (value) {\n    /*\n     * this function will return <value>\n     */\n        return value;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (target, source) {\n    /*\n     * this function will if items from <target> are\n     * null, undefined, or empty-string,\n     * then overwrite them with items from <source>\n     */\n        target = target || {};\n        Object.keys(source || {}).forEach(function (key) {\n            if (\n                target[key] === null\n                || target[key] === undefined\n                || target[key] === \"\"\n            ) {\n                target[key] = target[key] || source[key];\n            }\n        });\n        return target;\n    };\n    // require builtin\n    if (!local.isBrowser) {\n        local.assert = require(\"assert\");\n        local.buffer = require(\"buffer\");\n        local.child_process = require(\"child_process\");\n        local.cluster = require(\"cluster\");\n        local.crypto = require(\"crypto\");\n        local.dgram = require(\"dgram\");\n        local.dns = require(\"dns\");\n        local.domain = require(\"domain\");\n        local.events = require(\"events\");\n        local.fs = require(\"fs\");\n        local.http = require(\"http\");\n        local.https = require(\"https\");\n        local.net = require(\"net\");\n        local.os = require(\"os\");\n        local.path = require(\"path\");\n        local.querystring = require(\"querystring\");\n        local.readline = require(\"readline\");\n        local.repl = require(\"repl\");\n        local.stream = require(\"stream\");\n        local.string_decoder = require(\"string_decoder\");\n        local.timers = require(\"timers\");\n        local.tls = require(\"tls\");\n        local.tty = require(\"tty\");\n        local.url = require(\"url\");\n        local.util = require(\"util\");\n        local.vm = require(\"vm\");\n        local.zlib = require(\"zlib\");\n    }\n}((typeof globalThis === \"object\" && globalThis) || (function () {\n    return Function(\"return this\")(); // jslint ignore:line\n}())));\n\n\n\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2 || require(\"utility2\")\n).requireReadme();\nglobalThis.local = local;\n// init test\nlocal.testRunDefault(local);\n}());\n\n\n\n// run shared js-env code - function\n(function () {\nreturn;\n}());\n}());\n",
+            "/assets.utility2.base.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>this package will provide a zero-dependency version puppeteer v1.19.0</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
+            "/index.rollup.html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>this package will provide a zero-dependency version puppeteer v1.19.0</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n",
+            "/": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>puppeteer-lite (2019.8.31)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateShake {\n0%,\n50% {\n    transform: translateX(10px);\n}\n100% {\n    transform: translateX(0);\n}\n25%,\n75% {\n    transform: translateX(-10px);\n}\n}\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #eef;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > form > div,\nbody > form > input,\nbody > form > pre,\nbody > form > .button,\nbody > form > .textarea,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > form > input,\nbody > form > .button,\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > form > .textarea,\nbody > .textarea {\n    height: 10rem;\n    width: 100%;\n}\nbody > .readonly {\n    background: #ddd;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.uiAnimateShake {\n    animation-duration: 500ms;\n    animation-name: uiAnimateShake;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n.utility2FooterDiv {\n    text-align: center;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<a class=\"zeroPixel\" download=\"db.persistence.json\" href=\"\" id=\"dbExportA1\"></a>\n<input class=\"zeroPixel\" data-onevent=\"onEventDomDb\" data-onevent-db=\"dbImportInput\" type=\"file\">\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    var opt;\n    if (window.domOnEventAjaxProgressUpdate) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            opt.timerInterval = (\n                opt.timerInterval || setInterval(opt, 2000, 1, onError)\n            );\n            opt.timerTimeout = (\n                opt.timerTimeout || setTimeout(opt, 30000, 2, onError)\n            );\n            // show ajaxProgress\n            if (opt.width !== -1) {\n                opt.style.background = opt.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgress\n            if (opt.width === -1) {\n                return;\n            }\n            opt.style.background = opt.background;\n            // reset ajaxProgress if it goes too high\n            if ((opt.style.width.slice(0, -1) | 0) > 95) {\n                opt.width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without ever reaching 100%\n            opt.width += 1;\n            opt.style.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * opt.width),\n                opt.style.width.slice(0, -1) | 0\n            ) + \"%\";\n            if (!opt.counter) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            opt.width = -1;\n            opt.style.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // cleanup timerInterval and timerTimeout\n            clearInterval(opt.timerInterval);\n            opt.timerInterval = null;\n            clearTimeout(opt.timerTimeout);\n            opt.timerTimeout = null;\n            // hide ajaxProgress\n            opt.style.background = \"transparent\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            // reset ajaxProgress\n            opt.counter = 0;\n            opt.width = 0;\n            opt.style.width = \"0%\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.counter = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    opt.elem = document.getElementById(\"domElementAjaxProgress1\");\n    if (!opt.elem) {\n        opt.elem = document.createElement(\"div\");\n        setTimeout(function () {\n            document.body.insertBefore(opt.elem, document.body.firstChild);\n        });\n    }\n    opt.elem.id = \"domElementAjaxProgress1\";\n    opt.style = opt.elem.style;\n    // init style\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        opt.style[entry[0]] = opt.style[entry[0]] || entry[1];\n    });\n    // init state\n    opt.background = opt.style.background;\n    opt.counter = 0;\n    opt.width = 0;\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-event\n */\n    \"use strict\";\n    var timerTimeoutDict;\n    if (window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    timerTimeoutDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\n            \"[data-onevent]\"\n        );\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\n                \".disabled, .readonly\"\n            )\n        ) {\n            return;\n        }\n        // rate-limit high-frequency-event\n        switch (evt.type) {\n        case \"keydown\":\n        case \"keyup\":\n            // filter non-input keyboard-event\n            if (!evt.target.closest(\n                \"input, option, select, textarea\"\n            )) {\n                return;\n            }\n            if (timerTimeoutDict[evt.type] !== true) {\n                timerTimeoutDict[evt.type] = timerTimeoutDict[\n                    evt.type\n                ] || setTimeout(function () {\n                    timerTimeoutDict[evt.type] = true;\n                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n                }, 50);\n                return;\n            }\n            timerTimeoutDict[evt.type] = null;\n            break;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n            evt\n        );\n    };\n    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n        document.querySelectorAll(\n            \".onevent-reset-output\"\n        ).forEach(function (elem) {\n            switch (elem.tagName) {\n            case \"INPUT\":\n            case \"TEXTAREA\":\n                elem.value = \"\";\n                break;\n            case \"PRE\":\n                elem.textContent = \"\";\n                break;\n            default:\n                elem.innerHTML = \"\";\n            }\n        });\n    };\n    // init event-handling\n    [\n        \"change\",\n        \"click\",\n        \"keydown\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elements\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        var range;\n        var selection;\n        if (\n            evt\n            && evt.key === \"a\"\n            && (evt.ctrlKey || evt.metaKey)\n            && evt.target.closest(\n                \"pre\"\n            )\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\n                \"pre\"\n            ));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // init event-handling\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n    <a\n        \n        href=\"https://github.com/kaizhu256/node-puppeteer-lite\"\n        \n        target=\"_blank\"\n    >\n\n        puppeteer-lite (2019.8.31)\n\n    </a>\n\n</h1>\n<h3>this package will provide a zero-dependency version puppeteer v1.19.0</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"testRunButton1\">run internal test</button><br>\n<div class=\"uiAnimateSlide\" id=\"testReportDiv1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<label>stderr and stdout</label>\n<pre class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" tabIndex=\"0\"></pre>\n\n\n\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.counter += 1;</script>\n<script src=\"jsonp.utility2.stateInit?callback=window.utility2.stateInit\"></script>\n<script src=\"assets.puppeteer.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>window.utility2_onReadyBefore();</script>\n\n\n\n<div class=\"utility2FooterDiv\">\n    [ this app was created with\n    <a href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\">utility2</a>\n    ]\n</div>\n</body>\n</html>\n"
         },
         "env": {
             "NODE_ENV": "test",
-            "npm_package_description": "the greatest app in the world!",
+            "npm_package_description": "this package will provide a zero-dependency version puppeteer v1.19.0",
             "npm_package_homepage": "https://github.com/kaizhu256/node-puppeteer-lite",
             "npm_package_name": "puppeteer-lite",
-            "npm_package_nameLib": "puppeteer_lite",
+            "npm_package_nameLib": "puppeteer",
             "npm_package_version": "2019.8.31"
         }
     }
@@ -56887,17 +56887,17 @@ local.stateInit({
 (function (local) {
     "use strict";
 /* jslint ignore:start */
-local.assetsDict["/assets.puppeteer_lite.js"] = "// usr/bin/env node\n\
+local.assetsDict["/assets.puppeteer.js"] = "// usr/bin/env node\n\
 /*\n\
- * lib.puppeteer_lite.js (2019.8.31)\n\
+ * lib.puppeteer.js (2019.8.31)\n\
  * https://github.com/kaizhu256/node-puppeteer-lite\n\
- * the greatest app in the world!\n\
+ * this package will provide a zero-dependency version puppeteer v1.19.0\n\
  *\n\
  */\n\
 \n\
 \n\
 \n\
-/* istanbul instrument in package puppeteer_lite */\n\
+/* istanbul instrument in package puppeteer */\n\
 /* istanbul ignore next */\n\
 /* jslint utility2:true */\n\
 (function (globalThis) {\n\
@@ -57055,18 +57055,12730 @@ local = (\n\
 );\n\
 // init exports\n\
 if (local.isBrowser) {\n\
-    globalThis.utility2_puppeteer_lite = local;\n\
+    globalThis.utility2_puppeteer = local;\n\
 } else {\n\
     module.exports = local;\n\
     module.exports.__dirname = __dirname;\n\
 }\n\
 // init lib main\n\
-local.puppeteer_lite = local;\n\
+local.puppeteer = local;\n\
 \n\
 \n\
 \n\
 /* validateLineSortedReset */\n\
-return;\n\
+/* jslint ignore:start */\n\
+if (local.isBrowser) {\n\
+    return;\n\
+}\n\
+const EventEmitter = require('events');\n\
+const URL = require('url');\n\
+const childProcess = require('child_process');\n\
+const crypto = require('crypto');\n\
+const fs = require('fs');\n\
+const http = require('http');\n\
+const https = require('https');\n\
+const net = require('net');\n\
+const os = require('os');\n\
+const path = require('path');\n\
+const readline = require('readline');\n\
+const tls = require('tls');\n\
+const url = require('url');\n\
+const util = require('util');\n\
+const { Writable } = require('stream');\n\
+const { randomBytes } = require('crypto');\n\
+\n\
+\n\
+\n\
+const child_process = require('child_process');\n\
+const debugError = console.error;\n\
+const debugProtocol = function () {\n\
+    return;\n\
+}\n\
+const PerMessageDeflate = function () {\n\
+    return;\n\
+}\n\
+const mime = {\n\
+    getType: function (file) {\n\
+        file = path.extname(String(file).toLowerCase());\n\
+        switch (file) {\n\
+        case \".png\":\n\
+            return \"image/png\";\n\
+        case \".jpe\":\n\
+        case \".jpeg\":\n\
+        case \".jpg\":\n\
+            return \"image/jpeg\";\n\
+        default:\n\
+            return file;\n\
+        }\n\
+    }\n\
+};\n\
+const removeFolder = function (dir, onError) {\n\
+/*\n\
+ * this function will asynchronously \"rm -fr\" <dir>\n\
+ */\n\
+    child_process.spawn(\"rm\", [\n\
+        \"-fr\", path.resolve(process.cwd(), dir)\n\
+    ], {\n\
+        stdio: [\n\
+            \"ignore\", 1, 2\n\
+        ]\n\
+    }).on(\"exit\", onError);\n\
+};\n\
+removeFolder.sync = function (dir) {\n\
+/*\n\
+ * this function will synchronously \"rm -fr\" <dir>\n\
+ */\n\
+    child_process.spawnSync(\"rm\", [\n\
+        \"-fr\", path.resolve(process.cwd(), dir)\n\
+    ], {\n\
+        stdio: [\n\
+            \"ignore\", 1, 2\n\
+        ]\n\
+    });\n\
+};\n\
+const removeRecursive = removeFolder;\n\
+\n\
+\n\
+\n\
+/*\n\
+file https://github.com/websockets/ws/tree/6.2.1\n\
+*/\n\
+// require('./buffer-util') // const bufferUtil = require('./buffer-util');\n\
+// require('./buffer-util') // const { concat, toArrayBuffer, unmask } = require('./buffer-util');\n\
+// require('./buffer-util') // const { mask: applyMask, toBuffer } = require('./buffer-util');\n\
+// require('./constants') // const { EMPTY_BUFFER } = require('./constants');\n\
+// require('./constants') // const { GUID } = require('./constants');\n\
+// require('./constants') // const { kStatusCode, NOOP } = require('./constants');\n\
+// require('./constants') // } = require('./constants');\n\
+// require('./event-target') // const EventTarget = require('./event-target');\n\
+// require('./extension') // const extension = require('./extension');\n\
+// require('./lib/receiver') // WebSocket.Receiver = require('./lib/receiver');\n\
+// require('./lib/sender') // WebSocket.Sender = require('./lib/sender');\n\
+// require('./lib/websocket') // const WebSocket = require('./lib/websocket');\n\
+// require('./lib/websocket-server') // WebSocket.Server = require('./lib/websocket-server');\n\
+// require('./permessage-deflate') // const PerMessageDeflate = require('./permessage-deflate');\n\
+// require('./receiver') // const Receiver = require('./receiver');\n\
+// require('./sender') // const Sender = require('./sender');\n\
+// require('./validation') // const { isValidStatusCode } = require('./validation');\n\
+// require('./validation') // const { isValidStatusCode, isValidUTF8 } = require('./validation');\n\
+// require('./websocket') // const WebSocket = require('./websocket');\n\
+// require('async-limiter') // const Limiter = require('async-limiter');\n\
+// require('bufferutil') // const bufferUtil = require('bufferutil');\n\
+// require('crypto') // const crypto = require('crypto');\n\
+// require('crypto') // const { randomBytes } = require('crypto');\n\
+// require('events') // const EventEmitter = require('events');\n\
+// require('http') // const http = require('http');\n\
+// require('https') // const https = require('https');\n\
+// require('net') // const net = require('net');\n\
+// require('stream') // const { Writable } = require('stream');\n\
+// require('tls') // const tls = require('tls');\n\
+// require('url') // const url = require('url');\n\
+// require('utf-8-validate') // const isValidUTF8 = require('utf-8-validate');\n\
+// require('zlib') // const zlib = require('zlib');\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/validation.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// hack-puppeteer - module.exports\n\
+const isValidUTF8 = () => true;\n\
+\n\
+/**\n\
+ * Checks if a status code is allowed in a close frame.\n\
+ *\n\
+ * @param {Number} code The status code\n\
+ * @return {Boolean} `true` if the status code is valid, else `false`\n\
+ * @public\n\
+ */\n\
+// hack-puppeteer - module.exports\n\
+const isValidStatusCode = (code) => {\n\
+  return (\n\
+    (code >= 1000 &&\n\
+      code <= 1013 &&\n\
+      code !== 1004 &&\n\
+      code !== 1005 &&\n\
+      code !== 1006) ||\n\
+    (code >= 3000 && code <= 4999)\n\
+  );\n\
+};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/buffer-util.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const { EMPTY_BUFFER } = require('./constants');\n\
+\n\
+/**\n\
+ * Merges an array of buffers into a new buffer.\n\
+ *\n\
+ * @param {Buffer[]} list The array of buffers to concat\n\
+ * @param {Number} totalLength The total length of buffers in the list\n\
+ * @return {Buffer} The resulting buffer\n\
+ * @public\n\
+ */\n\
+function concat(list, totalLength) {\n\
+  if (list.length === 0) return EMPTY_BUFFER;\n\
+  if (list.length === 1) return list[0];\n\
+\n\
+  const target = Buffer.allocUnsafe(totalLength);\n\
+  var offset = 0;\n\
+\n\
+  for (var i = 0; i < list.length; i++) {\n\
+    const buf = list[i];\n\
+    buf.copy(target, offset);\n\
+    offset += buf.length;\n\
+  }\n\
+\n\
+  return target;\n\
+}\n\
+\n\
+/**\n\
+ * Masks a buffer using the given mask.\n\
+ *\n\
+ * @param {Buffer} source The buffer to mask\n\
+ * @param {Buffer} mask The mask to use\n\
+ * @param {Buffer} output The buffer where to store the result\n\
+ * @param {Number} offset The offset at which to start writing\n\
+ * @param {Number} length The number of bytes to mask.\n\
+ * @public\n\
+ */\n\
+function _mask(source, mask, output, offset, length) {\n\
+  for (var i = 0; i < length; i++) {\n\
+    output[offset + i] = source[i] ^ mask[i & 3];\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Unmasks a buffer using the given mask.\n\
+ *\n\
+ * @param {Buffer} buffer The buffer to unmask\n\
+ * @param {Buffer} mask The mask to use\n\
+ * @public\n\
+ */\n\
+function _unmask(buffer, mask) {\n\
+  // Required until https://github.com/nodejs/node/issues/9006 is resolved.\n\
+  const length = buffer.length;\n\
+  for (var i = 0; i < length; i++) {\n\
+    buffer[i] ^= mask[i & 3];\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Converts a buffer to an `ArrayBuffer`.\n\
+ *\n\
+ * @param {Buffer} buf The buffer to convert\n\
+ * @return {ArrayBuffer} Converted buffer\n\
+ * @public\n\
+ */\n\
+function toArrayBuffer(buf) {\n\
+  if (buf.byteLength === buf.buffer.byteLength) {\n\
+    return buf.buffer;\n\
+  }\n\
+\n\
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);\n\
+}\n\
+\n\
+/**\n\
+ * Converts `data` to a `Buffer`.\n\
+ *\n\
+ * @param {*} data The data to convert\n\
+ * @return {Buffer} The buffer\n\
+ * @throws {TypeError}\n\
+ * @public\n\
+ */\n\
+function toBuffer(data) {\n\
+  toBuffer.readOnly = true;\n\
+\n\
+  if (Buffer.isBuffer(data)) return data;\n\
+\n\
+  var buf;\n\
+\n\
+  if (data instanceof ArrayBuffer) {\n\
+    buf = Buffer.from(data);\n\
+  } else if (ArrayBuffer.isView(data)) {\n\
+    buf = viewToBuffer(data);\n\
+  } else {\n\
+    buf = Buffer.from(data);\n\
+    toBuffer.readOnly = false;\n\
+  }\n\
+\n\
+  return buf;\n\
+}\n\
+\n\
+/**\n\
+ * Converts an `ArrayBuffer` view into a buffer.\n\
+ *\n\
+ * @param {(DataView|TypedArray)} view The view to convert\n\
+ * @return {Buffer} Converted view\n\
+ * @private\n\
+ */\n\
+function viewToBuffer(view) {\n\
+  const buf = Buffer.from(view.buffer);\n\
+\n\
+  if (view.byteLength !== view.buffer.byteLength) {\n\
+    return buf.slice(view.byteOffset, view.byteOffset + view.byteLength);\n\
+  }\n\
+\n\
+  return buf;\n\
+}\n\
+\n\
+// hack-puppeteer - module.exports\n\
+const applyMask = _mask;\n\
+const bufferUtil = { concat };\n\
+const mask = _mask;\n\
+const unmask = _mask;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/constants.js\n\
+*/\n\
+'use strict';\n\
+\n\
+module.exports = {\n\
+  BINARY_TYPES: ['nodebuffer', 'arraybuffer', 'fragments'],\n\
+  GUID: '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',\n\
+  kStatusCode: Symbol('status-code'),\n\
+  kWebSocket: Symbol('websocket'),\n\
+  EMPTY_BUFFER: Buffer.alloc(0),\n\
+  NOOP: () => {}\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const {\n\
+  BINARY_TYPES,\n\
+  GUID,\n\
+  kStatusCode,\n\
+  kWebSocket,\n\
+  EMPTY_BUFFER,\n\
+  NOOP\n\
+} = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/event-target.js\n\
+*/\n\
+'use strict';\n\
+\n\
+/**\n\
+ * Class representing an event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+class Event {\n\
+  /**\n\
+   * Create a new `Event`.\n\
+   *\n\
+   * @param {String} type The name of the event\n\
+   * @param {Object} target A reference to the target to which the event was dispatched\n\
+   */\n\
+  constructor(type, target) {\n\
+    this.target = target;\n\
+    this.type = type;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Class representing a message event.\n\
+ *\n\
+ * @extends Event\n\
+ * @private\n\
+ */\n\
+class MessageEvent extends Event {\n\
+  /**\n\
+   * Create a new `MessageEvent`.\n\
+   *\n\
+   * @param {(String|Buffer|ArrayBuffer|Buffer[])} data The received data\n\
+   * @param {WebSocket} target A reference to the target to which the event was dispatched\n\
+   */\n\
+  constructor(data, target) {\n\
+    super('message', target);\n\
+\n\
+    this.data = data;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Class representing a close event.\n\
+ *\n\
+ * @extends Event\n\
+ * @private\n\
+ */\n\
+class CloseEvent extends Event {\n\
+  /**\n\
+   * Create a new `CloseEvent`.\n\
+   *\n\
+   * @param {Number} code The status code explaining why the connection is being closed\n\
+   * @param {String} reason A human-readable string explaining why the connection is closing\n\
+   * @param {WebSocket} target A reference to the target to which the event was dispatched\n\
+   */\n\
+  constructor(code, reason, target) {\n\
+    super('close', target);\n\
+\n\
+    this.wasClean = target._closeFrameReceived && target._closeFrameSent;\n\
+    this.reason = reason;\n\
+    this.code = code;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Class representing an open event.\n\
+ *\n\
+ * @extends Event\n\
+ * @private\n\
+ */\n\
+class OpenEvent extends Event {\n\
+  /**\n\
+   * Create a new `OpenEvent`.\n\
+   *\n\
+   * @param {WebSocket} target A reference to the target to which the event was dispatched\n\
+   */\n\
+  constructor(target) {\n\
+    super('open', target);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Class representing an error event.\n\
+ *\n\
+ * @extends Event\n\
+ * @private\n\
+ */\n\
+class ErrorEvent extends Event {\n\
+  /**\n\
+   * Create a new `ErrorEvent`.\n\
+   *\n\
+   * @param {Object} error The error that generated this event\n\
+   * @param {WebSocket} target A reference to the target to which the event was dispatched\n\
+   */\n\
+  constructor(error, target) {\n\
+    super('error', target);\n\
+\n\
+    this.message = error.message;\n\
+    this.error = error;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * This provides methods for emulating the `EventTarget` interface. It's not\n\
+ * meant to be used directly.\n\
+ *\n\
+ * @mixin\n\
+ */\n\
+const EventTarget = {\n\
+  /**\n\
+   * Register an event listener.\n\
+   *\n\
+   * @param {String} method A string representing the event type to listen for\n\
+   * @param {Function} listener The listener to add\n\
+   * @public\n\
+   */\n\
+  addEventListener(method, listener) {\n\
+    if (typeof listener !== 'function') return;\n\
+\n\
+    function onMessage(data) {\n\
+      listener.call(this, new MessageEvent(data, this));\n\
+    }\n\
+\n\
+    function onClose(code, message) {\n\
+      listener.call(this, new CloseEvent(code, message, this));\n\
+    }\n\
+\n\
+    function onError(error) {\n\
+      listener.call(this, new ErrorEvent(error, this));\n\
+    }\n\
+\n\
+    function onOpen() {\n\
+      listener.call(this, new OpenEvent(this));\n\
+    }\n\
+\n\
+    if (method === 'message') {\n\
+      onMessage._listener = listener;\n\
+      this.on(method, onMessage);\n\
+    } else if (method === 'close') {\n\
+      onClose._listener = listener;\n\
+      this.on(method, onClose);\n\
+    } else if (method === 'error') {\n\
+      onError._listener = listener;\n\
+      this.on(method, onError);\n\
+    } else if (method === 'open') {\n\
+      onOpen._listener = listener;\n\
+      this.on(method, onOpen);\n\
+    } else {\n\
+      this.on(method, listener);\n\
+    }\n\
+  },\n\
+\n\
+  /**\n\
+   * Remove an event listener.\n\
+   *\n\
+   * @param {String} method A string representing the event type to remove\n\
+   * @param {Function} listener The listener to remove\n\
+   * @public\n\
+   */\n\
+  removeEventListener(method, listener) {\n\
+    const listeners = this.listeners(method);\n\
+\n\
+    for (var i = 0; i < listeners.length; i++) {\n\
+      if (listeners[i] === listener || listeners[i]._listener === listener) {\n\
+        this.removeListener(method, listeners[i]);\n\
+      }\n\
+    }\n\
+  }\n\
+};\n\
+\n\
+module.exports = EventTarget;\n\
+// hack-puppeteer - module.exports\n\
+const addEventListener = EventTarget.addEventListener;\n\
+const removeEventListener = EventTarget.removeEventListener;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/extension.js\n\
+*/\n\
+'use strict';\n\
+\n\
+//\n\
+// Allowed token characters:\n\
+//\n\
+// '!', '#', '$', '%', '&', ''', '*', '+', '-',\n\
+// '.', 0-9, A-Z, '^', '_', '`', a-z, '|', '~'\n\
+//\n\
+// tokenChars[32] === 0 // ' '\n\
+// tokenChars[33] === 1 // '!'\n\
+// tokenChars[34] === 0 // '\"'\n\
+// ...\n\
+//\n\
+// prettier-ignore\n\
+const tokenChars = [\n\
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0 - 15\n\
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 16 - 31\n\
+  0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, // 32 - 47\n\
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, // 48 - 63\n\
+  0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 64 - 79\n\
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, // 80 - 95\n\
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 96 - 111\n\
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0 // 112 - 127\n\
+];\n\
+\n\
+/**\n\
+ * Adds an offer to the map of extension offers or a parameter to the map of\n\
+ * parameters.\n\
+ *\n\
+ * @param {Object} dest The map of extension offers or parameters\n\
+ * @param {String} name The extension or parameter name\n\
+ * @param {(Object|Boolean|String)} elem The extension parameters or the\n\
+ *     parameter value\n\
+ * @private\n\
+ */\n\
+function push(dest, name, elem) {\n\
+  if (Object.prototype.hasOwnProperty.call(dest, name)) dest[name].push(elem);\n\
+  else dest[name] = [elem];\n\
+}\n\
+\n\
+/**\n\
+ * Parses the `Sec-WebSocket-Extensions` header into an object.\n\
+ *\n\
+ * @param {String} header The field value of the header\n\
+ * @return {Object} The parsed object\n\
+ * @public\n\
+ */\n\
+function parse(header) {\n\
+  const offers = {};\n\
+\n\
+  if (header === undefined || header === '') return offers;\n\
+\n\
+  var params = {};\n\
+  var mustUnescape = false;\n\
+  var isEscaping = false;\n\
+  var inQuotes = false;\n\
+  var extensionName;\n\
+  var paramName;\n\
+  var start = -1;\n\
+  var end = -1;\n\
+\n\
+  for (var i = 0; i < header.length; i++) {\n\
+    const code = header.charCodeAt(i);\n\
+\n\
+    if (extensionName === undefined) {\n\
+      if (end === -1 && tokenChars[code] === 1) {\n\
+        if (start === -1) start = i;\n\
+      } else if (code === 0x20 /* ' ' */ || code === 0x09 /* '\\t' */) {\n\
+        if (end === -1 && start !== -1) end = i;\n\
+      } else if (code === 0x3b /* ';' */ || code === 0x2c /* ',' */) {\n\
+        if (start === -1) {\n\
+          throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+        }\n\
+\n\
+        if (end === -1) end = i;\n\
+        const name = header.slice(start, end);\n\
+        if (code === 0x2c) {\n\
+          push(offers, name, params);\n\
+          params = {};\n\
+        } else {\n\
+          extensionName = name;\n\
+        }\n\
+\n\
+        start = end = -1;\n\
+      } else {\n\
+        throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+      }\n\
+    } else if (paramName === undefined) {\n\
+      if (end === -1 && tokenChars[code] === 1) {\n\
+        if (start === -1) start = i;\n\
+      } else if (code === 0x20 || code === 0x09) {\n\
+        if (end === -1 && start !== -1) end = i;\n\
+      } else if (code === 0x3b || code === 0x2c) {\n\
+        if (start === -1) {\n\
+          throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+        }\n\
+\n\
+        if (end === -1) end = i;\n\
+        push(params, header.slice(start, end), true);\n\
+        if (code === 0x2c) {\n\
+          push(offers, extensionName, params);\n\
+          params = {};\n\
+          extensionName = undefined;\n\
+        }\n\
+\n\
+        start = end = -1;\n\
+      } else if (code === 0x3d /* '=' */ && start !== -1 && end === -1) {\n\
+        paramName = header.slice(start, i);\n\
+        start = end = -1;\n\
+      } else {\n\
+        throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+      }\n\
+    } else {\n\
+      //\n\
+      // The value of a quoted-string after unescaping must conform to the\n\
+      // token ABNF, so only token characters are valid.\n\
+      // Ref: https://tools.ietf.org/html/rfc6455#section-9.1\n\
+      //\n\
+      if (isEscaping) {\n\
+        if (tokenChars[code] !== 1) {\n\
+          throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+        }\n\
+        if (start === -1) start = i;\n\
+        else if (!mustUnescape) mustUnescape = true;\n\
+        isEscaping = false;\n\
+      } else if (inQuotes) {\n\
+        if (tokenChars[code] === 1) {\n\
+          if (start === -1) start = i;\n\
+        } else if (code === 0x22 /* '\"' */ && start !== -1) {\n\
+          inQuotes = false;\n\
+          end = i;\n\
+        } else if (code === 0x5c /* '\\' */) {\n\
+          isEscaping = true;\n\
+        } else {\n\
+          throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+        }\n\
+      } else if (code === 0x22 && header.charCodeAt(i - 1) === 0x3d) {\n\
+        inQuotes = true;\n\
+      } else if (end === -1 && tokenChars[code] === 1) {\n\
+        if (start === -1) start = i;\n\
+      } else if (start !== -1 && (code === 0x20 || code === 0x09)) {\n\
+        if (end === -1) end = i;\n\
+      } else if (code === 0x3b || code === 0x2c) {\n\
+        if (start === -1) {\n\
+          throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+        }\n\
+\n\
+        if (end === -1) end = i;\n\
+        var value = header.slice(start, end);\n\
+        if (mustUnescape) {\n\
+          value = value.replace(/\\\\/g, '');\n\
+          mustUnescape = false;\n\
+        }\n\
+        push(params, paramName, value);\n\
+        if (code === 0x2c) {\n\
+          push(offers, extensionName, params);\n\
+          params = {};\n\
+          extensionName = undefined;\n\
+        }\n\
+\n\
+        paramName = undefined;\n\
+        start = end = -1;\n\
+      } else {\n\
+        throw new SyntaxError(`Unexpected character at index ${i}`);\n\
+      }\n\
+    }\n\
+  }\n\
+\n\
+  if (start === -1 || inQuotes) {\n\
+    throw new SyntaxError('Unexpected end of input');\n\
+  }\n\
+\n\
+  if (end === -1) end = i;\n\
+  const token = header.slice(start, end);\n\
+  if (extensionName === undefined) {\n\
+    push(offers, token, {});\n\
+  } else {\n\
+    if (paramName === undefined) {\n\
+      push(params, token, true);\n\
+    } else if (mustUnescape) {\n\
+      push(params, paramName, token.replace(/\\\\/g, ''));\n\
+    } else {\n\
+      push(params, paramName, token);\n\
+    }\n\
+    push(offers, extensionName, params);\n\
+  }\n\
+\n\
+  return offers;\n\
+}\n\
+\n\
+/**\n\
+ * Builds the `Sec-WebSocket-Extensions` header field value.\n\
+ *\n\
+ * @param {Object} extensions The map of extensions and parameters to format\n\
+ * @return {String} A string representing the given object\n\
+ * @public\n\
+ */\n\
+function format(extensions) {\n\
+  return Object.keys(extensions)\n\
+    .map((extension) => {\n\
+      var configurations = extensions[extension];\n\
+      if (!Array.isArray(configurations)) configurations = [configurations];\n\
+      return configurations\n\
+        .map((params) => {\n\
+          return [extension]\n\
+            .concat(\n\
+              Object.keys(params).map((k) => {\n\
+                var values = params[k];\n\
+                if (!Array.isArray(values)) values = [values];\n\
+                return values\n\
+                  .map((v) => (v === true ? k : `${k}=${v}`))\n\
+                  .join('; ');\n\
+              })\n\
+            )\n\
+            .join('; ');\n\
+        })\n\
+        .join(', ');\n\
+    })\n\
+    .join(', ');\n\
+}\n\
+\n\
+module.exports = { format, parse };\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/receiver.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const { Writable } = require('stream');\n\
+\n\
+// const PerMessageDeflate = require('./permessage-deflate');\n\
+// hack-puppeteer - module.exports\n\
+// const {\n\
+  // BINARY_TYPES,\n\
+  // EMPTY_BUFFER,\n\
+  // kStatusCode,\n\
+  // kWebSocket\n\
+// } = require('./constants');\n\
+// const { concat, toArrayBuffer, unmask } = require('./buffer-util');\n\
+// const { isValidStatusCode, isValidUTF8 } = require('./validation');\n\
+\n\
+const GET_INFO = 0;\n\
+const GET_PAYLOAD_LENGTH_16 = 1;\n\
+const GET_PAYLOAD_LENGTH_64 = 2;\n\
+const GET_MASK = 3;\n\
+const GET_DATA = 4;\n\
+const INFLATING = 5;\n\
+\n\
+/**\n\
+ * HyBi Receiver implementation.\n\
+ *\n\
+ * @extends stream.Writable\n\
+ */\n\
+class Receiver extends Writable {\n\
+  /**\n\
+   * Creates a Receiver instance.\n\
+   *\n\
+   * @param {String} binaryType The type for binary data\n\
+   * @param {Object} extensions An object containing the negotiated extensions\n\
+   * @param {Number} maxPayload The maximum allowed message length\n\
+   */\n\
+  constructor(binaryType, extensions, maxPayload) {\n\
+    super();\n\
+\n\
+    this._binaryType = binaryType || BINARY_TYPES[0];\n\
+    this[kWebSocket] = undefined;\n\
+    this._extensions = extensions || {};\n\
+    this._maxPayload = maxPayload | 0;\n\
+\n\
+    this._bufferedBytes = 0;\n\
+    this._buffers = [];\n\
+\n\
+    this._compressed = false;\n\
+    this._payloadLength = 0;\n\
+    this._mask = undefined;\n\
+    this._fragmented = 0;\n\
+    this._masked = false;\n\
+    this._fin = false;\n\
+    this._opcode = 0;\n\
+\n\
+    this._totalPayloadLength = 0;\n\
+    this._messageLength = 0;\n\
+    this._fragments = [];\n\
+\n\
+    this._state = GET_INFO;\n\
+    this._loop = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * Implements `Writable.prototype._write()`.\n\
+   *\n\
+   * @param {Buffer} chunk The chunk of data to write\n\
+   * @param {String} encoding The character encoding of `chunk`\n\
+   * @param {Function} cb Callback\n\
+   */\n\
+  _write(chunk, encoding, cb) {\n\
+    if (this._opcode === 0x08 && this._state == GET_INFO) return cb();\n\
+\n\
+    this._bufferedBytes += chunk.length;\n\
+    this._buffers.push(chunk);\n\
+    this.startLoop(cb);\n\
+  }\n\
+\n\
+  /**\n\
+   * Consumes `n` bytes from the buffered data.\n\
+   *\n\
+   * @param {Number} n The number of bytes to consume\n\
+   * @return {Buffer} The consumed bytes\n\
+   * @private\n\
+   */\n\
+  consume(n) {\n\
+    this._bufferedBytes -= n;\n\
+\n\
+    if (n === this._buffers[0].length) return this._buffers.shift();\n\
+\n\
+    if (n < this._buffers[0].length) {\n\
+      const buf = this._buffers[0];\n\
+      this._buffers[0] = buf.slice(n);\n\
+      return buf.slice(0, n);\n\
+    }\n\
+\n\
+    const dst = Buffer.allocUnsafe(n);\n\
+\n\
+    do {\n\
+      const buf = this._buffers[0];\n\
+\n\
+      if (n >= buf.length) {\n\
+        this._buffers.shift().copy(dst, dst.length - n);\n\
+      } else {\n\
+        buf.copy(dst, dst.length - n, 0, n);\n\
+        this._buffers[0] = buf.slice(n);\n\
+      }\n\
+\n\
+      n -= buf.length;\n\
+    } while (n > 0);\n\
+\n\
+    return dst;\n\
+  }\n\
+\n\
+  /**\n\
+   * Starts the parsing loop.\n\
+   *\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  startLoop(cb) {\n\
+    var err;\n\
+    this._loop = true;\n\
+\n\
+    do {\n\
+      switch (this._state) {\n\
+        case GET_INFO:\n\
+          err = this.getInfo();\n\
+          break;\n\
+        case GET_PAYLOAD_LENGTH_16:\n\
+          err = this.getPayloadLength16();\n\
+          break;\n\
+        case GET_PAYLOAD_LENGTH_64:\n\
+          err = this.getPayloadLength64();\n\
+          break;\n\
+        case GET_MASK:\n\
+          this.getMask();\n\
+          break;\n\
+        case GET_DATA:\n\
+          err = this.getData(cb);\n\
+          break;\n\
+        default:\n\
+          // `INFLATING`\n\
+          this._loop = false;\n\
+          return;\n\
+      }\n\
+    } while (this._loop);\n\
+\n\
+    cb(err);\n\
+  }\n\
+\n\
+  /**\n\
+   * Reads the first two bytes of a frame.\n\
+   *\n\
+   * @return {(RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  getInfo() {\n\
+    if (this._bufferedBytes < 2) {\n\
+      this._loop = false;\n\
+      return;\n\
+    }\n\
+\n\
+    const buf = this.consume(2);\n\
+\n\
+    if ((buf[0] & 0x30) !== 0x00) {\n\
+      this._loop = false;\n\
+      return error(RangeError, 'RSV2 and RSV3 must be clear', true, 1002);\n\
+    }\n\
+\n\
+    const compressed = (buf[0] & 0x40) === 0x40;\n\
+\n\
+    if (compressed && !this._extensions[PerMessageDeflate.extensionName]) {\n\
+      this._loop = false;\n\
+      return error(RangeError, 'RSV1 must be clear', true, 1002);\n\
+    }\n\
+\n\
+    this._fin = (buf[0] & 0x80) === 0x80;\n\
+    this._opcode = buf[0] & 0x0f;\n\
+    this._payloadLength = buf[1] & 0x7f;\n\
+\n\
+    if (this._opcode === 0x00) {\n\
+      if (compressed) {\n\
+        this._loop = false;\n\
+        return error(RangeError, 'RSV1 must be clear', true, 1002);\n\
+      }\n\
+\n\
+      if (!this._fragmented) {\n\
+        this._loop = false;\n\
+        return error(RangeError, 'invalid opcode 0', true, 1002);\n\
+      }\n\
+\n\
+      this._opcode = this._fragmented;\n\
+    } else if (this._opcode === 0x01 || this._opcode === 0x02) {\n\
+      if (this._fragmented) {\n\
+        this._loop = false;\n\
+        return error(RangeError, `invalid opcode ${this._opcode}`, true, 1002);\n\
+      }\n\
+\n\
+      this._compressed = compressed;\n\
+    } else if (this._opcode > 0x07 && this._opcode < 0x0b) {\n\
+      if (!this._fin) {\n\
+        this._loop = false;\n\
+        return error(RangeError, 'FIN must be set', true, 1002);\n\
+      }\n\
+\n\
+      if (compressed) {\n\
+        this._loop = false;\n\
+        return error(RangeError, 'RSV1 must be clear', true, 1002);\n\
+      }\n\
+\n\
+      if (this._payloadLength > 0x7d) {\n\
+        this._loop = false;\n\
+        return error(\n\
+          RangeError,\n\
+          `invalid payload length ${this._payloadLength}`,\n\
+          true,\n\
+          1002\n\
+        );\n\
+      }\n\
+    } else {\n\
+      this._loop = false;\n\
+      return error(RangeError, `invalid opcode ${this._opcode}`, true, 1002);\n\
+    }\n\
+\n\
+    if (!this._fin && !this._fragmented) this._fragmented = this._opcode;\n\
+    this._masked = (buf[1] & 0x80) === 0x80;\n\
+\n\
+    if (this._payloadLength === 126) this._state = GET_PAYLOAD_LENGTH_16;\n\
+    else if (this._payloadLength === 127) this._state = GET_PAYLOAD_LENGTH_64;\n\
+    else return this.haveLength();\n\
+  }\n\
+\n\
+  /**\n\
+   * Gets extended payload length (7+16).\n\
+   *\n\
+   * @return {(RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  getPayloadLength16() {\n\
+    if (this._bufferedBytes < 2) {\n\
+      this._loop = false;\n\
+      return;\n\
+    }\n\
+\n\
+    this._payloadLength = this.consume(2).readUInt16BE(0);\n\
+    return this.haveLength();\n\
+  }\n\
+\n\
+  /**\n\
+   * Gets extended payload length (7+64).\n\
+   *\n\
+   * @return {(RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  getPayloadLength64() {\n\
+    if (this._bufferedBytes < 8) {\n\
+      this._loop = false;\n\
+      return;\n\
+    }\n\
+\n\
+    const buf = this.consume(8);\n\
+    const num = buf.readUInt32BE(0);\n\
+\n\
+    //\n\
+    // The maximum safe integer in JavaScript is 2^53 - 1. An error is returned\n\
+    // if payload length is greater than this number.\n\
+    //\n\
+    if (num > Math.pow(2, 53 - 32) - 1) {\n\
+      this._loop = false;\n\
+      return error(\n\
+        RangeError,\n\
+        'Unsupported WebSocket frame: payload length > 2^53 - 1',\n\
+        false,\n\
+        1009\n\
+      );\n\
+    }\n\
+\n\
+    this._payloadLength = num * Math.pow(2, 32) + buf.readUInt32BE(4);\n\
+    return this.haveLength();\n\
+  }\n\
+\n\
+  /**\n\
+   * Payload length has been read.\n\
+   *\n\
+   * @return {(RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  haveLength() {\n\
+    if (this._payloadLength && this._opcode < 0x08) {\n\
+      this._totalPayloadLength += this._payloadLength;\n\
+      if (this._totalPayloadLength > this._maxPayload && this._maxPayload > 0) {\n\
+        this._loop = false;\n\
+        return error(RangeError, 'Max payload size exceeded', false, 1009);\n\
+      }\n\
+    }\n\
+\n\
+    if (this._masked) this._state = GET_MASK;\n\
+    else this._state = GET_DATA;\n\
+  }\n\
+\n\
+  /**\n\
+   * Reads mask bytes.\n\
+   *\n\
+   * @private\n\
+   */\n\
+  getMask() {\n\
+    if (this._bufferedBytes < 4) {\n\
+      this._loop = false;\n\
+      return;\n\
+    }\n\
+\n\
+    this._mask = this.consume(4);\n\
+    this._state = GET_DATA;\n\
+  }\n\
+\n\
+  /**\n\
+   * Reads data bytes.\n\
+   *\n\
+   * @param {Function} cb Callback\n\
+   * @return {(Error|RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  getData(cb) {\n\
+    var data = EMPTY_BUFFER;\n\
+\n\
+    if (this._payloadLength) {\n\
+      if (this._bufferedBytes < this._payloadLength) {\n\
+        this._loop = false;\n\
+        return;\n\
+      }\n\
+\n\
+      data = this.consume(this._payloadLength);\n\
+      if (this._masked) unmask(data, this._mask);\n\
+    }\n\
+\n\
+    if (this._opcode > 0x07) return this.controlMessage(data);\n\
+\n\
+    if (this._compressed) {\n\
+      this._state = INFLATING;\n\
+      this.decompress(data, cb);\n\
+      return;\n\
+    }\n\
+\n\
+    if (data.length) {\n\
+      //\n\
+      // This message is not compressed so its lenght is the sum of the payload\n\
+      // length of all fragments.\n\
+      //\n\
+      this._messageLength = this._totalPayloadLength;\n\
+      this._fragments.push(data);\n\
+    }\n\
+\n\
+    return this.dataMessage();\n\
+  }\n\
+\n\
+  /**\n\
+   * Decompresses data.\n\
+   *\n\
+   * @param {Buffer} data Compressed data\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  decompress(data, cb) {\n\
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];\n\
+\n\
+    perMessageDeflate.decompress(data, this._fin, (err, buf) => {\n\
+      if (err) return cb(err);\n\
+\n\
+      if (buf.length) {\n\
+        this._messageLength += buf.length;\n\
+        if (this._messageLength > this._maxPayload && this._maxPayload > 0) {\n\
+          return cb(\n\
+            error(RangeError, 'Max payload size exceeded', false, 1009)\n\
+          );\n\
+        }\n\
+\n\
+        this._fragments.push(buf);\n\
+      }\n\
+\n\
+      const er = this.dataMessage();\n\
+      if (er) return cb(er);\n\
+\n\
+      this.startLoop(cb);\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * Handles a data message.\n\
+   *\n\
+   * @return {(Error|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  dataMessage() {\n\
+    if (this._fin) {\n\
+      const messageLength = this._messageLength;\n\
+      const fragments = this._fragments;\n\
+\n\
+      this._totalPayloadLength = 0;\n\
+      this._messageLength = 0;\n\
+      this._fragmented = 0;\n\
+      this._fragments = [];\n\
+\n\
+      if (this._opcode === 2) {\n\
+        var data;\n\
+\n\
+        if (this._binaryType === 'nodebuffer') {\n\
+          data = concat(fragments, messageLength);\n\
+        } else if (this._binaryType === 'arraybuffer') {\n\
+          data = toArrayBuffer(concat(fragments, messageLength));\n\
+        } else {\n\
+          data = fragments;\n\
+        }\n\
+\n\
+        this.emit('message', data);\n\
+      } else {\n\
+        const buf = concat(fragments, messageLength);\n\
+\n\
+        if (!isValidUTF8(buf)) {\n\
+          this._loop = false;\n\
+          return error(Error, 'invalid UTF-8 sequence', true, 1007);\n\
+        }\n\
+\n\
+        this.emit('message', buf.toString());\n\
+      }\n\
+    }\n\
+\n\
+    this._state = GET_INFO;\n\
+  }\n\
+\n\
+  /**\n\
+   * Handles a control message.\n\
+   *\n\
+   * @param {Buffer} data Data to handle\n\
+   * @return {(Error|RangeError|undefined)} A possible error\n\
+   * @private\n\
+   */\n\
+  controlMessage(data) {\n\
+    if (this._opcode === 0x08) {\n\
+      this._loop = false;\n\
+\n\
+      if (data.length === 0) {\n\
+        this.emit('conclude', 1005, '');\n\
+        this.end();\n\
+      } else if (data.length === 1) {\n\
+        return error(RangeError, 'invalid payload length 1', true, 1002);\n\
+      } else {\n\
+        const code = data.readUInt16BE(0);\n\
+\n\
+        if (!isValidStatusCode(code)) {\n\
+          return error(RangeError, `invalid status code ${code}`, true, 1002);\n\
+        }\n\
+\n\
+        const buf = data.slice(2);\n\
+\n\
+        if (!isValidUTF8(buf)) {\n\
+          return error(Error, 'invalid UTF-8 sequence', true, 1007);\n\
+        }\n\
+\n\
+        this.emit('conclude', code, buf.toString());\n\
+        this.end();\n\
+      }\n\
+    } else if (this._opcode === 0x09) {\n\
+      this.emit('ping', data);\n\
+    } else {\n\
+      this.emit('pong', data);\n\
+    }\n\
+\n\
+    this._state = GET_INFO;\n\
+  }\n\
+}\n\
+\n\
+module.exports = Receiver;\n\
+\n\
+/**\n\
+ * Builds an error object.\n\
+ *\n\
+ * @param {(Error|RangeError)} ErrorCtor The error constructor\n\
+ * @param {String} message The error message\n\
+ * @param {Boolean} prefix Specifies whether or not to add a default prefix to\n\
+ *     `message`\n\
+ * @param {Number} statusCode The status code\n\
+ * @return {(Error|RangeError)} The error\n\
+ * @private\n\
+ */\n\
+function error(ErrorCtor, message, prefix, statusCode) {\n\
+  const err = new ErrorCtor(\n\
+    prefix ? `Invalid WebSocket frame: ${message}` : message\n\
+  );\n\
+\n\
+  Error.captureStackTrace(err, error);\n\
+  err[kStatusCode] = statusCode;\n\
+  return err;\n\
+}\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/sender.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const { randomBytes } = require('crypto');\n\
+\n\
+// const PerMessageDeflate = require('./permessage-deflate');\n\
+// const { EMPTY_BUFFER } = require('./constants');\n\
+// const { isValidStatusCode } = require('./validation');\n\
+// const { mask: applyMask, toBuffer } = require('./buffer-util');\n\
+\n\
+/**\n\
+ * HyBi Sender implementation.\n\
+ */\n\
+class Sender {\n\
+  /**\n\
+   * Creates a Sender instance.\n\
+   *\n\
+   * @param {net.Socket} socket The connection socket\n\
+   * @param {Object} extensions An object containing the negotiated extensions\n\
+   */\n\
+  constructor(socket, extensions) {\n\
+    this._extensions = extensions || {};\n\
+    this._socket = socket;\n\
+\n\
+    this._firstFragment = true;\n\
+    this._compress = false;\n\
+\n\
+    this._bufferedBytes = 0;\n\
+    this._deflating = false;\n\
+    this._queue = [];\n\
+  }\n\
+\n\
+  /**\n\
+   * Frames a piece of data according to the HyBi WebSocket protocol.\n\
+   *\n\
+   * @param {Buffer} data The data to frame\n\
+   * @param {Object} options Options object\n\
+   * @param {Number} options.opcode The opcode\n\
+   * @param {Boolean} options.readOnly Specifies whether `data` can be modified\n\
+   * @param {Boolean} options.fin Specifies whether or not to set the FIN bit\n\
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`\n\
+   * @param {Boolean} options.rsv1 Specifies whether or not to set the RSV1 bit\n\
+   * @return {Buffer[]} The framed data as a list of `Buffer` instances\n\
+   * @public\n\
+   */\n\
+  static frame(data, options) {\n\
+    const merge = options.mask && options.readOnly;\n\
+    var offset = options.mask ? 6 : 2;\n\
+    var payloadLength = data.length;\n\
+\n\
+    if (data.length >= 65536) {\n\
+      offset += 8;\n\
+      payloadLength = 127;\n\
+    } else if (data.length > 125) {\n\
+      offset += 2;\n\
+      payloadLength = 126;\n\
+    }\n\
+\n\
+    const target = Buffer.allocUnsafe(merge ? data.length + offset : offset);\n\
+\n\
+    target[0] = options.fin ? options.opcode | 0x80 : options.opcode;\n\
+    if (options.rsv1) target[0] |= 0x40;\n\
+\n\
+    target[1] = payloadLength;\n\
+\n\
+    if (payloadLength === 126) {\n\
+      target.writeUInt16BE(data.length, 2);\n\
+    } else if (payloadLength === 127) {\n\
+      target.writeUInt32BE(0, 2);\n\
+      target.writeUInt32BE(data.length, 6);\n\
+    }\n\
+\n\
+    if (!options.mask) return [target, data];\n\
+\n\
+    const mask = randomBytes(4);\n\
+\n\
+    target[1] |= 0x80;\n\
+    target[offset - 4] = mask[0];\n\
+    target[offset - 3] = mask[1];\n\
+    target[offset - 2] = mask[2];\n\
+    target[offset - 1] = mask[3];\n\
+\n\
+    if (merge) {\n\
+      applyMask(data, mask, target, offset, data.length);\n\
+      return [target];\n\
+    }\n\
+\n\
+    applyMask(data, mask, data, 0, data.length);\n\
+    return [target, data];\n\
+  }\n\
+\n\
+  /**\n\
+   * Sends a close message to the other peer.\n\
+   *\n\
+   * @param {(Number|undefined)} code The status code component of the body\n\
+   * @param {String} data The message component of the body\n\
+   * @param {Boolean} mask Specifies whether or not to mask the message\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  close(code, data, mask, cb) {\n\
+    var buf;\n\
+\n\
+    if (code === undefined) {\n\
+      buf = EMPTY_BUFFER;\n\
+    } else if (typeof code !== 'number' || !isValidStatusCode(code)) {\n\
+      throw new TypeError('First argument must be a valid error code number');\n\
+    } else if (data === undefined || data === '') {\n\
+      buf = Buffer.allocUnsafe(2);\n\
+      buf.writeUInt16BE(code, 0);\n\
+    } else {\n\
+      buf = Buffer.allocUnsafe(2 + Buffer.byteLength(data));\n\
+      buf.writeUInt16BE(code, 0);\n\
+      buf.write(data, 2);\n\
+    }\n\
+\n\
+    if (this._deflating) {\n\
+      this.enqueue([this.doClose, buf, mask, cb]);\n\
+    } else {\n\
+      this.doClose(buf, mask, cb);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * Frames and sends a close message.\n\
+   *\n\
+   * @param {Buffer} data The message to send\n\
+   * @param {Boolean} mask Specifies whether or not to mask `data`\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  doClose(data, mask, cb) {\n\
+    this.sendFrame(\n\
+      Sender.frame(data, {\n\
+        fin: true,\n\
+        rsv1: false,\n\
+        opcode: 0x08,\n\
+        mask,\n\
+        readOnly: false\n\
+      }),\n\
+      cb\n\
+    );\n\
+  }\n\
+\n\
+  /**\n\
+   * Sends a ping message to the other peer.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Boolean} mask Specifies whether or not to mask `data`\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  ping(data, mask, cb) {\n\
+    const buf = toBuffer(data);\n\
+\n\
+    if (this._deflating) {\n\
+      this.enqueue([this.doPing, buf, mask, toBuffer.readOnly, cb]);\n\
+    } else {\n\
+      this.doPing(buf, mask, toBuffer.readOnly, cb);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * Frames and sends a ping message.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Boolean} mask Specifies whether or not to mask `data`\n\
+   * @param {Boolean} readOnly Specifies whether `data` can be modified\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  doPing(data, mask, readOnly, cb) {\n\
+    this.sendFrame(\n\
+      Sender.frame(data, {\n\
+        fin: true,\n\
+        rsv1: false,\n\
+        opcode: 0x09,\n\
+        mask,\n\
+        readOnly\n\
+      }),\n\
+      cb\n\
+    );\n\
+  }\n\
+\n\
+  /**\n\
+   * Sends a pong message to the other peer.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Boolean} mask Specifies whether or not to mask `data`\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  pong(data, mask, cb) {\n\
+    const buf = toBuffer(data);\n\
+\n\
+    if (this._deflating) {\n\
+      this.enqueue([this.doPong, buf, mask, toBuffer.readOnly, cb]);\n\
+    } else {\n\
+      this.doPong(buf, mask, toBuffer.readOnly, cb);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * Frames and sends a pong message.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Boolean} mask Specifies whether or not to mask `data`\n\
+   * @param {Boolean} readOnly Specifies whether `data` can be modified\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  doPong(data, mask, readOnly, cb) {\n\
+    this.sendFrame(\n\
+      Sender.frame(data, {\n\
+        fin: true,\n\
+        rsv1: false,\n\
+        opcode: 0x0a,\n\
+        mask,\n\
+        readOnly\n\
+      }),\n\
+      cb\n\
+    );\n\
+  }\n\
+\n\
+  /**\n\
+   * Sends a data message to the other peer.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Object} options Options object\n\
+   * @param {Boolean} options.compress Specifies whether or not to compress `data`\n\
+   * @param {Boolean} options.binary Specifies whether `data` is binary or text\n\
+   * @param {Boolean} options.fin Specifies whether the fragment is the last one\n\
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  send(data, options, cb) {\n\
+    const buf = toBuffer(data);\n\
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];\n\
+    var opcode = options.binary ? 2 : 1;\n\
+    var rsv1 = options.compress;\n\
+\n\
+    if (this._firstFragment) {\n\
+      this._firstFragment = false;\n\
+      if (rsv1 && perMessageDeflate) {\n\
+        rsv1 = buf.length >= perMessageDeflate._threshold;\n\
+      }\n\
+      this._compress = rsv1;\n\
+    } else {\n\
+      rsv1 = false;\n\
+      opcode = 0;\n\
+    }\n\
+\n\
+    if (options.fin) this._firstFragment = true;\n\
+\n\
+    if (perMessageDeflate) {\n\
+      const opts = {\n\
+        fin: options.fin,\n\
+        rsv1,\n\
+        opcode,\n\
+        mask: options.mask,\n\
+        readOnly: toBuffer.readOnly\n\
+      };\n\
+\n\
+      if (this._deflating) {\n\
+        this.enqueue([this.dispatch, buf, this._compress, opts, cb]);\n\
+      } else {\n\
+        this.dispatch(buf, this._compress, opts, cb);\n\
+      }\n\
+    } else {\n\
+      this.sendFrame(\n\
+        Sender.frame(buf, {\n\
+          fin: options.fin,\n\
+          rsv1: false,\n\
+          opcode,\n\
+          mask: options.mask,\n\
+          readOnly: toBuffer.readOnly\n\
+        }),\n\
+        cb\n\
+      );\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * Dispatches a data message.\n\
+   *\n\
+   * @param {Buffer} data The message to send\n\
+   * @param {Boolean} compress Specifies whether or not to compress `data`\n\
+   * @param {Object} options Options object\n\
+   * @param {Number} options.opcode The opcode\n\
+   * @param {Boolean} options.readOnly Specifies whether `data` can be modified\n\
+   * @param {Boolean} options.fin Specifies whether or not to set the FIN bit\n\
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`\n\
+   * @param {Boolean} options.rsv1 Specifies whether or not to set the RSV1 bit\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  dispatch(data, compress, options, cb) {\n\
+    if (!compress) {\n\
+      this.sendFrame(Sender.frame(data, options), cb);\n\
+      return;\n\
+    }\n\
+\n\
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];\n\
+\n\
+    this._deflating = true;\n\
+    perMessageDeflate.compress(data, options.fin, (_, buf) => {\n\
+      this._deflating = false;\n\
+      options.readOnly = false;\n\
+      this.sendFrame(Sender.frame(buf, options), cb);\n\
+      this.dequeue();\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * Executes queued send operations.\n\
+   *\n\
+   * @private\n\
+   */\n\
+  dequeue() {\n\
+    while (!this._deflating && this._queue.length) {\n\
+      const params = this._queue.shift();\n\
+\n\
+      this._bufferedBytes -= params[1].length;\n\
+      params[0].apply(this, params.slice(1));\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * Enqueues a send operation.\n\
+   *\n\
+   * @param {Array} params Send operation parameters.\n\
+   * @private\n\
+   */\n\
+  enqueue(params) {\n\
+    this._bufferedBytes += params[1].length;\n\
+    this._queue.push(params);\n\
+  }\n\
+\n\
+  /**\n\
+   * Sends a frame.\n\
+   *\n\
+   * @param {Buffer[]} list The frame to send\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  sendFrame(list, cb) {\n\
+    if (list.length === 2) {\n\
+      this._socket.cork();\n\
+      this._socket.write(list[0]);\n\
+      this._socket.write(list[1], cb);\n\
+      this._socket.uncork();\n\
+    } else {\n\
+      this._socket.write(list[0], cb);\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+module.exports = Sender;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/websocket-server.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const EventEmitter = require('events');\n\
+// const crypto = require('crypto');\n\
+// const http = require('http');\n\
+\n\
+// const PerMessageDeflate = require('./permessage-deflate');\n\
+// const extension = require('./extension');\n\
+// const WebSocket = require('./websocket');\n\
+// const { GUID } = require('./constants');\n\
+\n\
+const keyRegex = /^[+/0-9A-Za-z]{22}==$/;\n\
+\n\
+/**\n\
+ * Class representing a WebSocket server.\n\
+ *\n\
+ * @extends EventEmitter\n\
+ */\n\
+class WebSocketServer extends EventEmitter {\n\
+  /**\n\
+   * Create a `WebSocketServer` instance.\n\
+   *\n\
+   * @param {Object} options Configuration options\n\
+   * @param {Number} options.backlog The maximum length of the queue of pending\n\
+   *     connections\n\
+   * @param {Boolean} options.clientTracking Specifies whether or not to track\n\
+   *     clients\n\
+   * @param {Function} options.handleProtocols An hook to handle protocols\n\
+   * @param {String} options.host The hostname where to bind the server\n\
+   * @param {Number} options.maxPayload The maximum allowed message size\n\
+   * @param {Boolean} options.noServer Enable no server mode\n\
+   * @param {String} options.path Accept only connections matching this path\n\
+   * @param {(Boolean|Object)} options.perMessageDeflate Enable/disable\n\
+   *     permessage-deflate\n\
+   * @param {Number} options.port The port where to bind the server\n\
+   * @param {http.Server} options.server A pre-created HTTP/S server to use\n\
+   * @param {Function} options.verifyClient An hook to reject connections\n\
+   * @param {Function} callback A listener for the `listening` event\n\
+   */\n\
+  constructor(options, callback) {\n\
+    super();\n\
+\n\
+    options = Object.assign(\n\
+      {\n\
+        maxPayload: 100 * 1024 * 1024,\n\
+        perMessageDeflate: false,\n\
+        handleProtocols: null,\n\
+        clientTracking: true,\n\
+        verifyClient: null,\n\
+        noServer: false,\n\
+        backlog: null, // use default (511 as implemented in net.js)\n\
+        server: null,\n\
+        host: null,\n\
+        path: null,\n\
+        port: null\n\
+      },\n\
+      options\n\
+    );\n\
+\n\
+    if (options.port == null && !options.server && !options.noServer) {\n\
+      throw new TypeError(\n\
+        'One of the \"port\", \"server\", or \"noServer\" options must be specified'\n\
+      );\n\
+    }\n\
+\n\
+    if (options.port != null) {\n\
+      this._server = http.createServer((req, res) => {\n\
+        const body = http.STATUS_CODES[426];\n\
+\n\
+        res.writeHead(426, {\n\
+          'Content-Length': body.length,\n\
+          'Content-Type': 'text/plain'\n\
+        });\n\
+        res.end(body);\n\
+      });\n\
+      this._server.listen(\n\
+        options.port,\n\
+        options.host,\n\
+        options.backlog,\n\
+        callback\n\
+      );\n\
+    } else if (options.server) {\n\
+      this._server = options.server;\n\
+    }\n\
+\n\
+    if (this._server) {\n\
+      this._removeListeners = addListeners(this._server, {\n\
+        listening: this.emit.bind(this, 'listening'),\n\
+        error: this.emit.bind(this, 'error'),\n\
+        upgrade: (req, socket, head) => {\n\
+          this.handleUpgrade(req, socket, head, (ws) => {\n\
+            this.emit('connection', ws, req);\n\
+          });\n\
+        }\n\
+      });\n\
+    }\n\
+\n\
+    if (options.perMessageDeflate === true) options.perMessageDeflate = {};\n\
+    if (options.clientTracking) this.clients = new Set();\n\
+    this.options = options;\n\
+  }\n\
+\n\
+  /**\n\
+   * Returns the bound address, the address family name, and port of the server\n\
+   * as reported by the operating system if listening on an IP socket.\n\
+   * If the server is listening on a pipe or UNIX domain socket, the name is\n\
+   * returned as a string.\n\
+   *\n\
+   * @return {(Object|String|null)} The address of the server\n\
+   * @public\n\
+   */\n\
+  address() {\n\
+    if (this.options.noServer) {\n\
+      throw new Error('The server is operating in \"noServer\" mode');\n\
+    }\n\
+\n\
+    if (!this._server) return null;\n\
+    return this._server.address();\n\
+  }\n\
+\n\
+  /**\n\
+   * Close the server.\n\
+   *\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  close(cb) {\n\
+    if (cb) this.once('close', cb);\n\
+\n\
+    //\n\
+    // Terminate all associated clients.\n\
+    //\n\
+    if (this.clients) {\n\
+      for (const client of this.clients) client.terminate();\n\
+    }\n\
+\n\
+    const server = this._server;\n\
+\n\
+    if (server) {\n\
+      this._removeListeners();\n\
+      this._removeListeners = this._server = null;\n\
+\n\
+      //\n\
+      // Close the http server if it was internally created.\n\
+      //\n\
+      if (this.options.port != null) {\n\
+        server.close(() => this.emit('close'));\n\
+        return;\n\
+      }\n\
+    }\n\
+\n\
+    process.nextTick(emitClose, this);\n\
+  }\n\
+\n\
+  /**\n\
+   * See if a given request should be handled by this server instance.\n\
+   *\n\
+   * @param {http.IncomingMessage} req Request object to inspect\n\
+   * @return {Boolean} `true` if the request is valid, else `false`\n\
+   * @public\n\
+   */\n\
+  shouldHandle(req) {\n\
+    if (this.options.path) {\n\
+      const index = req.url.indexOf('?');\n\
+      const pathname = index !== -1 ? req.url.slice(0, index) : req.url;\n\
+\n\
+      if (pathname !== this.options.path) return false;\n\
+    }\n\
+\n\
+    return true;\n\
+  }\n\
+\n\
+  /**\n\
+   * Handle a HTTP Upgrade request.\n\
+   *\n\
+   * @param {http.IncomingMessage} req The request object\n\
+   * @param {net.Socket} socket The network socket between the server and client\n\
+   * @param {Buffer} head The first packet of the upgraded stream\n\
+   * @param {Function} cb Callback\n\
+   * @public\n\
+   */\n\
+  handleUpgrade(req, socket, head, cb) {\n\
+    socket.on('error', socketOnError);\n\
+\n\
+    const key =\n\
+      req.headers['sec-websocket-key'] !== undefined\n\
+        ? req.headers['sec-websocket-key'].trim()\n\
+        : false;\n\
+    const version = +req.headers['sec-websocket-version'];\n\
+    const extensions = {};\n\
+\n\
+    if (\n\
+      req.method !== 'GET' ||\n\
+      req.headers.upgrade.toLowerCase() !== 'websocket' ||\n\
+      !key ||\n\
+      !keyRegex.test(key) ||\n\
+      (version !== 8 && version !== 13) ||\n\
+      !this.shouldHandle(req)\n\
+    ) {\n\
+      return abortHandshake(socket, 400);\n\
+    }\n\
+\n\
+    if (this.options.perMessageDeflate) {\n\
+      const perMessageDeflate = new PerMessageDeflate(\n\
+        this.options.perMessageDeflate,\n\
+        true,\n\
+        this.options.maxPayload\n\
+      );\n\
+\n\
+      try {\n\
+        const offers = extension.parse(req.headers['sec-websocket-extensions']);\n\
+\n\
+        if (offers[PerMessageDeflate.extensionName]) {\n\
+          perMessageDeflate.accept(offers[PerMessageDeflate.extensionName]);\n\
+          extensions[PerMessageDeflate.extensionName] = perMessageDeflate;\n\
+        }\n\
+      } catch (err) {\n\
+        return abortHandshake(socket, 400);\n\
+      }\n\
+    }\n\
+\n\
+    //\n\
+    // Optionally call external client verification handler.\n\
+    //\n\
+    if (this.options.verifyClient) {\n\
+      const info = {\n\
+        origin:\n\
+          req.headers[`${version === 8 ? 'sec-websocket-origin' : 'origin'}`],\n\
+        secure: !!(req.connection.authorized || req.connection.encrypted),\n\
+        req\n\
+      };\n\
+\n\
+      if (this.options.verifyClient.length === 2) {\n\
+        this.options.verifyClient(info, (verified, code, message, headers) => {\n\
+          if (!verified) {\n\
+            return abortHandshake(socket, code || 401, message, headers);\n\
+          }\n\
+\n\
+          this.completeUpgrade(key, extensions, req, socket, head, cb);\n\
+        });\n\
+        return;\n\
+      }\n\
+\n\
+      if (!this.options.verifyClient(info)) return abortHandshake(socket, 401);\n\
+    }\n\
+\n\
+    this.completeUpgrade(key, extensions, req, socket, head, cb);\n\
+  }\n\
+\n\
+  /**\n\
+   * Upgrade the connection to WebSocket.\n\
+   *\n\
+   * @param {String} key The value of the `Sec-WebSocket-Key` header\n\
+   * @param {Object} extensions The accepted extensions\n\
+   * @param {http.IncomingMessage} req The request object\n\
+   * @param {net.Socket} socket The network socket between the server and client\n\
+   * @param {Buffer} head The first packet of the upgraded stream\n\
+   * @param {Function} cb Callback\n\
+   * @private\n\
+   */\n\
+  completeUpgrade(key, extensions, req, socket, head, cb) {\n\
+    //\n\
+    // Destroy the socket if the client has already sent a FIN packet.\n\
+    //\n\
+    if (!socket.readable || !socket.writable) return socket.destroy();\n\
+\n\
+    const digest = crypto\n\
+      .createHash('sha1')\n\
+      .update(key + GUID)\n\
+      .digest('base64');\n\
+\n\
+    const headers = [\n\
+      'HTTP/1.1 101 Switching Protocols',\n\
+      'Upgrade: websocket',\n\
+      'Connection: Upgrade',\n\
+      `Sec-WebSocket-Accept: ${digest}`\n\
+    ];\n\
+\n\
+    const ws = new WebSocket(null);\n\
+    var protocol = req.headers['sec-websocket-protocol'];\n\
+\n\
+    if (protocol) {\n\
+      protocol = protocol.trim().split(/ *, */);\n\
+\n\
+      //\n\
+      // Optionally call external protocol selection handler.\n\
+      //\n\
+      if (this.options.handleProtocols) {\n\
+        protocol = this.options.handleProtocols(protocol, req);\n\
+      } else {\n\
+        protocol = protocol[0];\n\
+      }\n\
+\n\
+      if (protocol) {\n\
+        headers.push(`Sec-WebSocket-Protocol: ${protocol}`);\n\
+        ws.protocol = protocol;\n\
+      }\n\
+    }\n\
+\n\
+    if (extensions[PerMessageDeflate.extensionName]) {\n\
+      const params = extensions[PerMessageDeflate.extensionName].params;\n\
+      const value = extension.format({\n\
+        [PerMessageDeflate.extensionName]: [params]\n\
+      });\n\
+      headers.push(`Sec-WebSocket-Extensions: ${value}`);\n\
+      ws._extensions = extensions;\n\
+    }\n\
+\n\
+    //\n\
+    // Allow external modification/inspection of handshake headers.\n\
+    //\n\
+    this.emit('headers', headers, req);\n\
+\n\
+    socket.write(headers.concat('\\r\\n').join('\\r\\n'));\n\
+    socket.removeListener('error', socketOnError);\n\
+\n\
+    ws.setSocket(socket, head, this.options.maxPayload);\n\
+\n\
+    if (this.clients) {\n\
+      this.clients.add(ws);\n\
+      ws.on('close', () => this.clients.delete(ws));\n\
+    }\n\
+\n\
+    cb(ws);\n\
+  }\n\
+}\n\
+\n\
+module.exports = WebSocketServer;\n\
+\n\
+/**\n\
+ * Add event listeners on an `EventEmitter` using a map of <event, listener>\n\
+ * pairs.\n\
+ *\n\
+ * @param {EventEmitter} server The event emitter\n\
+ * @param {Object.<String, Function>} map The listeners to add\n\
+ * @return {Function} A function that will remove the added listeners when called\n\
+ * @private\n\
+ */\n\
+function addListeners(server, map) {\n\
+  for (const event of Object.keys(map)) server.on(event, map[event]);\n\
+\n\
+  return function removeListeners() {\n\
+    for (const event of Object.keys(map)) {\n\
+      server.removeListener(event, map[event]);\n\
+    }\n\
+  };\n\
+}\n\
+\n\
+/**\n\
+ * Emit a `'close'` event on an `EventEmitter`.\n\
+ *\n\
+ * @param {EventEmitter} server The event emitter\n\
+ * @private\n\
+ */\n\
+function emitClose(server) {\n\
+  server.emit('close');\n\
+}\n\
+\n\
+/**\n\
+ * Handle premature socket errors.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function socketOnError() {\n\
+  this.destroy();\n\
+}\n\
+\n\
+/**\n\
+ * Close the connection when preconditions are not fulfilled.\n\
+ *\n\
+ * @param {net.Socket} socket The socket of the upgrade request\n\
+ * @param {Number} code The HTTP response status code\n\
+ * @param {String} [message] The HTTP response body\n\
+ * @param {Object} [headers] Additional HTTP response headers\n\
+ * @private\n\
+ */\n\
+function abortHandshake(socket, code, message, headers) {\n\
+  if (socket.writable) {\n\
+    message = message || http.STATUS_CODES[code];\n\
+    headers = Object.assign(\n\
+      {\n\
+        Connection: 'close',\n\
+        'Content-type': 'text/html',\n\
+        'Content-Length': Buffer.byteLength(message)\n\
+      },\n\
+      headers\n\
+    );\n\
+\n\
+    socket.write(\n\
+      `HTTP/1.1 ${code} ${http.STATUS_CODES[code]}\\r\\n` +\n\
+        Object.keys(headers)\n\
+          .map((h) => `${h}: ${headers[h]}`)\n\
+          .join('\\r\\n') +\n\
+        '\\r\\n\\r\\n' +\n\
+        message\n\
+    );\n\
+  }\n\
+\n\
+  socket.removeListener('error', socketOnError);\n\
+  socket.destroy();\n\
+}\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/lib/websocket.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const EventEmitter = require('events');\n\
+// const crypto = require('crypto');\n\
+// const https = require('https');\n\
+// const http = require('http');\n\
+// const net = require('net');\n\
+// const tls = require('tls');\n\
+// const url = require('url');\n\
+\n\
+// const PerMessageDeflate = require('./permessage-deflate');\n\
+// const EventTarget = require('./event-target');\n\
+// const extension = require('./extension');\n\
+// const Receiver = require('./receiver');\n\
+// const Sender = require('./sender');\n\
+// hack-puppeteer - module.exports\n\
+// const {\n\
+//   BINARY_TYPES,\n\
+//   EMPTY_BUFFER,\n\
+//   GUID,\n\
+//   kStatusCode,\n\
+//   kWebSocket,\n\
+//   NOOP\n\
+// } = require('./constants');\n\
+\n\
+const readyStates = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'];\n\
+const protocolVersions = [8, 13];\n\
+const closeTimeout = 30 * 1000;\n\
+\n\
+/**\n\
+ * Class representing a WebSocket.\n\
+ *\n\
+ * @extends EventEmitter\n\
+ */\n\
+class WebSocket extends EventEmitter {\n\
+  /**\n\
+   * Create a new `WebSocket`.\n\
+   *\n\
+   * @param {(String|url.Url|url.URL)} address The URL to which to connect\n\
+   * @param {(String|String[])} protocols The subprotocols\n\
+   * @param {Object} options Connection options\n\
+   */\n\
+  constructor(address, protocols, options) {\n\
+    super();\n\
+\n\
+    this.readyState = WebSocket.CONNECTING;\n\
+    this.protocol = '';\n\
+\n\
+    this._binaryType = BINARY_TYPES[0];\n\
+    this._closeFrameReceived = false;\n\
+    this._closeFrameSent = false;\n\
+    this._closeMessage = '';\n\
+    this._closeTimer = null;\n\
+    this._closeCode = 1006;\n\
+    this._extensions = {};\n\
+    this._receiver = null;\n\
+    this._sender = null;\n\
+    this._socket = null;\n\
+\n\
+    if (address !== null) {\n\
+      this._isServer = false;\n\
+      this._redirects = 0;\n\
+\n\
+      if (Array.isArray(protocols)) {\n\
+        protocols = protocols.join(', ');\n\
+      } else if (typeof protocols === 'object' && protocols !== null) {\n\
+        options = protocols;\n\
+        protocols = undefined;\n\
+      }\n\
+\n\
+      initAsClient(this, address, protocols, options);\n\
+    } else {\n\
+      this._isServer = true;\n\
+    }\n\
+  }\n\
+\n\
+  get CONNECTING() {\n\
+    return WebSocket.CONNECTING;\n\
+  }\n\
+  get CLOSING() {\n\
+    return WebSocket.CLOSING;\n\
+  }\n\
+  get CLOSED() {\n\
+    return WebSocket.CLOSED;\n\
+  }\n\
+  get OPEN() {\n\
+    return WebSocket.OPEN;\n\
+  }\n\
+\n\
+  /**\n\
+   * This deviates from the WHATWG interface since ws doesn't support the\n\
+   * required default \"blob\" type (instead we define a custom \"nodebuffer\"\n\
+   * type).\n\
+   *\n\
+   * @type {String}\n\
+   */\n\
+  get binaryType() {\n\
+    return this._binaryType;\n\
+  }\n\
+\n\
+  set binaryType(type) {\n\
+    if (!BINARY_TYPES.includes(type)) return;\n\
+\n\
+    this._binaryType = type;\n\
+\n\
+    //\n\
+    // Allow to change `binaryType` on the fly.\n\
+    //\n\
+    if (this._receiver) this._receiver._binaryType = type;\n\
+  }\n\
+\n\
+  /**\n\
+   * @type {Number}\n\
+   */\n\
+  get bufferedAmount() {\n\
+    if (!this._socket) return 0;\n\
+\n\
+    //\n\
+    // `socket.bufferSize` is `undefined` if the socket is closed.\n\
+    //\n\
+    return (this._socket.bufferSize || 0) + this._sender._bufferedBytes;\n\
+  }\n\
+\n\
+  /**\n\
+   * @type {String}\n\
+   */\n\
+  get extensions() {\n\
+    return Object.keys(this._extensions).join();\n\
+  }\n\
+\n\
+  /**\n\
+   * Set up the socket and the internal resources.\n\
+   *\n\
+   * @param {net.Socket} socket The network socket between the server and client\n\
+   * @param {Buffer} head The first packet of the upgraded stream\n\
+   * @param {Number} maxPayload The maximum allowed message size\n\
+   * @private\n\
+   */\n\
+  setSocket(socket, head, maxPayload) {\n\
+    const receiver = new Receiver(\n\
+      this._binaryType,\n\
+      this._extensions,\n\
+      maxPayload\n\
+    );\n\
+\n\
+    this._sender = new Sender(socket, this._extensions);\n\
+    this._receiver = receiver;\n\
+    this._socket = socket;\n\
+\n\
+    receiver[kWebSocket] = this;\n\
+    socket[kWebSocket] = this;\n\
+\n\
+    receiver.on('conclude', receiverOnConclude);\n\
+    receiver.on('drain', receiverOnDrain);\n\
+    receiver.on('error', receiverOnError);\n\
+    receiver.on('message', receiverOnMessage);\n\
+    receiver.on('ping', receiverOnPing);\n\
+    receiver.on('pong', receiverOnPong);\n\
+\n\
+    socket.setTimeout(0);\n\
+    socket.setNoDelay();\n\
+\n\
+    if (head.length > 0) socket.unshift(head);\n\
+\n\
+    socket.on('close', socketOnClose);\n\
+    socket.on('data', socketOnData);\n\
+    socket.on('end', socketOnEnd);\n\
+    socket.on('error', socketOnError);\n\
+\n\
+    this.readyState = WebSocket.OPEN;\n\
+    this.emit('open');\n\
+  }\n\
+\n\
+  /**\n\
+   * Emit the `'close'` event.\n\
+   *\n\
+   * @private\n\
+   */\n\
+  emitClose() {\n\
+    this.readyState = WebSocket.CLOSED;\n\
+\n\
+    if (!this._socket) {\n\
+      this.emit('close', this._closeCode, this._closeMessage);\n\
+      return;\n\
+    }\n\
+\n\
+    if (this._extensions[PerMessageDeflate.extensionName]) {\n\
+      this._extensions[PerMessageDeflate.extensionName].cleanup();\n\
+    }\n\
+\n\
+    this._receiver.removeAllListeners();\n\
+    this.emit('close', this._closeCode, this._closeMessage);\n\
+  }\n\
+\n\
+  /**\n\
+   * Start a closing handshake.\n\
+   *\n\
+   *          +----------+   +-----------+   +----------+\n\
+   *     - - -|ws.close()|-->|close frame|-->|ws.close()|- - -\n\
+   *    |     +----------+   +-----------+   +----------+     |\n\
+   *          +----------+   +-----------+         |\n\
+   * CLOSING  |ws.close()|<--|close frame|<--+-----+       CLOSING\n\
+   *          +----------+   +-----------+   |\n\
+   *    |           |                        |   +---+        |\n\
+   *                +------------------------+-->|fin| - - - -\n\
+   *    |         +---+                      |   +---+\n\
+   *     - - - - -|fin|<---------------------+\n\
+   *              +---+\n\
+   *\n\
+   * @param {Number} code Status code explaining why the connection is closing\n\
+   * @param {String} data A string explaining why the connection is closing\n\
+   * @public\n\
+   */\n\
+  close(code, data) {\n\
+    if (this.readyState === WebSocket.CLOSED) return;\n\
+    if (this.readyState === WebSocket.CONNECTING) {\n\
+      const msg = 'WebSocket was closed before the connection was established';\n\
+      return abortHandshake(this, this._req, msg);\n\
+    }\n\
+\n\
+    if (this.readyState === WebSocket.CLOSING) {\n\
+      if (this._closeFrameSent && this._closeFrameReceived) this._socket.end();\n\
+      return;\n\
+    }\n\
+\n\
+    this.readyState = WebSocket.CLOSING;\n\
+    this._sender.close(code, data, !this._isServer, (err) => {\n\
+      //\n\
+      // This error is handled by the `'error'` listener on the socket. We only\n\
+      // want to know if the close frame has been sent here.\n\
+      //\n\
+      if (err) return;\n\
+\n\
+      this._closeFrameSent = true;\n\
+      if (this._closeFrameReceived) this._socket.end();\n\
+    });\n\
+\n\
+    //\n\
+    // Specify a timeout for the closing handshake to complete.\n\
+    //\n\
+    this._closeTimer = setTimeout(\n\
+      this._socket.destroy.bind(this._socket),\n\
+      closeTimeout\n\
+    );\n\
+  }\n\
+\n\
+  /**\n\
+   * Send a ping.\n\
+   *\n\
+   * @param {*} data The data to send\n\
+   * @param {Boolean} mask Indicates whether or not to mask `data`\n\
+   * @param {Function} cb Callback which is executed when the ping is sent\n\
+   * @public\n\
+   */\n\
+  ping(data, mask, cb) {\n\
+    if (typeof data === 'function') {\n\
+      cb = data;\n\
+      data = mask = undefined;\n\
+    } else if (typeof mask === 'function') {\n\
+      cb = mask;\n\
+      mask = undefined;\n\
+    }\n\
+\n\
+    if (this.readyState !== WebSocket.OPEN) {\n\
+      const err = new Error(\n\
+        `WebSocket is not open: readyState ${this.readyState} ` +\n\
+          `(${readyStates[this.readyState]})`\n\
+      );\n\
+\n\
+      if (cb) return cb(err);\n\
+      throw err;\n\
+    }\n\
+\n\
+    if (typeof data === 'number') data = data.toString();\n\
+    if (mask === undefined) mask = !this._isServer;\n\
+    this._sender.ping(data || EMPTY_BUFFER, mask, cb);\n\
+  }\n\
+\n\
+  /**\n\
+   * Send a pong.\n\
+   *\n\
+   * @param {*} data The data to send\n\
+   * @param {Boolean} mask Indicates whether or not to mask `data`\n\
+   * @param {Function} cb Callback which is executed when the pong is sent\n\
+   * @public\n\
+   */\n\
+  pong(data, mask, cb) {\n\
+    if (typeof data === 'function') {\n\
+      cb = data;\n\
+      data = mask = undefined;\n\
+    } else if (typeof mask === 'function') {\n\
+      cb = mask;\n\
+      mask = undefined;\n\
+    }\n\
+\n\
+    if (this.readyState !== WebSocket.OPEN) {\n\
+      const err = new Error(\n\
+        `WebSocket is not open: readyState ${this.readyState} ` +\n\
+          `(${readyStates[this.readyState]})`\n\
+      );\n\
+\n\
+      if (cb) return cb(err);\n\
+      throw err;\n\
+    }\n\
+\n\
+    if (typeof data === 'number') data = data.toString();\n\
+    if (mask === undefined) mask = !this._isServer;\n\
+    this._sender.pong(data || EMPTY_BUFFER, mask, cb);\n\
+  }\n\
+\n\
+  /**\n\
+   * Send a data message.\n\
+   *\n\
+   * @param {*} data The message to send\n\
+   * @param {Object} options Options object\n\
+   * @param {Boolean} options.compress Specifies whether or not to compress `data`\n\
+   * @param {Boolean} options.binary Specifies whether `data` is binary or text\n\
+   * @param {Boolean} options.fin Specifies whether the fragment is the last one\n\
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`\n\
+   * @param {Function} cb Callback which is executed when data is written out\n\
+   * @public\n\
+   */\n\
+  send(data, options, cb) {\n\
+    if (typeof options === 'function') {\n\
+      cb = options;\n\
+      options = {};\n\
+    }\n\
+\n\
+    if (this.readyState !== WebSocket.OPEN) {\n\
+      const err = new Error(\n\
+        `WebSocket is not open: readyState ${this.readyState} ` +\n\
+          `(${readyStates[this.readyState]})`\n\
+      );\n\
+\n\
+      if (cb) return cb(err);\n\
+      throw err;\n\
+    }\n\
+\n\
+    if (typeof data === 'number') data = data.toString();\n\
+\n\
+    const opts = Object.assign(\n\
+      {\n\
+        binary: typeof data !== 'string',\n\
+        mask: !this._isServer,\n\
+        compress: true,\n\
+        fin: true\n\
+      },\n\
+      options\n\
+    );\n\
+\n\
+    if (!this._extensions[PerMessageDeflate.extensionName]) {\n\
+      opts.compress = false;\n\
+    }\n\
+\n\
+    this._sender.send(data || EMPTY_BUFFER, opts, cb);\n\
+  }\n\
+\n\
+  /**\n\
+   * Forcibly close the connection.\n\
+   *\n\
+   * @public\n\
+   */\n\
+  terminate() {\n\
+    if (this.readyState === WebSocket.CLOSED) return;\n\
+    if (this.readyState === WebSocket.CONNECTING) {\n\
+      const msg = 'WebSocket was closed before the connection was established';\n\
+      return abortHandshake(this, this._req, msg);\n\
+    }\n\
+\n\
+    if (this._socket) {\n\
+      this.readyState = WebSocket.CLOSING;\n\
+      this._socket.destroy();\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+readyStates.forEach((readyState, i) => {\n\
+  WebSocket[readyState] = i;\n\
+});\n\
+\n\
+//\n\
+// Add the `onopen`, `onerror`, `onclose`, and `onmessage` attributes.\n\
+// See https://html.spec.whatwg.org/multipage/comms.html#the-websocket-interface\n\
+//\n\
+['open', 'error', 'close', 'message'].forEach((method) => {\n\
+  Object.defineProperty(WebSocket.prototype, `on${method}`, {\n\
+    /**\n\
+     * Return the listener of the event.\n\
+     *\n\
+     * @return {(Function|undefined)} The event listener or `undefined`\n\
+     * @public\n\
+     */\n\
+    get() {\n\
+      const listeners = this.listeners(method);\n\
+      for (var i = 0; i < listeners.length; i++) {\n\
+        if (listeners[i]._listener) return listeners[i]._listener;\n\
+      }\n\
+\n\
+      return undefined;\n\
+    },\n\
+    /**\n\
+     * Add a listener for the event.\n\
+     *\n\
+     * @param {Function} listener The listener to add\n\
+     * @public\n\
+     */\n\
+    set(listener) {\n\
+      const listeners = this.listeners(method);\n\
+      for (var i = 0; i < listeners.length; i++) {\n\
+        //\n\
+        // Remove only the listeners added via `addEventListener`.\n\
+        //\n\
+        if (listeners[i]._listener) this.removeListener(method, listeners[i]);\n\
+      }\n\
+      this.addEventListener(method, listener);\n\
+    }\n\
+  });\n\
+});\n\
+\n\
+WebSocket.prototype.addEventListener = EventTarget.addEventListener;\n\
+WebSocket.prototype.removeEventListener = EventTarget.removeEventListener;\n\
+\n\
+module.exports = WebSocket;\n\
+\n\
+/**\n\
+ * Initialize a WebSocket client.\n\
+ *\n\
+ * @param {WebSocket} websocket The client to initialize\n\
+ * @param {(String|url.Url|url.URL)} address The URL to which to connect\n\
+ * @param {String} protocols The subprotocols\n\
+ * @param {Object} options Connection options\n\
+ * @param {(Boolean|Object)} options.perMessageDeflate Enable/disable\n\
+ *     permessage-deflate\n\
+ * @param {Number} options.handshakeTimeout Timeout in milliseconds for the\n\
+ *     handshake request\n\
+ * @param {Number} options.protocolVersion Value of the `Sec-WebSocket-Version`\n\
+ *     header\n\
+ * @param {String} options.origin Value of the `Origin` or\n\
+ *     `Sec-WebSocket-Origin` header\n\
+ * @param {Number} options.maxPayload The maximum allowed message size\n\
+ * @param {Boolean} options.followRedirects Whether or not to follow redirects\n\
+ * @param {Number} options.maxRedirects The maximum number of redirects allowed\n\
+ * @private\n\
+ */\n\
+function initAsClient(websocket, address, protocols, options) {\n\
+  const opts = Object.assign(\n\
+    {\n\
+      protocolVersion: protocolVersions[1],\n\
+      maxPayload: 100 * 1024 * 1024,\n\
+      perMessageDeflate: true,\n\
+      followRedirects: false,\n\
+      maxRedirects: 10\n\
+    },\n\
+    options,\n\
+    {\n\
+      createConnection: undefined,\n\
+      socketPath: undefined,\n\
+      hostname: undefined,\n\
+      protocol: undefined,\n\
+      timeout: undefined,\n\
+      method: undefined,\n\
+      auth: undefined,\n\
+      host: undefined,\n\
+      path: undefined,\n\
+      port: undefined\n\
+    }\n\
+  );\n\
+\n\
+  if (!protocolVersions.includes(opts.protocolVersion)) {\n\
+    throw new RangeError(\n\
+      `Unsupported protocol version: ${opts.protocolVersion} ` +\n\
+        `(supported versions: ${protocolVersions.join(', ')})`\n\
+    );\n\
+  }\n\
+\n\
+  var parsedUrl;\n\
+\n\
+  if (typeof address === 'object' && address.href !== undefined) {\n\
+    parsedUrl = address;\n\
+    websocket.url = address.href;\n\
+  } else {\n\
+    //\n\
+    // The WHATWG URL constructor is not available on Node.js < 6.13.0\n\
+    //\n\
+    parsedUrl = url.URL ? new url.URL(address) : url.parse(address);\n\
+    websocket.url = address;\n\
+  }\n\
+\n\
+  const isUnixSocket = parsedUrl.protocol === 'ws+unix:';\n\
+\n\
+  if (!parsedUrl.host && (!isUnixSocket || !parsedUrl.pathname)) {\n\
+    throw new Error(`Invalid URL: ${websocket.url}`);\n\
+  }\n\
+\n\
+  const isSecure =\n\
+    parsedUrl.protocol === 'wss:' || parsedUrl.protocol === 'https:';\n\
+  const defaultPort = isSecure ? 443 : 80;\n\
+  const key = crypto.randomBytes(16).toString('base64');\n\
+  const get = isSecure ? https.get : http.get;\n\
+  const path = parsedUrl.search\n\
+    ? `${parsedUrl.pathname || '/'}${parsedUrl.search}`\n\
+    : parsedUrl.pathname || '/';\n\
+  var perMessageDeflate;\n\
+\n\
+  opts.createConnection = isSecure ? tlsConnect : netConnect;\n\
+  opts.defaultPort = opts.defaultPort || defaultPort;\n\
+  opts.port = parsedUrl.port || defaultPort;\n\
+  opts.host = parsedUrl.hostname.startsWith('[')\n\
+    ? parsedUrl.hostname.slice(1, -1)\n\
+    : parsedUrl.hostname;\n\
+  opts.headers = Object.assign(\n\
+    {\n\
+      'Sec-WebSocket-Version': opts.protocolVersion,\n\
+      'Sec-WebSocket-Key': key,\n\
+      Connection: 'Upgrade',\n\
+      Upgrade: 'websocket'\n\
+    },\n\
+    opts.headers\n\
+  );\n\
+  opts.path = path;\n\
+  opts.timeout = opts.handshakeTimeout;\n\
+\n\
+  if (opts.perMessageDeflate) {\n\
+    perMessageDeflate = new PerMessageDeflate(\n\
+      opts.perMessageDeflate !== true ? opts.perMessageDeflate : {},\n\
+      false,\n\
+      opts.maxPayload\n\
+    );\n\
+    opts.headers['Sec-WebSocket-Extensions'] = extension.format({\n\
+      [PerMessageDeflate.extensionName]: perMessageDeflate.offer()\n\
+    });\n\
+  }\n\
+  if (protocols) {\n\
+    opts.headers['Sec-WebSocket-Protocol'] = protocols;\n\
+  }\n\
+  if (opts.origin) {\n\
+    if (opts.protocolVersion < 13) {\n\
+      opts.headers['Sec-WebSocket-Origin'] = opts.origin;\n\
+    } else {\n\
+      opts.headers.Origin = opts.origin;\n\
+    }\n\
+  }\n\
+  if (parsedUrl.auth) {\n\
+    opts.auth = parsedUrl.auth;\n\
+  } else if (parsedUrl.username || parsedUrl.password) {\n\
+    opts.auth = `${parsedUrl.username}:${parsedUrl.password}`;\n\
+  }\n\
+\n\
+  if (isUnixSocket) {\n\
+    const parts = path.split(':');\n\
+\n\
+    opts.socketPath = parts[0];\n\
+    opts.path = parts[1];\n\
+  }\n\
+\n\
+  var req = (websocket._req = get(opts));\n\
+\n\
+  if (opts.timeout) {\n\
+    req.on('timeout', () => {\n\
+      abortHandshake(websocket, req, 'Opening handshake has timed out');\n\
+    });\n\
+  }\n\
+\n\
+  req.on('error', (err) => {\n\
+    if (websocket._req.aborted) return;\n\
+\n\
+    req = websocket._req = null;\n\
+    websocket.readyState = WebSocket.CLOSING;\n\
+    websocket.emit('error', err);\n\
+    websocket.emitClose();\n\
+  });\n\
+\n\
+  req.on('response', (res) => {\n\
+    const location = res.headers.location;\n\
+    const statusCode = res.statusCode;\n\
+\n\
+    if (\n\
+      location &&\n\
+      opts.followRedirects &&\n\
+      statusCode >= 300 &&\n\
+      statusCode < 400\n\
+    ) {\n\
+      if (++websocket._redirects > opts.maxRedirects) {\n\
+        abortHandshake(websocket, req, 'Maximum redirects exceeded');\n\
+        return;\n\
+      }\n\
+\n\
+      req.abort();\n\
+\n\
+      const addr = url.URL\n\
+        ? new url.URL(location, address)\n\
+        : url.resolve(address, location);\n\
+\n\
+      initAsClient(websocket, addr, protocols, options);\n\
+    } else if (!websocket.emit('unexpected-response', req, res)) {\n\
+      abortHandshake(\n\
+        websocket,\n\
+        req,\n\
+        `Unexpected server response: ${res.statusCode}`\n\
+      );\n\
+    }\n\
+  });\n\
+\n\
+  req.on('upgrade', (res, socket, head) => {\n\
+    websocket.emit('upgrade', res);\n\
+\n\
+    //\n\
+    // The user may have closed the connection from a listener of the `upgrade`\n\
+    // event.\n\
+    //\n\
+    if (websocket.readyState !== WebSocket.CONNECTING) return;\n\
+\n\
+    req = websocket._req = null;\n\
+\n\
+    const digest = crypto\n\
+      .createHash('sha1')\n\
+      .update(key + GUID)\n\
+      .digest('base64');\n\
+\n\
+    if (res.headers['sec-websocket-accept'] !== digest) {\n\
+      abortHandshake(websocket, socket, 'Invalid Sec-WebSocket-Accept header');\n\
+      return;\n\
+    }\n\
+\n\
+    const serverProt = res.headers['sec-websocket-protocol'];\n\
+    const protList = (protocols || '').split(/, */);\n\
+    var protError;\n\
+\n\
+    if (!protocols && serverProt) {\n\
+      protError = 'Server sent a subprotocol but none was requested';\n\
+    } else if (protocols && !serverProt) {\n\
+      protError = 'Server sent no subprotocol';\n\
+    } else if (serverProt && !protList.includes(serverProt)) {\n\
+      protError = 'Server sent an invalid subprotocol';\n\
+    }\n\
+\n\
+    if (protError) {\n\
+      abortHandshake(websocket, socket, protError);\n\
+      return;\n\
+    }\n\
+\n\
+    if (serverProt) websocket.protocol = serverProt;\n\
+\n\
+    if (perMessageDeflate) {\n\
+      try {\n\
+        const extensions = extension.parse(\n\
+          res.headers['sec-websocket-extensions']\n\
+        );\n\
+\n\
+        if (extensions[PerMessageDeflate.extensionName]) {\n\
+          perMessageDeflate.accept(extensions[PerMessageDeflate.extensionName]);\n\
+          websocket._extensions[\n\
+            PerMessageDeflate.extensionName\n\
+          ] = perMessageDeflate;\n\
+        }\n\
+      } catch (err) {\n\
+        abortHandshake(\n\
+          websocket,\n\
+          socket,\n\
+          'Invalid Sec-WebSocket-Extensions header'\n\
+        );\n\
+        return;\n\
+      }\n\
+    }\n\
+\n\
+    websocket.setSocket(socket, head, opts.maxPayload);\n\
+  });\n\
+}\n\
+\n\
+/**\n\
+ * Create a `net.Socket` and initiate a connection.\n\
+ *\n\
+ * @param {Object} options Connection options\n\
+ * @return {net.Socket} The newly created socket used to start the connection\n\
+ * @private\n\
+ */\n\
+function netConnect(options) {\n\
+  //\n\
+  // Override `options.path` only if `options` is a copy of the original options\n\
+  // object. This is always true on Node.js >= 8 but not on Node.js 6 where\n\
+  // `options.socketPath` might be `undefined` even if the `socketPath` option\n\
+  // was originally set.\n\
+  //\n\
+  if (options.protocolVersion) options.path = options.socketPath;\n\
+  return net.connect(options);\n\
+}\n\
+\n\
+/**\n\
+ * Create a `tls.TLSSocket` and initiate a connection.\n\
+ *\n\
+ * @param {Object} options Connection options\n\
+ * @return {tls.TLSSocket} The newly created socket used to start the connection\n\
+ * @private\n\
+ */\n\
+function tlsConnect(options) {\n\
+  options.path = undefined;\n\
+  options.servername = options.servername || options.host;\n\
+  return tls.connect(options);\n\
+}\n\
+\n\
+/**\n\
+ * Abort the handshake and emit an error.\n\
+ *\n\
+ * @param {WebSocket} websocket The WebSocket instance\n\
+ * @param {(http.ClientRequest|net.Socket)} stream The request to abort or the\n\
+ *     socket to destroy\n\
+ * @param {String} message The error message\n\
+ * @private\n\
+ */\n\
+function abortHandshake(websocket, stream, message) {\n\
+  websocket.readyState = WebSocket.CLOSING;\n\
+\n\
+  const err = new Error(message);\n\
+  Error.captureStackTrace(err, abortHandshake);\n\
+\n\
+  if (stream.setHeader) {\n\
+    stream.abort();\n\
+    stream.once('abort', websocket.emitClose.bind(websocket));\n\
+    websocket.emit('error', err);\n\
+  } else {\n\
+    stream.destroy(err);\n\
+    stream.once('error', websocket.emit.bind(websocket, 'error'));\n\
+    stream.once('close', websocket.emitClose.bind(websocket));\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'conclude'` event.\n\
+ *\n\
+ * @param {Number} code The status code\n\
+ * @param {String} reason The reason for closing\n\
+ * @private\n\
+ */\n\
+function receiverOnConclude(code, reason) {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  websocket._socket.removeListener('data', socketOnData);\n\
+  websocket._socket.resume();\n\
+\n\
+  websocket._closeFrameReceived = true;\n\
+  websocket._closeMessage = reason;\n\
+  websocket._closeCode = code;\n\
+\n\
+  if (code === 1005) websocket.close();\n\
+  else websocket.close(code, reason);\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'drain'` event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function receiverOnDrain() {\n\
+  this[kWebSocket]._socket.resume();\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'error'` event.\n\
+ *\n\
+ * @param {(RangeError|Error)} err The emitted error\n\
+ * @private\n\
+ */\n\
+function receiverOnError(err) {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  websocket._socket.removeListener('data', socketOnData);\n\
+\n\
+  websocket.readyState = WebSocket.CLOSING;\n\
+  websocket._closeCode = err[kStatusCode];\n\
+  websocket.emit('error', err);\n\
+  websocket._socket.destroy();\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'finish'` event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function receiverOnFinish() {\n\
+  this[kWebSocket].emitClose();\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'message'` event.\n\
+ *\n\
+ * @param {(String|Buffer|ArrayBuffer|Buffer[])} data The message\n\
+ * @private\n\
+ */\n\
+function receiverOnMessage(data) {\n\
+  this[kWebSocket].emit('message', data);\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'ping'` event.\n\
+ *\n\
+ * @param {Buffer} data The data included in the ping frame\n\
+ * @private\n\
+ */\n\
+function receiverOnPing(data) {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  websocket.pong(data, !websocket._isServer, NOOP);\n\
+  websocket.emit('ping', data);\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `Receiver` `'pong'` event.\n\
+ *\n\
+ * @param {Buffer} data The data included in the pong frame\n\
+ * @private\n\
+ */\n\
+function receiverOnPong(data) {\n\
+  this[kWebSocket].emit('pong', data);\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `net.Socket` `'close'` event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function socketOnClose() {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  this.removeListener('close', socketOnClose);\n\
+  this.removeListener('end', socketOnEnd);\n\
+\n\
+  websocket.readyState = WebSocket.CLOSING;\n\
+\n\
+  //\n\
+  // The close frame might not have been received or the `'end'` event emitted,\n\
+  // for example, if the socket was destroyed due to an error. Ensure that the\n\
+  // `receiver` stream is closed after writing any remaining buffered data to\n\
+  // it. If the readable side of the socket is in flowing mode then there is no\n\
+  // buffered data as everything has been already written and `readable.read()`\n\
+  // will return `null`. If instead, the socket is paused, any possible buffered\n\
+  // data will be read as a single chunk and emitted synchronously in a single\n\
+  // `'data'` event.\n\
+  //\n\
+  websocket._socket.read();\n\
+  websocket._receiver.end();\n\
+\n\
+  this.removeListener('data', socketOnData);\n\
+  this[kWebSocket] = undefined;\n\
+\n\
+  clearTimeout(websocket._closeTimer);\n\
+\n\
+  if (\n\
+    websocket._receiver._writableState.finished ||\n\
+    websocket._receiver._writableState.errorEmitted\n\
+  ) {\n\
+    websocket.emitClose();\n\
+  } else {\n\
+    websocket._receiver.on('error', receiverOnFinish);\n\
+    websocket._receiver.on('finish', receiverOnFinish);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `net.Socket` `'data'` event.\n\
+ *\n\
+ * @param {Buffer} chunk A chunk of data\n\
+ * @private\n\
+ */\n\
+function socketOnData(chunk) {\n\
+  if (!this[kWebSocket]._receiver.write(chunk)) {\n\
+    this.pause();\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `net.Socket` `'end'` event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function socketOnEnd() {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  websocket.readyState = WebSocket.CLOSING;\n\
+  websocket._receiver.end();\n\
+  this.end();\n\
+}\n\
+\n\
+/**\n\
+ * The listener of the `net.Socket` `'error'` event.\n\
+ *\n\
+ * @private\n\
+ */\n\
+function socketOnError() {\n\
+  const websocket = this[kWebSocket];\n\
+\n\
+  this.removeListener('error', socketOnError);\n\
+  this.on('error', NOOP);\n\
+\n\
+  websocket.readyState = WebSocket.CLOSING;\n\
+  this.destroy();\n\
+}\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/websockets/ws/blob/6.2.1/index.js\n\
+*/\n\
+'use strict';\n\
+\n\
+// const WebSocket = require('./lib/websocket');\n\
+\n\
+// hack-puppeteer - module.exports\n\
+WebSocket.Server = WebSocketServer;\n\
+WebSocket.Receiver = Receiver;\n\
+WebSocket.Sender = Sender.js;\n\
+\n\
+module.exports = WebSocket;\n\
+\n\
+\n\
+\n\
+/*\n\
+file https://github.com/GoogleChrome/puppeteer/tree/v1.19.0\n\
+*/\n\
+// require('./Accessibility') // Accessibility,\n\
+// require('./Accessibility') // const {Accessibility} = require('./Accessibility');\n\
+// require('./Browser') // Browser,\n\
+// require('./Browser') // BrowserContext,\n\
+// require('./Browser') // const {Browser} = require('./Browser');\n\
+// require('./BrowserFetcher') // BrowserFetcher,\n\
+// require('./BrowserFetcher') // const BrowserFetcher = require('./BrowserFetcher');\n\
+// require('./Connection') // CDPSession,\n\
+// require('./Connection') // const {Connection} = require('./Connection');\n\
+// require('./Coverage') // Coverage,\n\
+// require('./Coverage') // const {Coverage} = require('./Coverage');\n\
+// require('./DOMWorld') // const {DOMWorld} = require('./DOMWorld');\n\
+// require('./DeviceDescriptors') // const DeviceDescriptors = require('./DeviceDescriptors');\n\
+// require('./Dialog') // Dialog,\n\
+// require('./Dialog') // const {Dialog} = require('./Dialog');\n\
+// require('./EmulationManager') // const {EmulationManager} = require('./EmulationManager');\n\
+// require('./Errors') // TimeoutError,\n\
+// require('./Errors') // const Errors = require('./Errors');\n\
+// require('./Errors') // const {TimeoutError} = require('./Errors');\n\
+// require('./Events') // const {Events} = require('./Events');\n\
+// require('./ExecutionContext') // ExecutionContext,\n\
+// require('./ExecutionContext') // const {EVALUATION_SCRIPT_URL} = require('./ExecutionContext');\n\
+// require('./ExecutionContext') // const {ExecutionContext, EVALUATION_SCRIPT_URL} = require('./ExecutionContext');\n\
+// require('./ExecutionContext') // const {ExecutionContext} = require('./ExecutionContext');\n\
+// require('./FrameManager') // Frame,\n\
+// require('./FrameManager') // const {FrameManager} = require('./FrameManager');\n\
+// require('./Input') // Keyboard,\n\
+// require('./Input') // Mouse,\n\
+// require('./Input') // Touchscreen,\n\
+// require('./Input') // const {Keyboard, Mouse, Touchscreen} = require('./Input');\n\
+// require('./JSHandle') // ElementHandle,\n\
+// require('./JSHandle') // JSHandle,\n\
+// require('./JSHandle') // const {JSHandle} = require('./JSHandle');\n\
+// require('./JSHandle') // const {createJSHandle, JSHandle} = require('./JSHandle');\n\
+// require('./JSHandle') // const {createJSHandle} = require('./JSHandle');\n\
+// require('./Launcher') // const Launcher = require('./Launcher');\n\
+// require('./LifecycleWatcher') // const {LifecycleWatcher} = require('./LifecycleWatcher');\n\
+// require('./NetworkManager') // Request,\n\
+// require('./NetworkManager') // Response,\n\
+// require('./NetworkManager') // SecurityDetails,\n\
+// require('./NetworkManager') // const {NetworkManager} = require('./NetworkManager');\n\
+// require('./Page') // ConsoleMessage,\n\
+// require('./Page') // FileChooser,\n\
+// require('./Page') // Page,\n\
+// require('./Page') // const {Page} = require('./Page');\n\
+// require('./PipeTransport') // const PipeTransport = require('./PipeTransport');\n\
+// require('./Puppeteer') // Puppeteer,\n\
+// require('./Target') // Target,\n\
+// require('./Target') // const {Target} = require('./Target');\n\
+// require('./TaskQueue') // const {TaskQueue} = require('./TaskQueue');\n\
+// require('./TimeoutSettings') // const {TimeoutSettings} = require('./TimeoutSettings');\n\
+// require('./Tracing') // Tracing,\n\
+// require('./Tracing') // const Tracing = require('./Tracing');\n\
+// require('./USKeyboardLayout') // const keyDefinitions = require('./USKeyboardLayout');\n\
+// require('./WebSocketTransport') // const WebSocketTransport = require('./WebSocketTransport');\n\
+// require('./Worker') // Worker,\n\
+// require('./Worker') // const {Worker} = require('./Worker');\n\
+// require('./helper') // const { helper, assert } = require('./helper');\n\
+// require('./helper') // const {assert} = require('./helper');\n\
+// require('./helper') // const {debugError} = require('./helper');\n\
+// require('./helper') // const {helper, assert, debugError} = require('./helper');\n\
+// require('./helper') // const {helper, assert} = require('./helper');\n\
+// require('./helper') // const {helper, debugError, assert} = require('./helper');\n\
+// require('./helper') // const {helper, debugError} = require('./helper');\n\
+// require('./lib/Puppeteer') // const Puppeteer = asyncawait ? require('./lib/Puppeteer') : require('./node6/lib/Puppeteer');\n\
+// require('./lib/api') // const api = require('./lib/api');\n\
+// require('./lib/helper') // const {helper} = require('./lib/helper');\n\
+// require('./package.json') // const packageJson = require('./package.json');\n\
+// require('child_process') // const childProcess = require('child_process');\n\
+// require('debug') // const debugError = require('debug')(`puppeteer:error`);\n\
+// require('debug') // const debugProtocol = require('debug')('puppeteer:protocol');\n\
+// require('events') // const EventEmitter = require('events');\n\
+// require('extract-zip') // const extract = require('extract-zip');\n\
+// require('fs') // const fs = require('fs');\n\
+// require('http') // const http = require('http');\n\
+// require('http') // require('http').request(options, requestCallback);\n\
+// require('https') // const https = require('https');\n\
+// require('https') // require('https').request(options, requestCallback) :\n\
+// require('https-proxy-agent') // const ProxyAgent = require('https-proxy-agent');\n\
+// require('mime') // const mime = require('mime');\n\
+// require('os') // const os = require('os');\n\
+// require('path') // const path = require('path');\n\
+// require('proxy-from-env') // const getProxyForUrl = require('proxy-from-env').getProxyForUrl;\n\
+// require('readline') // const readline = require('readline');\n\
+// require('rimraf') // const removeFolder = require('rimraf');\n\
+// require('rimraf') // const removeRecursive = require('rimraf');\n\
+// require('url') // const URL = require('url');\n\
+// require('util') // const util = require('util');\n\
+// require('ws') // const WebSocket = require('ws');\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/package.json\n\
+*/\n\
+// hack-puppeteer - module.exports\n\
+const packageJson = {\n\
+  \"name\": \"puppeteer\",\n\
+  \"version\": \"1.19.0\",\n\
+  \"description\": \"A high-level API to control headless Chrome over the DevTools Protocol\",\n\
+  \"main\": \"index.js\",\n\
+  \"repository\": \"github:GoogleChrome/puppeteer\",\n\
+  \"engines\": {\n\
+    \"node\": \">=6.4.0\"\n\
+  },\n\
+  \"puppeteer\": {\n\
+    \"chromium_revision\": \"674921\"\n\
+  },\n\
+  \"scripts\": {\n\
+    \"unit\": \"node test/test.js\",\n\
+    \"funit\": \"BROWSER=firefox node test/test.js\",\n\
+    \"debug-unit\": \"node --inspect-brk test/test.js\",\n\
+    \"test-doclint\": \"node utils/doclint/check_public_api/test/test.js && node utils/doclint/preprocessor/test.js\",\n\
+    \"test\": \"npm run lint --silent && npm run coverage && npm run test-doclint && npm run test-node6-transformer && npm run test-types\",\n\
+    \"install\": \"node install.js\",\n\
+    \"lint\": \"([ \\\"$CI\\\" = true ] && eslint --quiet -f codeframe . || eslint .) && npm run tsc && npm run doc\",\n\
+    \"doc\": \"node utils/doclint/cli.js\",\n\
+    \"coverage\": \"cross-env COVERAGE=true npm run unit\",\n\
+    \"test-node6-transformer\": \"node utils/node6-transform/test/test.js\",\n\
+    \"build\": \"node utils/node6-transform/index.js && node utils/doclint/generate_types\",\n\
+    \"unit-node6\": \"node node6/test/test.js\",\n\
+    \"tsc\": \"tsc -p .\",\n\
+    \"prepublishOnly\": \"npm run build\",\n\
+    \"apply-next-version\": \"node utils/apply_next_version.js\",\n\
+    \"bundle\": \"npx browserify -r ./index.js:puppeteer -o utils/browser/puppeteer-web.js\",\n\
+    \"test-types\": \"node utils/doclint/generate_types && npx -p typescript@2.1 tsc -p utils/doclint/generate_types/test/\",\n\
+    \"unit-bundle\": \"node utils/browser/test.js\"\n\
+  },\n\
+  \"author\": \"The Chromium Authors\",\n\
+  \"license\": \"Apache-2.0\",\n\
+  \"dependencies\": {\n\
+    \"debug\": \"^4.1.0\",\n\
+    \"extract-zip\": \"^1.6.6\",\n\
+    \"https-proxy-agent\": \"^2.2.1\",\n\
+    \"mime\": \"^2.0.3\",\n\
+    \"progress\": \"^2.0.1\",\n\
+    \"proxy-from-env\": \"^1.0.0\",\n\
+    \"rimraf\": \"^2.6.1\",\n\
+    \"ws\": \"^6.1.0\"\n\
+  },\n\
+  \"devDependencies\": {\n\
+    \"@types/debug\": \"0.0.31\",\n\
+    \"@types/extract-zip\": \"^1.6.2\",\n\
+    \"@types/mime\": \"^2.0.0\",\n\
+    \"@types/node\": \"^8.10.34\",\n\
+    \"@types/rimraf\": \"^2.0.2\",\n\
+    \"@types/ws\": \"^6.0.1\",\n\
+    \"commonmark\": \"^0.28.1\",\n\
+    \"cross-env\": \"^5.0.5\",\n\
+    \"eslint\": \"^5.15.1\",\n\
+    \"esprima\": \"^4.0.0\",\n\
+    \"jpeg-js\": \"^0.3.4\",\n\
+    \"minimist\": \"^1.2.0\",\n\
+    \"ncp\": \"^2.0.0\",\n\
+    \"pixelmatch\": \"^4.0.2\",\n\
+    \"pngjs\": \"^3.3.3\",\n\
+    \"text-diff\": \"^1.0.1\",\n\
+    \"typescript\": \"3.2.2\"\n\
+  },\n\
+  \"browser\": {\n\
+    \"./lib/BrowserFetcher.js\": false,\n\
+    \"./node6/lib/Puppeteer\": false,\n\
+    \"ws\": \"./utils/browser/WebSocket\",\n\
+    \"fs\": false,\n\
+    \"child_process\": false,\n\
+    \"rimraf\": false,\n\
+    \"readline\": false\n\
+  }\n\
+}\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/helper.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const {TimeoutError} = require('./Errors');\n\
+// const debugError = require('debug')(`puppeteer:error`);\n\
+// const fs = require('fs');\n\
+\n\
+class Helper {\n\
+  /**\n\
+   * @param {Function|string} fun\n\
+   * @param {!Array<*>} args\n\
+   * @return {string}\n\
+   */\n\
+  static evaluationString(fun, ...args) {\n\
+    if (Helper.isString(fun)) {\n\
+      assert(args.length === 0, 'Cannot evaluate a string with arguments');\n\
+      return /** @type {string} */ (fun);\n\
+    }\n\
+    return `(${fun})(${args.map(serializeArgument).join(',')})`;\n\
+\n\
+    /**\n\
+     * @param {*} arg\n\
+     * @return {string}\n\
+     */\n\
+    function serializeArgument(arg) {\n\
+      if (Object.is(arg, undefined))\n\
+        return 'undefined';\n\
+      return JSON.stringify(arg);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Runtime.ExceptionDetails} exceptionDetails\n\
+   * @return {string}\n\
+   */\n\
+  static getExceptionMessage(exceptionDetails) {\n\
+    if (exceptionDetails.exception)\n\
+      return exceptionDetails.exception.description || exceptionDetails.exception.value;\n\
+    let message = exceptionDetails.text;\n\
+    if (exceptionDetails.stackTrace) {\n\
+      for (const callframe of exceptionDetails.stackTrace.callFrames) {\n\
+        const location = callframe.url + ':' + callframe.lineNumber + ':' + callframe.columnNumber;\n\
+        const functionName = callframe.functionName || '<anonymous>';\n\
+        message += `\\n    at ${functionName} (${location})`;\n\
+      }\n\
+    }\n\
+    return message;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject\n\
+   * @return {*}\n\
+   */\n\
+  static valueFromRemoteObject(remoteObject) {\n\
+    assert(!remoteObject.objectId, 'Cannot extract value when objectId is given');\n\
+    if (remoteObject.unserializableValue) {\n\
+      if (remoteObject.type === 'bigint' && typeof BigInt !== 'undefined')\n\
+        return BigInt(remoteObject.unserializableValue.replace('n', ''));\n\
+      switch (remoteObject.unserializableValue) {\n\
+        case '-0':\n\
+          return -0;\n\
+        case 'NaN':\n\
+          return NaN;\n\
+        case 'Infinity':\n\
+          return Infinity;\n\
+        case '-Infinity':\n\
+          return -Infinity;\n\
+        default:\n\
+          throw new Error('Unsupported unserializable value: ' + remoteObject.unserializableValue);\n\
+      }\n\
+    }\n\
+    return remoteObject.value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject\n\
+   */\n\
+  static async releaseObject(client, remoteObject) {\n\
+    if (!remoteObject.objectId)\n\
+      return;\n\
+    await client.send('Runtime.releaseObject', {objectId: remoteObject.objectId}).catch(error => {\n\
+      // Exceptions might happen in case of a page been navigated or closed.\n\
+      // Swallow these since they are harmless and we don't leak anything in this case.\n\
+      debugError(error);\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Object} classType\n\
+   */\n\
+  static installAsyncStackHooks(classType) {\n\
+    for (const methodName of Reflect.ownKeys(classType.prototype)) {\n\
+      const method = Reflect.get(classType.prototype, methodName);\n\
+      if (methodName === 'constructor' || typeof methodName !== 'string' || methodName.startsWith('_') || typeof method !== 'function' || method.constructor.name !== 'AsyncFunction')\n\
+        continue;\n\
+      Reflect.set(classType.prototype, methodName, function(...args) {\n\
+        const syncStack = {};\n\
+        Error.captureStackTrace(syncStack);\n\
+        return method.call(this, ...args).catch(e => {\n\
+          const stack = syncStack.stack.substring(syncStack.stack.indexOf('\\n') + 1);\n\
+          const clientStack = stack.substring(stack.indexOf('\\n'));\n\
+          if (e instanceof Error && e.stack && !e.stack.includes(clientStack))\n\
+            e.stack += '\\n  -- ASYNC --\\n' + stack;\n\
+          throw e;\n\
+        });\n\
+      });\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!NodeJS.EventEmitter} emitter\n\
+   * @param {(string|symbol)} eventName\n\
+   * @param {function(?):void} handler\n\
+   * @return {{emitter: !NodeJS.EventEmitter, eventName: (string|symbol), handler: function(?)}}\n\
+   */\n\
+  static addEventListener(emitter, eventName, handler) {\n\
+    emitter.on(eventName, handler);\n\
+    return { emitter, eventName, handler };\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<{emitter: !NodeJS.EventEmitter, eventName: (string|symbol), handler: function(?):void}>} listeners\n\
+   */\n\
+  static removeEventListeners(listeners) {\n\
+    for (const listener of listeners)\n\
+      listener.emitter.removeListener(listener.eventName, listener.handler);\n\
+    listeners.splice(0, listeners.length);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Object} obj\n\
+   * @return {boolean}\n\
+   */\n\
+  static isString(obj) {\n\
+    return typeof obj === 'string' || obj instanceof String;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Object} obj\n\
+   * @return {boolean}\n\
+   */\n\
+  static isNumber(obj) {\n\
+    return typeof obj === 'number' || obj instanceof Number;\n\
+  }\n\
+\n\
+  static promisify(nodeFunction) {\n\
+    function promisified(...args) {\n\
+      return new Promise((resolve, reject) => {\n\
+        function callback(err, ...result) {\n\
+          if (err)\n\
+            return reject(err);\n\
+          if (result.length === 1)\n\
+            return resolve(result[0]);\n\
+          return resolve(result);\n\
+        }\n\
+        nodeFunction.call(null, ...args, callback);\n\
+      });\n\
+    }\n\
+    return promisified;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!NodeJS.EventEmitter} emitter\n\
+   * @param {(string|symbol)} eventName\n\
+   * @param {function} predicate\n\
+   * @return {!Promise}\n\
+   */\n\
+  static waitForEvent(emitter, eventName, predicate, timeout) {\n\
+    let eventTimeout, resolveCallback, rejectCallback;\n\
+    const promise = new Promise((resolve, reject) => {\n\
+      resolveCallback = resolve;\n\
+      rejectCallback = reject;\n\
+    });\n\
+    const listener = Helper.addEventListener(emitter, eventName, event => {\n\
+      if (!predicate(event))\n\
+        return;\n\
+      cleanup();\n\
+      resolveCallback(event);\n\
+    });\n\
+    if (timeout) {\n\
+      eventTimeout = setTimeout(() => {\n\
+        cleanup();\n\
+        rejectCallback(new TimeoutError('Timeout exceeded while waiting for event'));\n\
+      }, timeout);\n\
+    }\n\
+    function cleanup() {\n\
+      Helper.removeEventListeners([listener]);\n\
+      clearTimeout(eventTimeout);\n\
+    }\n\
+    return promise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @template T\n\
+   * @param {!Promise<T>} promise\n\
+   * @param {string} taskName\n\
+   * @param {number} timeout\n\
+   * @return {!Promise<T>}\n\
+   */\n\
+  static async waitWithTimeout(promise, taskName, timeout) {\n\
+    let reject;\n\
+    const timeoutError = new TimeoutError(`waiting for ${taskName} failed: timeout ${timeout}ms exceeded`);\n\
+    const timeoutPromise = new Promise((resolve, x) => reject = x);\n\
+    let timeoutTimer = null;\n\
+    if (timeout)\n\
+      timeoutTimer = setTimeout(() => reject(timeoutError), timeout);\n\
+    try {\n\
+      return await Promise.race([promise, timeoutPromise]);\n\
+    } finally {\n\
+      if (timeoutTimer)\n\
+        clearTimeout(timeoutTimer);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {string} handle\n\
+   * @param {?string} path\n\
+   * @return {!Promise<!Buffer>}\n\
+   */\n\
+  static async readProtocolStream(client, handle, path) {\n\
+    let eof = false;\n\
+    let file;\n\
+    if (path)\n\
+      file = await openAsync(path, 'w');\n\
+    const bufs = [];\n\
+    while (!eof) {\n\
+      const response = await client.send('IO.read', {handle});\n\
+      eof = response.eof;\n\
+      const buf = Buffer.from(response.data, response.base64Encoded ? 'base64' : undefined);\n\
+      bufs.push(buf);\n\
+      if (path)\n\
+        await writeAsync(file, buf);\n\
+    }\n\
+    if (path)\n\
+      await closeAsync(file);\n\
+    await client.send('IO.close', {handle});\n\
+    let resultBuffer = null;\n\
+    try {\n\
+      resultBuffer = Buffer.concat(bufs);\n\
+    } finally {\n\
+      return resultBuffer;\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+const openAsync = Helper.promisify(fs.open);\n\
+const writeAsync = Helper.promisify(fs.write);\n\
+const closeAsync = Helper.promisify(fs.close);\n\
+\n\
+/**\n\
+ * @param {*} value\n\
+ * @param {string=} message\n\
+ */\n\
+function assert(value, message) {\n\
+  if (!value)\n\
+    throw new Error(message);\n\
+}\n\
+\n\
+module.exports = {\n\
+  helper: Helper,\n\
+  assert,\n\
+  debugError\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const helper = Helper;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Accessibility.js\n\
+*/\n\
+/**\n\
+ * Copyright 2018 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the 'License');\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an 'AS IS' BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} SerializedAXNode\n\
+ * @property {string} role\n\
+ *\n\
+ * @property {string=} name\n\
+ * @property {string|number=} value\n\
+ * @property {string=} description\n\
+ *\n\
+ * @property {string=} keyshortcuts\n\
+ * @property {string=} roledescription\n\
+ * @property {string=} valuetext\n\
+ *\n\
+ * @property {boolean=} disabled\n\
+ * @property {boolean=} expanded\n\
+ * @property {boolean=} focused\n\
+ * @property {boolean=} modal\n\
+ * @property {boolean=} multiline\n\
+ * @property {boolean=} multiselectable\n\
+ * @property {boolean=} readonly\n\
+ * @property {boolean=} required\n\
+ * @property {boolean=} selected\n\
+ *\n\
+ * @property {boolean|\"mixed\"=} checked\n\
+ * @property {boolean|\"mixed\"=} pressed\n\
+ *\n\
+ * @property {number=} level\n\
+ * @property {number=} valuemin\n\
+ * @property {number=} valuemax\n\
+ *\n\
+ * @property {string=} autocomplete\n\
+ * @property {string=} haspopup\n\
+ * @property {string=} invalid\n\
+ * @property {string=} orientation\n\
+ *\n\
+ * @property {Array<SerializedAXNode>=} children\n\
+ */\n\
+\n\
+class Accessibility {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {{interestingOnly?: boolean, root?: ?Puppeteer.ElementHandle}=} options\n\
+   * @return {!Promise<!SerializedAXNode>}\n\
+   */\n\
+  async snapshot(options = {}) {\n\
+    const {\n\
+      interestingOnly = true,\n\
+      root = null,\n\
+    } = options;\n\
+    const {nodes} = await this._client.send('Accessibility.getFullAXTree');\n\
+    let backendNodeId = null;\n\
+    if (root) {\n\
+      const {node} = await this._client.send('DOM.describeNode', {objectId: root._remoteObject.objectId});\n\
+      backendNodeId = node.backendNodeId;\n\
+    }\n\
+    const defaultRoot = AXNode.createTree(nodes);\n\
+    let needle = defaultRoot;\n\
+    if (backendNodeId) {\n\
+      needle = defaultRoot.find(node => node._payload.backendDOMNodeId === backendNodeId);\n\
+      if (!needle)\n\
+        return null;\n\
+    }\n\
+    if (!interestingOnly)\n\
+      return serializeTree(needle)[0];\n\
+\n\
+    /** @type {!Set<!AXNode>} */\n\
+    const interestingNodes = new Set();\n\
+    collectInterestingNodes(interestingNodes, defaultRoot, false);\n\
+    if (!interestingNodes.has(needle))\n\
+      return null;\n\
+    return serializeTree(needle, interestingNodes)[0];\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {!Set<!AXNode>} collection\n\
+ * @param {!AXNode} node\n\
+ * @param {boolean} insideControl\n\
+ */\n\
+function collectInterestingNodes(collection, node, insideControl) {\n\
+  if (node.isInteresting(insideControl))\n\
+    collection.add(node);\n\
+  if (node.isLeafNode())\n\
+    return;\n\
+  insideControl = insideControl || node.isControl();\n\
+  for (const child of node._children)\n\
+    collectInterestingNodes(collection, child, insideControl);\n\
+}\n\
+\n\
+/**\n\
+ * @param {!AXNode} node\n\
+ * @param {!Set<!AXNode>=} whitelistedNodes\n\
+ * @return {!Array<!SerializedAXNode>}\n\
+ */\n\
+function serializeTree(node, whitelistedNodes) {\n\
+  /** @type {!Array<!SerializedAXNode>} */\n\
+  const children = [];\n\
+  for (const child of node._children)\n\
+    children.push(...serializeTree(child, whitelistedNodes));\n\
+\n\
+  if (whitelistedNodes && !whitelistedNodes.has(node))\n\
+    return children;\n\
+\n\
+  const serializedNode = node.serialize();\n\
+  if (children.length)\n\
+    serializedNode.children = children;\n\
+  return [serializedNode];\n\
+}\n\
+\n\
+class AXNode {\n\
+  /**\n\
+   * @param {!Protocol.Accessibility.AXNode} payload\n\
+   */\n\
+  constructor(payload) {\n\
+    this._payload = payload;\n\
+\n\
+    /** @type {!Array<!AXNode>} */\n\
+    this._children = [];\n\
+\n\
+    this._richlyEditable = false;\n\
+    this._editable = false;\n\
+    this._focusable = false;\n\
+    this._expanded = false;\n\
+    this._name = this._payload.name ? this._payload.name.value : '';\n\
+    this._role = this._payload.role ? this._payload.role.value : 'Unknown';\n\
+    this._cachedHasFocusableChild;\n\
+\n\
+    for (const property of this._payload.properties || []) {\n\
+      if (property.name === 'editable') {\n\
+        this._richlyEditable = property.value.value === 'richtext';\n\
+        this._editable = true;\n\
+      }\n\
+      if (property.name === 'focusable')\n\
+        this._focusable = property.value.value;\n\
+      if (property.name === 'expanded')\n\
+        this._expanded = property.value.value;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  _isPlainTextField() {\n\
+    if (this._richlyEditable)\n\
+      return false;\n\
+    if (this._editable)\n\
+      return true;\n\
+    return this._role === 'textbox' || this._role === 'ComboBox' || this._role === 'searchbox';\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  _isTextOnlyObject() {\n\
+    const role = this._role;\n\
+    return (role === 'LineBreak' || role === 'text' ||\n\
+            role === 'InlineTextBox');\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  _hasFocusableChild() {\n\
+    if (this._cachedHasFocusableChild === undefined) {\n\
+      this._cachedHasFocusableChild = false;\n\
+      for (const child of this._children) {\n\
+        if (child._focusable || child._hasFocusableChild()) {\n\
+          this._cachedHasFocusableChild = true;\n\
+          break;\n\
+        }\n\
+      }\n\
+    }\n\
+    return this._cachedHasFocusableChild;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {function(AXNode):boolean} predicate\n\
+   * @return {?AXNode}\n\
+   */\n\
+  find(predicate) {\n\
+    if (predicate(this))\n\
+      return this;\n\
+    for (const child of this._children) {\n\
+      const result = child.find(predicate);\n\
+      if (result)\n\
+        return result;\n\
+    }\n\
+    return null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isLeafNode() {\n\
+    if (!this._children.length)\n\
+      return true;\n\
+\n\
+    // These types of objects may have children that we use as internal\n\
+    // implementation details, but we want to expose them as leaves to platform\n\
+    // accessibility APIs because screen readers might be confused if they find\n\
+    // any children.\n\
+    if (this._isPlainTextField() || this._isTextOnlyObject())\n\
+      return true;\n\
+\n\
+    // Roles whose children are only presentational according to the ARIA and\n\
+    // HTML5 Specs should be hidden from screen readers.\n\
+    // (Note that whilst ARIA buttons can have only presentational children, HTML5\n\
+    // buttons are allowed to have content.)\n\
+    switch (this._role) {\n\
+      case 'doc-cover':\n\
+      case 'graphics-symbol':\n\
+      case 'img':\n\
+      case 'Meter':\n\
+      case 'scrollbar':\n\
+      case 'slider':\n\
+      case 'separator':\n\
+      case 'progressbar':\n\
+        return true;\n\
+      default:\n\
+        break;\n\
+    }\n\
+\n\
+    // Here and below: Android heuristics\n\
+    if (this._hasFocusableChild())\n\
+      return false;\n\
+    if (this._focusable && this._name)\n\
+      return true;\n\
+    if (this._role === 'heading' && this._name)\n\
+      return true;\n\
+    return false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isControl() {\n\
+    switch (this._role) {\n\
+      case 'button':\n\
+      case 'checkbox':\n\
+      case 'ColorWell':\n\
+      case 'combobox':\n\
+      case 'DisclosureTriangle':\n\
+      case 'listbox':\n\
+      case 'menu':\n\
+      case 'menubar':\n\
+      case 'menuitem':\n\
+      case 'menuitemcheckbox':\n\
+      case 'menuitemradio':\n\
+      case 'radio':\n\
+      case 'scrollbar':\n\
+      case 'searchbox':\n\
+      case 'slider':\n\
+      case 'spinbutton':\n\
+      case 'switch':\n\
+      case 'tab':\n\
+      case 'textbox':\n\
+      case 'tree':\n\
+        return true;\n\
+      default:\n\
+        return false;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} insideControl\n\
+   * @return {boolean}\n\
+   */\n\
+  isInteresting(insideControl) {\n\
+    const role = this._role;\n\
+    if (role === 'Ignored')\n\
+      return false;\n\
+\n\
+    if (this._focusable || this._richlyEditable)\n\
+      return true;\n\
+\n\
+    // If it's not focusable but has a control role, then it's interesting.\n\
+    if (this.isControl())\n\
+      return true;\n\
+\n\
+    // A non focusable child of a control is not interesting\n\
+    if (insideControl)\n\
+      return false;\n\
+\n\
+    return this.isLeafNode() && !!this._name;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!SerializedAXNode}\n\
+   */\n\
+  serialize() {\n\
+    /** @type {!Map<string, number|string|boolean>} */\n\
+    const properties = new Map();\n\
+    for (const property of this._payload.properties || [])\n\
+      properties.set(property.name.toLowerCase(), property.value.value);\n\
+    if (this._payload.name)\n\
+      properties.set('name', this._payload.name.value);\n\
+    if (this._payload.value)\n\
+      properties.set('value', this._payload.value.value);\n\
+    if (this._payload.description)\n\
+      properties.set('description', this._payload.description.value);\n\
+\n\
+    /** @type {SerializedAXNode} */\n\
+    const node = {\n\
+      role: this._role\n\
+    };\n\
+\n\
+    /** @type {!Array<keyof SerializedAXNode>} */\n\
+    const userStringProperties = [\n\
+      'name',\n\
+      'value',\n\
+      'description',\n\
+      'keyshortcuts',\n\
+      'roledescription',\n\
+      'valuetext',\n\
+    ];\n\
+    for (const userStringProperty of userStringProperties) {\n\
+      if (!properties.has(userStringProperty))\n\
+        continue;\n\
+      node[userStringProperty] = properties.get(userStringProperty);\n\
+    }\n\
+\n\
+    /** @type {!Array<keyof SerializedAXNode>} */\n\
+    const booleanProperties = [\n\
+      'disabled',\n\
+      'expanded',\n\
+      'focused',\n\
+      'modal',\n\
+      'multiline',\n\
+      'multiselectable',\n\
+      'readonly',\n\
+      'required',\n\
+      'selected',\n\
+    ];\n\
+    for (const booleanProperty of booleanProperties) {\n\
+      // WebArea's treat focus differently than other nodes. They report whether their frame  has focus,\n\
+      // not whether focus is specifically on the root node.\n\
+      if (booleanProperty === 'focused' && this._role === 'WebArea')\n\
+        continue;\n\
+      const value = properties.get(booleanProperty);\n\
+      if (!value)\n\
+        continue;\n\
+      node[booleanProperty] = value;\n\
+    }\n\
+\n\
+    /** @type {!Array<keyof SerializedAXNode>} */\n\
+    const tristateProperties = [\n\
+      'checked',\n\
+      'pressed',\n\
+    ];\n\
+    for (const tristateProperty of tristateProperties) {\n\
+      if (!properties.has(tristateProperty))\n\
+        continue;\n\
+      const value = properties.get(tristateProperty);\n\
+      node[tristateProperty] = value === 'mixed' ? 'mixed' : value === 'true' ? true : false;\n\
+    }\n\
+    /** @type {!Array<keyof SerializedAXNode>} */\n\
+    const numericalProperties = [\n\
+      'level',\n\
+      'valuemax',\n\
+      'valuemin',\n\
+    ];\n\
+    for (const numericalProperty of numericalProperties) {\n\
+      if (!properties.has(numericalProperty))\n\
+        continue;\n\
+      node[numericalProperty] = properties.get(numericalProperty);\n\
+    }\n\
+    /** @type {!Array<keyof SerializedAXNode>} */\n\
+    const tokenProperties = [\n\
+      'autocomplete',\n\
+      'haspopup',\n\
+      'invalid',\n\
+      'orientation',\n\
+    ];\n\
+    for (const tokenProperty of tokenProperties) {\n\
+      const value = properties.get(tokenProperty);\n\
+      if (!value || value === 'false')\n\
+        continue;\n\
+      node[tokenProperty] = value;\n\
+    }\n\
+    return node;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<!Protocol.Accessibility.AXNode>} payloads\n\
+   * @return {!AXNode}\n\
+   */\n\
+  static createTree(payloads) {\n\
+    /** @type {!Map<string, !AXNode>} */\n\
+    const nodeById = new Map();\n\
+    for (const payload of payloads)\n\
+      nodeById.set(payload.nodeId, new AXNode(payload));\n\
+    for (const node of nodeById.values()) {\n\
+      for (const childId of node._payload.childIds || [])\n\
+        node._children.push(nodeById.get(childId));\n\
+    }\n\
+    return nodeById.values().next().value;\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Accessibility};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Browser.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const { helper, assert } = require('./helper');\n\
+// const {Target} = require('./Target');\n\
+// const EventEmitter = require('events');\n\
+// const {TaskQueue} = require('./TaskQueue');\n\
+// const {Events} = require('./Events');\n\
+\n\
+class Browser extends EventEmitter {\n\
+  /**\n\
+   * @param {!Puppeteer.Connection} connection\n\
+   * @param {!Array<string>} contextIds\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {?Puppeteer.Viewport} defaultViewport\n\
+   * @param {?Puppeteer.ChildProcess} process\n\
+   * @param {function()=} closeCallback\n\
+   */\n\
+  static async create(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {\n\
+    const browser = new Browser(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback);\n\
+    await connection.send('Target.setDiscoverTargets', {discover: true});\n\
+    return browser;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Connection} connection\n\
+   * @param {!Array<string>} contextIds\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {?Puppeteer.Viewport} defaultViewport\n\
+   * @param {?Puppeteer.ChildProcess} process\n\
+   * @param {(function():Promise)=} closeCallback\n\
+   */\n\
+  constructor(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {\n\
+    super();\n\
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;\n\
+    this._defaultViewport = defaultViewport;\n\
+    this._process = process;\n\
+    this._screenshotTaskQueue = new TaskQueue();\n\
+    this._connection = connection;\n\
+    this._closeCallback = closeCallback || new Function();\n\
+\n\
+    this._defaultContext = new BrowserContext(this._connection, this, null);\n\
+    /** @type {Map<string, BrowserContext>} */\n\
+    this._contexts = new Map();\n\
+    for (const contextId of contextIds)\n\
+      this._contexts.set(contextId, new BrowserContext(this._connection, this, contextId));\n\
+\n\
+    /** @type {Map<string, Target>} */\n\
+    this._targets = new Map();\n\
+    this._connection.on(Events.Connection.Disconnected, () => this.emit(Events.Browser.Disconnected));\n\
+    this._connection.on('Target.targetCreated', this._targetCreated.bind(this));\n\
+    this._connection.on('Target.targetDestroyed', this._targetDestroyed.bind(this));\n\
+    this._connection.on('Target.targetInfoChanged', this._targetInfoChanged.bind(this));\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.ChildProcess}\n\
+   */\n\
+  process() {\n\
+    return this._process;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!BrowserContext>}\n\
+   */\n\
+  async createIncognitoBrowserContext() {\n\
+    const {browserContextId} = await this._connection.send('Target.createBrowserContext');\n\
+    const context = new BrowserContext(this._connection, this, browserContextId);\n\
+    this._contexts.set(browserContextId, context);\n\
+    return context;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!BrowserContext>}\n\
+   */\n\
+  browserContexts() {\n\
+    return [this._defaultContext, ...Array.from(this._contexts.values())];\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!BrowserContext}\n\
+   */\n\
+  defaultBrowserContext() {\n\
+    return this._defaultContext;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?string} contextId\n\
+   */\n\
+  async _disposeContext(contextId) {\n\
+    await this._connection.send('Target.disposeBrowserContext', {browserContextId: contextId || undefined});\n\
+    this._contexts.delete(contextId);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Target.targetCreatedPayload} event\n\
+   */\n\
+  async _targetCreated(event) {\n\
+    const targetInfo = event.targetInfo;\n\
+    const {browserContextId} = targetInfo;\n\
+    const context = (browserContextId && this._contexts.has(browserContextId)) ? this._contexts.get(browserContextId) : this._defaultContext;\n\
+\n\
+    const target = new Target(targetInfo, context, () => this._connection.createSession(targetInfo), this._ignoreHTTPSErrors, this._defaultViewport, this._screenshotTaskQueue);\n\
+    assert(!this._targets.has(event.targetInfo.targetId), 'Target should not exist before targetCreated');\n\
+    this._targets.set(event.targetInfo.targetId, target);\n\
+\n\
+    if (await target._initializedPromise) {\n\
+      this.emit(Events.Browser.TargetCreated, target);\n\
+      context.emit(Events.BrowserContext.TargetCreated, target);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {{targetId: string}} event\n\
+   */\n\
+  async _targetDestroyed(event) {\n\
+    const target = this._targets.get(event.targetId);\n\
+    target._initializedCallback(false);\n\
+    this._targets.delete(event.targetId);\n\
+    target._closedCallback();\n\
+    if (await target._initializedPromise) {\n\
+      this.emit(Events.Browser.TargetDestroyed, target);\n\
+      target.browserContext().emit(Events.BrowserContext.TargetDestroyed, target);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Target.targetInfoChangedPayload} event\n\
+   */\n\
+  _targetInfoChanged(event) {\n\
+    const target = this._targets.get(event.targetInfo.targetId);\n\
+    assert(target, 'target should exist before targetInfoChanged');\n\
+    const previousURL = target.url();\n\
+    const wasInitialized = target._isInitialized;\n\
+    target._targetInfoChanged(event.targetInfo);\n\
+    if (wasInitialized && previousURL !== target.url()) {\n\
+      this.emit(Events.Browser.TargetChanged, target);\n\
+      target.browserContext().emit(Events.BrowserContext.TargetChanged, target);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  wsEndpoint() {\n\
+    return this._connection.url();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Puppeteer.Page>}\n\
+   */\n\
+  async newPage() {\n\
+    return this._defaultContext.newPage();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?string} contextId\n\
+   * @return {!Promise<!Puppeteer.Page>}\n\
+   */\n\
+  async _createPageInContext(contextId) {\n\
+    const {targetId} = await this._connection.send('Target.createTarget', {url: 'about:blank', browserContextId: contextId || undefined});\n\
+    const target = await this._targets.get(targetId);\n\
+    assert(await target._initializedPromise, 'Failed to create target for page');\n\
+    const page = await target.page();\n\
+    return page;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Target>}\n\
+   */\n\
+  targets() {\n\
+    return Array.from(this._targets.values()).filter(target => target._isInitialized);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Target}\n\
+   */\n\
+  target() {\n\
+    return this.targets().find(target => target.type() === 'browser');\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {function(!Target):boolean} predicate\n\
+   * @param {{timeout?: number}=} options\n\
+   * @return {!Promise<!Target>}\n\
+   */\n\
+  async waitForTarget(predicate, options = {}) {\n\
+    const {\n\
+      timeout = 30000\n\
+    } = options;\n\
+    const existingTarget = this.targets().find(predicate);\n\
+    if (existingTarget)\n\
+      return existingTarget;\n\
+    let resolve;\n\
+    const targetPromise = new Promise(x => resolve = x);\n\
+    this.on(Events.Browser.TargetCreated, check);\n\
+    this.on(Events.Browser.TargetChanged, check);\n\
+    try {\n\
+      if (!timeout)\n\
+        return await targetPromise;\n\
+      return await helper.waitWithTimeout(targetPromise, 'target', timeout);\n\
+    } finally {\n\
+      this.removeListener(Events.Browser.TargetCreated, check);\n\
+      this.removeListener(Events.Browser.TargetChanged, check);\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {!Target} target\n\
+     */\n\
+    function check(target) {\n\
+      if (predicate(target))\n\
+        resolve(target);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!Puppeteer.Page>>}\n\
+   */\n\
+  async pages() {\n\
+    const contextPages = await Promise.all(this.browserContexts().map(context => context.pages()));\n\
+    // Flatten array.\n\
+    return contextPages.reduce((acc, x) => acc.concat(x), []);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async version() {\n\
+    const version = await this._getVersion();\n\
+    return version.product;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async userAgent() {\n\
+    const version = await this._getVersion();\n\
+    return version.userAgent;\n\
+  }\n\
+\n\
+  async close() {\n\
+    await this._closeCallback.call(null);\n\
+    this.disconnect();\n\
+  }\n\
+\n\
+  disconnect() {\n\
+    this._connection.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isConnected() {\n\
+    return !this._connection._closed;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Object>}\n\
+   */\n\
+  _getVersion() {\n\
+    return this._connection.send('Browser.getVersion');\n\
+  }\n\
+}\n\
+\n\
+class BrowserContext extends EventEmitter {\n\
+  /**\n\
+   * @param {!Puppeteer.Connection} connection\n\
+   * @param {!Browser} browser\n\
+   * @param {?string} contextId\n\
+   */\n\
+  constructor(connection, browser, contextId) {\n\
+    super();\n\
+    this._connection = connection;\n\
+    this._browser = browser;\n\
+    this._id = contextId;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Target>} target\n\
+   */\n\
+  targets() {\n\
+    return this._browser.targets().filter(target => target.browserContext() === this);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {function(!Target):boolean} predicate\n\
+   * @param {{timeout?: number}=} options\n\
+   * @return {!Promise<!Target>}\n\
+   */\n\
+  waitForTarget(predicate, options) {\n\
+    return this._browser.waitForTarget(target => target.browserContext() === this && predicate(target), options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!Puppeteer.Page>>}\n\
+   */\n\
+  async pages() {\n\
+    const pages = await Promise.all(\n\
+        this.targets()\n\
+            .filter(target => target.type() === 'page')\n\
+            .map(target => target.page())\n\
+    );\n\
+    return pages.filter(page => !!page);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isIncognito() {\n\
+    return !!this._id;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} origin\n\
+   * @param {!Array<string>} permissions\n\
+   */\n\
+  async overridePermissions(origin, permissions) {\n\
+    const webPermissionToProtocol = new Map([\n\
+      ['geolocation', 'geolocation'],\n\
+      ['midi', 'midi'],\n\
+      ['notifications', 'notifications'],\n\
+      ['push', 'push'],\n\
+      ['camera', 'videoCapture'],\n\
+      ['microphone', 'audioCapture'],\n\
+      ['background-sync', 'backgroundSync'],\n\
+      ['ambient-light-sensor', 'sensors'],\n\
+      ['accelerometer', 'sensors'],\n\
+      ['gyroscope', 'sensors'],\n\
+      ['magnetometer', 'sensors'],\n\
+      ['accessibility-events', 'accessibilityEvents'],\n\
+      ['clipboard-read', 'clipboardRead'],\n\
+      ['clipboard-write', 'clipboardWrite'],\n\
+      ['payment-handler', 'paymentHandler'],\n\
+      // chrome-specific permissions we have.\n\
+      ['midi-sysex', 'midiSysex'],\n\
+    ]);\n\
+    permissions = permissions.map(permission => {\n\
+      const protocolPermission = webPermissionToProtocol.get(permission);\n\
+      if (!protocolPermission)\n\
+        throw new Error('Unknown permission: ' + permission);\n\
+      return protocolPermission;\n\
+    });\n\
+    await this._connection.send('Browser.grantPermissions', {origin, browserContextId: this._id || undefined, permissions});\n\
+  }\n\
+\n\
+  async clearPermissionOverrides() {\n\
+    await this._connection.send('Browser.resetPermissions', {browserContextId: this._id || undefined});\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Puppeteer.Page>}\n\
+   */\n\
+  newPage() {\n\
+    return this._browser._createPageInContext(this._id);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Browser}\n\
+   */\n\
+  browser() {\n\
+    return this._browser;\n\
+  }\n\
+\n\
+  async close() {\n\
+    assert(this._id, 'Non-incognito profiles cannot be closed!');\n\
+    await this._browser._disposeContext(this._id);\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Browser, BrowserContext};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/BrowserFetcher.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const os = require('os');\n\
+// const fs = require('fs');\n\
+// const path = require('path');\n\
+// const extract = require('extract-zip');\n\
+// const util = require('util');\n\
+// const URL = require('url');\n\
+// const {helper, assert} = require('./helper');\n\
+// const removeRecursive = require('rimraf');\n\
+// @ts-ignore\n\
+// const ProxyAgent = require('https-proxy-agent');\n\
+// @ts-ignore\n\
+// const getProxyForUrl = require('proxy-from-env').getProxyForUrl;\n\
+\n\
+const DEFAULT_DOWNLOAD_HOST = 'https://storage.googleapis.com';\n\
+\n\
+const supportedPlatforms = ['mac', 'linux', 'win32', 'win64'];\n\
+const downloadURLs = {\n\
+  linux: '%s/chromium-browser-snapshots/Linux_x64/%d/%s.zip',\n\
+  mac: '%s/chromium-browser-snapshots/Mac/%d/%s.zip',\n\
+  win32: '%s/chromium-browser-snapshots/Win/%d/%s.zip',\n\
+  win64: '%s/chromium-browser-snapshots/Win_x64/%d/%s.zip',\n\
+};\n\
+\n\
+/**\n\
+ * @param {string} platform\n\
+ * @param {string} revision\n\
+ * @return {string}\n\
+ */\n\
+function archiveName(platform, revision) {\n\
+  if (platform === 'linux')\n\
+    return 'chrome-linux';\n\
+  if (platform === 'mac')\n\
+    return 'chrome-mac';\n\
+  if (platform === 'win32' || platform === 'win64') {\n\
+    // Windows archive name changed at r591479.\n\
+    return parseInt(revision, 10) > 591479 ? 'chrome-win' : 'chrome-win32';\n\
+  }\n\
+  return null;\n\
+}\n\
+\n\
+/**\n\
+ * @param {string} platform\n\
+ * @param {string} host\n\
+ * @param {string} revision\n\
+ * @return {string}\n\
+ */\n\
+function downloadURL(platform, host, revision) {\n\
+  return util.format(downloadURLs[platform], host, revision, archiveName(platform, revision));\n\
+}\n\
+\n\
+const readdirAsync = helper.promisify(fs.readdir.bind(fs));\n\
+const mkdirAsync = helper.promisify(fs.mkdir.bind(fs));\n\
+const unlinkAsync = helper.promisify(fs.unlink.bind(fs));\n\
+const chmodAsync = helper.promisify(fs.chmod.bind(fs));\n\
+\n\
+function existsAsync(filePath) {\n\
+  let fulfill = null;\n\
+  const promise = new Promise(x => fulfill = x);\n\
+  fs.access(filePath, err => fulfill(!err));\n\
+  return promise;\n\
+}\n\
+\n\
+class BrowserFetcher {\n\
+  /**\n\
+   * @param {string} projectRoot\n\
+   * @param {!BrowserFetcher.Options=} options\n\
+   */\n\
+  constructor(projectRoot, options = {}) {\n\
+    this._downloadsFolder = options.path || path.join(projectRoot, '.local-chromium');\n\
+    this._downloadHost = options.host || DEFAULT_DOWNLOAD_HOST;\n\
+    this._platform = options.platform || '';\n\
+    if (!this._platform) {\n\
+      const platform = os.platform();\n\
+      if (platform === 'darwin')\n\
+        this._platform = 'mac';\n\
+      else if (platform === 'linux')\n\
+        this._platform = 'linux';\n\
+      else if (platform === 'win32')\n\
+        this._platform = os.arch() === 'x64' ? 'win64' : 'win32';\n\
+      assert(this._platform, 'Unsupported platform: ' + os.platform());\n\
+    }\n\
+    assert(supportedPlatforms.includes(this._platform), 'Unsupported platform: ' + this._platform);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  platform() {\n\
+    return this._platform;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} revision\n\
+   * @return {!Promise<boolean>}\n\
+   */\n\
+  canDownload(revision) {\n\
+    const url = downloadURL(this._platform, this._downloadHost, revision);\n\
+    let resolve;\n\
+    const promise = new Promise(x => resolve = x);\n\
+    const request = httpRequest(url, 'HEAD', response => {\n\
+      resolve(response.statusCode === 200);\n\
+    });\n\
+    request.on('error', error => {\n\
+      console.error(error);\n\
+      resolve(false);\n\
+    });\n\
+    return promise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} revision\n\
+   * @param {?function(number, number):void} progressCallback\n\
+   * @return {!Promise<!BrowserFetcher.RevisionInfo>}\n\
+   */\n\
+  async download(revision, progressCallback) {\n\
+    const url = downloadURL(this._platform, this._downloadHost, revision);\n\
+    const zipPath = path.join(this._downloadsFolder, `download-${this._platform}-${revision}.zip`);\n\
+    const folderPath = this._getFolderPath(revision);\n\
+    if (await existsAsync(folderPath))\n\
+      return this.revisionInfo(revision);\n\
+    if (!(await existsAsync(this._downloadsFolder)))\n\
+      await mkdirAsync(this._downloadsFolder);\n\
+    try {\n\
+      await downloadFile(url, zipPath, progressCallback);\n\
+      await extractZip(zipPath, folderPath);\n\
+    } finally {\n\
+      if (await existsAsync(zipPath))\n\
+        await unlinkAsync(zipPath);\n\
+    }\n\
+    const revisionInfo = this.revisionInfo(revision);\n\
+    if (revisionInfo)\n\
+      await chmodAsync(revisionInfo.executablePath, 0o755);\n\
+    return revisionInfo;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<string>>}\n\
+   */\n\
+  async localRevisions() {\n\
+    if (!await existsAsync(this._downloadsFolder))\n\
+      return [];\n\
+    const fileNames = await readdirAsync(this._downloadsFolder);\n\
+    return fileNames.map(fileName => parseFolderPath(fileName)).filter(entry => entry && entry.platform === this._platform).map(entry => entry.revision);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} revision\n\
+   */\n\
+  async remove(revision) {\n\
+    const folderPath = this._getFolderPath(revision);\n\
+    assert(await existsAsync(folderPath), `Failed to remove: revision ${revision} is not downloaded`);\n\
+    await new Promise(fulfill => removeRecursive(folderPath, fulfill));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} revision\n\
+   * @return {!BrowserFetcher.RevisionInfo}\n\
+   */\n\
+  revisionInfo(revision) {\n\
+    const folderPath = this._getFolderPath(revision);\n\
+    let executablePath = '';\n\
+    if (this._platform === 'mac')\n\
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'Chromium.app', 'Contents', 'MacOS', 'Chromium');\n\
+    else if (this._platform === 'linux')\n\
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'chrome');\n\
+    else if (this._platform === 'win32' || this._platform === 'win64')\n\
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'chrome.exe');\n\
+    else\n\
+      throw new Error('Unsupported platform: ' + this._platform);\n\
+    const url = downloadURL(this._platform, this._downloadHost, revision);\n\
+    const local = fs.existsSync(folderPath);\n\
+    return {revision, executablePath, folderPath, local, url};\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} revision\n\
+   * @return {string}\n\
+   */\n\
+  _getFolderPath(revision) {\n\
+    return path.join(this._downloadsFolder, this._platform + '-' + revision);\n\
+  }\n\
+}\n\
+\n\
+module.exports = BrowserFetcher;\n\
+\n\
+/**\n\
+ * @param {string} folderPath\n\
+ * @return {?{platform: string, revision: string}}\n\
+ */\n\
+function parseFolderPath(folderPath) {\n\
+  const name = path.basename(folderPath);\n\
+  const splits = name.split('-');\n\
+  if (splits.length !== 2)\n\
+    return null;\n\
+  const [platform, revision] = splits;\n\
+  if (!supportedPlatforms.includes(platform))\n\
+    return null;\n\
+  return {platform, revision};\n\
+}\n\
+\n\
+/**\n\
+ * @param {string} url\n\
+ * @param {string} destinationPath\n\
+ * @param {?function(number, number):void} progressCallback\n\
+ * @return {!Promise}\n\
+ */\n\
+function downloadFile(url, destinationPath, progressCallback) {\n\
+  let fulfill, reject;\n\
+  let downloadedBytes = 0;\n\
+  let totalBytes = 0;\n\
+\n\
+  const promise = new Promise((x, y) => { fulfill = x; reject = y; });\n\
+\n\
+  const request = httpRequest(url, 'GET', response => {\n\
+    if (response.statusCode !== 200) {\n\
+      const error = new Error(`Download failed: server returned code ${response.statusCode}. URL: ${url}`);\n\
+      // consume response data to free up memory\n\
+      response.resume();\n\
+      reject(error);\n\
+      return;\n\
+    }\n\
+    const file = fs.createWriteStream(destinationPath);\n\
+    file.on('finish', () => fulfill());\n\
+    file.on('error', error => reject(error));\n\
+    response.pipe(file);\n\
+    totalBytes = parseInt(/** @type {string} */ (response.headers['content-length']), 10);\n\
+    if (progressCallback)\n\
+      response.on('data', onData);\n\
+  });\n\
+  request.on('error', error => reject(error));\n\
+  return promise;\n\
+\n\
+  function onData(chunk) {\n\
+    downloadedBytes += chunk.length;\n\
+    progressCallback(downloadedBytes, totalBytes);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {string} zipPath\n\
+ * @param {string} folderPath\n\
+ * @return {!Promise<?Error>}\n\
+ */\n\
+function extractZip(zipPath, folderPath) {\n\
+  return new Promise((fulfill, reject) => extract(zipPath, {dir: folderPath}, err => {\n\
+    if (err)\n\
+      reject(err);\n\
+    else\n\
+      fulfill();\n\
+  }));\n\
+}\n\
+\n\
+function httpRequest(url, method, response) {\n\
+  /** @type {Object} */\n\
+  let options = URL.parse(url);\n\
+  options.method = method;\n\
+\n\
+  const proxyURL = getProxyForUrl(url);\n\
+  if (proxyURL) {\n\
+    if (url.startsWith('http:')) {\n\
+      const proxy = URL.parse(proxyURL);\n\
+      options = {\n\
+        path: options.href,\n\
+        host: proxy.hostname,\n\
+        port: proxy.port,\n\
+      };\n\
+    } else {\n\
+      /** @type {Object} */\n\
+      const parsedProxyURL = URL.parse(proxyURL);\n\
+      parsedProxyURL.secureProxy = parsedProxyURL.protocol === 'https:';\n\
+\n\
+      options.agent = new ProxyAgent(parsedProxyURL);\n\
+      options.rejectUnauthorized = false;\n\
+    }\n\
+  }\n\
+\n\
+  const requestCallback = res => {\n\
+    if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location)\n\
+      httpRequest(res.headers.location, method, response);\n\
+    else\n\
+      response(res);\n\
+  };\n\
+  const request = options.protocol === 'https:' ?\n\
+    require('https').request(options, requestCallback) :\n\
+    require('http').request(options, requestCallback);\n\
+  request.end();\n\
+  return request;\n\
+}\n\
+\n\
+/**\n\
+ * @typedef {Object} BrowserFetcher.Options\n\
+ * @property {string=} platform\n\
+ * @property {string=} path\n\
+ * @property {string=} host\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} BrowserFetcher.RevisionInfo\n\
+ * @property {string} folderPath\n\
+ * @property {string} executablePath\n\
+ * @property {string} url\n\
+ * @property {boolean} local\n\
+ * @property {string} revision\n\
+ */\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Connection.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const {assert} = require('./helper');\n\
+// const {Events} = require('./Events');\n\
+// const debugProtocol = require('debug')('puppeteer:protocol');\n\
+// const EventEmitter = require('events');\n\
+\n\
+class Connection extends EventEmitter {\n\
+  /**\n\
+   * @param {string} url\n\
+   * @param {!Puppeteer.ConnectionTransport} transport\n\
+   * @param {number=} delay\n\
+   */\n\
+  constructor(url, transport, delay = 0) {\n\
+    super();\n\
+    this._url = url;\n\
+    this._lastId = 0;\n\
+    /** @type {!Map<number, {resolve: function, reject: function, error: !Error, method: string}>}*/\n\
+    this._callbacks = new Map();\n\
+    this._delay = delay;\n\
+\n\
+    this._transport = transport;\n\
+    this._transport.onmessage = this._onMessage.bind(this);\n\
+    this._transport.onclose = this._onClose.bind(this);\n\
+    /** @type {!Map<string, !CDPSession>}*/\n\
+    this._sessions = new Map();\n\
+    this._closed = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!CDPSession} session\n\
+   * @return {!Connection}\n\
+   */\n\
+  static fromSession(session) {\n\
+    return session._connection;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} sessionId\n\
+   * @return {?CDPSession}\n\
+   */\n\
+  session(sessionId) {\n\
+    return this._sessions.get(sessionId) || null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} method\n\
+   * @param {!Object=} params\n\
+   * @return {!Promise<?Object>}\n\
+   */\n\
+  send(method, params = {}) {\n\
+    const id = this._rawSend({method, params});\n\
+    return new Promise((resolve, reject) => {\n\
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {*} message\n\
+   * @return {number}\n\
+   */\n\
+  _rawSend(message) {\n\
+    const id = ++this._lastId;\n\
+    message = JSON.stringify(Object.assign({}, message, {id}));\n\
+    debugProtocol('SEND ► ' + message);\n\
+    this._transport.send(message);\n\
+    return id;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} message\n\
+   */\n\
+  async _onMessage(message) {\n\
+    if (this._delay)\n\
+      await new Promise(f => setTimeout(f, this._delay));\n\
+    debugProtocol('◀ RECV ' + message);\n\
+    const object = JSON.parse(message);\n\
+    if (object.method === 'Target.attachedToTarget') {\n\
+      const sessionId = object.params.sessionId;\n\
+      const session = new CDPSession(this, object.params.targetInfo.type, sessionId);\n\
+      this._sessions.set(sessionId, session);\n\
+    } else if (object.method === 'Target.detachedFromTarget') {\n\
+      const session = this._sessions.get(object.params.sessionId);\n\
+      if (session) {\n\
+        session._onClosed();\n\
+        this._sessions.delete(object.params.sessionId);\n\
+      }\n\
+    }\n\
+    if (object.sessionId) {\n\
+      const session = this._sessions.get(object.sessionId);\n\
+      if (session)\n\
+        session._onMessage(object);\n\
+    } else if (object.id) {\n\
+      const callback = this._callbacks.get(object.id);\n\
+      // Callbacks could be all rejected if someone has called `.dispose()`.\n\
+      if (callback) {\n\
+        this._callbacks.delete(object.id);\n\
+        if (object.error)\n\
+          callback.reject(createProtocolError(callback.error, callback.method, object));\n\
+        else\n\
+          callback.resolve(object.result);\n\
+      }\n\
+    } else {\n\
+      this.emit(object.method, object.params);\n\
+    }\n\
+  }\n\
+\n\
+  _onClose() {\n\
+    if (this._closed)\n\
+      return;\n\
+    this._closed = true;\n\
+    this._transport.onmessage = null;\n\
+    this._transport.onclose = null;\n\
+    for (const callback of this._callbacks.values())\n\
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));\n\
+    this._callbacks.clear();\n\
+    for (const session of this._sessions.values())\n\
+      session._onClosed();\n\
+    this._sessions.clear();\n\
+    this.emit(Events.Connection.Disconnected);\n\
+  }\n\
+\n\
+  dispose() {\n\
+    this._onClose();\n\
+    this._transport.close();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Protocol.Target.TargetInfo} targetInfo\n\
+   * @return {!Promise<!CDPSession>}\n\
+   */\n\
+  async createSession(targetInfo) {\n\
+    const {sessionId} = await this.send('Target.attachToTarget', {targetId: targetInfo.targetId, flatten: true});\n\
+    return this._sessions.get(sessionId);\n\
+  }\n\
+}\n\
+\n\
+class CDPSession extends EventEmitter {\n\
+  /**\n\
+   * @param {!Connection} connection\n\
+   * @param {string} targetType\n\
+   * @param {string} sessionId\n\
+   */\n\
+  constructor(connection, targetType, sessionId) {\n\
+    super();\n\
+    /** @type {!Map<number, {resolve: function, reject: function, error: !Error, method: string}>}*/\n\
+    this._callbacks = new Map();\n\
+    this._connection = connection;\n\
+    this._targetType = targetType;\n\
+    this._sessionId = sessionId;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} method\n\
+   * @param {!Object=} params\n\
+   * @return {!Promise<?Object>}\n\
+   */\n\
+  send(method, params = {}) {\n\
+    if (!this._connection)\n\
+      return Promise.reject(new Error(`Protocol error (${method}): Session closed. Most likely the ${this._targetType} has been closed.`));\n\
+    const id = this._connection._rawSend({sessionId: this._sessionId, method, params});\n\
+    return new Promise((resolve, reject) => {\n\
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {{id?: number, method: string, params: Object, error: {message: string, data: any}, result?: *}} object\n\
+   */\n\
+  _onMessage(object) {\n\
+    if (object.id && this._callbacks.has(object.id)) {\n\
+      const callback = this._callbacks.get(object.id);\n\
+      this._callbacks.delete(object.id);\n\
+      if (object.error)\n\
+        callback.reject(createProtocolError(callback.error, callback.method, object));\n\
+      else\n\
+        callback.resolve(object.result);\n\
+    } else {\n\
+      assert(!object.id);\n\
+      this.emit(object.method, object.params);\n\
+    }\n\
+  }\n\
+\n\
+  async detach() {\n\
+    if (!this._connection)\n\
+      throw new Error(`Session already detached. Most likely the ${this._targetType} has been closed.`);\n\
+    await this._connection.send('Target.detachFromTarget',  {sessionId: this._sessionId});\n\
+  }\n\
+\n\
+  _onClosed() {\n\
+    for (const callback of this._callbacks.values())\n\
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));\n\
+    this._callbacks.clear();\n\
+    this._connection = null;\n\
+    this.emit(Events.CDPSession.Disconnected);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {!Error} error\n\
+ * @param {string} method\n\
+ * @param {{error: {message: string, data: any}}} object\n\
+ * @return {!Error}\n\
+ */\n\
+function createProtocolError(error, method, object) {\n\
+  let message = `Protocol error (${method}): ${object.error.message}`;\n\
+  if ('data' in object.error)\n\
+    message += ` ${object.error.data}`;\n\
+  return rewriteError(error, message);\n\
+}\n\
+\n\
+/**\n\
+ * @param {!Error} error\n\
+ * @param {string} message\n\
+ * @return {!Error}\n\
+ */\n\
+function rewriteError(error, message) {\n\
+  error.message = message;\n\
+  return error;\n\
+}\n\
+\n\
+module.exports = {Connection, CDPSession};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Coverage.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {helper, debugError, assert} = require('./helper');\n\
+\n\
+// const {EVALUATION_SCRIPT_URL} = require('./ExecutionContext');\n\
+\n\
+/**\n\
+ * @typedef {Object} CoverageEntry\n\
+ * @property {string} url\n\
+ * @property {string} text\n\
+ * @property {!Array<!{start: number, end: number}>} ranges\n\
+ */\n\
+\n\
+class Coverage {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._jsCoverage = new JSCoverage(client);\n\
+    this._cssCoverage = new CSSCoverage(client);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{resetOnNavigation?: boolean, reportAnonymousScripts?: boolean}} options\n\
+   */\n\
+  async startJSCoverage(options) {\n\
+    return await this._jsCoverage.start(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!CoverageEntry>>}\n\
+   */\n\
+  async stopJSCoverage() {\n\
+    return await this._jsCoverage.stop();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {{resetOnNavigation?: boolean}=} options\n\
+   */\n\
+  async startCSSCoverage(options) {\n\
+    return await this._cssCoverage.start(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!CoverageEntry>>}\n\
+   */\n\
+  async stopCSSCoverage() {\n\
+    return await this._cssCoverage.stop();\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Coverage};\n\
+\n\
+class JSCoverage {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+    this._enabled = false;\n\
+    this._scriptURLs = new Map();\n\
+    this._scriptSources = new Map();\n\
+    this._eventListeners = [];\n\
+    this._resetOnNavigation = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{resetOnNavigation?: boolean, reportAnonymousScripts?: boolean}} options\n\
+   */\n\
+  async start(options = {}) {\n\
+    assert(!this._enabled, 'JSCoverage is already enabled');\n\
+    const {\n\
+      resetOnNavigation = true,\n\
+      reportAnonymousScripts = false\n\
+    } = options;\n\
+    this._resetOnNavigation = resetOnNavigation;\n\
+    this._reportAnonymousScripts = reportAnonymousScripts;\n\
+    this._enabled = true;\n\
+    this._scriptURLs.clear();\n\
+    this._scriptSources.clear();\n\
+    this._eventListeners = [\n\
+      helper.addEventListener(this._client, 'Debugger.scriptParsed', this._onScriptParsed.bind(this)),\n\
+      helper.addEventListener(this._client, 'Runtime.executionContextsCleared', this._onExecutionContextsCleared.bind(this)),\n\
+    ];\n\
+    await Promise.all([\n\
+      this._client.send('Profiler.enable'),\n\
+      this._client.send('Profiler.startPreciseCoverage', {callCount: false, detailed: true}),\n\
+      this._client.send('Debugger.enable'),\n\
+      this._client.send('Debugger.setSkipAllPauses', {skip: true})\n\
+    ]);\n\
+  }\n\
+\n\
+  _onExecutionContextsCleared() {\n\
+    if (!this._resetOnNavigation)\n\
+      return;\n\
+    this._scriptURLs.clear();\n\
+    this._scriptSources.clear();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Debugger.scriptParsedPayload} event\n\
+   */\n\
+  async _onScriptParsed(event) {\n\
+    // Ignore puppeteer-injected scripts\n\
+    if (event.url === EVALUATION_SCRIPT_URL)\n\
+      return;\n\
+    // Ignore other anonymous scripts unless the reportAnonymousScripts option is true.\n\
+    if (!event.url && !this._reportAnonymousScripts)\n\
+      return;\n\
+    try {\n\
+      const response = await this._client.send('Debugger.getScriptSource', {scriptId: event.scriptId});\n\
+      this._scriptURLs.set(event.scriptId, event.url);\n\
+      this._scriptSources.set(event.scriptId, response.scriptSource);\n\
+    } catch (e) {\n\
+      // This might happen if the page has already navigated away.\n\
+      debugError(e);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!CoverageEntry>>}\n\
+   */\n\
+  async stop() {\n\
+    assert(this._enabled, 'JSCoverage is not enabled');\n\
+    this._enabled = false;\n\
+    const [profileResponse] = await Promise.all([\n\
+      this._client.send('Profiler.takePreciseCoverage'),\n\
+      this._client.send('Profiler.stopPreciseCoverage'),\n\
+      this._client.send('Profiler.disable'),\n\
+      this._client.send('Debugger.disable'),\n\
+    ]);\n\
+    helper.removeEventListeners(this._eventListeners);\n\
+\n\
+    const coverage = [];\n\
+    for (const entry of profileResponse.result) {\n\
+      let url = this._scriptURLs.get(entry.scriptId);\n\
+      if (!url && this._reportAnonymousScripts)\n\
+        url = 'debugger://VM' + entry.scriptId;\n\
+      const text = this._scriptSources.get(entry.scriptId);\n\
+      if (text === undefined || url === undefined)\n\
+        continue;\n\
+      const flattenRanges = [];\n\
+      for (const func of entry.functions)\n\
+        flattenRanges.push(...func.ranges);\n\
+      const ranges = convertToDisjointRanges(flattenRanges);\n\
+      coverage.push({url, ranges, text});\n\
+    }\n\
+    return coverage;\n\
+  }\n\
+}\n\
+\n\
+class CSSCoverage {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+    this._enabled = false;\n\
+    this._stylesheetURLs = new Map();\n\
+    this._stylesheetSources = new Map();\n\
+    this._eventListeners = [];\n\
+    this._resetOnNavigation = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {{resetOnNavigation?: boolean}=} options\n\
+   */\n\
+  async start(options = {}) {\n\
+    assert(!this._enabled, 'CSSCoverage is already enabled');\n\
+    const {resetOnNavigation = true} = options;\n\
+    this._resetOnNavigation = resetOnNavigation;\n\
+    this._enabled = true;\n\
+    this._stylesheetURLs.clear();\n\
+    this._stylesheetSources.clear();\n\
+    this._eventListeners = [\n\
+      helper.addEventListener(this._client, 'CSS.styleSheetAdded', this._onStyleSheet.bind(this)),\n\
+      helper.addEventListener(this._client, 'Runtime.executionContextsCleared', this._onExecutionContextsCleared.bind(this)),\n\
+    ];\n\
+    await Promise.all([\n\
+      this._client.send('DOM.enable'),\n\
+      this._client.send('CSS.enable'),\n\
+      this._client.send('CSS.startRuleUsageTracking'),\n\
+    ]);\n\
+  }\n\
+\n\
+  _onExecutionContextsCleared() {\n\
+    if (!this._resetOnNavigation)\n\
+      return;\n\
+    this._stylesheetURLs.clear();\n\
+    this._stylesheetSources.clear();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.CSS.styleSheetAddedPayload} event\n\
+   */\n\
+  async _onStyleSheet(event) {\n\
+    const header = event.header;\n\
+    // Ignore anonymous scripts\n\
+    if (!header.sourceURL)\n\
+      return;\n\
+    try {\n\
+      const response = await this._client.send('CSS.getStyleSheetText', {styleSheetId: header.styleSheetId});\n\
+      this._stylesheetURLs.set(header.styleSheetId, header.sourceURL);\n\
+      this._stylesheetSources.set(header.styleSheetId, response.text);\n\
+    } catch (e) {\n\
+      // This might happen if the page has already navigated away.\n\
+      debugError(e);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Array<!CoverageEntry>>}\n\
+   */\n\
+  async stop() {\n\
+    assert(this._enabled, 'CSSCoverage is not enabled');\n\
+    this._enabled = false;\n\
+    const ruleTrackingResponse = await this._client.send('CSS.stopRuleUsageTracking');\n\
+    await Promise.all([\n\
+      this._client.send('CSS.disable'),\n\
+      this._client.send('DOM.disable'),\n\
+    ]);\n\
+    helper.removeEventListeners(this._eventListeners);\n\
+\n\
+    // aggregate by styleSheetId\n\
+    const styleSheetIdToCoverage = new Map();\n\
+    for (const entry of ruleTrackingResponse.ruleUsage) {\n\
+      let ranges = styleSheetIdToCoverage.get(entry.styleSheetId);\n\
+      if (!ranges) {\n\
+        ranges = [];\n\
+        styleSheetIdToCoverage.set(entry.styleSheetId, ranges);\n\
+      }\n\
+      ranges.push({\n\
+        startOffset: entry.startOffset,\n\
+        endOffset: entry.endOffset,\n\
+        count: entry.used ? 1 : 0,\n\
+      });\n\
+    }\n\
+\n\
+    const coverage = [];\n\
+    for (const styleSheetId of this._stylesheetURLs.keys()) {\n\
+      const url = this._stylesheetURLs.get(styleSheetId);\n\
+      const text = this._stylesheetSources.get(styleSheetId);\n\
+      const ranges = convertToDisjointRanges(styleSheetIdToCoverage.get(styleSheetId) || []);\n\
+      coverage.push({url, ranges, text});\n\
+    }\n\
+\n\
+    return coverage;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {!Array<!{startOffset:number, endOffset:number, count:number}>} nestedRanges\n\
+ * @return {!Array<!{start:number, end:number}>}\n\
+ */\n\
+function convertToDisjointRanges(nestedRanges) {\n\
+  const points = [];\n\
+  for (const range of nestedRanges) {\n\
+    points.push({ offset: range.startOffset, type: 0, range });\n\
+    points.push({ offset: range.endOffset, type: 1, range });\n\
+  }\n\
+  // Sort points to form a valid parenthesis sequence.\n\
+  points.sort((a, b) => {\n\
+    // Sort with increasing offsets.\n\
+    if (a.offset !== b.offset)\n\
+      return a.offset - b.offset;\n\
+    // All \"end\" points should go before \"start\" points.\n\
+    if (a.type !== b.type)\n\
+      return b.type - a.type;\n\
+    const aLength = a.range.endOffset - a.range.startOffset;\n\
+    const bLength = b.range.endOffset - b.range.startOffset;\n\
+    // For two \"start\" points, the one with longer range goes first.\n\
+    if (a.type === 0)\n\
+      return bLength - aLength;\n\
+    // For two \"end\" points, the one with shorter range goes first.\n\
+    return aLength - bLength;\n\
+  });\n\
+\n\
+  const hitCountStack = [];\n\
+  const results = [];\n\
+  let lastOffset = 0;\n\
+  // Run scanning line to intersect all ranges.\n\
+  for (const point of points) {\n\
+    if (hitCountStack.length && lastOffset < point.offset && hitCountStack[hitCountStack.length - 1] > 0) {\n\
+      const lastResult = results.length ? results[results.length - 1] : null;\n\
+      if (lastResult && lastResult.end === lastOffset)\n\
+        lastResult.end = point.offset;\n\
+      else\n\
+        results.push({start: lastOffset, end: point.offset});\n\
+    }\n\
+    lastOffset = point.offset;\n\
+    if (point.type === 0)\n\
+      hitCountStack.push(point.range.count);\n\
+    else\n\
+      hitCountStack.pop();\n\
+  }\n\
+  // Filter out empty ranges.\n\
+  return results.filter(range => range.end - range.start > 1);\n\
+}\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/DOMWorld.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const fs = require('fs');\n\
+// const {helper, assert} = require('./helper');\n\
+// const {LifecycleWatcher} = require('./LifecycleWatcher');\n\
+// const {TimeoutError} = require('./Errors');\n\
+const readFileAsync = helper.promisify(fs.readFile);\n\
+\n\
+/**\n\
+ * @unrestricted\n\
+ */\n\
+class DOMWorld {\n\
+  /**\n\
+   * @param {!Puppeteer.FrameManager} frameManager\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   * @param {!Puppeteer.TimeoutSettings} timeoutSettings\n\
+   */\n\
+  constructor(frameManager, frame, timeoutSettings) {\n\
+    this._frameManager = frameManager;\n\
+    this._frame = frame;\n\
+    this._timeoutSettings = timeoutSettings;\n\
+\n\
+    /** @type {?Promise<!Puppeteer.ElementHandle>} */\n\
+    this._documentPromise = null;\n\
+    /** @type {!Promise<!Puppeteer.ExecutionContext>} */\n\
+    this._contextPromise;\n\
+    this._contextResolveCallback = null;\n\
+    this._setContext(null);\n\
+\n\
+    /** @type {!Set<!WaitTask>} */\n\
+    this._waitTasks = new Set();\n\
+    this._detached = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Frame}\n\
+   */\n\
+  frame() {\n\
+    return this._frame;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?Puppeteer.ExecutionContext} context\n\
+   */\n\
+  _setContext(context) {\n\
+    if (context) {\n\
+      this._contextResolveCallback.call(null, context);\n\
+      this._contextResolveCallback = null;\n\
+      for (const waitTask of this._waitTasks)\n\
+        waitTask.rerun();\n\
+    } else {\n\
+      this._documentPromise = null;\n\
+      this._contextPromise = new Promise(fulfill => {\n\
+        this._contextResolveCallback = fulfill;\n\
+      });\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  _hasContext() {\n\
+    return !this._contextResolveCallback;\n\
+  }\n\
+\n\
+  _detach() {\n\
+    this._detached = true;\n\
+    for (const waitTask of this._waitTasks)\n\
+      waitTask.terminate(new Error('waitForFunction failed: frame got detached.'));\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Puppeteer.ExecutionContext>}\n\
+   */\n\
+  executionContext() {\n\
+    if (this._detached)\n\
+      throw new Error(`Execution Context is not available in detached frame \"${this._frame.url()}\" (are you trying to evaluate?)`);\n\
+    return this._contextPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  async evaluateHandle(pageFunction, ...args) {\n\
+    const context = await this.executionContext();\n\
+    return context.evaluateHandle(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async evaluate(pageFunction, ...args) {\n\
+    const context = await this.executionContext();\n\
+    return context.evaluate(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async $(selector) {\n\
+    const document = await this._document();\n\
+    const value = await document.$(selector);\n\
+    return value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async _document() {\n\
+    if (this._documentPromise)\n\
+      return this._documentPromise;\n\
+    this._documentPromise = this.executionContext().then(async context => {\n\
+      const document = await context.evaluateHandle('document');\n\
+      return document.asElement();\n\
+    });\n\
+    return this._documentPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} expression\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $x(expression) {\n\
+    const document = await this._document();\n\
+    const value = await document.$x(expression);\n\
+    return value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $eval(selector, pageFunction, ...args) {\n\
+    const document = await this._document();\n\
+    return document.$eval(selector, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $$eval(selector, pageFunction, ...args) {\n\
+    const document = await this._document();\n\
+    const value = await document.$$eval(selector, pageFunction, ...args);\n\
+    return value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $$(selector) {\n\
+    const document = await this._document();\n\
+    const value = await document.$$(selector);\n\
+    return value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<String>}\n\
+   */\n\
+  async content() {\n\
+    return await this.evaluate(() => {\n\
+      let retVal = '';\n\
+      if (document.doctype)\n\
+        retVal = new XMLSerializer().serializeToString(document.doctype);\n\
+      if (document.documentElement)\n\
+        retVal += document.documentElement.outerHTML;\n\
+      return retVal;\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} html\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   */\n\
+  async setContent(html, options = {}) {\n\
+    const {\n\
+      waitUntil = ['load'],\n\
+      timeout = this._timeoutSettings.navigationTimeout(),\n\
+    } = options;\n\
+    // We rely upon the fact that document.open() will reset frame lifecycle with \"init\"\n\
+    // lifecycle event. @see https://crrev.com/608658\n\
+    await this.evaluate(html => {\n\
+      document.open();\n\
+      document.write(html);\n\
+      document.close();\n\
+    }, html);\n\
+    const watcher = new LifecycleWatcher(this._frameManager, this._frame, waitUntil, timeout);\n\
+    const error = await Promise.race([\n\
+      watcher.timeoutOrTerminationPromise(),\n\
+      watcher.lifecyclePromise(),\n\
+    ]);\n\
+    watcher.dispose();\n\
+    if (error)\n\
+      throw error;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addScriptTag(options) {\n\
+    const {\n\
+      url = null,\n\
+      path = null,\n\
+      content = null,\n\
+      type = ''\n\
+    } = options;\n\
+    if (url !== null) {\n\
+      try {\n\
+        const context = await this.executionContext();\n\
+        return (await context.evaluateHandle(addScriptUrl, url, type)).asElement();\n\
+      } catch (error) {\n\
+        throw new Error(`Loading script from ${url} failed`);\n\
+      }\n\
+    }\n\
+\n\
+    if (path !== null) {\n\
+      let contents = await readFileAsync(path, 'utf8');\n\
+      contents += '//# sourceURL=' + path.replace(/\\n/g, '');\n\
+      const context = await this.executionContext();\n\
+      return (await context.evaluateHandle(addScriptContent, contents, type)).asElement();\n\
+    }\n\
+\n\
+    if (content !== null) {\n\
+      const context = await this.executionContext();\n\
+      return (await context.evaluateHandle(addScriptContent, content, type)).asElement();\n\
+    }\n\
+\n\
+    throw new Error('Provide an object with a `url`, `path` or `content` property');\n\
+\n\
+    /**\n\
+     * @param {string} url\n\
+     * @param {string} type\n\
+     * @return {!Promise<!HTMLElement>}\n\
+     */\n\
+    async function addScriptUrl(url, type) {\n\
+      const script = document.createElement('script');\n\
+      script.src = url;\n\
+      if (type)\n\
+        script.type = type;\n\
+      const promise = new Promise((res, rej) => {\n\
+        script.onload = res;\n\
+        script.onerror = rej;\n\
+      });\n\
+      document.head.appendChild(script);\n\
+      await promise;\n\
+      return script;\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {string} content\n\
+     * @param {string} type\n\
+     * @return {!HTMLElement}\n\
+     */\n\
+    function addScriptContent(content, type = 'text/javascript') {\n\
+      const script = document.createElement('script');\n\
+      script.type = type;\n\
+      script.text = content;\n\
+      let error = null;\n\
+      script.onerror = e => error = e;\n\
+      document.head.appendChild(script);\n\
+      if (error)\n\
+        throw error;\n\
+      return script;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addStyleTag(options) {\n\
+    const {\n\
+      url = null,\n\
+      path = null,\n\
+      content = null\n\
+    } = options;\n\
+    if (url !== null) {\n\
+      try {\n\
+        const context = await this.executionContext();\n\
+        return (await context.evaluateHandle(addStyleUrl, url)).asElement();\n\
+      } catch (error) {\n\
+        throw new Error(`Loading style from ${url} failed`);\n\
+      }\n\
+    }\n\
+\n\
+    if (path !== null) {\n\
+      let contents = await readFileAsync(path, 'utf8');\n\
+      contents += '/*# sourceURL=' + path.replace(/\\n/g, '') + '*/';\n\
+      const context = await this.executionContext();\n\
+      return (await context.evaluateHandle(addStyleContent, contents)).asElement();\n\
+    }\n\
+\n\
+    if (content !== null) {\n\
+      const context = await this.executionContext();\n\
+      return (await context.evaluateHandle(addStyleContent, content)).asElement();\n\
+    }\n\
+\n\
+    throw new Error('Provide an object with a `url`, `path` or `content` property');\n\
+\n\
+    /**\n\
+     * @param {string} url\n\
+     * @return {!Promise<!HTMLElement>}\n\
+     */\n\
+    async function addStyleUrl(url) {\n\
+      const link = document.createElement('link');\n\
+      link.rel = 'stylesheet';\n\
+      link.href = url;\n\
+      const promise = new Promise((res, rej) => {\n\
+        link.onload = res;\n\
+        link.onerror = rej;\n\
+      });\n\
+      document.head.appendChild(link);\n\
+      await promise;\n\
+      return link;\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {string} content\n\
+     * @return {!Promise<!HTMLElement>}\n\
+     */\n\
+    async function addStyleContent(content) {\n\
+      const style = document.createElement('style');\n\
+      style.type = 'text/css';\n\
+      style.appendChild(document.createTextNode(content));\n\
+      const promise = new Promise((res, rej) => {\n\
+        style.onload = res;\n\
+        style.onerror = rej;\n\
+      });\n\
+      document.head.appendChild(style);\n\
+      await promise;\n\
+      return style;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{delay?: number, button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async click(selector, options) {\n\
+    const handle = await this.$(selector);\n\
+    assert(handle, 'No node found for selector: ' + selector);\n\
+    await handle.click(options);\n\
+    await handle.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async focus(selector) {\n\
+    const handle = await this.$(selector);\n\
+    assert(handle, 'No node found for selector: ' + selector);\n\
+    await handle.focus();\n\
+    await handle.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async hover(selector) {\n\
+    const handle = await this.$(selector);\n\
+    assert(handle, 'No node found for selector: ' + selector);\n\
+    await handle.hover();\n\
+    await handle.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+  * @param {string} selector\n\
+  * @param {!Array<string>} values\n\
+  * @return {!Promise<!Array<string>>}\n\
+  */\n\
+  select(selector, ...values){\n\
+    for (const value of values)\n\
+      assert(helper.isString(value), 'Values must be strings. Found value \"' + value + '\" of type \"' + (typeof value) + '\"');\n\
+    return this.$eval(selector, (element, values) => {\n\
+      if (element.nodeName.toLowerCase() !== 'select')\n\
+        throw new Error('Element is not a <select> element.');\n\
+\n\
+      const options = Array.from(element.options);\n\
+      element.value = undefined;\n\
+      for (const option of options) {\n\
+        option.selected = values.includes(option.value);\n\
+        if (option.selected && !element.multiple)\n\
+          break;\n\
+      }\n\
+      element.dispatchEvent(new Event('input', { 'bubbles': true }));\n\
+      element.dispatchEvent(new Event('change', { 'bubbles': true }));\n\
+      return options.filter(option => option.selected).map(option => option.value);\n\
+    }, values);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async tap(selector) {\n\
+    const handle = await this.$(selector);\n\
+    assert(handle, 'No node found for selector: ' + selector);\n\
+    await handle.tap();\n\
+    await handle.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {string} text\n\
+   * @param {{delay: (number|undefined)}=} options\n\
+   */\n\
+  async type(selector, text, options) {\n\
+    const handle = await this.$(selector);\n\
+    assert(handle, 'No node found for selector: ' + selector);\n\
+    await handle.type(text, options);\n\
+    await handle.dispose();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  waitForSelector(selector, options) {\n\
+    return this._waitForSelectorOrXPath(selector, false, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} xpath\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  waitForXPath(xpath, options) {\n\
+    return this._waitForSelectorOrXPath(xpath, true, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!{polling?: string|number, timeout?: number}=} options\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  waitForFunction(pageFunction, options = {}, ...args) {\n\
+    const {\n\
+      polling = 'raf',\n\
+      timeout = this._timeoutSettings.timeout(),\n\
+    } = options;\n\
+    return new WaitTask(this, pageFunction, 'function', polling, timeout, ...args).promise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async title() {\n\
+    return this.evaluate(() => document.title);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selectorOrXPath\n\
+   * @param {boolean} isXPath\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async _waitForSelectorOrXPath(selectorOrXPath, isXPath, options = {}) {\n\
+    const {\n\
+      visible: waitForVisible = false,\n\
+      hidden: waitForHidden = false,\n\
+      timeout = this._timeoutSettings.timeout(),\n\
+    } = options;\n\
+    const polling = waitForVisible || waitForHidden ? 'raf' : 'mutation';\n\
+    const title = `${isXPath ? 'XPath' : 'selector'} \"${selectorOrXPath}\"${waitForHidden ? ' to be hidden' : ''}`;\n\
+    const waitTask = new WaitTask(this, predicate, title, polling, timeout, selectorOrXPath, isXPath, waitForVisible, waitForHidden);\n\
+    const handle = await waitTask.promise;\n\
+    if (!handle.asElement()) {\n\
+      await handle.dispose();\n\
+      return null;\n\
+    }\n\
+    return handle.asElement();\n\
+\n\
+    /**\n\
+     * @param {string} selectorOrXPath\n\
+     * @param {boolean} isXPath\n\
+     * @param {boolean} waitForVisible\n\
+     * @param {boolean} waitForHidden\n\
+     * @return {?Node|boolean}\n\
+     */\n\
+    function predicate(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {\n\
+      const node = isXPath\n\
+        ? document.evaluate(selectorOrXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue\n\
+        : document.querySelector(selectorOrXPath);\n\
+      if (!node)\n\
+        return waitForHidden;\n\
+      if (!waitForVisible && !waitForHidden)\n\
+        return node;\n\
+      const element = /** @type {Element} */ (node.nodeType === Node.TEXT_NODE ? node.parentElement : node);\n\
+\n\
+      const style = window.getComputedStyle(element);\n\
+      const isVisible = style && style.visibility !== 'hidden' && hasVisibleBoundingBox();\n\
+      const success = (waitForVisible === isVisible || waitForHidden === !isVisible);\n\
+      return success ? node : null;\n\
+\n\
+      /**\n\
+       * @return {boolean}\n\
+       */\n\
+      function hasVisibleBoundingBox() {\n\
+        const rect = element.getBoundingClientRect();\n\
+        return !!(rect.top || rect.bottom || rect.width || rect.height);\n\
+      }\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+class WaitTask {\n\
+  /**\n\
+   * @param {!DOMWorld} domWorld\n\
+   * @param {Function|string} predicateBody\n\
+   * @param {string|number} polling\n\
+   * @param {number} timeout\n\
+   * @param {!Array<*>} args\n\
+   */\n\
+  constructor(domWorld, predicateBody, title, polling, timeout, ...args) {\n\
+    if (helper.isString(polling))\n\
+      assert(polling === 'raf' || polling === 'mutation', 'Unknown polling option: ' + polling);\n\
+    else if (helper.isNumber(polling))\n\
+      assert(polling > 0, 'Cannot poll with non-positive interval: ' + polling);\n\
+    else\n\
+      throw new Error('Unknown polling options: ' + polling);\n\
+\n\
+    this._domWorld = domWorld;\n\
+    this._polling = polling;\n\
+    this._timeout = timeout;\n\
+    this._predicateBody = helper.isString(predicateBody) ? 'return (' + predicateBody + ')' : 'return (' + predicateBody + ')(...args)';\n\
+    this._args = args;\n\
+    this._runCount = 0;\n\
+    domWorld._waitTasks.add(this);\n\
+    this.promise = new Promise((resolve, reject) => {\n\
+      this._resolve = resolve;\n\
+      this._reject = reject;\n\
+    });\n\
+    // Since page navigation requires us to re-install the pageScript, we should track\n\
+    // timeout on our end.\n\
+    if (timeout) {\n\
+      const timeoutError = new TimeoutError(`waiting for ${title} failed: timeout ${timeout}ms exceeded`);\n\
+      this._timeoutTimer = setTimeout(() => this.terminate(timeoutError), timeout);\n\
+    }\n\
+    this.rerun();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Error} error\n\
+   */\n\
+  terminate(error) {\n\
+    this._terminated = true;\n\
+    this._reject(error);\n\
+    this._cleanup();\n\
+  }\n\
+\n\
+  async rerun() {\n\
+    const runCount = ++this._runCount;\n\
+    /** @type {?Puppeteer.JSHandle} */\n\
+    let success = null;\n\
+    let error = null;\n\
+    try {\n\
+      success = await (await this._domWorld.executionContext()).evaluateHandle(waitForPredicatePageFunction, this._predicateBody, this._polling, this._timeout, ...this._args);\n\
+    } catch (e) {\n\
+      error = e;\n\
+    }\n\
+\n\
+    if (this._terminated || runCount !== this._runCount) {\n\
+      if (success)\n\
+        await success.dispose();\n\
+      return;\n\
+    }\n\
+\n\
+    // Ignore timeouts in pageScript - we track timeouts ourselves.\n\
+    // If the frame's execution context has already changed, `frame.evaluate` will\n\
+    // throw an error - ignore this predicate run altogether.\n\
+    if (!error && await this._domWorld.evaluate(s => !s, success).catch(e => true)) {\n\
+      await success.dispose();\n\
+      return;\n\
+    }\n\
+\n\
+    // When the page is navigated, the promise is rejected.\n\
+    // We will try again in the new execution context.\n\
+    if (error && error.message.includes('Execution context was destroyed'))\n\
+      return;\n\
+\n\
+    // We could have tried to evaluate in a context which was already\n\
+    // destroyed.\n\
+    if (error && error.message.includes('Cannot find context with specified id'))\n\
+      return;\n\
+\n\
+    if (error)\n\
+      this._reject(error);\n\
+    else\n\
+      this._resolve(success);\n\
+\n\
+    this._cleanup();\n\
+  }\n\
+\n\
+  _cleanup() {\n\
+    clearTimeout(this._timeoutTimer);\n\
+    this._domWorld._waitTasks.delete(this);\n\
+    this._runningTask = null;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {string} predicateBody\n\
+ * @param {string} polling\n\
+ * @param {number} timeout\n\
+ * @return {!Promise<*>}\n\
+ */\n\
+async function waitForPredicatePageFunction(predicateBody, polling, timeout, ...args) {\n\
+  const predicate = new Function('...args', predicateBody);\n\
+  let timedOut = false;\n\
+  if (timeout)\n\
+    setTimeout(() => timedOut = true, timeout);\n\
+  if (polling === 'raf')\n\
+    return await pollRaf();\n\
+  if (polling === 'mutation')\n\
+    return await pollMutation();\n\
+  if (typeof polling === 'number')\n\
+    return await pollInterval(polling);\n\
+\n\
+  /**\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  function pollMutation() {\n\
+    const success = predicate.apply(null, args);\n\
+    if (success)\n\
+      return Promise.resolve(success);\n\
+\n\
+    let fulfill;\n\
+    const result = new Promise(x => fulfill = x);\n\
+    const observer = new MutationObserver(mutations => {\n\
+      if (timedOut) {\n\
+        observer.disconnect();\n\
+        fulfill();\n\
+      }\n\
+      const success = predicate.apply(null, args);\n\
+      if (success) {\n\
+        observer.disconnect();\n\
+        fulfill(success);\n\
+      }\n\
+    });\n\
+    observer.observe(document, {\n\
+      childList: true,\n\
+      subtree: true,\n\
+      attributes: true\n\
+    });\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  function pollRaf() {\n\
+    let fulfill;\n\
+    const result = new Promise(x => fulfill = x);\n\
+    onRaf();\n\
+    return result;\n\
+\n\
+    function onRaf() {\n\
+      if (timedOut) {\n\
+        fulfill();\n\
+        return;\n\
+      }\n\
+      const success = predicate.apply(null, args);\n\
+      if (success)\n\
+        fulfill(success);\n\
+      else\n\
+        requestAnimationFrame(onRaf);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} pollInterval\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  function pollInterval(pollInterval) {\n\
+    let fulfill;\n\
+    const result = new Promise(x => fulfill = x);\n\
+    onTimeout();\n\
+    return result;\n\
+\n\
+    function onTimeout() {\n\
+      if (timedOut) {\n\
+        fulfill();\n\
+        return;\n\
+      }\n\
+      const success = predicate.apply(null, args);\n\
+      if (success)\n\
+        fulfill(success);\n\
+      else\n\
+        setTimeout(onTimeout, pollInterval);\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+module.exports = {DOMWorld};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/DeviceDescriptors.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+module.exports = [\n\
+  {\n\
+    'name': 'Blackberry PlayBook',\n\
+    'userAgent': 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML like Gecko) Version/7.2.1.0 Safari/536.2+',\n\
+    'viewport': {\n\
+      'width': 600,\n\
+      'height': 1024,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Blackberry PlayBook landscape',\n\
+    'userAgent': 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML like Gecko) Version/7.2.1.0 Safari/536.2+',\n\
+    'viewport': {\n\
+      'width': 1024,\n\
+      'height': 600,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'BlackBerry Z30',\n\
+    'userAgent': 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'BlackBerry Z30 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy Note 3',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy Note 3 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy Note II',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy Note II landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy S III',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy S III landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy S5',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Galaxy S5 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 768,\n\
+      'height': 1024,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 1024,\n\
+      'height': 768,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad Mini',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 768,\n\
+      'height': 1024,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad Mini landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 1024,\n\
+      'height': 768,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad Pro',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 1024,\n\
+      'height': 1366,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPad Pro landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 1366,\n\
+      'height': 1024,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 4',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53',\n\
+    'viewport': {\n\
+      'width': 320,\n\
+      'height': 480,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 4 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53',\n\
+    'viewport': {\n\
+      'width': 480,\n\
+      'height': 320,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 5',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',\n\
+    'viewport': {\n\
+      'width': 320,\n\
+      'height': 568,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 5 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',\n\
+    'viewport': {\n\
+      'width': 568,\n\
+      'height': 320,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 6',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 375,\n\
+      'height': 667,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 6 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 667,\n\
+      'height': 375,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 6 Plus',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 414,\n\
+      'height': 736,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 6 Plus landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 736,\n\
+      'height': 414,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 7',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 375,\n\
+      'height': 667,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 7 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 667,\n\
+      'height': 375,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 7 Plus',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 414,\n\
+      'height': 736,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 7 Plus landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 736,\n\
+      'height': 414,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 8',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 375,\n\
+      'height': 667,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 8 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 667,\n\
+      'height': 375,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 8 Plus',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 414,\n\
+      'height': 736,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone 8 Plus landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 736,\n\
+      'height': 414,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone SE',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',\n\
+    'viewport': {\n\
+      'width': 320,\n\
+      'height': 568,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone SE landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',\n\
+    'viewport': {\n\
+      'width': 568,\n\
+      'height': 320,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone X',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 375,\n\
+      'height': 812,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'iPhone X landscape',\n\
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',\n\
+    'viewport': {\n\
+      'width': 812,\n\
+      'height': 375,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'JioPhone 2',\n\
+    'userAgent': 'Mozilla/5.0 (Mobile; LYF/F300B/LYF-F300B-001-01-15-130718-i;Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5',\n\
+    'viewport': {\n\
+      'width': 240,\n\
+      'height': 320,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'JioPhone 2 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Mobile; LYF/F300B/LYF-F300B-001-01-15-130718-i;Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5',\n\
+    'viewport': {\n\
+      'width': 320,\n\
+      'height': 240,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Kindle Fire HDX',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true',\n\
+    'viewport': {\n\
+      'width': 800,\n\
+      'height': 1280,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Kindle Fire HDX landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true',\n\
+    'viewport': {\n\
+      'width': 1280,\n\
+      'height': 800,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'LG Optimus L70',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 384,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 1.25,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'LG Optimus L70 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 384,\n\
+      'deviceScaleFactor': 1.25,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Microsoft Lumia 550',\n\
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 550) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Microsoft Lumia 950',\n\
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 4,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Microsoft Lumia 950 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 4,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 10',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 10 Build/MOB31T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 800,\n\
+      'height': 1280,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 10 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 10 Build/MOB31T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 1280,\n\
+      'height': 800,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 4',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 384,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 4 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 384,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 5',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 360,\n\
+      'height': 640,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 5 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 640,\n\
+      'height': 360,\n\
+      'deviceScaleFactor': 3,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 5X',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 5X Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 412,\n\
+      'height': 732,\n\
+      'deviceScaleFactor': 2.625,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 5X landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 5X Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 732,\n\
+      'height': 412,\n\
+      'deviceScaleFactor': 2.625,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 6',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6 Build/N6F26U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 412,\n\
+      'height': 732,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 6 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6 Build/N6F26U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 732,\n\
+      'height': 412,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 6P',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 412,\n\
+      'height': 732,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 6P landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 732,\n\
+      'height': 412,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 7',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MOB30X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 600,\n\
+      'height': 960,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nexus 7 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MOB30X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 960,\n\
+      'height': 600,\n\
+      'deviceScaleFactor': 2,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nokia Lumia 520',\n\
+    'userAgent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 520)',\n\
+    'viewport': {\n\
+      'width': 320,\n\
+      'height': 533,\n\
+      'deviceScaleFactor': 1.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nokia Lumia 520 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 520)',\n\
+    'viewport': {\n\
+      'width': 533,\n\
+      'height': 320,\n\
+      'deviceScaleFactor': 1.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nokia N9',\n\
+    'userAgent': 'Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13',\n\
+    'viewport': {\n\
+      'width': 480,\n\
+      'height': 854,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Nokia N9 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13',\n\
+    'viewport': {\n\
+      'width': 854,\n\
+      'height': 480,\n\
+      'deviceScaleFactor': 1,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Pixel 2',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 411,\n\
+      'height': 731,\n\
+      'deviceScaleFactor': 2.625,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Pixel 2 landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 731,\n\
+      'height': 411,\n\
+      'deviceScaleFactor': 2.625,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Pixel 2 XL',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 411,\n\
+      'height': 823,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': false\n\
+    }\n\
+  },\n\
+  {\n\
+    'name': 'Pixel 2 XL landscape',\n\
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',\n\
+    'viewport': {\n\
+      'width': 823,\n\
+      'height': 411,\n\
+      'deviceScaleFactor': 3.5,\n\
+      'isMobile': true,\n\
+      'hasTouch': true,\n\
+      'isLandscape': true\n\
+    }\n\
+  }\n\
+];\n\
+for (const device of module.exports)\n\
+  module.exports[device.name] = device;\n\
+// hack-puppeteer - module.exports\n\
+const DeviceDescriptors = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Dialog.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {assert} = require('./helper');\n\
+\n\
+class Dialog {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {string} type\n\
+   * @param {string} message\n\
+   * @param {(string|undefined)} defaultValue\n\
+   */\n\
+  constructor(client, type, message, defaultValue = '') {\n\
+    this._client = client;\n\
+    this._type = type;\n\
+    this._message = message;\n\
+    this._handled = false;\n\
+    this._defaultValue = defaultValue;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  type() {\n\
+    return this._type;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  message() {\n\
+    return this._message;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  defaultValue() {\n\
+    return this._defaultValue;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string=} promptText\n\
+   */\n\
+  async accept(promptText) {\n\
+    assert(!this._handled, 'Cannot accept dialog which is already handled!');\n\
+    this._handled = true;\n\
+    await this._client.send('Page.handleJavaScriptDialog', {\n\
+      accept: true,\n\
+      promptText: promptText\n\
+    });\n\
+  }\n\
+\n\
+  async dismiss() {\n\
+    assert(!this._handled, 'Cannot dismiss dialog which is already handled!');\n\
+    this._handled = true;\n\
+    await this._client.send('Page.handleJavaScriptDialog', {\n\
+      accept: false\n\
+    });\n\
+  }\n\
+}\n\
+\n\
+Dialog.Type = {\n\
+  Alert: 'alert',\n\
+  BeforeUnload: 'beforeunload',\n\
+  Confirm: 'confirm',\n\
+  Prompt: 'prompt'\n\
+};\n\
+\n\
+module.exports = {Dialog};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/EmulationManager.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+class EmulationManager {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+    this._emulatingMobile = false;\n\
+    this._hasTouch = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Viewport} viewport\n\
+   * @return {Promise<boolean>}\n\
+   */\n\
+  async emulateViewport(viewport) {\n\
+    const mobile = viewport.isMobile || false;\n\
+    const width = viewport.width;\n\
+    const height = viewport.height;\n\
+    const deviceScaleFactor = viewport.deviceScaleFactor || 1;\n\
+    /** @type {Protocol.Emulation.ScreenOrientation} */\n\
+    const screenOrientation = viewport.isLandscape ? { angle: 90, type: 'landscapePrimary' } : { angle: 0, type: 'portraitPrimary' };\n\
+    const hasTouch = viewport.hasTouch || false;\n\
+\n\
+    await Promise.all([\n\
+      this._client.send('Emulation.setDeviceMetricsOverride', { mobile, width, height, deviceScaleFactor, screenOrientation }),\n\
+      this._client.send('Emulation.setTouchEmulationEnabled', {\n\
+        enabled: hasTouch\n\
+      })\n\
+    ]);\n\
+\n\
+    const reloadNeeded = this._emulatingMobile !== mobile || this._hasTouch !== hasTouch;\n\
+    this._emulatingMobile = mobile;\n\
+    this._hasTouch = hasTouch;\n\
+    return reloadNeeded;\n\
+  }\n\
+}\n\
+\n\
+module.exports = {EmulationManager};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Errors.js\n\
+*/\n\
+/**\n\
+ * Copyright 2018 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+class CustomError extends Error {\n\
+  constructor(message) {\n\
+    super(message);\n\
+    this.name = this.constructor.name;\n\
+    Error.captureStackTrace(this, this.constructor);\n\
+  }\n\
+}\n\
+\n\
+class TimeoutError extends CustomError {}\n\
+\n\
+module.exports = {\n\
+  TimeoutError,\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const Errors = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Events.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+const Events = {\n\
+  Page: {\n\
+    Close: 'close',\n\
+    Console: 'console',\n\
+    Dialog: 'dialog',\n\
+    DOMContentLoaded: 'domcontentloaded',\n\
+    Error: 'error',\n\
+    // Can't use just 'error' due to node.js special treatment of error events.\n\
+    // @see https://nodejs.org/api/events.html#events_error_events\n\
+    PageError: 'pageerror',\n\
+    Request: 'request',\n\
+    Response: 'response',\n\
+    RequestFailed: 'requestfailed',\n\
+    RequestFinished: 'requestfinished',\n\
+    FrameAttached: 'frameattached',\n\
+    FrameDetached: 'framedetached',\n\
+    FrameNavigated: 'framenavigated',\n\
+    Load: 'load',\n\
+    Metrics: 'metrics',\n\
+    Popup: 'popup',\n\
+    WorkerCreated: 'workercreated',\n\
+    WorkerDestroyed: 'workerdestroyed',\n\
+  },\n\
+\n\
+  Browser: {\n\
+    TargetCreated: 'targetcreated',\n\
+    TargetDestroyed: 'targetdestroyed',\n\
+    TargetChanged: 'targetchanged',\n\
+    Disconnected: 'disconnected'\n\
+  },\n\
+\n\
+  BrowserContext: {\n\
+    TargetCreated: 'targetcreated',\n\
+    TargetDestroyed: 'targetdestroyed',\n\
+    TargetChanged: 'targetchanged',\n\
+  },\n\
+\n\
+  NetworkManager: {\n\
+    Request: Symbol('Events.NetworkManager.Request'),\n\
+    Response: Symbol('Events.NetworkManager.Response'),\n\
+    RequestFailed: Symbol('Events.NetworkManager.RequestFailed'),\n\
+    RequestFinished: Symbol('Events.NetworkManager.RequestFinished'),\n\
+  },\n\
+\n\
+  FrameManager: {\n\
+    FrameAttached: Symbol('Events.FrameManager.FrameAttached'),\n\
+    FrameNavigated: Symbol('Events.FrameManager.FrameNavigated'),\n\
+    FrameDetached: Symbol('Events.FrameManager.FrameDetached'),\n\
+    LifecycleEvent: Symbol('Events.FrameManager.LifecycleEvent'),\n\
+    FrameNavigatedWithinDocument: Symbol('Events.FrameManager.FrameNavigatedWithinDocument'),\n\
+    ExecutionContextCreated: Symbol('Events.FrameManager.ExecutionContextCreated'),\n\
+    ExecutionContextDestroyed: Symbol('Events.FrameManager.ExecutionContextDestroyed'),\n\
+  },\n\
+\n\
+  Connection: {\n\
+    Disconnected: Symbol('Events.Connection.Disconnected'),\n\
+  },\n\
+\n\
+  CDPSession: {\n\
+    Disconnected: Symbol('Events.CDPSession.Disconnected'),\n\
+  },\n\
+};\n\
+\n\
+module.exports = { Events };\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/ExecutionContext.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {helper, assert} = require('./helper');\n\
+// const {createJSHandle, JSHandle} = require('./JSHandle');\n\
+\n\
+const EVALUATION_SCRIPT_URL = '__puppeteer_evaluation_script__';\n\
+const SOURCE_URL_REGEX = /^[\\040\\t]*\\/\\/[@#] sourceURL=\\s*(\\S*?)\\s*$/m;\n\
+\n\
+class ExecutionContext {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Protocol.Runtime.ExecutionContextDescription} contextPayload\n\
+   * @param {?Puppeteer.DOMWorld} world\n\
+   */\n\
+  constructor(client, contextPayload, world) {\n\
+    this._client = client;\n\
+    this._world = world;\n\
+    this._contextId = contextPayload.id;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Frame}\n\
+   */\n\
+  frame() {\n\
+    return this._world ? this._world.frame() : null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {...*} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async evaluate(pageFunction, ...args) {\n\
+    return await this._evaluateInternal(true /* returnByValue */, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {...*} args\n\
+   * @return {!Promise<!JSHandle>}\n\
+   */\n\
+  async evaluateHandle(pageFunction, ...args) {\n\
+    return this._evaluateInternal(false /* returnByValue */, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} returnByValue\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {...*} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async _evaluateInternal(returnByValue, pageFunction, ...args) {\n\
+    const suffix = `//# sourceURL=${EVALUATION_SCRIPT_URL}`;\n\
+\n\
+    if (helper.isString(pageFunction)) {\n\
+      const contextId = this._contextId;\n\
+      const expression = /** @type {string} */ (pageFunction);\n\
+      const expressionWithSourceUrl = SOURCE_URL_REGEX.test(expression) ? expression : expression + '\\n' + suffix;\n\
+      const {exceptionDetails, result: remoteObject} = await this._client.send('Runtime.evaluate', {\n\
+        expression: expressionWithSourceUrl,\n\
+        contextId,\n\
+        returnByValue,\n\
+        awaitPromise: true,\n\
+        userGesture: true\n\
+      }).catch(rewriteError);\n\
+      if (exceptionDetails)\n\
+        throw new Error('Evaluation failed: ' + helper.getExceptionMessage(exceptionDetails));\n\
+      return returnByValue ? helper.valueFromRemoteObject(remoteObject) : createJSHandle(this, remoteObject);\n\
+    }\n\
+\n\
+    if (typeof pageFunction !== 'function')\n\
+      throw new Error(`Expected to get |string| or |function| as the first argument, but got \"${pageFunction}\" instead.`);\n\
+\n\
+    let functionText = pageFunction.toString();\n\
+    // hack-istanbul - un-instrument\n\
+    functionText = functionText.replace((/\\b__cov_.*?\\+\\+/g), \"0\");\n\
+    try {\n\
+      new Function('(' + functionText + ')');\n\
+    } catch (e1) {\n\
+      // This means we might have a function shorthand. Try another\n\
+      // time prefixing 'function '.\n\
+      if (functionText.startsWith('async '))\n\
+        functionText = 'async function ' + functionText.substring('async '.length);\n\
+      else\n\
+        functionText = 'function ' + functionText;\n\
+      try {\n\
+        new Function('(' + functionText  + ')');\n\
+      } catch (e2) {\n\
+        // We tried hard to serialize, but there's a weird beast here.\n\
+        throw new Error('Passed function is not well-serializable!');\n\
+      }\n\
+    }\n\
+    let callFunctionOnPromise;\n\
+    try {\n\
+      callFunctionOnPromise = this._client.send('Runtime.callFunctionOn', {\n\
+        functionDeclaration: functionText + '\\n' + suffix + '\\n',\n\
+        executionContextId: this._contextId,\n\
+        arguments: args.map(convertArgument.bind(this)),\n\
+        returnByValue,\n\
+        awaitPromise: true,\n\
+        userGesture: true\n\
+      });\n\
+    } catch (err) {\n\
+      if (err instanceof TypeError && err.message.startsWith('Converting circular structure to JSON'))\n\
+        err.message += ' Are you passing a nested JSHandle?';\n\
+      throw err;\n\
+    }\n\
+    const { exceptionDetails, result: remoteObject } = await callFunctionOnPromise.catch(rewriteError);\n\
+    if (exceptionDetails)\n\
+      throw new Error('Evaluation failed: ' + helper.getExceptionMessage(exceptionDetails));\n\
+    return returnByValue ? helper.valueFromRemoteObject(remoteObject) : createJSHandle(this, remoteObject);\n\
+\n\
+    /**\n\
+     * @param {*} arg\n\
+     * @return {*}\n\
+     * @this {ExecutionContext}\n\
+     */\n\
+    function convertArgument(arg) {\n\
+      if (typeof arg === 'bigint') // eslint-disable-line valid-typeof\n\
+        return { unserializableValue: `${arg.toString()}n` };\n\
+      if (Object.is(arg, -0))\n\
+        return { unserializableValue: '-0' };\n\
+      if (Object.is(arg, Infinity))\n\
+        return { unserializableValue: 'Infinity' };\n\
+      if (Object.is(arg, -Infinity))\n\
+        return { unserializableValue: '-Infinity' };\n\
+      if (Object.is(arg, NaN))\n\
+        return { unserializableValue: 'NaN' };\n\
+      const objectHandle = arg && (arg instanceof JSHandle) ? arg : null;\n\
+      if (objectHandle) {\n\
+        if (objectHandle._context !== this)\n\
+          throw new Error('JSHandles can be evaluated only in the context they were created!');\n\
+        if (objectHandle._disposed)\n\
+          throw new Error('JSHandle is disposed!');\n\
+        if (objectHandle._remoteObject.unserializableValue)\n\
+          return { unserializableValue: objectHandle._remoteObject.unserializableValue };\n\
+        if (!objectHandle._remoteObject.objectId)\n\
+          return { value: objectHandle._remoteObject.value };\n\
+        return { objectId: objectHandle._remoteObject.objectId };\n\
+      }\n\
+      return { value: arg };\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {!Error} error\n\
+     * @return {!Protocol.Runtime.evaluateReturnValue}\n\
+     */\n\
+    function rewriteError(error) {\n\
+      if (error.message.includes('Object reference chain is too long'))\n\
+        return {result: {type: 'undefined'}};\n\
+      if (error.message.includes('Object couldn\\'t be returned by value'))\n\
+        return {result: {type: 'undefined'}};\n\
+\n\
+      if (error.message.endsWith('Cannot find context with specified id'))\n\
+        throw new Error('Execution context was destroyed, most likely because of a navigation.');\n\
+      throw error;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!JSHandle} prototypeHandle\n\
+   * @return {!Promise<!JSHandle>}\n\
+   */\n\
+  async queryObjects(prototypeHandle) {\n\
+    assert(!prototypeHandle._disposed, 'Prototype JSHandle is disposed!');\n\
+    assert(prototypeHandle._remoteObject.objectId, 'Prototype JSHandle must not be referencing primitive value');\n\
+    const response = await this._client.send('Runtime.queryObjects', {\n\
+      prototypeObjectId: prototypeHandle._remoteObject.objectId\n\
+    });\n\
+    return createJSHandle(this, response.objects);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Puppeteer.ElementHandle} elementHandle\n\
+   * @return {Promise<Puppeteer.ElementHandle>}\n\
+   */\n\
+  async _adoptElementHandle(elementHandle) {\n\
+    assert(elementHandle.executionContext() !== this, 'Cannot adopt handle that already belongs to this execution context');\n\
+    assert(this._world, 'Cannot adopt handle without DOMWorld');\n\
+    const nodeInfo = await this._client.send('DOM.describeNode', {\n\
+      objectId: elementHandle._remoteObject.objectId,\n\
+    });\n\
+    const {object} = await this._client.send('DOM.resolveNode', {\n\
+      backendNodeId: nodeInfo.node.backendNodeId,\n\
+      executionContextId: this._contextId,\n\
+    });\n\
+    return /** @type {Puppeteer.ElementHandle}*/(createJSHandle(this, object));\n\
+  }\n\
+}\n\
+\n\
+module.exports = {ExecutionContext, EVALUATION_SCRIPT_URL};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/FrameManager.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const EventEmitter = require('events');\n\
+// const {helper, assert, debugError} = require('./helper');\n\
+// const {Events} = require('./Events');\n\
+// const {ExecutionContext, EVALUATION_SCRIPT_URL} = require('./ExecutionContext');\n\
+// const {LifecycleWatcher} = require('./LifecycleWatcher');\n\
+// const {DOMWorld} = require('./DOMWorld');\n\
+// const {NetworkManager} = require('./NetworkManager');\n\
+\n\
+const UTILITY_WORLD_NAME = '__puppeteer_utility_world__';\n\
+\n\
+class FrameManager extends EventEmitter {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Puppeteer.Page} page\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {!Puppeteer.TimeoutSettings} timeoutSettings\n\
+   */\n\
+  constructor(client, page, ignoreHTTPSErrors, timeoutSettings) {\n\
+    super();\n\
+    this._client = client;\n\
+    this._page = page;\n\
+    this._networkManager = new NetworkManager(client, ignoreHTTPSErrors);\n\
+    this._networkManager.setFrameManager(this);\n\
+    this._timeoutSettings = timeoutSettings;\n\
+    /** @type {!Map<string, !Frame>} */\n\
+    this._frames = new Map();\n\
+    /** @type {!Map<number, !ExecutionContext>} */\n\
+    this._contextIdToContext = new Map();\n\
+    /** @type {!Set<string>} */\n\
+    this._isolatedWorlds = new Set();\n\
+\n\
+    this._client.on('Page.frameAttached', event => this._onFrameAttached(event.frameId, event.parentFrameId));\n\
+    this._client.on('Page.frameNavigated', event => this._onFrameNavigated(event.frame));\n\
+    this._client.on('Page.navigatedWithinDocument', event => this._onFrameNavigatedWithinDocument(event.frameId, event.url));\n\
+    this._client.on('Page.frameDetached', event => this._onFrameDetached(event.frameId));\n\
+    this._client.on('Page.frameStoppedLoading', event => this._onFrameStoppedLoading(event.frameId));\n\
+    this._client.on('Runtime.executionContextCreated', event => this._onExecutionContextCreated(event.context));\n\
+    this._client.on('Runtime.executionContextDestroyed', event => this._onExecutionContextDestroyed(event.executionContextId));\n\
+    this._client.on('Runtime.executionContextsCleared', event => this._onExecutionContextsCleared());\n\
+    this._client.on('Page.lifecycleEvent', event => this._onLifecycleEvent(event));\n\
+  }\n\
+\n\
+  async initialize() {\n\
+    const [,{frameTree}] = await Promise.all([\n\
+      this._client.send('Page.enable'),\n\
+      this._client.send('Page.getFrameTree'),\n\
+    ]);\n\
+    this._handleFrameTree(frameTree);\n\
+    await Promise.all([\n\
+      this._client.send('Page.setLifecycleEventsEnabled', { enabled: true }),\n\
+      this._client.send('Runtime.enable', {}).then(() => this._ensureIsolatedWorld(UTILITY_WORLD_NAME)),\n\
+      this._networkManager.initialize(),\n\
+    ]);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!NetworkManager}\n\
+   */\n\
+  networkManager() {\n\
+    return this._networkManager;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   * @param {string} url\n\
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async navigateFrame(frame, url, options = {}) {\n\
+    assertNoLegacyNavigationOptions(options);\n\
+    const {\n\
+      referer = this._networkManager.extraHTTPHeaders()['referer'],\n\
+      waitUntil = ['load'],\n\
+      timeout = this._timeoutSettings.navigationTimeout(),\n\
+    } = options;\n\
+\n\
+    const watcher = new LifecycleWatcher(this, frame, waitUntil, timeout);\n\
+    let ensureNewDocumentNavigation = false;\n\
+    let error = await Promise.race([\n\
+      navigate(this._client, url, referer, frame._id),\n\
+      watcher.timeoutOrTerminationPromise(),\n\
+    ]);\n\
+    if (!error) {\n\
+      error = await Promise.race([\n\
+        watcher.timeoutOrTerminationPromise(),\n\
+        ensureNewDocumentNavigation ? watcher.newDocumentNavigationPromise() : watcher.sameDocumentNavigationPromise(),\n\
+      ]);\n\
+    }\n\
+    watcher.dispose();\n\
+    if (error)\n\
+      throw error;\n\
+    return watcher.navigationResponse();\n\
+\n\
+    /**\n\
+     * @param {!Puppeteer.CDPSession} client\n\
+     * @param {string} url\n\
+     * @param {string} referrer\n\
+     * @param {string} frameId\n\
+     * @return {!Promise<?Error>}\n\
+     */\n\
+    async function navigate(client, url, referrer, frameId) {\n\
+      try {\n\
+        const response = await client.send('Page.navigate', {url, referrer, frameId});\n\
+        ensureNewDocumentNavigation = !!response.loaderId;\n\
+        return response.errorText ? new Error(`${response.errorText} at ${url}`) : null;\n\
+      } catch (error) {\n\
+        return error;\n\
+      }\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async waitForFrameNavigation(frame, options = {}) {\n\
+    assertNoLegacyNavigationOptions(options);\n\
+    const {\n\
+      waitUntil = ['load'],\n\
+      timeout = this._timeoutSettings.navigationTimeout(),\n\
+    } = options;\n\
+    const watcher = new LifecycleWatcher(this, frame, waitUntil, timeout);\n\
+    const error = await Promise.race([\n\
+      watcher.timeoutOrTerminationPromise(),\n\
+      watcher.sameDocumentNavigationPromise(),\n\
+      watcher.newDocumentNavigationPromise()\n\
+    ]);\n\
+    watcher.dispose();\n\
+    if (error)\n\
+      throw error;\n\
+    return watcher.navigationResponse();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Page.lifecycleEventPayload} event\n\
+   */\n\
+  _onLifecycleEvent(event) {\n\
+    const frame = this._frames.get(event.frameId);\n\
+    if (!frame)\n\
+      return;\n\
+    frame._onLifecycleEvent(event.loaderId, event.name);\n\
+    this.emit(Events.FrameManager.LifecycleEvent, frame);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} frameId\n\
+   */\n\
+  _onFrameStoppedLoading(frameId) {\n\
+    const frame = this._frames.get(frameId);\n\
+    if (!frame)\n\
+      return;\n\
+    frame._onLoadingStopped();\n\
+    this.emit(Events.FrameManager.LifecycleEvent, frame);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Page.FrameTree} frameTree\n\
+   */\n\
+  _handleFrameTree(frameTree) {\n\
+    if (frameTree.frame.parentId)\n\
+      this._onFrameAttached(frameTree.frame.id, frameTree.frame.parentId);\n\
+    this._onFrameNavigated(frameTree.frame);\n\
+    if (!frameTree.childFrames)\n\
+      return;\n\
+\n\
+    for (const child of frameTree.childFrames)\n\
+      this._handleFrameTree(child);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Page}\n\
+   */\n\
+  page() {\n\
+    return this._page;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Frame}\n\
+   */\n\
+  mainFrame() {\n\
+    return this._mainFrame;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Frame>}\n\
+   */\n\
+  frames() {\n\
+    return Array.from(this._frames.values());\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!string} frameId\n\
+   * @return {?Frame}\n\
+   */\n\
+  frame(frameId) {\n\
+    return this._frames.get(frameId) || null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} frameId\n\
+   * @param {?string} parentFrameId\n\
+   */\n\
+  _onFrameAttached(frameId, parentFrameId) {\n\
+    if (this._frames.has(frameId))\n\
+      return;\n\
+    assert(parentFrameId);\n\
+    const parentFrame = this._frames.get(parentFrameId);\n\
+    const frame = new Frame(this, this._client, parentFrame, frameId);\n\
+    this._frames.set(frame._id, frame);\n\
+    this.emit(Events.FrameManager.FrameAttached, frame);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Page.Frame} framePayload\n\
+   */\n\
+  _onFrameNavigated(framePayload) {\n\
+    const isMainFrame = !framePayload.parentId;\n\
+    let frame = isMainFrame ? this._mainFrame : this._frames.get(framePayload.id);\n\
+    assert(isMainFrame || frame, 'We either navigate top level or have old version of the navigated frame');\n\
+\n\
+    // Detach all child frames first.\n\
+    if (frame) {\n\
+      for (const child of frame.childFrames())\n\
+        this._removeFramesRecursively(child);\n\
+    }\n\
+\n\
+    // Update or create main frame.\n\
+    if (isMainFrame) {\n\
+      if (frame) {\n\
+        // Update frame id to retain frame identity on cross-process navigation.\n\
+        this._frames.delete(frame._id);\n\
+        frame._id = framePayload.id;\n\
+      } else {\n\
+        // Initial main frame navigation.\n\
+        frame = new Frame(this, this._client, null, framePayload.id);\n\
+      }\n\
+      this._frames.set(framePayload.id, frame);\n\
+      this._mainFrame = frame;\n\
+    }\n\
+\n\
+    // Update frame payload.\n\
+    frame._navigated(framePayload);\n\
+\n\
+    this.emit(Events.FrameManager.FrameNavigated, frame);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} name\n\
+   */\n\
+  async _ensureIsolatedWorld(name) {\n\
+    if (this._isolatedWorlds.has(name))\n\
+      return;\n\
+    this._isolatedWorlds.add(name);\n\
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', {\n\
+      source: `//# sourceURL=${EVALUATION_SCRIPT_URL}`,\n\
+      worldName: name,\n\
+    }),\n\
+    await Promise.all(this.frames().map(frame => this._client.send('Page.createIsolatedWorld', {\n\
+      frameId: frame._id,\n\
+      grantUniveralAccess: true,\n\
+      worldName: name,\n\
+    }).catch(debugError))); // frames might be removed before we send this\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} frameId\n\
+   * @param {string} url\n\
+   */\n\
+  _onFrameNavigatedWithinDocument(frameId, url) {\n\
+    const frame = this._frames.get(frameId);\n\
+    if (!frame)\n\
+      return;\n\
+    frame._navigatedWithinDocument(url);\n\
+    this.emit(Events.FrameManager.FrameNavigatedWithinDocument, frame);\n\
+    this.emit(Events.FrameManager.FrameNavigated, frame);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} frameId\n\
+   */\n\
+  _onFrameDetached(frameId) {\n\
+    const frame = this._frames.get(frameId);\n\
+    if (frame)\n\
+      this._removeFramesRecursively(frame);\n\
+  }\n\
+\n\
+  _onExecutionContextCreated(contextPayload) {\n\
+    const frameId = contextPayload.auxData ? contextPayload.auxData.frameId : null;\n\
+    const frame = this._frames.get(frameId) || null;\n\
+    let world = null;\n\
+    if (frame) {\n\
+      if (contextPayload.auxData && !!contextPayload.auxData['isDefault']) {\n\
+        world = frame._mainWorld;\n\
+      } else if (contextPayload.name === UTILITY_WORLD_NAME && !frame._secondaryWorld._hasContext()) {\n\
+        // In case of multiple sessions to the same target, there's a race between\n\
+        // connections so we might end up creating multiple isolated worlds.\n\
+        // We can use either.\n\
+        world = frame._secondaryWorld;\n\
+      }\n\
+    }\n\
+    if (contextPayload.auxData && contextPayload.auxData['type'] === 'isolated')\n\
+      this._isolatedWorlds.add(contextPayload.name);\n\
+    /** @type {!ExecutionContext} */\n\
+    const context = new ExecutionContext(this._client, contextPayload, world);\n\
+    if (world)\n\
+      world._setContext(context);\n\
+    this._contextIdToContext.set(contextPayload.id, context);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} executionContextId\n\
+   */\n\
+  _onExecutionContextDestroyed(executionContextId) {\n\
+    const context = this._contextIdToContext.get(executionContextId);\n\
+    if (!context)\n\
+      return;\n\
+    this._contextIdToContext.delete(executionContextId);\n\
+    if (context._world)\n\
+      context._world._setContext(null);\n\
+  }\n\
+\n\
+  _onExecutionContextsCleared() {\n\
+    for (const context of this._contextIdToContext.values()) {\n\
+      if (context._world)\n\
+        context._world._setContext(null);\n\
+    }\n\
+    this._contextIdToContext.clear();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} contextId\n\
+   * @return {!ExecutionContext}\n\
+   */\n\
+  executionContextById(contextId) {\n\
+    const context = this._contextIdToContext.get(contextId);\n\
+    assert(context, 'INTERNAL ERROR: missing context with id = ' + contextId);\n\
+    return context;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Frame} frame\n\
+   */\n\
+  _removeFramesRecursively(frame) {\n\
+    for (const child of frame.childFrames())\n\
+      this._removeFramesRecursively(child);\n\
+    frame._detach();\n\
+    this._frames.delete(frame._id);\n\
+    this.emit(Events.FrameManager.FrameDetached, frame);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @unrestricted\n\
+ */\n\
+class Frame {\n\
+  /**\n\
+   * @param {!FrameManager} frameManager\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {?Frame} parentFrame\n\
+   * @param {string} frameId\n\
+   */\n\
+  constructor(frameManager, client, parentFrame, frameId) {\n\
+    this._frameManager = frameManager;\n\
+    this._client = client;\n\
+    this._parentFrame = parentFrame;\n\
+    this._url = '';\n\
+    this._id = frameId;\n\
+    this._detached = false;\n\
+\n\
+    this._loaderId = '';\n\
+    /** @type {!Set<string>} */\n\
+    this._lifecycleEvents = new Set();\n\
+    /** @type {!DOMWorld} */\n\
+    this._mainWorld = new DOMWorld(frameManager, this, frameManager._timeoutSettings);\n\
+    /** @type {!DOMWorld} */\n\
+    this._secondaryWorld = new DOMWorld(frameManager, this, frameManager._timeoutSettings);\n\
+\n\
+    /** @type {!Set<!Frame>} */\n\
+    this._childFrames = new Set();\n\
+    if (this._parentFrame)\n\
+      this._parentFrame._childFrames.add(this);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} url\n\
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async goto(url, options) {\n\
+    return await this._frameManager.navigateFrame(this, url, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async waitForNavigation(options) {\n\
+    return await this._frameManager.waitForFrameNavigation(this, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!ExecutionContext>}\n\
+   */\n\
+  executionContext() {\n\
+    return this._mainWorld.executionContext();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  async evaluateHandle(pageFunction, ...args) {\n\
+    return this._mainWorld.evaluateHandle(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async evaluate(pageFunction, ...args) {\n\
+    return this._mainWorld.evaluate(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async $(selector) {\n\
+    return this._mainWorld.$(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} expression\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $x(expression) {\n\
+    return this._mainWorld.$x(expression);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $eval(selector, pageFunction, ...args) {\n\
+    return this._mainWorld.$eval(selector, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $$eval(selector, pageFunction, ...args) {\n\
+    return this._mainWorld.$$eval(selector, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $$(selector) {\n\
+    return this._mainWorld.$$(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<String>}\n\
+   */\n\
+  async content() {\n\
+    return this._secondaryWorld.content();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} html\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   */\n\
+  async setContent(html, options = {}) {\n\
+    return this._secondaryWorld.setContent(html, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  name() {\n\
+    return this._name || '';\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Frame}\n\
+   */\n\
+  parentFrame() {\n\
+    return this._parentFrame;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array.<!Frame>}\n\
+   */\n\
+  childFrames() {\n\
+    return Array.from(this._childFrames);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isDetached() {\n\
+    return this._detached;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addScriptTag(options) {\n\
+    return this._mainWorld.addScriptTag(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addStyleTag(options) {\n\
+    return this._mainWorld.addStyleTag(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{delay?: number, button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async click(selector, options) {\n\
+    return this._secondaryWorld.click(selector, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async focus(selector) {\n\
+    return this._secondaryWorld.focus(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async hover(selector) {\n\
+    return this._secondaryWorld.hover(selector);\n\
+  }\n\
+\n\
+  /**\n\
+  * @param {string} selector\n\
+  * @param {!Array<string>} values\n\
+  * @return {!Promise<!Array<string>>}\n\
+  */\n\
+  select(selector, ...values){\n\
+    return this._secondaryWorld.select(selector, ...values);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  async tap(selector) {\n\
+    return this._secondaryWorld.tap(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {string} text\n\
+   * @param {{delay: (number|undefined)}=} options\n\
+   */\n\
+  async type(selector, text, options) {\n\
+    return this._mainWorld.type(selector, text, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {(string|number|Function)} selectorOrFunctionOrTimeout\n\
+   * @param {!Object=} options\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<?Puppeteer.JSHandle>}\n\
+   */\n\
+  waitFor(selectorOrFunctionOrTimeout, options = {}, ...args) {\n\
+    const xPathPattern = '//';\n\
+\n\
+    if (helper.isString(selectorOrFunctionOrTimeout)) {\n\
+      const string = /** @type {string} */ (selectorOrFunctionOrTimeout);\n\
+      if (string.startsWith(xPathPattern))\n\
+        return this.waitForXPath(string, options);\n\
+      return this.waitForSelector(string, options);\n\
+    }\n\
+    if (helper.isNumber(selectorOrFunctionOrTimeout))\n\
+      return new Promise(fulfill => setTimeout(fulfill, /** @type {number} */ (selectorOrFunctionOrTimeout)));\n\
+    if (typeof selectorOrFunctionOrTimeout === 'function')\n\
+      return this.waitForFunction(selectorOrFunctionOrTimeout, options, ...args);\n\
+    return Promise.reject(new Error('Unsupported target type: ' + (typeof selectorOrFunctionOrTimeout)));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async waitForSelector(selector, options) {\n\
+    const handle = await this._secondaryWorld.waitForSelector(selector, options);\n\
+    if (!handle)\n\
+      return null;\n\
+    const mainExecutionContext = await this._mainWorld.executionContext();\n\
+    const result = await mainExecutionContext._adoptElementHandle(handle);\n\
+    await handle.dispose();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} xpath\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async waitForXPath(xpath, options) {\n\
+    const handle = await this._secondaryWorld.waitForXPath(xpath, options);\n\
+    if (!handle)\n\
+      return null;\n\
+    const mainExecutionContext = await this._mainWorld.executionContext();\n\
+    const result = await mainExecutionContext._adoptElementHandle(handle);\n\
+    await handle.dispose();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!{polling?: string|number, timeout?: number}=} options\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  waitForFunction(pageFunction, options = {}, ...args) {\n\
+    return this._mainWorld.waitForFunction(pageFunction, options, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async title() {\n\
+    return this._secondaryWorld.title();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Page.Frame} framePayload\n\
+   */\n\
+  _navigated(framePayload) {\n\
+    this._name = framePayload.name;\n\
+    // TODO(lushnikov): remove this once requestInterception has loaderId exposed.\n\
+    this._navigationURL = framePayload.url;\n\
+    this._url = framePayload.url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} url\n\
+   */\n\
+  _navigatedWithinDocument(url) {\n\
+    this._url = url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} loaderId\n\
+   * @param {string} name\n\
+   */\n\
+  _onLifecycleEvent(loaderId, name) {\n\
+    if (name === 'init') {\n\
+      this._loaderId = loaderId;\n\
+      this._lifecycleEvents.clear();\n\
+    }\n\
+    this._lifecycleEvents.add(name);\n\
+  }\n\
+\n\
+  _onLoadingStopped() {\n\
+    this._lifecycleEvents.add('DOMContentLoaded');\n\
+    this._lifecycleEvents.add('load');\n\
+  }\n\
+\n\
+  _detach() {\n\
+    this._detached = true;\n\
+    this._mainWorld._detach();\n\
+    this._secondaryWorld._detach();\n\
+    if (this._parentFrame)\n\
+      this._parentFrame._childFrames.delete(this);\n\
+    this._parentFrame = null;\n\
+  }\n\
+}\n\
+\n\
+function assertNoLegacyNavigationOptions(options) {\n\
+  assert(options['networkIdleTimeout'] === undefined, 'ERROR: networkIdleTimeout option is no longer supported.');\n\
+  assert(options['networkIdleInflight'] === undefined, 'ERROR: networkIdleInflight option is no longer supported.');\n\
+  assert(options.waitUntil !== 'networkidle', 'ERROR: \"networkidle\" option is no longer supported. Use \"networkidle2\" instead');\n\
+}\n\
+\n\
+module.exports = {FrameManager, Frame};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Input.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the 'License');\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an 'AS IS' BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {assert} = require('./helper');\n\
+// const keyDefinitions = require('./USKeyboardLayout');\n\
+\n\
+/**\n\
+ * @typedef {Object} KeyDescription\n\
+ * @property {number} keyCode\n\
+ * @property {string} key\n\
+ * @property {string} text\n\
+ * @property {string} code\n\
+ * @property {number} location\n\
+ */\n\
+\n\
+class Keyboard {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+    this._modifiers = 0;\n\
+    this._pressedKeys = new Set();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} key\n\
+   * @param {{text?: string}=} options\n\
+   */\n\
+  async down(key, options = { text: undefined }) {\n\
+    const description = this._keyDescriptionForString(key);\n\
+\n\
+    const autoRepeat = this._pressedKeys.has(description.code);\n\
+    this._pressedKeys.add(description.code);\n\
+    this._modifiers |= this._modifierBit(description.key);\n\
+\n\
+    const text = options.text === undefined ? description.text : options.text;\n\
+    await this._client.send('Input.dispatchKeyEvent', {\n\
+      type: text ? 'keyDown' : 'rawKeyDown',\n\
+      modifiers: this._modifiers,\n\
+      windowsVirtualKeyCode: description.keyCode,\n\
+      code: description.code,\n\
+      key: description.key,\n\
+      text: text,\n\
+      unmodifiedText: text,\n\
+      autoRepeat,\n\
+      location: description.location,\n\
+      isKeypad: description.location === 3\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} key\n\
+   * @return {number}\n\
+   */\n\
+  _modifierBit(key) {\n\
+    if (key === 'Alt')\n\
+      return 1;\n\
+    if (key === 'Control')\n\
+      return 2;\n\
+    if (key === 'Meta')\n\
+      return 4;\n\
+    if (key === 'Shift')\n\
+      return 8;\n\
+    return 0;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} keyString\n\
+   * @return {KeyDescription}\n\
+   */\n\
+  _keyDescriptionForString(keyString) {\n\
+    const shift = this._modifiers & 8;\n\
+    const description = {\n\
+      key: '',\n\
+      keyCode: 0,\n\
+      code: '',\n\
+      text: '',\n\
+      location: 0\n\
+    };\n\
+\n\
+    const definition = keyDefinitions[keyString];\n\
+    assert(definition, `Unknown key: \"${keyString}\"`);\n\
+\n\
+    if (definition.key)\n\
+      description.key = definition.key;\n\
+    if (shift && definition.shiftKey)\n\
+      description.key = definition.shiftKey;\n\
+\n\
+    if (definition.keyCode)\n\
+      description.keyCode = definition.keyCode;\n\
+    if (shift && definition.shiftKeyCode)\n\
+      description.keyCode = definition.shiftKeyCode;\n\
+\n\
+    if (definition.code)\n\
+      description.code = definition.code;\n\
+\n\
+    if (definition.location)\n\
+      description.location = definition.location;\n\
+\n\
+    if (description.key.length === 1)\n\
+      description.text = description.key;\n\
+\n\
+    if (definition.text)\n\
+      description.text = definition.text;\n\
+    if (shift && definition.shiftText)\n\
+      description.text = definition.shiftText;\n\
+\n\
+    // if any modifiers besides shift are pressed, no text should be sent\n\
+    if (this._modifiers & ~8)\n\
+      description.text = '';\n\
+\n\
+    return description;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} key\n\
+   */\n\
+  async up(key) {\n\
+    const description = this._keyDescriptionForString(key);\n\
+\n\
+    this._modifiers &= ~this._modifierBit(description.key);\n\
+    this._pressedKeys.delete(description.code);\n\
+    await this._client.send('Input.dispatchKeyEvent', {\n\
+      type: 'keyUp',\n\
+      modifiers: this._modifiers,\n\
+      key: description.key,\n\
+      windowsVirtualKeyCode: description.keyCode,\n\
+      code: description.code,\n\
+      location: description.location\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} char\n\
+   */\n\
+  async sendCharacter(char) {\n\
+    await this._client.send('Input.insertText', {text: char});\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} text\n\
+   * @param {{delay: (number|undefined)}=} options\n\
+   */\n\
+  async type(text, options) {\n\
+    let delay = 0;\n\
+    if (options && options.delay)\n\
+      delay = options.delay;\n\
+    for (const char of text) {\n\
+      if (keyDefinitions[char])\n\
+        await this.press(char, {delay});\n\
+      else\n\
+        await this.sendCharacter(char);\n\
+      if (delay)\n\
+        await new Promise(f => setTimeout(f, delay));\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} key\n\
+   * @param {!{delay?: number, text?: string}=} options\n\
+   */\n\
+  async press(key, options = {}) {\n\
+    const {delay = null} = options;\n\
+    await this.down(key, options);\n\
+    if (delay !== null)\n\
+      await new Promise(f => setTimeout(f, options.delay));\n\
+    await this.up(key);\n\
+  }\n\
+}\n\
+\n\
+class Mouse {\n\
+  /**\n\
+   * @param {Puppeteer.CDPSession} client\n\
+   * @param {!Keyboard} keyboard\n\
+   */\n\
+  constructor(client, keyboard) {\n\
+    this._client = client;\n\
+    this._keyboard = keyboard;\n\
+    this._x = 0;\n\
+    this._y = 0;\n\
+    /** @type {'none'|'left'|'right'|'middle'} */\n\
+    this._button = 'none';\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} x\n\
+   * @param {number} y\n\
+   * @param {!{steps?: number}=} options\n\
+   */\n\
+  async move(x, y, options = {}) {\n\
+    const {steps = 1} = options;\n\
+    const fromX = this._x, fromY = this._y;\n\
+    this._x = x;\n\
+    this._y = y;\n\
+    for (let i = 1; i <= steps; i++) {\n\
+      await this._client.send('Input.dispatchMouseEvent', {\n\
+        type: 'mouseMoved',\n\
+        button: this._button,\n\
+        x: fromX + (this._x - fromX) * (i / steps),\n\
+        y: fromY + (this._y - fromY) * (i / steps),\n\
+        modifiers: this._keyboard._modifiers\n\
+      });\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} x\n\
+   * @param {number} y\n\
+   * @param {!{delay?: number, button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async click(x, y, options = {}) {\n\
+    const {delay = null} = options;\n\
+    if (delay !== null) {\n\
+      await Promise.all([\n\
+        this.move(x, y),\n\
+        this.down(options),\n\
+      ]);\n\
+      await new Promise(f => setTimeout(f, delay));\n\
+      await this.up(options);\n\
+    } else {\n\
+      await Promise.all([\n\
+        this.move(x, y),\n\
+        this.down(options),\n\
+        this.up(options),\n\
+      ]);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async down(options = {}) {\n\
+    const {button = 'left', clickCount = 1} = options;\n\
+    this._button = button;\n\
+    await this._client.send('Input.dispatchMouseEvent', {\n\
+      type: 'mousePressed',\n\
+      button,\n\
+      x: this._x,\n\
+      y: this._y,\n\
+      modifiers: this._keyboard._modifiers,\n\
+      clickCount\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async up(options = {}) {\n\
+    const {button = 'left', clickCount = 1} = options;\n\
+    this._button = 'none';\n\
+    await this._client.send('Input.dispatchMouseEvent', {\n\
+      type: 'mouseReleased',\n\
+      button,\n\
+      x: this._x,\n\
+      y: this._y,\n\
+      modifiers: this._keyboard._modifiers,\n\
+      clickCount\n\
+    });\n\
+  }\n\
+}\n\
+\n\
+class Touchscreen {\n\
+  /**\n\
+   * @param {Puppeteer.CDPSession} client\n\
+   * @param {Keyboard} keyboard\n\
+   */\n\
+  constructor(client, keyboard) {\n\
+    this._client = client;\n\
+    this._keyboard = keyboard;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} x\n\
+   * @param {number} y\n\
+   */\n\
+  async tap(x, y) {\n\
+    // Touches appear to be lost during the first frame after navigation.\n\
+    // This waits a frame before sending the tap.\n\
+    // @see https://crbug.com/613219\n\
+    await this._client.send('Runtime.evaluate', {\n\
+      expression: 'new Promise(x => requestAnimationFrame(() => requestAnimationFrame(x)))',\n\
+      awaitPromise: true\n\
+    });\n\
+\n\
+    const touchPoints = [{x: Math.round(x), y: Math.round(y)}];\n\
+    await this._client.send('Input.dispatchTouchEvent', {\n\
+      type: 'touchStart',\n\
+      touchPoints,\n\
+      modifiers: this._keyboard._modifiers\n\
+    });\n\
+    await this._client.send('Input.dispatchTouchEvent', {\n\
+      type: 'touchEnd',\n\
+      touchPoints: [],\n\
+      modifiers: this._keyboard._modifiers\n\
+    });\n\
+  }\n\
+}\n\
+\n\
+module.exports = { Keyboard, Mouse, Touchscreen};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/JSHandle.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {helper, assert, debugError} = require('./helper');\n\
+// const path = require('path');\n\
+\n\
+function createJSHandle(context, remoteObject) {\n\
+  const frame = context.frame();\n\
+  if (remoteObject.subtype === 'node' && frame) {\n\
+    const frameManager = frame._frameManager;\n\
+    return new ElementHandle(context, context._client, remoteObject, frameManager.page(), frameManager);\n\
+  }\n\
+  return new JSHandle(context, context._client, remoteObject);\n\
+}\n\
+\n\
+class JSHandle {\n\
+  /**\n\
+   * @param {!Puppeteer.ExecutionContext} context\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject\n\
+   */\n\
+  constructor(context, client, remoteObject) {\n\
+    this._context = context;\n\
+    this._client = client;\n\
+    this._remoteObject = remoteObject;\n\
+    this._disposed = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.ExecutionContext}\n\
+   */\n\
+  executionContext() {\n\
+    return this._context;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} propertyName\n\
+   * @return {!Promise<?JSHandle>}\n\
+   */\n\
+  async getProperty(propertyName) {\n\
+    const objectHandle = await this._context.evaluateHandle((object, propertyName) => {\n\
+      const result = {__proto__: null};\n\
+      result[propertyName] = object[propertyName];\n\
+      return result;\n\
+    }, this, propertyName);\n\
+    const properties = await objectHandle.getProperties();\n\
+    const result = properties.get(propertyName) || null;\n\
+    await objectHandle.dispose();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Map<string, !JSHandle>>}\n\
+   */\n\
+  async getProperties() {\n\
+    const response = await this._client.send('Runtime.getProperties', {\n\
+      objectId: this._remoteObject.objectId,\n\
+      ownProperties: true\n\
+    });\n\
+    const result = new Map();\n\
+    for (const property of response.result) {\n\
+      if (!property.enumerable)\n\
+        continue;\n\
+      result.set(property.name, createJSHandle(this._context, property.value));\n\
+    }\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Object>}\n\
+   */\n\
+  async jsonValue() {\n\
+    if (this._remoteObject.objectId) {\n\
+      const response = await this._client.send('Runtime.callFunctionOn', {\n\
+        functionDeclaration: 'function() { return this; }',\n\
+        objectId: this._remoteObject.objectId,\n\
+        returnByValue: true,\n\
+        awaitPromise: true,\n\
+      });\n\
+      return helper.valueFromRemoteObject(response.result);\n\
+    }\n\
+    return helper.valueFromRemoteObject(this._remoteObject);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.ElementHandle}\n\
+   */\n\
+  asElement() {\n\
+    return null;\n\
+  }\n\
+\n\
+  async dispose() {\n\
+    if (this._disposed)\n\
+      return;\n\
+    this._disposed = true;\n\
+    await helper.releaseObject(this._client, this._remoteObject);\n\
+  }\n\
+\n\
+  /**\n\
+   * @override\n\
+   * @return {string}\n\
+   */\n\
+  toString() {\n\
+    if (this._remoteObject.objectId) {\n\
+      const type =  this._remoteObject.subtype || this._remoteObject.type;\n\
+      return 'JSHandle@' + type;\n\
+    }\n\
+    return 'JSHandle:' + helper.valueFromRemoteObject(this._remoteObject);\n\
+  }\n\
+}\n\
+\n\
+class ElementHandle extends JSHandle {\n\
+  /**\n\
+   * @param {!Puppeteer.ExecutionContext} context\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject\n\
+   * @param {!Puppeteer.Page} page\n\
+   * @param {!Puppeteer.FrameManager} frameManager\n\
+   */\n\
+  constructor(context, client, remoteObject, page, frameManager) {\n\
+    super(context, client, remoteObject);\n\
+    this._client = client;\n\
+    this._remoteObject = remoteObject;\n\
+    this._page = page;\n\
+    this._frameManager = frameManager;\n\
+    this._disposed = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @override\n\
+   * @return {?ElementHandle}\n\
+   */\n\
+  asElement() {\n\
+    return this;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Puppeteer.Frame>}\n\
+   */\n\
+  async contentFrame() {\n\
+    const nodeInfo = await this._client.send('DOM.describeNode', {\n\
+      objectId: this._remoteObject.objectId\n\
+    });\n\
+    if (typeof nodeInfo.node.frameId !== 'string')\n\
+      return null;\n\
+    return this._frameManager.frame(nodeInfo.node.frameId);\n\
+  }\n\
+\n\
+  async _scrollIntoViewIfNeeded() {\n\
+    const error = await this.executionContext().evaluate(async(element, pageJavascriptEnabled) => {\n\
+      if (!element.isConnected)\n\
+        return 'Node is detached from document';\n\
+      if (element.nodeType !== Node.ELEMENT_NODE)\n\
+        return 'Node is not of type HTMLElement';\n\
+      // force-scroll if page's javascript is disabled.\n\
+      if (!pageJavascriptEnabled) {\n\
+        element.scrollIntoView({block: 'center', inline: 'center', behavior: 'instant'});\n\
+        return false;\n\
+      }\n\
+      const visibleRatio = await new Promise(resolve => {\n\
+        const observer = new IntersectionObserver(entries => {\n\
+          resolve(entries[0].intersectionRatio);\n\
+          observer.disconnect();\n\
+        });\n\
+        observer.observe(element);\n\
+      });\n\
+      if (visibleRatio !== 1.0)\n\
+        element.scrollIntoView({block: 'center', inline: 'center', behavior: 'instant'});\n\
+      return false;\n\
+    }, this, this._page._javascriptEnabled);\n\
+    if (error)\n\
+      throw new Error(error);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!{x: number, y: number}>}\n\
+   */\n\
+  async _clickablePoint() {\n\
+    const [result, layoutMetrics] = await Promise.all([\n\
+      this._client.send('DOM.getContentQuads', {\n\
+        objectId: this._remoteObject.objectId\n\
+      }).catch(debugError),\n\
+      this._client.send('Page.getLayoutMetrics'),\n\
+    ]);\n\
+    if (!result || !result.quads.length)\n\
+      throw new Error('Node is either not visible or not an HTMLElement');\n\
+    // Filter out quads that have too small area to click into.\n\
+    const {clientWidth, clientHeight} = layoutMetrics.layoutViewport;\n\
+    const quads = result.quads.map(quad => this._fromProtocolQuad(quad)).map(quad => this._intersectQuadWithViewport(quad, clientWidth, clientHeight)).filter(quad => computeQuadArea(quad) > 1);\n\
+    if (!quads.length)\n\
+      throw new Error('Node is either not visible or not an HTMLElement');\n\
+    // Return the middle point of the first quad.\n\
+    const quad = quads[0];\n\
+    let x = 0;\n\
+    let y = 0;\n\
+    for (const point of quad) {\n\
+      x += point.x;\n\
+      y += point.y;\n\
+    }\n\
+    return {\n\
+      x: x / 4,\n\
+      y: y / 4\n\
+    };\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<void|Protocol.DOM.getBoxModelReturnValue>}\n\
+   */\n\
+  _getBoxModel() {\n\
+    return this._client.send('DOM.getBoxModel', {\n\
+      objectId: this._remoteObject.objectId\n\
+    }).catch(error => debugError(error));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<number>} quad\n\
+   * @return {!Array<{x: number, y: number}>}\n\
+   */\n\
+  _fromProtocolQuad(quad) {\n\
+    return [\n\
+      {x: quad[0], y: quad[1]},\n\
+      {x: quad[2], y: quad[3]},\n\
+      {x: quad[4], y: quad[5]},\n\
+      {x: quad[6], y: quad[7]}\n\
+    ];\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<{x: number, y: number}>} quad\n\
+   * @param {number} width\n\
+   * @param {number} height\n\
+   * @return {!Array<{x: number, y: number}>}\n\
+   */\n\
+  _intersectQuadWithViewport(quad, width, height) {\n\
+    return quad.map(point => ({\n\
+      x: Math.min(Math.max(point.x, 0), width),\n\
+      y: Math.min(Math.max(point.y, 0), height),\n\
+    }));\n\
+  }\n\
+\n\
+  async hover() {\n\
+    await this._scrollIntoViewIfNeeded();\n\
+    const {x, y} = await this._clickablePoint();\n\
+    await this._page.mouse.move(x, y);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{delay?: number, button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  async click(options) {\n\
+    await this._scrollIntoViewIfNeeded();\n\
+    const {x, y} = await this._clickablePoint();\n\
+    await this._page.mouse.click(x, y, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<string>} filePaths\n\
+   */\n\
+  async uploadFile(...filePaths) {\n\
+    const files = filePaths.map(filePath => path.resolve(filePath));\n\
+    const objectId = this._remoteObject.objectId;\n\
+    await this._client.send('DOM.setFileInputFiles', { objectId, files });\n\
+  }\n\
+\n\
+  async tap() {\n\
+    await this._scrollIntoViewIfNeeded();\n\
+    const {x, y} = await this._clickablePoint();\n\
+    await this._page.touchscreen.tap(x, y);\n\
+  }\n\
+\n\
+  async focus() {\n\
+    await this.executionContext().evaluate(element => element.focus(), this);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} text\n\
+   * @param {{delay: (number|undefined)}=} options\n\
+   */\n\
+  async type(text, options) {\n\
+    await this.focus();\n\
+    await this._page.keyboard.type(text, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} key\n\
+   * @param {!{delay?: number, text?: string}=} options\n\
+   */\n\
+  async press(key, options) {\n\
+    await this.focus();\n\
+    await this._page.keyboard.press(key, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?{x: number, y: number, width: number, height: number}>}\n\
+   */\n\
+  async boundingBox() {\n\
+    const result = await this._getBoxModel();\n\
+\n\
+    if (!result)\n\
+      return null;\n\
+\n\
+    const quad = result.model.border;\n\
+    const x = Math.min(quad[0], quad[2], quad[4], quad[6]);\n\
+    const y = Math.min(quad[1], quad[3], quad[5], quad[7]);\n\
+    const width = Math.max(quad[0], quad[2], quad[4], quad[6]) - x;\n\
+    const height = Math.max(quad[1], quad[3], quad[5], quad[7]) - y;\n\
+\n\
+    return {x, y, width, height};\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?BoxModel>}\n\
+   */\n\
+  async boxModel() {\n\
+    const result = await this._getBoxModel();\n\
+\n\
+    if (!result)\n\
+      return null;\n\
+\n\
+    const {content, padding, border, margin, width, height} = result.model;\n\
+    return {\n\
+      content: this._fromProtocolQuad(content),\n\
+      padding: this._fromProtocolQuad(padding),\n\
+      border: this._fromProtocolQuad(border),\n\
+      margin: this._fromProtocolQuad(margin),\n\
+      width,\n\
+      height\n\
+    };\n\
+  }\n\
+\n\
+  /**\n\
+   *\n\
+   * @param {!Object=} options\n\
+   * @returns {!Promise<string|!Buffer>}\n\
+   */\n\
+  async screenshot(options = {}) {\n\
+    let needsViewportReset = false;\n\
+\n\
+    let boundingBox = await this.boundingBox();\n\
+    assert(boundingBox, 'Node is either not visible or not an HTMLElement');\n\
+\n\
+    const viewport = this._page.viewport();\n\
+\n\
+    if (viewport && (boundingBox.width > viewport.width || boundingBox.height > viewport.height)) {\n\
+      const newViewport = {\n\
+        width: Math.max(viewport.width, Math.ceil(boundingBox.width)),\n\
+        height: Math.max(viewport.height, Math.ceil(boundingBox.height)),\n\
+      };\n\
+      await this._page.setViewport(Object.assign({}, viewport, newViewport));\n\
+\n\
+      needsViewportReset = true;\n\
+    }\n\
+\n\
+    await this._scrollIntoViewIfNeeded();\n\
+\n\
+    boundingBox = await this.boundingBox();\n\
+    assert(boundingBox, 'Node is either not visible or not an HTMLElement');\n\
+    assert(boundingBox.width !== 0, 'Node has 0 width.');\n\
+    assert(boundingBox.height !== 0, 'Node has 0 height.');\n\
+\n\
+    const { layoutViewport: { pageX, pageY } } = await this._client.send('Page.getLayoutMetrics');\n\
+\n\
+    const clip = Object.assign({}, boundingBox);\n\
+    clip.x += pageX;\n\
+    clip.y += pageY;\n\
+\n\
+    const imageData = await this._page.screenshot(Object.assign({}, {\n\
+      clip\n\
+    }, options));\n\
+\n\
+    if (needsViewportReset)\n\
+      await this._page.setViewport(viewport);\n\
+\n\
+    return imageData;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<?ElementHandle>}\n\
+   */\n\
+  async $(selector) {\n\
+    const handle = await this.executionContext().evaluateHandle(\n\
+        (element, selector) => element.querySelector(selector),\n\
+        this, selector\n\
+    );\n\
+    const element = handle.asElement();\n\
+    if (element)\n\
+      return element;\n\
+    await handle.dispose();\n\
+    return null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<!Array<!ElementHandle>>}\n\
+   */\n\
+  async $$(selector) {\n\
+    const arrayHandle = await this.executionContext().evaluateHandle(\n\
+        (element, selector) => element.querySelectorAll(selector),\n\
+        this, selector\n\
+    );\n\
+    const properties = await arrayHandle.getProperties();\n\
+    await arrayHandle.dispose();\n\
+    const result = [];\n\
+    for (const property of properties.values()) {\n\
+      const elementHandle = property.asElement();\n\
+      if (elementHandle)\n\
+        result.push(elementHandle);\n\
+    }\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|String} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $eval(selector, pageFunction, ...args) {\n\
+    const elementHandle = await this.$(selector);\n\
+    if (!elementHandle)\n\
+      throw new Error(`Error: failed to find element matching selector \"${selector}\"`);\n\
+    const result = await this.executionContext().evaluate(pageFunction, elementHandle, ...args);\n\
+    await elementHandle.dispose();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|String} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $$eval(selector, pageFunction, ...args) {\n\
+    const arrayHandle = await this.executionContext().evaluateHandle(\n\
+        (element, selector) => Array.from(element.querySelectorAll(selector)),\n\
+        this, selector\n\
+    );\n\
+\n\
+    const result = await this.executionContext().evaluate(pageFunction, arrayHandle, ...args);\n\
+    await arrayHandle.dispose();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} expression\n\
+   * @return {!Promise<!Array<!ElementHandle>>}\n\
+   */\n\
+  async $x(expression) {\n\
+    const arrayHandle = await this.executionContext().evaluateHandle(\n\
+        (element, expression) => {\n\
+          const document = element.ownerDocument || element;\n\
+          const iterator = document.evaluate(expression, element, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE);\n\
+          const array = [];\n\
+          let item;\n\
+          while ((item = iterator.iterateNext()))\n\
+            array.push(item);\n\
+          return array;\n\
+        },\n\
+        this, expression\n\
+    );\n\
+    const properties = await arrayHandle.getProperties();\n\
+    await arrayHandle.dispose();\n\
+    const result = [];\n\
+    for (const property of properties.values()) {\n\
+      const elementHandle = property.asElement();\n\
+      if (elementHandle)\n\
+        result.push(elementHandle);\n\
+    }\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @returns {!Promise<boolean>}\n\
+   */\n\
+  isIntersectingViewport() {\n\
+    return this.executionContext().evaluate(async element => {\n\
+      const visibleRatio = await new Promise(resolve => {\n\
+        const observer = new IntersectionObserver(entries => {\n\
+          resolve(entries[0].intersectionRatio);\n\
+          observer.disconnect();\n\
+        });\n\
+        observer.observe(element);\n\
+      });\n\
+      return visibleRatio > 0;\n\
+    }, this);\n\
+  }\n\
+}\n\
+\n\
+function computeQuadArea(quad) {\n\
+  // Compute sum of all directed areas of adjacent triangles\n\
+  // https://en.wikipedia.org/wiki/Polygon#Simple_polygons\n\
+  let area = 0;\n\
+  for (let i = 0; i < quad.length; ++i) {\n\
+    const p1 = quad[i];\n\
+    const p2 = quad[(i + 1) % quad.length];\n\
+    area += (p1.x * p2.y - p2.x * p1.y) / 2;\n\
+  }\n\
+  return Math.abs(area);\n\
+}\n\
+\n\
+/**\n\
+ * @typedef {Object} BoxModel\n\
+ * @property {!Array<!{x: number, y: number}>} content\n\
+ * @property {!Array<!{x: number, y: number}>} padding\n\
+ * @property {!Array<!{x: number, y: number}>} border\n\
+ * @property {!Array<!{x: number, y: number}>} margin\n\
+ * @property {number} width\n\
+ * @property {number} height\n\
+ */\n\
+\n\
+module.exports = {createJSHandle, JSHandle, ElementHandle};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Launcher.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const os = require('os');\n\
+// const path = require('path');\n\
+// const http = require('http');\n\
+// const https = require('https');\n\
+// const URL = require('url');\n\
+// const removeFolder = require('rimraf');\n\
+// const childProcess = require('child_process');\n\
+// const BrowserFetcher = require('./BrowserFetcher');\n\
+// const {Connection} = require('./Connection');\n\
+// const {Browser} = require('./Browser');\n\
+// const readline = require('readline');\n\
+// const fs = require('fs');\n\
+// const {helper, assert, debugError} = require('./helper');\n\
+// const {TimeoutError} = require('./Errors');\n\
+// const WebSocketTransport = require('./WebSocketTransport');\n\
+// const PipeTransport = require('./PipeTransport');\n\
+\n\
+const mkdtempAsync = helper.promisify(fs.mkdtemp);\n\
+const removeFolderAsync = helper.promisify(removeFolder);\n\
+\n\
+const CHROME_PROFILE_PATH = path.join(os.tmpdir(), 'puppeteer_dev_profile-');\n\
+\n\
+const DEFAULT_ARGS = [\n\
+  '--disable-background-networking',\n\
+  '--enable-features=NetworkService,NetworkServiceInProcess',\n\
+  '--disable-background-timer-throttling',\n\
+  '--disable-backgrounding-occluded-windows',\n\
+  '--disable-breakpad',\n\
+  '--disable-client-side-phishing-detection',\n\
+  '--disable-component-extensions-with-background-pages',\n\
+  '--disable-default-apps',\n\
+  '--disable-dev-shm-usage',\n\
+  '--disable-extensions',\n\
+  // TODO: Support OOOPIF. @see https://github.com/GoogleChrome/puppeteer/issues/2548\n\
+  // BlinkGenPropertyTrees disabled due to crbug.com/937609\n\
+  '--disable-features=site-per-process,TranslateUI,BlinkGenPropertyTrees',\n\
+  '--disable-hang-monitor',\n\
+  '--disable-ipc-flooding-protection',\n\
+  '--disable-popup-blocking',\n\
+  '--disable-prompt-on-repost',\n\
+  '--disable-renderer-backgrounding',\n\
+  '--disable-sync',\n\
+  '--force-color-profile=srgb',\n\
+  '--metrics-recording-only',\n\
+  '--no-first-run',\n\
+  '--enable-automation',\n\
+  '--password-store=basic',\n\
+  '--use-mock-keychain',\n\
+];\n\
+\n\
+class Launcher {\n\
+  /**\n\
+   * @param {string} projectRoot\n\
+   * @param {string} preferredRevision\n\
+   * @param {boolean} isPuppeteerCore\n\
+   */\n\
+  constructor(projectRoot, preferredRevision, isPuppeteerCore) {\n\
+    this._projectRoot = projectRoot;\n\
+    this._preferredRevision = preferredRevision;\n\
+    this._isPuppeteerCore = isPuppeteerCore;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!(Launcher.LaunchOptions & Launcher.ChromeArgOptions & Launcher.BrowserOptions)=} options\n\
+   * @return {!Promise<!Browser>}\n\
+   */\n\
+  async launch(options = {}) {\n\
+    const {\n\
+      ignoreDefaultArgs = false,\n\
+      args = [],\n\
+      dumpio = false,\n\
+      executablePath = null,\n\
+      pipe = false,\n\
+      env = process.env,\n\
+      handleSIGINT = true,\n\
+      handleSIGTERM = true,\n\
+      handleSIGHUP = true,\n\
+      ignoreHTTPSErrors = false,\n\
+      defaultViewport = {width: 800, height: 600},\n\
+      slowMo = 0,\n\
+      timeout = 30000\n\
+    } = options;\n\
+\n\
+    const chromeArguments = [];\n\
+    if (!ignoreDefaultArgs)\n\
+      chromeArguments.push(...this.defaultArgs(options));\n\
+    else if (Array.isArray(ignoreDefaultArgs))\n\
+      chromeArguments.push(...this.defaultArgs(options).filter(arg => ignoreDefaultArgs.indexOf(arg) === -1));\n\
+    else\n\
+      chromeArguments.push(...args);\n\
+\n\
+    let temporaryUserDataDir = null;\n\
+\n\
+    if (!chromeArguments.some(argument => argument.startsWith('--remote-debugging-')))\n\
+      chromeArguments.push(pipe ? '--remote-debugging-pipe' : '--remote-debugging-port=0');\n\
+    if (!chromeArguments.some(arg => arg.startsWith('--user-data-dir'))) {\n\
+      temporaryUserDataDir = await mkdtempAsync(CHROME_PROFILE_PATH);\n\
+      chromeArguments.push(`--user-data-dir=${temporaryUserDataDir}`);\n\
+    }\n\
+\n\
+    let chromeExecutable = executablePath;\n\
+    if (!executablePath) {\n\
+      const {missingText, executablePath} = this._resolveExecutablePath();\n\
+      if (missingText)\n\
+        throw new Error(missingText);\n\
+      chromeExecutable = executablePath;\n\
+    }\n\
+\n\
+    const usePipe = chromeArguments.includes('--remote-debugging-pipe');\n\
+    /** @type {!Array<\"ignore\"|\"pipe\">} */\n\
+    let stdio = ['pipe', 'pipe', 'pipe'];\n\
+    if (usePipe) {\n\
+      if (dumpio)\n\
+        stdio = ['ignore', 'pipe', 'pipe', 'pipe', 'pipe'];\n\
+      else\n\
+        stdio = ['ignore', 'ignore', 'ignore', 'pipe', 'pipe'];\n\
+    }\n\
+    // hack-puppeteer\n\
+    console.error(JSON.stringify([chromeExecutable, chromeArguments]));\n\
+    const chromeProcess = childProcess.spawn(\n\
+        chromeExecutable,\n\
+        chromeArguments,\n\
+        {\n\
+          // On non-windows platforms, `detached: false` makes child process a leader of a new\n\
+          // process group, making it possible to kill child process tree with `.kill(-pid)` command.\n\
+          // @see https://nodejs.org/api/child_process.html#child_process_options_detached\n\
+          detached: process.platform !== 'win32',\n\
+          env,\n\
+          stdio\n\
+        }\n\
+    );\n\
+\n\
+    if (dumpio) {\n\
+      chromeProcess.stderr.pipe(process.stderr);\n\
+      chromeProcess.stdout.pipe(process.stdout);\n\
+    }\n\
+\n\
+    let chromeClosed = false;\n\
+    const waitForChromeToClose = new Promise((fulfill, reject) => {\n\
+      chromeProcess.once('exit', () => {\n\
+        chromeClosed = true;\n\
+        // Cleanup as processes exit.\n\
+        if (temporaryUserDataDir) {\n\
+          removeFolderAsync(temporaryUserDataDir)\n\
+              .then(() => fulfill())\n\
+              .catch(err => console.error(err));\n\
+        } else {\n\
+          fulfill();\n\
+        }\n\
+      });\n\
+    });\n\
+\n\
+    const listeners = [ helper.addEventListener(process, 'exit', killChrome) ];\n\
+    if (handleSIGINT)\n\
+      listeners.push(helper.addEventListener(process, 'SIGINT', () => { killChrome(); process.exit(130); }));\n\
+    if (handleSIGTERM)\n\
+      listeners.push(helper.addEventListener(process, 'SIGTERM', gracefullyCloseChrome));\n\
+    if (handleSIGHUP)\n\
+      listeners.push(helper.addEventListener(process, 'SIGHUP', gracefullyCloseChrome));\n\
+    /** @type {?Connection} */\n\
+    let connection = null;\n\
+    try {\n\
+      if (!usePipe) {\n\
+        const browserWSEndpoint = await waitForWSEndpoint(chromeProcess, timeout, this._preferredRevision);\n\
+        const transport = await WebSocketTransport.create(browserWSEndpoint);\n\
+        connection = new Connection(browserWSEndpoint, transport, slowMo);\n\
+      } else {\n\
+        const transport = new PipeTransport(/** @type {!NodeJS.WritableStream} */(chromeProcess.stdio[3]), /** @type {!NodeJS.ReadableStream} */ (chromeProcess.stdio[4]));\n\
+        connection = new Connection('', transport, slowMo);\n\
+      }\n\
+      const browser = await Browser.create(connection, [], ignoreHTTPSErrors, defaultViewport, chromeProcess, gracefullyCloseChrome);\n\
+      await browser.waitForTarget(t => t.type() === 'page');\n\
+      return browser;\n\
+    } catch (e) {\n\
+      killChrome();\n\
+      throw e;\n\
+    }\n\
+\n\
+    /**\n\
+     * @return {Promise}\n\
+     */\n\
+    function gracefullyCloseChrome() {\n\
+      helper.removeEventListeners(listeners);\n\
+      if (temporaryUserDataDir) {\n\
+        killChrome();\n\
+      } else if (connection) {\n\
+        // Attempt to close chrome gracefully\n\
+        connection.send('Browser.close').catch(error => {\n\
+          debugError(error);\n\
+          killChrome();\n\
+        });\n\
+      }\n\
+      return waitForChromeToClose;\n\
+    }\n\
+\n\
+    // This method has to be sync to be used as 'exit' event handler.\n\
+    function killChrome() {\n\
+      helper.removeEventListeners(listeners);\n\
+      if (chromeProcess.pid && !chromeProcess.killed && !chromeClosed) {\n\
+        // Force kill chrome.\n\
+        try {\n\
+          if (process.platform === 'win32')\n\
+            childProcess.execSync(`taskkill /pid ${chromeProcess.pid} /T /F`);\n\
+          else\n\
+            process.kill(-chromeProcess.pid, 'SIGKILL');\n\
+        } catch (e) {\n\
+          // the process might have already stopped\n\
+        }\n\
+      }\n\
+      // Attempt to remove temporary profile directory to avoid littering.\n\
+      try {\n\
+        removeFolder.sync(temporaryUserDataDir);\n\
+      } catch (e) { }\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Launcher.ChromeArgOptions=} options\n\
+   * @return {!Array<string>}\n\
+   */\n\
+  defaultArgs(options = {}) {\n\
+    const {\n\
+      devtools = false,\n\
+      headless = !devtools,\n\
+      args = [],\n\
+      userDataDir = null\n\
+    } = options;\n\
+    const chromeArguments = [...DEFAULT_ARGS];\n\
+    if (userDataDir)\n\
+      chromeArguments.push(`--user-data-dir=${userDataDir}`);\n\
+    if (devtools)\n\
+      chromeArguments.push('--auto-open-devtools-for-tabs');\n\
+    if (headless) {\n\
+      chromeArguments.push(\n\
+          '--headless',\n\
+          '--hide-scrollbars',\n\
+          '--mute-audio'\n\
+      );\n\
+    }\n\
+    if (args.every(arg => arg.startsWith('-')))\n\
+      chromeArguments.push('about:blank');\n\
+    chromeArguments.push(...args);\n\
+    return chromeArguments;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  executablePath() {\n\
+    return this._resolveExecutablePath().executablePath;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!(Launcher.BrowserOptions & {browserWSEndpoint?: string, browserURL?: string, transport?: !Puppeteer.ConnectionTransport})} options\n\
+   * @return {!Promise<!Browser>}\n\
+   */\n\
+  async connect(options) {\n\
+    const {\n\
+      browserWSEndpoint,\n\
+      browserURL,\n\
+      ignoreHTTPSErrors = false,\n\
+      defaultViewport = {width: 800, height: 600},\n\
+      transport,\n\
+      slowMo = 0,\n\
+    } = options;\n\
+\n\
+    assert(Number(!!browserWSEndpoint) + Number(!!browserURL) + Number(!!transport) === 1, 'Exactly one of browserWSEndpoint, browserURL or transport must be passed to puppeteer.connect');\n\
+\n\
+    let connection = null;\n\
+    if (transport) {\n\
+      connection = new Connection('', transport, slowMo);\n\
+    } else if (browserWSEndpoint) {\n\
+      const connectionTransport = await WebSocketTransport.create(browserWSEndpoint);\n\
+      connection = new Connection(browserWSEndpoint, connectionTransport, slowMo);\n\
+    } else if (browserURL) {\n\
+      const connectionURL = await getWSEndpoint(browserURL);\n\
+      const connectionTransport = await WebSocketTransport.create(connectionURL);\n\
+      connection = new Connection(connectionURL, connectionTransport, slowMo);\n\
+    }\n\
+\n\
+    const {browserContextIds} = await connection.send('Target.getBrowserContexts');\n\
+    return Browser.create(connection, browserContextIds, ignoreHTTPSErrors, defaultViewport, null, () => connection.send('Browser.close').catch(debugError));\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {{executablePath: string, missingText: ?string}}\n\
+   */\n\
+  _resolveExecutablePath() {\n\
+    // puppeteer-core doesn't take into account PUPPETEER_* env variables.\n\
+    if (!this._isPuppeteerCore) {\n\
+      const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.npm_config_puppeteer_executable_path || process.env.npm_package_config_puppeteer_executable_path;\n\
+      if (executablePath) {\n\
+        const missingText = !fs.existsSync(executablePath) ? 'Tried to use PUPPETEER_EXECUTABLE_PATH env variable to launch browser but did not find any executable at: ' + executablePath : null;\n\
+        return { executablePath, missingText };\n\
+      }\n\
+    }\n\
+    const browserFetcher = new BrowserFetcher(this._projectRoot);\n\
+    if (!this._isPuppeteerCore) {\n\
+      const revision = process.env['PUPPETEER_CHROMIUM_REVISION'];\n\
+      if (revision) {\n\
+        const revisionInfo = browserFetcher.revisionInfo(revision);\n\
+        const missingText = !revisionInfo.local ? 'Tried to use PUPPETEER_CHROMIUM_REVISION env variable to launch browser but did not find executable at: ' + revisionInfo.executablePath : null;\n\
+        return {executablePath: revisionInfo.executablePath, missingText};\n\
+      }\n\
+    }\n\
+    const revisionInfo = browserFetcher.revisionInfo(this._preferredRevision);\n\
+    const missingText = !revisionInfo.local ? `Chromium revision is not downloaded. Run \"npm install\" or \"yarn install\"` : null;\n\
+    return {executablePath: revisionInfo.executablePath, missingText};\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {!Puppeteer.ChildProcess} chromeProcess\n\
+ * @param {number} timeout\n\
+ * @param {string} preferredRevision\n\
+ * @return {!Promise<string>}\n\
+ */\n\
+function waitForWSEndpoint(chromeProcess, timeout, preferredRevision) {\n\
+  return new Promise((resolve, reject) => {\n\
+    const rl = readline.createInterface({ input: chromeProcess.stderr });\n\
+    let stderr = '';\n\
+    const listeners = [\n\
+      helper.addEventListener(rl, 'line', onLine),\n\
+      helper.addEventListener(rl, 'close', () => onClose()),\n\
+      helper.addEventListener(chromeProcess, 'exit', () => onClose()),\n\
+      helper.addEventListener(chromeProcess, 'error', error => onClose(error))\n\
+    ];\n\
+    const timeoutId = timeout ? setTimeout(onTimeout, timeout) : 0;\n\
+\n\
+    /**\n\
+     * @param {!Error=} error\n\
+     */\n\
+    function onClose(error) {\n\
+      cleanup();\n\
+      reject(new Error([\n\
+        'Failed to launch chrome!' + (error ? ' ' + error.message : ''),\n\
+        stderr,\n\
+        '',\n\
+        'TROUBLESHOOTING: https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md',\n\
+        '',\n\
+      ].join('\\n')));\n\
+    }\n\
+\n\
+    function onTimeout() {\n\
+      cleanup();\n\
+      reject(new TimeoutError(`Timed out after ${timeout} ms while trying to connect to Chrome! The only Chrome revision guaranteed to work is r${preferredRevision}`));\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {string} line\n\
+     */\n\
+    function onLine(line) {\n\
+      stderr += line + '\\n';\n\
+      const match = line.match(/^DevTools listening on (ws:\\/\\/.*)$/);\n\
+      if (!match)\n\
+        return;\n\
+      cleanup();\n\
+      resolve(match[1]);\n\
+    }\n\
+\n\
+    function cleanup() {\n\
+      if (timeoutId)\n\
+        clearTimeout(timeoutId);\n\
+      helper.removeEventListeners(listeners);\n\
+    }\n\
+  });\n\
+}\n\
+\n\
+/**\n\
+ * @param {string} browserURL\n\
+ * @return {!Promise<string>}\n\
+ */\n\
+function getWSEndpoint(browserURL) {\n\
+  let resolve, reject;\n\
+  const promise = new Promise((res, rej) => { resolve = res; reject = rej; });\n\
+\n\
+  const endpointURL = URL.resolve(browserURL, '/json/version');\n\
+  const protocol = endpointURL.startsWith('https') ? https : http;\n\
+  const requestOptions = Object.assign(URL.parse(endpointURL), { method: 'GET' });\n\
+  const request = protocol.request(requestOptions, res => {\n\
+    let data = '';\n\
+    if (res.statusCode !== 200) {\n\
+      // Consume response data to free up memory.\n\
+      res.resume();\n\
+      reject(new Error('HTTP ' + res.statusCode));\n\
+      return;\n\
+    }\n\
+    res.setEncoding('utf8');\n\
+    res.on('data', chunk => data += chunk);\n\
+    res.on('end', () => resolve(JSON.parse(data).webSocketDebuggerUrl));\n\
+  });\n\
+\n\
+  request.on('error', reject);\n\
+  request.end();\n\
+\n\
+  return promise.catch(e => {\n\
+    e.message = `Failed to fetch browser webSocket url from ${endpointURL}: ` + e.message;\n\
+    throw e;\n\
+  });\n\
+}\n\
+\n\
+/**\n\
+ * @typedef {Object} Launcher.ChromeArgOptions\n\
+ * @property {boolean=} headless\n\
+ * @property {Array<string>=} args\n\
+ * @property {string=} userDataDir\n\
+ * @property {boolean=} devtools\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} Launcher.LaunchOptions\n\
+ * @property {string=} executablePath\n\
+ * @property {boolean|Array<string>=} ignoreDefaultArgs\n\
+ * @property {boolean=} handleSIGINT\n\
+ * @property {boolean=} handleSIGTERM\n\
+ * @property {boolean=} handleSIGHUP\n\
+ * @property {number=} timeout\n\
+ * @property {boolean=} dumpio\n\
+ * @property {!Object<string, string | undefined>=} env\n\
+ * @property {boolean=} pipe\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} Launcher.BrowserOptions\n\
+ * @property {boolean=} ignoreHTTPSErrors\n\
+ * @property {(?Puppeteer.Viewport)=} defaultViewport\n\
+ * @property {number=} slowMo\n\
+ */\n\
+\n\
+module.exports = Launcher;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/LifecycleWatcher.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {helper, assert} = require('./helper');\n\
+// const {Events} = require('./Events');\n\
+// const {TimeoutError} = require('./Errors');\n\
+\n\
+class LifecycleWatcher {\n\
+  /**\n\
+   * @param {!Puppeteer.FrameManager} frameManager\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   * @param {string|!Array<string>} waitUntil\n\
+   * @param {number} timeout\n\
+   */\n\
+  constructor(frameManager, frame, waitUntil, timeout) {\n\
+    if (Array.isArray(waitUntil))\n\
+      waitUntil = waitUntil.slice();\n\
+    else if (typeof waitUntil === 'string')\n\
+      waitUntil = [waitUntil];\n\
+    this._expectedLifecycle = waitUntil.map(value => {\n\
+      const protocolEvent = puppeteerToProtocolLifecycle[value];\n\
+      assert(protocolEvent, 'Unknown value for options.waitUntil: ' + value);\n\
+      return protocolEvent;\n\
+    });\n\
+\n\
+    this._frameManager = frameManager;\n\
+    this._frame = frame;\n\
+    this._initialLoaderId = frame._loaderId;\n\
+    this._timeout = timeout;\n\
+    /** @type {?Puppeteer.Request} */\n\
+    this._navigationRequest = null;\n\
+    this._eventListeners = [\n\
+      helper.addEventListener(frameManager._client, Events.CDPSession.Disconnected, () => this._terminate(new Error('Navigation failed because browser has disconnected!'))),\n\
+      helper.addEventListener(this._frameManager, Events.FrameManager.LifecycleEvent, this._checkLifecycleComplete.bind(this)),\n\
+      helper.addEventListener(this._frameManager, Events.FrameManager.FrameNavigatedWithinDocument, this._navigatedWithinDocument.bind(this)),\n\
+      helper.addEventListener(this._frameManager, Events.FrameManager.FrameDetached, this._onFrameDetached.bind(this)),\n\
+      helper.addEventListener(this._frameManager.networkManager(), Events.NetworkManager.Request, this._onRequest.bind(this)),\n\
+    ];\n\
+\n\
+    this._sameDocumentNavigationPromise = new Promise(fulfill => {\n\
+      this._sameDocumentNavigationCompleteCallback = fulfill;\n\
+    });\n\
+\n\
+    this._lifecyclePromise = new Promise(fulfill => {\n\
+      this._lifecycleCallback = fulfill;\n\
+    });\n\
+\n\
+    this._newDocumentNavigationPromise = new Promise(fulfill => {\n\
+      this._newDocumentNavigationCompleteCallback = fulfill;\n\
+    });\n\
+\n\
+    this._timeoutPromise = this._createTimeoutPromise();\n\
+    this._terminationPromise = new Promise(fulfill => {\n\
+      this._terminationCallback = fulfill;\n\
+    });\n\
+    this._checkLifecycleComplete();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Request} request\n\
+   */\n\
+  _onRequest(request) {\n\
+    if (request.frame() !== this._frame || !request.isNavigationRequest())\n\
+      return;\n\
+    this._navigationRequest = request;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   */\n\
+  _onFrameDetached(frame) {\n\
+    if (this._frame === frame) {\n\
+      this._terminationCallback.call(null, new Error('Navigating frame was detached'));\n\
+      return;\n\
+    }\n\
+    this._checkLifecycleComplete();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Response}\n\
+   */\n\
+  navigationResponse() {\n\
+    return this._navigationRequest ? this._navigationRequest.response() : null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Error} error\n\
+   */\n\
+  _terminate(error) {\n\
+    this._terminationCallback.call(null, error);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Error>}\n\
+   */\n\
+  sameDocumentNavigationPromise() {\n\
+    return this._sameDocumentNavigationPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Error>}\n\
+   */\n\
+  newDocumentNavigationPromise() {\n\
+    return this._newDocumentNavigationPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise}\n\
+   */\n\
+  lifecyclePromise() {\n\
+    return this._lifecyclePromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Error>}\n\
+   */\n\
+  timeoutOrTerminationPromise() {\n\
+    return Promise.race([this._timeoutPromise, this._terminationPromise]);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Error>}\n\
+   */\n\
+  _createTimeoutPromise() {\n\
+    if (!this._timeout)\n\
+      return new Promise(() => {});\n\
+    const errorMessage = 'Navigation Timeout Exceeded: ' + this._timeout + 'ms exceeded';\n\
+    return new Promise(fulfill => this._maximumTimer = setTimeout(fulfill, this._timeout))\n\
+        .then(() => new TimeoutError(errorMessage));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Frame} frame\n\
+   */\n\
+  _navigatedWithinDocument(frame) {\n\
+    if (frame !== this._frame)\n\
+      return;\n\
+    this._hasSameDocumentNavigation = true;\n\
+    this._checkLifecycleComplete();\n\
+  }\n\
+\n\
+  _checkLifecycleComplete() {\n\
+    // We expect navigation to commit.\n\
+    if (!checkLifecycle(this._frame, this._expectedLifecycle))\n\
+      return;\n\
+    this._lifecycleCallback();\n\
+    if (this._frame._loaderId === this._initialLoaderId && !this._hasSameDocumentNavigation)\n\
+      return;\n\
+    if (this._hasSameDocumentNavigation)\n\
+      this._sameDocumentNavigationCompleteCallback();\n\
+    if (this._frame._loaderId !== this._initialLoaderId)\n\
+      this._newDocumentNavigationCompleteCallback();\n\
+\n\
+    /**\n\
+     * @param {!Puppeteer.Frame} frame\n\
+     * @param {!Array<string>} expectedLifecycle\n\
+     * @return {boolean}\n\
+     */\n\
+    function checkLifecycle(frame, expectedLifecycle) {\n\
+      for (const event of expectedLifecycle) {\n\
+        if (!frame._lifecycleEvents.has(event))\n\
+          return false;\n\
+      }\n\
+      for (const child of frame.childFrames()) {\n\
+        if (!checkLifecycle(child, expectedLifecycle))\n\
+          return false;\n\
+      }\n\
+      return true;\n\
+    }\n\
+  }\n\
+\n\
+  dispose() {\n\
+    helper.removeEventListeners(this._eventListeners);\n\
+    clearTimeout(this._maximumTimer);\n\
+  }\n\
+}\n\
+\n\
+const puppeteerToProtocolLifecycle = {\n\
+  'load': 'load',\n\
+  'domcontentloaded': 'DOMContentLoaded',\n\
+  'networkidle0': 'networkIdle',\n\
+  'networkidle2': 'networkAlmostIdle',\n\
+};\n\
+\n\
+module.exports = {LifecycleWatcher};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Multimap.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+/**\n\
+ * @template T\n\
+ * @template V\n\
+ */\n\
+class Multimap {\n\
+  constructor() {\n\
+    this._map = new Map();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @param {V} value\n\
+   */\n\
+  set(key, value) {\n\
+    let set = this._map.get(key);\n\
+    if (!set) {\n\
+      set = new Set();\n\
+      this._map.set(key, set);\n\
+    }\n\
+    set.add(value);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @return {!Set<V>}\n\
+   */\n\
+  get(key) {\n\
+    let result = this._map.get(key);\n\
+    if (!result)\n\
+      result = new Set();\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @return {boolean}\n\
+   */\n\
+  has(key) {\n\
+    return this._map.has(key);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @param {V} value\n\
+   * @return {boolean}\n\
+   */\n\
+  hasValue(key, value) {\n\
+    const set = this._map.get(key);\n\
+    if (!set)\n\
+      return false;\n\
+    return set.has(value);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {number}\n\
+   */\n\
+  get size() {\n\
+    return this._map.size;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @param {V} value\n\
+   * @return {boolean}\n\
+   */\n\
+  delete(key, value) {\n\
+    const values = this.get(key);\n\
+    const result = values.delete(value);\n\
+    if (!values.size)\n\
+      this._map.delete(key);\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   */\n\
+  deleteAll(key) {\n\
+    this._map.delete(key);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {T} key\n\
+   * @return {V}\n\
+   */\n\
+  firstValue(key) {\n\
+    const set = this._map.get(key);\n\
+    if (!set)\n\
+      return null;\n\
+    return set.values().next().value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {T}\n\
+   */\n\
+  firstKey() {\n\
+    return this._map.keys().next().value;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<V>}\n\
+   */\n\
+  valuesArray() {\n\
+    const result = [];\n\
+    for (const key of this._map.keys())\n\
+      result.push(...Array.from(this._map.get(key).values()));\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<T>}\n\
+   */\n\
+  keysArray() {\n\
+    return Array.from(this._map.keys());\n\
+  }\n\
+\n\
+  clear() {\n\
+    this._map.clear();\n\
+  }\n\
+}\n\
+\n\
+module.exports = Multimap;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/NetworkManager.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const EventEmitter = require('events');\n\
+// const {helper, assert, debugError} = require('./helper');\n\
+// const {Events} = require('./Events');\n\
+\n\
+class NetworkManager extends EventEmitter {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client, ignoreHTTPSErrors) {\n\
+    super();\n\
+    this._client = client;\n\
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;\n\
+    this._frameManager = null;\n\
+    /** @type {!Map<string, !Request>} */\n\
+    this._requestIdToRequest = new Map();\n\
+    /** @type {!Map<string, !Protocol.Network.requestWillBeSentPayload>} */\n\
+    this._requestIdToRequestWillBeSentEvent = new Map();\n\
+    /** @type {!Object<string, string>} */\n\
+    this._extraHTTPHeaders = {};\n\
+\n\
+    this._offline = false;\n\
+\n\
+    /** @type {?{username: string, password: string}} */\n\
+    this._credentials = null;\n\
+    /** @type {!Set<string>} */\n\
+    this._attemptedAuthentications = new Set();\n\
+    this._userRequestInterceptionEnabled = false;\n\
+    this._protocolRequestInterceptionEnabled = false;\n\
+    this._userCacheDisabled = false;\n\
+    /** @type {!Map<string, string>} */\n\
+    this._requestIdToInterceptionId = new Map();\n\
+\n\
+    this._client.on('Fetch.requestPaused', this._onRequestPaused.bind(this));\n\
+    this._client.on('Fetch.authRequired', this._onAuthRequired.bind(this));\n\
+    this._client.on('Network.requestWillBeSent', this._onRequestWillBeSent.bind(this));\n\
+    this._client.on('Network.requestServedFromCache', this._onRequestServedFromCache.bind(this));\n\
+    this._client.on('Network.responseReceived', this._onResponseReceived.bind(this));\n\
+    this._client.on('Network.loadingFinished', this._onLoadingFinished.bind(this));\n\
+    this._client.on('Network.loadingFailed', this._onLoadingFailed.bind(this));\n\
+  }\n\
+\n\
+  async initialize() {\n\
+    await this._client.send('Network.enable');\n\
+    if (this._ignoreHTTPSErrors)\n\
+      await this._client.send('Security.setIgnoreCertificateErrors', {ignore: true});\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.FrameManager} frameManager\n\
+   */\n\
+  setFrameManager(frameManager) {\n\
+    this._frameManager = frameManager;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?{username: string, password: string}} credentials\n\
+   */\n\
+  async authenticate(credentials) {\n\
+    this._credentials = credentials;\n\
+    await this._updateProtocolRequestInterception();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Object<string, string>} extraHTTPHeaders\n\
+   */\n\
+  async setExtraHTTPHeaders(extraHTTPHeaders) {\n\
+    this._extraHTTPHeaders = {};\n\
+    for (const key of Object.keys(extraHTTPHeaders)) {\n\
+      const value = extraHTTPHeaders[key];\n\
+      assert(helper.isString(value), `Expected value of header \"${key}\" to be String, but \"${typeof value}\" is found.`);\n\
+      this._extraHTTPHeaders[key.toLowerCase()] = value;\n\
+    }\n\
+    await this._client.send('Network.setExtraHTTPHeaders', { headers: this._extraHTTPHeaders });\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Object<string, string>}\n\
+   */\n\
+  extraHTTPHeaders() {\n\
+    return Object.assign({}, this._extraHTTPHeaders);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} value\n\
+   */\n\
+  async setOfflineMode(value) {\n\
+    if (this._offline === value)\n\
+      return;\n\
+    this._offline = value;\n\
+    await this._client.send('Network.emulateNetworkConditions', {\n\
+      offline: this._offline,\n\
+      // values of 0 remove any active throttling. crbug.com/456324#c9\n\
+      latency: 0,\n\
+      downloadThroughput: -1,\n\
+      uploadThroughput: -1\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} userAgent\n\
+   */\n\
+  async setUserAgent(userAgent) {\n\
+    await this._client.send('Network.setUserAgentOverride', { userAgent });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} enabled\n\
+   */\n\
+  async setCacheEnabled(enabled) {\n\
+    this._userCacheDisabled = !enabled;\n\
+    await this._updateProtocolCacheDisabled();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} value\n\
+   */\n\
+  async setRequestInterception(value) {\n\
+    this._userRequestInterceptionEnabled = value;\n\
+    await this._updateProtocolRequestInterception();\n\
+  }\n\
+\n\
+  async _updateProtocolRequestInterception() {\n\
+    const enabled = this._userRequestInterceptionEnabled || !!this._credentials;\n\
+    if (enabled === this._protocolRequestInterceptionEnabled)\n\
+      return;\n\
+    this._protocolRequestInterceptionEnabled = enabled;\n\
+    if (enabled) {\n\
+      await Promise.all([\n\
+        this._updateProtocolCacheDisabled(),\n\
+        this._client.send('Fetch.enable', {\n\
+          handleAuthRequests: true,\n\
+          patterns: [{urlPattern: '*'}],\n\
+        }),\n\
+      ]);\n\
+    } else {\n\
+      await Promise.all([\n\
+        this._updateProtocolCacheDisabled(),\n\
+        this._client.send('Fetch.disable')\n\
+      ]);\n\
+    }\n\
+  }\n\
+\n\
+  async _updateProtocolCacheDisabled() {\n\
+    await this._client.send('Network.setCacheDisabled', {\n\
+      cacheDisabled: this._userCacheDisabled || this._protocolRequestInterceptionEnabled\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.requestWillBeSentPayload} event\n\
+   */\n\
+  _onRequestWillBeSent(event) {\n\
+    // Request interception doesn't happen for data URLs with Network Service.\n\
+    if (this._protocolRequestInterceptionEnabled && !event.request.url.startsWith('data:')) {\n\
+      const requestId = event.requestId;\n\
+      const interceptionId = this._requestIdToInterceptionId.get(requestId);\n\
+      if (interceptionId) {\n\
+        this._onRequest(event, interceptionId);\n\
+        this._requestIdToInterceptionId.delete(requestId);\n\
+      } else {\n\
+        this._requestIdToRequestWillBeSentEvent.set(event.requestId, event);\n\
+      }\n\
+      return;\n\
+    }\n\
+    this._onRequest(event, null);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Fetch.authRequiredPayload} event\n\
+   */\n\
+  _onAuthRequired(event) {\n\
+    /** @type {\"Default\"|\"CancelAuth\"|\"ProvideCredentials\"} */\n\
+    let response = 'Default';\n\
+    if (this._attemptedAuthentications.has(event.requestId)) {\n\
+      response = 'CancelAuth';\n\
+    } else if (this._credentials) {\n\
+      response = 'ProvideCredentials';\n\
+      this._attemptedAuthentications.add(event.requestId);\n\
+    }\n\
+    const {username, password} = this._credentials || {username: undefined, password: undefined};\n\
+    this._client.send('Fetch.continueWithAuth', {\n\
+      requestId: event.requestId,\n\
+      authChallengeResponse: { response, username, password },\n\
+    }).catch(debugError);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Fetch.requestPausedPayload} event\n\
+   */\n\
+  _onRequestPaused(event) {\n\
+    if (!this._userRequestInterceptionEnabled && this._protocolRequestInterceptionEnabled) {\n\
+      this._client.send('Fetch.continueRequest', {\n\
+        requestId: event.requestId\n\
+      }).catch(debugError);\n\
+    }\n\
+\n\
+    const requestId = event.networkId;\n\
+    const interceptionId = event.requestId;\n\
+    if (requestId && this._requestIdToRequestWillBeSentEvent.has(requestId)) {\n\
+      const requestWillBeSentEvent = this._requestIdToRequestWillBeSentEvent.get(requestId);\n\
+      this._onRequest(requestWillBeSentEvent, interceptionId);\n\
+      this._requestIdToRequestWillBeSentEvent.delete(requestId);\n\
+    } else {\n\
+      this._requestIdToInterceptionId.set(requestId, interceptionId);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.requestWillBeSentPayload} event\n\
+   * @param {?string} interceptionId\n\
+   */\n\
+  _onRequest(event, interceptionId) {\n\
+    let redirectChain = [];\n\
+    if (event.redirectResponse) {\n\
+      const request = this._requestIdToRequest.get(event.requestId);\n\
+      // If we connect late to the target, we could have missed the requestWillBeSent event.\n\
+      if (request) {\n\
+        this._handleRequestRedirect(request, event.redirectResponse);\n\
+        redirectChain = request._redirectChain;\n\
+      }\n\
+    }\n\
+    const frame = event.frameId && this._frameManager ? this._frameManager.frame(event.frameId) : null;\n\
+    const request = new Request(this._client, frame, interceptionId, this._userRequestInterceptionEnabled, event, redirectChain);\n\
+    this._requestIdToRequest.set(event.requestId, request);\n\
+    this.emit(Events.NetworkManager.Request, request);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.requestServedFromCachePayload} event\n\
+   */\n\
+  _onRequestServedFromCache(event) {\n\
+    const request = this._requestIdToRequest.get(event.requestId);\n\
+    if (request)\n\
+      request._fromMemoryCache = true;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Request} request\n\
+   * @param {!Protocol.Network.Response} responsePayload\n\
+   */\n\
+  _handleRequestRedirect(request, responsePayload) {\n\
+    const response = new Response(this._client, request, responsePayload);\n\
+    request._response = response;\n\
+    request._redirectChain.push(request);\n\
+    response._bodyLoadedPromiseFulfill.call(null, new Error('Response body is unavailable for redirect responses'));\n\
+    this._requestIdToRequest.delete(request._requestId);\n\
+    this._attemptedAuthentications.delete(request._interceptionId);\n\
+    this.emit(Events.NetworkManager.Response, response);\n\
+    this.emit(Events.NetworkManager.RequestFinished, request);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.responseReceivedPayload} event\n\
+   */\n\
+  _onResponseReceived(event) {\n\
+    const request = this._requestIdToRequest.get(event.requestId);\n\
+    // FileUpload sends a response without a matching request.\n\
+    if (!request)\n\
+      return;\n\
+    const response = new Response(this._client, request, event.response);\n\
+    request._response = response;\n\
+    this.emit(Events.NetworkManager.Response, response);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.loadingFinishedPayload} event\n\
+   */\n\
+  _onLoadingFinished(event) {\n\
+    const request = this._requestIdToRequest.get(event.requestId);\n\
+    // For certain requestIds we never receive requestWillBeSent event.\n\
+    // @see https://crbug.com/750469\n\
+    if (!request)\n\
+      return;\n\
+\n\
+    // Under certain conditions we never get the Network.responseReceived\n\
+    // event from protocol. @see https://crbug.com/883475\n\
+    if (request.response())\n\
+      request.response()._bodyLoadedPromiseFulfill.call(null);\n\
+    this._requestIdToRequest.delete(request._requestId);\n\
+    this._attemptedAuthentications.delete(request._interceptionId);\n\
+    this.emit(Events.NetworkManager.RequestFinished, request);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Network.loadingFailedPayload} event\n\
+   */\n\
+  _onLoadingFailed(event) {\n\
+    const request = this._requestIdToRequest.get(event.requestId);\n\
+    // For certain requestIds we never receive requestWillBeSent event.\n\
+    // @see https://crbug.com/750469\n\
+    if (!request)\n\
+      return;\n\
+    request._failureText = event.errorText;\n\
+    const response = request.response();\n\
+    if (response)\n\
+      response._bodyLoadedPromiseFulfill.call(null);\n\
+    this._requestIdToRequest.delete(request._requestId);\n\
+    this._attemptedAuthentications.delete(request._interceptionId);\n\
+    this.emit(Events.NetworkManager.RequestFailed, request);\n\
+  }\n\
+}\n\
+\n\
+class Request {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {?Puppeteer.Frame} frame\n\
+   * @param {string} interceptionId\n\
+   * @param {boolean} allowInterception\n\
+   * @param {!Protocol.Network.requestWillBeSentPayload} event\n\
+   * @param {!Array<!Request>} redirectChain\n\
+   */\n\
+  constructor(client, frame, interceptionId, allowInterception, event, redirectChain) {\n\
+    this._client = client;\n\
+    this._requestId = event.requestId;\n\
+    this._isNavigationRequest = event.requestId === event.loaderId && event.type === 'Document';\n\
+    this._interceptionId = interceptionId;\n\
+    this._allowInterception = allowInterception;\n\
+    this._interceptionHandled = false;\n\
+    this._response = null;\n\
+    this._failureText = null;\n\
+\n\
+    this._url = event.request.url;\n\
+    this._resourceType = event.type.toLowerCase();\n\
+    this._method = event.request.method;\n\
+    this._postData = event.request.postData;\n\
+    this._headers = {};\n\
+    this._frame = frame;\n\
+    this._redirectChain = redirectChain;\n\
+    for (const key of Object.keys(event.request.headers))\n\
+      this._headers[key.toLowerCase()] = event.request.headers[key];\n\
+\n\
+    this._fromMemoryCache = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  resourceType() {\n\
+    return this._resourceType;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  method() {\n\
+    return this._method;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string|undefined}\n\
+   */\n\
+  postData() {\n\
+    return this._postData;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Object}\n\
+   */\n\
+  headers() {\n\
+    return this._headers;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Response}\n\
+   */\n\
+  response() {\n\
+    return this._response;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Frame}\n\
+   */\n\
+  frame() {\n\
+    return this._frame;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isNavigationRequest() {\n\
+    return this._isNavigationRequest;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Request>}\n\
+   */\n\
+  redirectChain() {\n\
+    return this._redirectChain.slice();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?{errorText: string}}\n\
+   */\n\
+  failure() {\n\
+    if (!this._failureText)\n\
+      return null;\n\
+    return {\n\
+      errorText: this._failureText\n\
+    };\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, method?:string, postData?: string, headers?: !Object}} overrides\n\
+   */\n\
+  async continue(overrides = {}) {\n\
+    // Request interception is not supported for data: urls.\n\
+    if (this._url.startsWith('data:'))\n\
+      return;\n\
+    assert(this._allowInterception, 'Request Interception is not enabled!');\n\
+    assert(!this._interceptionHandled, 'Request is already handled!');\n\
+    const {\n\
+      url,\n\
+      method,\n\
+      postData,\n\
+      headers\n\
+    } = overrides;\n\
+    this._interceptionHandled = true;\n\
+    await this._client.send('Fetch.continueRequest', {\n\
+      requestId: this._interceptionId,\n\
+      url,\n\
+      method,\n\
+      postData,\n\
+      headers: headers ? headersArray(headers) : undefined,\n\
+    }).catch(error => {\n\
+      // In certain cases, protocol will return error if the request was already canceled\n\
+      // or the page was closed. We should tolerate these errors.\n\
+      debugError(error);\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{status: number, headers: Object, contentType: string, body: (string|Buffer)}} response\n\
+   */\n\
+  async respond(response) {\n\
+    // Mocking responses for dataURL requests is not currently supported.\n\
+    if (this._url.startsWith('data:'))\n\
+      return;\n\
+    assert(this._allowInterception, 'Request Interception is not enabled!');\n\
+    assert(!this._interceptionHandled, 'Request is already handled!');\n\
+    this._interceptionHandled = true;\n\
+\n\
+    const responseBody = response.body && helper.isString(response.body) ? Buffer.from(/** @type {string} */(response.body)) : /** @type {?Buffer} */(response.body || null);\n\
+\n\
+    /** @type {!Object<string, string>} */\n\
+    const responseHeaders = {};\n\
+    if (response.headers) {\n\
+      for (const header of Object.keys(response.headers))\n\
+        responseHeaders[header.toLowerCase()] = response.headers[header];\n\
+    }\n\
+    if (response.contentType)\n\
+      responseHeaders['content-type'] = response.contentType;\n\
+    if (responseBody && !('content-length' in responseHeaders))\n\
+      responseHeaders['content-length'] = String(Buffer.byteLength(responseBody));\n\
+\n\
+    await this._client.send('Fetch.fulfillRequest', {\n\
+      requestId: this._interceptionId,\n\
+      responseCode: response.status || 200,\n\
+      responsePhrase: STATUS_TEXTS[response.status || 200],\n\
+      responseHeaders: headersArray(responseHeaders),\n\
+      body: responseBody ? responseBody.toString('base64') : undefined,\n\
+    }).catch(error => {\n\
+      // In certain cases, protocol will return error if the request was already canceled\n\
+      // or the page was closed. We should tolerate these errors.\n\
+      debugError(error);\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string=} errorCode\n\
+   */\n\
+  async abort(errorCode = 'failed') {\n\
+    // Request interception is not supported for data: urls.\n\
+    if (this._url.startsWith('data:'))\n\
+      return;\n\
+    const errorReason = errorReasons[errorCode];\n\
+    assert(errorReason, 'Unknown error code: ' + errorCode);\n\
+    assert(this._allowInterception, 'Request Interception is not enabled!');\n\
+    assert(!this._interceptionHandled, 'Request is already handled!');\n\
+    this._interceptionHandled = true;\n\
+    await this._client.send('Fetch.failRequest', {\n\
+      requestId: this._interceptionId,\n\
+      errorReason\n\
+    }).catch(error => {\n\
+      // In certain cases, protocol will return error if the request was already canceled\n\
+      // or the page was closed. We should tolerate these errors.\n\
+      debugError(error);\n\
+    });\n\
+  }\n\
+}\n\
+\n\
+const errorReasons = {\n\
+  'aborted': 'Aborted',\n\
+  'accessdenied': 'AccessDenied',\n\
+  'addressunreachable': 'AddressUnreachable',\n\
+  'blockedbyclient': 'BlockedByClient',\n\
+  'blockedbyresponse': 'BlockedByResponse',\n\
+  'connectionaborted': 'ConnectionAborted',\n\
+  'connectionclosed': 'ConnectionClosed',\n\
+  'connectionfailed': 'ConnectionFailed',\n\
+  'connectionrefused': 'ConnectionRefused',\n\
+  'connectionreset': 'ConnectionReset',\n\
+  'internetdisconnected': 'InternetDisconnected',\n\
+  'namenotresolved': 'NameNotResolved',\n\
+  'timedout': 'TimedOut',\n\
+  'failed': 'Failed',\n\
+};\n\
+\n\
+class Response {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Request} request\n\
+   * @param {!Protocol.Network.Response} responsePayload\n\
+   */\n\
+  constructor(client, request, responsePayload) {\n\
+    this._client = client;\n\
+    this._request = request;\n\
+    this._contentPromise = null;\n\
+\n\
+    this._bodyLoadedPromise = new Promise(fulfill => {\n\
+      this._bodyLoadedPromiseFulfill = fulfill;\n\
+    });\n\
+\n\
+    this._remoteAddress = {\n\
+      ip: responsePayload.remoteIPAddress,\n\
+      port: responsePayload.remotePort,\n\
+    };\n\
+    this._status = responsePayload.status;\n\
+    this._statusText = responsePayload.statusText;\n\
+    this._url = request.url();\n\
+    this._fromDiskCache = !!responsePayload.fromDiskCache;\n\
+    this._fromServiceWorker = !!responsePayload.fromServiceWorker;\n\
+    this._headers = {};\n\
+    for (const key of Object.keys(responsePayload.headers))\n\
+      this._headers[key.toLowerCase()] = responsePayload.headers[key];\n\
+    this._securityDetails = responsePayload.securityDetails ? new SecurityDetails(responsePayload.securityDetails) : null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {{ip: string, port: number}}\n\
+   */\n\
+  remoteAddress() {\n\
+    return this._remoteAddress;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  ok() {\n\
+    return this._status === 0 || (this._status >= 200 && this._status <= 299);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {number}\n\
+   */\n\
+  status() {\n\
+    return this._status;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  statusText() {\n\
+    return this._statusText;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Object}\n\
+   */\n\
+  headers() {\n\
+    return this._headers;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?SecurityDetails}\n\
+   */\n\
+  securityDetails() {\n\
+    return this._securityDetails;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Buffer>}\n\
+   */\n\
+  buffer() {\n\
+    if (!this._contentPromise) {\n\
+      this._contentPromise = this._bodyLoadedPromise.then(async error => {\n\
+        if (error)\n\
+          throw error;\n\
+        const response = await this._client.send('Network.getResponseBody', {\n\
+          requestId: this._request._requestId\n\
+        });\n\
+        return Buffer.from(response.body, response.base64Encoded ? 'base64' : 'utf8');\n\
+      });\n\
+    }\n\
+    return this._contentPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async text() {\n\
+    const content = await this.buffer();\n\
+    return content.toString('utf8');\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Object>}\n\
+   */\n\
+  async json() {\n\
+    const content = await this.text();\n\
+    return JSON.parse(content);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Request}\n\
+   */\n\
+  request() {\n\
+    return this._request;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  fromCache() {\n\
+    return this._fromDiskCache || this._request._fromMemoryCache;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  fromServiceWorker() {\n\
+    return this._fromServiceWorker;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Frame}\n\
+   */\n\
+  frame() {\n\
+    return this._request.frame();\n\
+  }\n\
+}\n\
+\n\
+class SecurityDetails {\n\
+  /**\n\
+   * @param {!Protocol.Network.SecurityDetails} securityPayload\n\
+   */\n\
+  constructor(securityPayload) {\n\
+    this._subjectName = securityPayload['subjectName'];\n\
+    this._issuer = securityPayload['issuer'];\n\
+    this._validFrom = securityPayload['validFrom'];\n\
+    this._validTo = securityPayload['validTo'];\n\
+    this._protocol = securityPayload['protocol'];\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  subjectName() {\n\
+    return this._subjectName;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  issuer() {\n\
+    return this._issuer;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {number}\n\
+   */\n\
+  validFrom() {\n\
+    return this._validFrom;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {number}\n\
+   */\n\
+  validTo() {\n\
+    return this._validTo;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  protocol() {\n\
+    return this._protocol;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @param {Object<string, string>} headers\n\
+ * @return {!Array<{name: string, value: string}>}\n\
+ */\n\
+function headersArray(headers) {\n\
+  const result = [];\n\
+  for (const name in headers)\n\
+    result.push({name, value: headers[name] + ''});\n\
+  return result;\n\
+}\n\
+\n\
+// List taken from https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml with extra 306 and 418 codes.\n\
+const STATUS_TEXTS = {\n\
+  '100': 'Continue',\n\
+  '101': 'Switching Protocols',\n\
+  '102': 'Processing',\n\
+  '103': 'Early Hints',\n\
+  '200': 'OK',\n\
+  '201': 'Created',\n\
+  '202': 'Accepted',\n\
+  '203': 'Non-Authoritative Information',\n\
+  '204': 'No Content',\n\
+  '205': 'Reset Content',\n\
+  '206': 'Partial Content',\n\
+  '207': 'Multi-Status',\n\
+  '208': 'Already Reported',\n\
+  '226': 'IM Used',\n\
+  '300': 'Multiple Choices',\n\
+  '301': 'Moved Permanently',\n\
+  '302': 'Found',\n\
+  '303': 'See Other',\n\
+  '304': 'Not Modified',\n\
+  '305': 'Use Proxy',\n\
+  '306': 'Switch Proxy',\n\
+  '307': 'Temporary Redirect',\n\
+  '308': 'Permanent Redirect',\n\
+  '400': 'Bad Request',\n\
+  '401': 'Unauthorized',\n\
+  '402': 'Payment Required',\n\
+  '403': 'Forbidden',\n\
+  '404': 'Not Found',\n\
+  '405': 'Method Not Allowed',\n\
+  '406': 'Not Acceptable',\n\
+  '407': 'Proxy Authentication Required',\n\
+  '408': 'Request Timeout',\n\
+  '409': 'Conflict',\n\
+  '410': 'Gone',\n\
+  '411': 'Length Required',\n\
+  '412': 'Precondition Failed',\n\
+  '413': 'Payload Too Large',\n\
+  '414': 'URI Too Long',\n\
+  '415': 'Unsupported Media Type',\n\
+  '416': 'Range Not Satisfiable',\n\
+  '417': 'Expectation Failed',\n\
+  '418': 'I\\'m a teapot',\n\
+  '421': 'Misdirected Request',\n\
+  '422': 'Unprocessable Entity',\n\
+  '423': 'Locked',\n\
+  '424': 'Failed Dependency',\n\
+  '425': 'Too Early',\n\
+  '426': 'Upgrade Required',\n\
+  '428': 'Precondition Required',\n\
+  '429': 'Too Many Requests',\n\
+  '431': 'Request Header Fields Too Large',\n\
+  '451': 'Unavailable For Legal Reasons',\n\
+  '500': 'Internal Server Error',\n\
+  '501': 'Not Implemented',\n\
+  '502': 'Bad Gateway',\n\
+  '503': 'Service Unavailable',\n\
+  '504': 'Gateway Timeout',\n\
+  '505': 'HTTP Version Not Supported',\n\
+  '506': 'Variant Also Negotiates',\n\
+  '507': 'Insufficient Storage',\n\
+  '508': 'Loop Detected',\n\
+  '510': 'Not Extended',\n\
+  '511': 'Network Authentication Required',\n\
+};\n\
+\n\
+module.exports = {Request, Response, NetworkManager, SecurityDetails};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Page.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const fs = require('fs');\n\
+// const path = require('path');\n\
+// const EventEmitter = require('events');\n\
+// const mime = require('mime');\n\
+// const {Events} = require('./Events');\n\
+// const {Connection} = require('./Connection');\n\
+// const {Dialog} = require('./Dialog');\n\
+// const {EmulationManager} = require('./EmulationManager');\n\
+// const {FrameManager} = require('./FrameManager');\n\
+// const {Keyboard, Mouse, Touchscreen} = require('./Input');\n\
+// const Tracing = require('./Tracing');\n\
+// const {helper, debugError, assert} = require('./helper');\n\
+// const {Coverage} = require('./Coverage');\n\
+// const {Worker} = require('./Worker');\n\
+// const {createJSHandle} = require('./JSHandle');\n\
+// const {Accessibility} = require('./Accessibility');\n\
+// const {TimeoutSettings} = require('./TimeoutSettings');\n\
+const writeFileAsync = helper.promisify(fs.writeFile);\n\
+\n\
+class Page extends EventEmitter {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Puppeteer.Target} target\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {?Puppeteer.Viewport} defaultViewport\n\
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue\n\
+   * @return {!Promise<!Page>}\n\
+   */\n\
+  static async create(client, target, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {\n\
+    const page = new Page(client, target, ignoreHTTPSErrors, screenshotTaskQueue);\n\
+    await page._initialize();\n\
+    if (defaultViewport)\n\
+      await page.setViewport(defaultViewport);\n\
+    return page;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   * @param {!Puppeteer.Target} target\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue\n\
+   */\n\
+  constructor(client, target, ignoreHTTPSErrors, screenshotTaskQueue) {\n\
+    super();\n\
+    this._closed = false;\n\
+    this._client = client;\n\
+    this._target = target;\n\
+    this._keyboard = new Keyboard(client);\n\
+    this._mouse = new Mouse(client, this._keyboard);\n\
+    this._timeoutSettings = new TimeoutSettings();\n\
+    this._touchscreen = new Touchscreen(client, this._keyboard);\n\
+    this._accessibility = new Accessibility(client);\n\
+    /** @type {!FrameManager} */\n\
+    this._frameManager = new FrameManager(client, this, ignoreHTTPSErrors, this._timeoutSettings);\n\
+    this._emulationManager = new EmulationManager(client);\n\
+    this._tracing = new Tracing(client);\n\
+    /** @type {!Map<string, Function>} */\n\
+    this._pageBindings = new Map();\n\
+    this._coverage = new Coverage(client);\n\
+    this._javascriptEnabled = true;\n\
+    /** @type {?Puppeteer.Viewport} */\n\
+    this._viewport = null;\n\
+\n\
+    this._screenshotTaskQueue = screenshotTaskQueue;\n\
+\n\
+    /** @type {!Map<string, Worker>} */\n\
+    this._workers = new Map();\n\
+    client.on('Target.attachedToTarget', event => {\n\
+      if (event.targetInfo.type !== 'worker') {\n\
+        // If we don't detach from service workers, they will never die.\n\
+        client.send('Target.detachFromTarget', {\n\
+          sessionId: event.sessionId\n\
+        }).catch(debugError);\n\
+        return;\n\
+      }\n\
+      const session = Connection.fromSession(client).session(event.sessionId);\n\
+      const worker = new Worker(session, event.targetInfo.url, this._addConsoleMessage.bind(this), this._handleException.bind(this));\n\
+      this._workers.set(event.sessionId, worker);\n\
+      this.emit(Events.Page.WorkerCreated, worker);\n\
+    });\n\
+    client.on('Target.detachedFromTarget', event => {\n\
+      const worker = this._workers.get(event.sessionId);\n\
+      if (!worker)\n\
+        return;\n\
+      this.emit(Events.Page.WorkerDestroyed, worker);\n\
+      this._workers.delete(event.sessionId);\n\
+    });\n\
+\n\
+    this._frameManager.on(Events.FrameManager.FrameAttached, event => this.emit(Events.Page.FrameAttached, event));\n\
+    this._frameManager.on(Events.FrameManager.FrameDetached, event => this.emit(Events.Page.FrameDetached, event));\n\
+    this._frameManager.on(Events.FrameManager.FrameNavigated, event => this.emit(Events.Page.FrameNavigated, event));\n\
+\n\
+    const networkManager = this._frameManager.networkManager();\n\
+    networkManager.on(Events.NetworkManager.Request, event => this.emit(Events.Page.Request, event));\n\
+    networkManager.on(Events.NetworkManager.Response, event => this.emit(Events.Page.Response, event));\n\
+    networkManager.on(Events.NetworkManager.RequestFailed, event => this.emit(Events.Page.RequestFailed, event));\n\
+    networkManager.on(Events.NetworkManager.RequestFinished, event => this.emit(Events.Page.RequestFinished, event));\n\
+    this._fileChooserInterceptionIsDisabled = false;\n\
+    this._fileChooserInterceptors = new Set();\n\
+\n\
+    client.on('Page.domContentEventFired', event => this.emit(Events.Page.DOMContentLoaded));\n\
+    client.on('Page.loadEventFired', event => this.emit(Events.Page.Load));\n\
+    client.on('Runtime.consoleAPICalled', event => this._onConsoleAPI(event));\n\
+    client.on('Runtime.bindingCalled', event => this._onBindingCalled(event));\n\
+    client.on('Page.javascriptDialogOpening', event => this._onDialog(event));\n\
+    client.on('Runtime.exceptionThrown', exception => this._handleException(exception.exceptionDetails));\n\
+    client.on('Inspector.targetCrashed', event => this._onTargetCrashed());\n\
+    client.on('Performance.metrics', event => this._emitMetrics(event));\n\
+    client.on('Log.entryAdded', event => this._onLogEntryAdded(event));\n\
+    client.on('Page.fileChooserOpened', event => this._onFileChooser(event));\n\
+    this._target._isClosedPromise.then(() => {\n\
+      this.emit(Events.Page.Close);\n\
+      this._closed = true;\n\
+    });\n\
+  }\n\
+\n\
+  async _initialize() {\n\
+    await Promise.all([\n\
+      this._frameManager.initialize(),\n\
+      this._client.send('Target.setAutoAttach', {autoAttach: true, waitForDebuggerOnStart: false, flatten: true}),\n\
+      this._client.send('Performance.enable', {}),\n\
+      this._client.send('Log.enable', {}),\n\
+      this._client.send('Page.setInterceptFileChooserDialog', {enabled: true}).catch(e => {\n\
+        this._fileChooserInterceptionIsDisabled = true;\n\
+      }),\n\
+    ]);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Page.fileChooserOpenedPayload} event\n\
+   */\n\
+  _onFileChooser(event) {\n\
+    if (!this._fileChooserInterceptors.size) {\n\
+      this._client.send('Page.handleFileChooser', { action: 'fallback' }).catch(debugError);\n\
+      return;\n\
+    }\n\
+    const interceptors = Array.from(this._fileChooserInterceptors);\n\
+    this._fileChooserInterceptors.clear();\n\
+    const fileChooser = new FileChooser(this._client, event);\n\
+    for (const interceptor of interceptors)\n\
+      interceptor.call(null, fileChooser);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number}=} options\n\
+   * @return !Promise<!FileChooser>}\n\
+   */\n\
+  async waitForFileChooser(options = {}) {\n\
+    if (this._fileChooserInterceptionIsDisabled)\n\
+      throw new Error('File chooser handling does not work with multiple connections to the same page');\n\
+    const {\n\
+      timeout = this._timeoutSettings.timeout(),\n\
+    } = options;\n\
+    let callback;\n\
+    const promise = new Promise(x => callback = x);\n\
+    this._fileChooserInterceptors.add(callback);\n\
+    return helper.waitWithTimeout(promise, 'waiting for file chooser', timeout).catch(e => {\n\
+      this._fileChooserInterceptors.delete(callback);\n\
+      throw e;\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{longitude: number, latitude: number, accuracy: (number|undefined)}} options\n\
+   */\n\
+  async setGeolocation(options) {\n\
+    const { longitude, latitude, accuracy = 0} = options;\n\
+    if (longitude < -180 || longitude > 180)\n\
+      throw new Error(`Invalid longitude \"${longitude}\": precondition -180 <= LONGITUDE <= 180 failed.`);\n\
+    if (latitude < -90 || latitude > 90)\n\
+      throw new Error(`Invalid latitude \"${latitude}\": precondition -90 <= LATITUDE <= 90 failed.`);\n\
+    if (accuracy < 0)\n\
+      throw new Error(`Invalid accuracy \"${accuracy}\": precondition 0 <= ACCURACY failed.`);\n\
+    await this._client.send('Emulation.setGeolocationOverride', {longitude, latitude, accuracy});\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Target}\n\
+   */\n\
+  target() {\n\
+    return this._target;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Browser}\n\
+   */\n\
+  browser() {\n\
+    return this._target.browser();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.BrowserContext}\n\
+   */\n\
+  browserContext() {\n\
+    return this._target.browserContext();\n\
+  }\n\
+\n\
+  _onTargetCrashed() {\n\
+    this.emit('error', new Error('Page crashed!'));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Log.entryAddedPayload} event\n\
+   */\n\
+  _onLogEntryAdded(event) {\n\
+    const {level, text, args, source, url, lineNumber} = event.entry;\n\
+    if (args)\n\
+      args.map(arg => helper.releaseObject(this._client, arg));\n\
+    if (source !== 'worker')\n\
+      this.emit(Events.Page.Console, new ConsoleMessage(level, text, [], {url, lineNumber}));\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Frame}\n\
+   */\n\
+  mainFrame() {\n\
+    return this._frameManager.mainFrame();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Keyboard}\n\
+   */\n\
+  get keyboard() {\n\
+    return this._keyboard;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Touchscreen}\n\
+   */\n\
+  get touchscreen() {\n\
+    return this._touchscreen;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Coverage}\n\
+   */\n\
+  get coverage() {\n\
+    return this._coverage;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Tracing}\n\
+   */\n\
+  get tracing() {\n\
+    return this._tracing;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Accessibility}\n\
+   */\n\
+  get accessibility() {\n\
+    return this._accessibility;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<Puppeteer.Frame>}\n\
+   */\n\
+  frames() {\n\
+    return this._frameManager.frames();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Worker>}\n\
+   */\n\
+  workers() {\n\
+    return Array.from(this._workers.values());\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} value\n\
+   */\n\
+  async setRequestInterception(value) {\n\
+    return this._frameManager.networkManager().setRequestInterception(value);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} enabled\n\
+   */\n\
+  setOfflineMode(enabled) {\n\
+    return this._frameManager.networkManager().setOfflineMode(enabled);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} timeout\n\
+   */\n\
+  setDefaultNavigationTimeout(timeout) {\n\
+    this._timeoutSettings.setDefaultNavigationTimeout(timeout);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} timeout\n\
+   */\n\
+  setDefaultTimeout(timeout) {\n\
+    this._timeoutSettings.setDefaultTimeout(timeout);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  async $(selector) {\n\
+    return this.mainFrame().$(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  async evaluateHandle(pageFunction, ...args) {\n\
+    const context = await this.mainFrame().executionContext();\n\
+    return context.evaluateHandle(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.JSHandle} prototypeHandle\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  async queryObjects(prototypeHandle) {\n\
+    const context = await this.mainFrame().executionContext();\n\
+    return context.queryObjects(prototypeHandle);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $eval(selector, pageFunction, ...args) {\n\
+    return this.mainFrame().$eval(selector, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<(!Object|undefined)>}\n\
+   */\n\
+  async $$eval(selector, pageFunction, ...args) {\n\
+    return this.mainFrame().$$eval(selector, pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $$(selector) {\n\
+    return this.mainFrame().$$(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} expression\n\
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}\n\
+   */\n\
+  async $x(expression) {\n\
+    return this.mainFrame().$x(expression);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<string>} urls\n\
+   * @return {!Promise<!Array<Network.Cookie>>}\n\
+   */\n\
+  async cookies(...urls) {\n\
+    return (await this._client.send('Network.getCookies', {\n\
+      urls: urls.length ? urls : [this.url()]\n\
+    })).cookies;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Array<Protocol.Network.deleteCookiesParameters>} cookies\n\
+   */\n\
+  async deleteCookie(...cookies) {\n\
+    const pageURL = this.url();\n\
+    for (const cookie of cookies) {\n\
+      const item = Object.assign({}, cookie);\n\
+      if (!cookie.url && pageURL.startsWith('http'))\n\
+        item.url = pageURL;\n\
+      await this._client.send('Network.deleteCookies', item);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Array<Network.CookieParam>} cookies\n\
+   */\n\
+  async setCookie(...cookies) {\n\
+    const pageURL = this.url();\n\
+    const startsWithHTTP = pageURL.startsWith('http');\n\
+    const items = cookies.map(cookie => {\n\
+      const item = Object.assign({}, cookie);\n\
+      if (!item.url && startsWithHTTP)\n\
+        item.url = pageURL;\n\
+      assert(item.url !== 'about:blank', `Blank page can not have cookie \"${item.name}\"`);\n\
+      assert(!String.prototype.startsWith.call(item.url || '', 'data:'), `Data URL page can not have cookie \"${item.name}\"`);\n\
+      return item;\n\
+    });\n\
+    await this.deleteCookie(...items);\n\
+    if (items.length)\n\
+      await this._client.send('Network.setCookies', { cookies: items });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addScriptTag(options) {\n\
+    return this.mainFrame().addScriptTag(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{url?: string, path?: string, content?: string}} options\n\
+   * @return {!Promise<!Puppeteer.ElementHandle>}\n\
+   */\n\
+  async addStyleTag(options) {\n\
+    return this.mainFrame().addStyleTag(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} name\n\
+   * @param {Function} puppeteerFunction\n\
+   */\n\
+  async exposeFunction(name, puppeteerFunction) {\n\
+    if (this._pageBindings.has(name))\n\
+      throw new Error(`Failed to add page binding with name ${name}: window['${name}'] already exists!`);\n\
+    this._pageBindings.set(name, puppeteerFunction);\n\
+\n\
+    const expression = helper.evaluationString(addPageBinding, name);\n\
+    await this._client.send('Runtime.addBinding', {name: name});\n\
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', {source: expression});\n\
+    await Promise.all(this.frames().map(frame => frame.evaluate(expression).catch(debugError)));\n\
+\n\
+    function addPageBinding(bindingName) {\n\
+      const binding = window[bindingName];\n\
+      window[bindingName] = (...args) => {\n\
+        const me = window[bindingName];\n\
+        let callbacks = me['callbacks'];\n\
+        if (!callbacks) {\n\
+          callbacks = new Map();\n\
+          me['callbacks'] = callbacks;\n\
+        }\n\
+        const seq = (me['lastSeq'] || 0) + 1;\n\
+        me['lastSeq'] = seq;\n\
+        const promise = new Promise((resolve, reject) => callbacks.set(seq, {resolve, reject}));\n\
+        binding(JSON.stringify({name: bindingName, seq, args}));\n\
+        return promise;\n\
+      };\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?{username: string, password: string}} credentials\n\
+   */\n\
+  async authenticate(credentials) {\n\
+    return this._frameManager.networkManager().authenticate(credentials);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Object<string, string>} headers\n\
+   */\n\
+  async setExtraHTTPHeaders(headers) {\n\
+    return this._frameManager.networkManager().setExtraHTTPHeaders(headers);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} userAgent\n\
+   */\n\
+  async setUserAgent(userAgent) {\n\
+    return this._frameManager.networkManager().setUserAgent(userAgent);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Metrics>}\n\
+   */\n\
+  async metrics() {\n\
+    const response = await this._client.send('Performance.getMetrics');\n\
+    return this._buildMetricsObject(response.metrics);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Performance.metricsPayload} event\n\
+   */\n\
+  _emitMetrics(event) {\n\
+    this.emit(Events.Page.Metrics, {\n\
+      title: event.title,\n\
+      metrics: this._buildMetricsObject(event.metrics)\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?Array<!Protocol.Performance.Metric>} metrics\n\
+   * @return {!Metrics}\n\
+   */\n\
+  _buildMetricsObject(metrics) {\n\
+    const result = {};\n\
+    for (const metric of metrics || []) {\n\
+      if (supportedMetrics.has(metric.name))\n\
+        result[metric.name] = metric.value;\n\
+    }\n\
+    return result;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Runtime.ExceptionDetails} exceptionDetails\n\
+   */\n\
+  _handleException(exceptionDetails) {\n\
+    const message = helper.getExceptionMessage(exceptionDetails);\n\
+    const err = new Error(message);\n\
+    err.stack = ''; // Don't report clientside error with a node stack attached\n\
+    this.emit(Events.Page.PageError, err);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Runtime.consoleAPICalledPayload} event\n\
+   */\n\
+  async _onConsoleAPI(event) {\n\
+    if (event.executionContextId === 0) {\n\
+      // DevTools protocol stores the last 1000 console messages. These\n\
+      // messages are always reported even for removed execution contexts. In\n\
+      // this case, they are marked with executionContextId = 0 and are\n\
+      // reported upon enabling Runtime agent.\n\
+      //\n\
+      // Ignore these messages since:\n\
+      // - there's no execution context we can use to operate with message\n\
+      //   arguments\n\
+      // - these messages are reported before Puppeteer clients can subscribe\n\
+      //   to the 'console'\n\
+      //   page event.\n\
+      //\n\
+      // @see https://github.com/GoogleChrome/puppeteer/issues/3865\n\
+      return;\n\
+    }\n\
+    const context = this._frameManager.executionContextById(event.executionContextId);\n\
+    const values = event.args.map(arg => createJSHandle(context, arg));\n\
+    this._addConsoleMessage(event.type, values, event.stackTrace);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Runtime.bindingCalledPayload} event\n\
+   */\n\
+  async _onBindingCalled(event) {\n\
+    const {name, seq, args} = JSON.parse(event.payload);\n\
+    let expression = null;\n\
+    try {\n\
+      const result = await this._pageBindings.get(name)(...args);\n\
+      expression = helper.evaluationString(deliverResult, name, seq, result);\n\
+    } catch (error) {\n\
+      if (error instanceof Error)\n\
+        expression = helper.evaluationString(deliverError, name, seq, error.message, error.stack);\n\
+      else\n\
+        expression = helper.evaluationString(deliverErrorValue, name, seq, error);\n\
+    }\n\
+    this._client.send('Runtime.evaluate', { expression, contextId: event.executionContextId }).catch(debugError);\n\
+\n\
+    /**\n\
+     * @param {string} name\n\
+     * @param {number} seq\n\
+     * @param {*} result\n\
+     */\n\
+    function deliverResult(name, seq, result) {\n\
+      window[name]['callbacks'].get(seq).resolve(result);\n\
+      window[name]['callbacks'].delete(seq);\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {string} name\n\
+     * @param {number} seq\n\
+     * @param {string} message\n\
+     * @param {string} stack\n\
+     */\n\
+    function deliverError(name, seq, message, stack) {\n\
+      const error = new Error(message);\n\
+      error.stack = stack;\n\
+      window[name]['callbacks'].get(seq).reject(error);\n\
+      window[name]['callbacks'].delete(seq);\n\
+    }\n\
+\n\
+    /**\n\
+     * @param {string} name\n\
+     * @param {number} seq\n\
+     * @param {*} value\n\
+     */\n\
+    function deliverErrorValue(name, seq, value) {\n\
+      window[name]['callbacks'].get(seq).reject(value);\n\
+      window[name]['callbacks'].delete(seq);\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} type\n\
+   * @param {!Array<!Puppeteer.JSHandle>} args\n\
+   * @param {Protocol.Runtime.StackTrace=} stackTrace\n\
+   */\n\
+  _addConsoleMessage(type, args, stackTrace) {\n\
+    if (!this.listenerCount(Events.Page.Console)) {\n\
+      args.forEach(arg => arg.dispose());\n\
+      return;\n\
+    }\n\
+    const textTokens = [];\n\
+    for (const arg of args) {\n\
+      const remoteObject = arg._remoteObject;\n\
+      if (remoteObject.objectId)\n\
+        textTokens.push(arg.toString());\n\
+      else\n\
+        textTokens.push(helper.valueFromRemoteObject(remoteObject));\n\
+    }\n\
+    const location = stackTrace && stackTrace.callFrames.length ? {\n\
+      url: stackTrace.callFrames[0].url,\n\
+      lineNumber: stackTrace.callFrames[0].lineNumber,\n\
+      columnNumber: stackTrace.callFrames[0].columnNumber,\n\
+    } : {};\n\
+    const message = new ConsoleMessage(type, textTokens.join(' '), args, location);\n\
+    this.emit(Events.Page.Console, message);\n\
+  }\n\
+\n\
+  _onDialog(event) {\n\
+    let dialogType = null;\n\
+    if (event.type === 'alert')\n\
+      dialogType = Dialog.Type.Alert;\n\
+    else if (event.type === 'confirm')\n\
+      dialogType = Dialog.Type.Confirm;\n\
+    else if (event.type === 'prompt')\n\
+      dialogType = Dialog.Type.Prompt;\n\
+    else if (event.type === 'beforeunload')\n\
+      dialogType = Dialog.Type.BeforeUnload;\n\
+    assert(dialogType, 'Unknown javascript dialog type: ' + event.type);\n\
+    const dialog = new Dialog(this._client, dialogType, event.message, event.defaultPrompt);\n\
+    this.emit(Events.Page.Dialog, dialog);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!string}\n\
+   */\n\
+  url() {\n\
+    return this.mainFrame().url();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async content() {\n\
+    return await this._frameManager.mainFrame().content();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} html\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   */\n\
+  async setContent(html, options) {\n\
+    await this._frameManager.mainFrame().setContent(html, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} url\n\
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async goto(url, options) {\n\
+    return await this._frameManager.mainFrame().goto(url, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async reload(options) {\n\
+    const [response] = await Promise.all([\n\
+      this.waitForNavigation(options),\n\
+      this._client.send('Page.reload')\n\
+    ]);\n\
+    return response;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async waitForNavigation(options = {}) {\n\
+    return await this._frameManager.mainFrame().waitForNavigation(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {(string|Function)} urlOrPredicate\n\
+   * @param {!{timeout?: number}=} options\n\
+   * @return {!Promise<!Puppeteer.Request>}\n\
+   */\n\
+  async waitForRequest(urlOrPredicate, options = {}) {\n\
+    const {\n\
+      timeout = this._timeoutSettings.timeout(),\n\
+    } = options;\n\
+    return helper.waitForEvent(this._frameManager.networkManager(), Events.NetworkManager.Request, request => {\n\
+      if (helper.isString(urlOrPredicate))\n\
+        return (urlOrPredicate === request.url());\n\
+      if (typeof urlOrPredicate === 'function')\n\
+        return !!(urlOrPredicate(request));\n\
+      return false;\n\
+    }, timeout);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {(string|Function)} urlOrPredicate\n\
+   * @param {!{timeout?: number}=} options\n\
+   * @return {!Promise<!Puppeteer.Response>}\n\
+   */\n\
+  async waitForResponse(urlOrPredicate, options = {}) {\n\
+    const {\n\
+      timeout = this._timeoutSettings.timeout(),\n\
+    } = options;\n\
+    return helper.waitForEvent(this._frameManager.networkManager(), Events.NetworkManager.Response, response => {\n\
+      if (helper.isString(urlOrPredicate))\n\
+        return (urlOrPredicate === response.url());\n\
+      if (typeof urlOrPredicate === 'function')\n\
+        return !!(urlOrPredicate(response));\n\
+      return false;\n\
+    }, timeout);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async goBack(options) {\n\
+    return this._go(-1, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async goForward(options) {\n\
+    return this._go(+1, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options\n\
+   * @return {!Promise<?Puppeteer.Response>}\n\
+   */\n\
+  async _go(delta, options) {\n\
+    const history = await this._client.send('Page.getNavigationHistory');\n\
+    const entry = history.entries[history.currentIndex + delta];\n\
+    if (!entry)\n\
+      return null;\n\
+    const [response] = await Promise.all([\n\
+      this.waitForNavigation(options),\n\
+      this._client.send('Page.navigateToHistoryEntry', {entryId: entry.id}),\n\
+    ]);\n\
+    return response;\n\
+  }\n\
+\n\
+  async bringToFront() {\n\
+    await this._client.send('Page.bringToFront');\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{viewport: !Puppeteer.Viewport, userAgent: string}} options\n\
+   */\n\
+  async emulate(options) {\n\
+    await Promise.all([\n\
+      this.setViewport(options.viewport),\n\
+      this.setUserAgent(options.userAgent)\n\
+    ]);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} enabled\n\
+   */\n\
+  async setJavaScriptEnabled(enabled) {\n\
+    if (this._javascriptEnabled === enabled)\n\
+      return;\n\
+    this._javascriptEnabled = enabled;\n\
+    await this._client.send('Emulation.setScriptExecutionDisabled', { value: !enabled });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} enabled\n\
+   */\n\
+  async setBypassCSP(enabled) {\n\
+    await this._client.send('Page.setBypassCSP', { enabled });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {?string} mediaType\n\
+   */\n\
+  async emulateMedia(mediaType) {\n\
+    assert(mediaType === 'screen' || mediaType === 'print' || mediaType === null, 'Unsupported media type: ' + mediaType);\n\
+    await this._client.send('Emulation.setEmulatedMedia', {media: mediaType || ''});\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Puppeteer.Viewport} viewport\n\
+   */\n\
+  async setViewport(viewport) {\n\
+    const needsReload = await this._emulationManager.emulateViewport(viewport);\n\
+    this._viewport = viewport;\n\
+    if (needsReload)\n\
+      await this.reload();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Viewport}\n\
+   */\n\
+  viewport() {\n\
+    return this._viewport;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async evaluate(pageFunction, ...args) {\n\
+    return this._frameManager.mainFrame().evaluate(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   */\n\
+  async evaluateOnNewDocument(pageFunction, ...args) {\n\
+    const source = helper.evaluationString(pageFunction, ...args);\n\
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', { source });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {boolean} enabled\n\
+   */\n\
+  async setCacheEnabled(enabled = true) {\n\
+    await this._frameManager.networkManager().setCacheEnabled(enabled);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!ScreenshotOptions=} options\n\
+   * @return {!Promise<!Buffer|!String>}\n\
+   */\n\
+  async screenshot(options = {}) {\n\
+    let screenshotType = null;\n\
+    // options.type takes precedence over inferring the type from options.path\n\
+    // because it may be a 0-length file with no extension created beforehand (i.e. as a temp file).\n\
+    if (options.type) {\n\
+      assert(options.type === 'png' || options.type === 'jpeg', 'Unknown options.type value: ' + options.type);\n\
+      screenshotType = options.type;\n\
+    } else if (options.path) {\n\
+      const mimeType = mime.getType(options.path);\n\
+      if (mimeType === 'image/png')\n\
+        screenshotType = 'png';\n\
+      else if (mimeType === 'image/jpeg')\n\
+        screenshotType = 'jpeg';\n\
+      assert(screenshotType, 'Unsupported screenshot mime type: ' + mimeType);\n\
+    }\n\
+\n\
+    if (!screenshotType)\n\
+      screenshotType = 'png';\n\
+\n\
+    if (options.quality) {\n\
+      assert(screenshotType === 'jpeg', 'options.quality is unsupported for the ' + screenshotType + ' screenshots');\n\
+      assert(typeof options.quality === 'number', 'Expected options.quality to be a number but found ' + (typeof options.quality));\n\
+      assert(Number.isInteger(options.quality), 'Expected options.quality to be an integer');\n\
+      assert(options.quality >= 0 && options.quality <= 100, 'Expected options.quality to be between 0 and 100 (inclusive), got ' + options.quality);\n\
+    }\n\
+    assert(!options.clip || !options.fullPage, 'options.clip and options.fullPage are exclusive');\n\
+    if (options.clip) {\n\
+      assert(typeof options.clip.x === 'number', 'Expected options.clip.x to be a number but found ' + (typeof options.clip.x));\n\
+      assert(typeof options.clip.y === 'number', 'Expected options.clip.y to be a number but found ' + (typeof options.clip.y));\n\
+      assert(typeof options.clip.width === 'number', 'Expected options.clip.width to be a number but found ' + (typeof options.clip.width));\n\
+      assert(typeof options.clip.height === 'number', 'Expected options.clip.height to be a number but found ' + (typeof options.clip.height));\n\
+      assert(options.clip.width !== 0, 'Expected options.clip.width not to be 0.');\n\
+      assert(options.clip.height !== 0, 'Expected options.clip.width not to be 0.');\n\
+    }\n\
+    return this._screenshotTaskQueue.postTask(this._screenshotTask.bind(this, screenshotType, options));\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {\"png\"|\"jpeg\"} format\n\
+   * @param {!ScreenshotOptions=} options\n\
+   * @return {!Promise<!Buffer|!String>}\n\
+   */\n\
+  async _screenshotTask(format, options) {\n\
+    await this._client.send('Target.activateTarget', {targetId: this._target._targetId});\n\
+    let clip = options.clip ? processClip(options.clip) : undefined;\n\
+\n\
+    if (options.fullPage) {\n\
+      const metrics = await this._client.send('Page.getLayoutMetrics');\n\
+      const width = Math.ceil(metrics.contentSize.width);\n\
+      const height = Math.ceil(metrics.contentSize.height);\n\
+\n\
+      // Overwrite clip for full page at all times.\n\
+      clip = { x: 0, y: 0, width, height, scale: 1 };\n\
+      const {\n\
+        isMobile = false,\n\
+        deviceScaleFactor = 1,\n\
+        isLandscape = false\n\
+      } = this._viewport || {};\n\
+      /** @type {!Protocol.Emulation.ScreenOrientation} */\n\
+      const screenOrientation = isLandscape ? { angle: 90, type: 'landscapePrimary' } : { angle: 0, type: 'portraitPrimary' };\n\
+      await this._client.send('Emulation.setDeviceMetricsOverride', { mobile: isMobile, width, height, deviceScaleFactor, screenOrientation });\n\
+    }\n\
+    const shouldSetDefaultBackground = options.omitBackground && format === 'png';\n\
+    if (shouldSetDefaultBackground)\n\
+      await this._client.send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 0, g: 0, b: 0, a: 0 } });\n\
+    const result = await this._client.send('Page.captureScreenshot', { format, quality: options.quality, clip });\n\
+    if (shouldSetDefaultBackground)\n\
+      await this._client.send('Emulation.setDefaultBackgroundColorOverride');\n\
+\n\
+    if (options.fullPage && this._viewport)\n\
+      await this.setViewport(this._viewport);\n\
+\n\
+    const buffer = options.encoding === 'base64' ? result.data : Buffer.from(result.data, 'base64');\n\
+    if (options.path)\n\
+      await writeFileAsync(options.path, buffer);\n\
+    return buffer;\n\
+\n\
+    function processClip(clip) {\n\
+      const x = Math.round(clip.x);\n\
+      const y = Math.round(clip.y);\n\
+      const width = Math.round(clip.width + clip.x - x);\n\
+      const height = Math.round(clip.height + clip.y - y);\n\
+      return {x, y, width, height, scale: 1};\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!PDFOptions=} options\n\
+   * @return {!Promise<!Buffer>}\n\
+   */\n\
+  async pdf(options = {}) {\n\
+    const {\n\
+      scale = 1,\n\
+      displayHeaderFooter = false,\n\
+      headerTemplate = '',\n\
+      footerTemplate = '',\n\
+      printBackground = false,\n\
+      landscape = false,\n\
+      pageRanges = '',\n\
+      preferCSSPageSize = false,\n\
+      margin = {},\n\
+      path = null\n\
+    } = options;\n\
+\n\
+    let paperWidth = 8.5;\n\
+    let paperHeight = 11;\n\
+    if (options.format) {\n\
+      const format = Page.PaperFormats[options.format.toLowerCase()];\n\
+      assert(format, 'Unknown paper format: ' + options.format);\n\
+      paperWidth = format.width;\n\
+      paperHeight = format.height;\n\
+    } else {\n\
+      paperWidth = convertPrintParameterToInches(options.width) || paperWidth;\n\
+      paperHeight = convertPrintParameterToInches(options.height) || paperHeight;\n\
+    }\n\
+\n\
+    const marginTop = convertPrintParameterToInches(margin.top) || 0;\n\
+    const marginLeft = convertPrintParameterToInches(margin.left) || 0;\n\
+    const marginBottom = convertPrintParameterToInches(margin.bottom) || 0;\n\
+    const marginRight = convertPrintParameterToInches(margin.right) || 0;\n\
+\n\
+    const result = await this._client.send('Page.printToPDF', {\n\
+      transferMode: 'ReturnAsStream',\n\
+      landscape,\n\
+      displayHeaderFooter,\n\
+      headerTemplate,\n\
+      footerTemplate,\n\
+      printBackground,\n\
+      scale,\n\
+      paperWidth,\n\
+      paperHeight,\n\
+      marginTop,\n\
+      marginBottom,\n\
+      marginLeft,\n\
+      marginRight,\n\
+      pageRanges,\n\
+      preferCSSPageSize\n\
+    });\n\
+    return await helper.readProtocolStream(this._client, result.stream, path);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<string>}\n\
+   */\n\
+  async title() {\n\
+    return this.mainFrame().title();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{runBeforeUnload: (boolean|undefined)}=} options\n\
+   */\n\
+  async close(options = {runBeforeUnload: undefined}) {\n\
+    assert(!!this._client._connection, 'Protocol error: Connection closed. Most likely the page has been closed.');\n\
+    const runBeforeUnload = !!options.runBeforeUnload;\n\
+    if (runBeforeUnload) {\n\
+      await this._client.send('Page.close');\n\
+    } else {\n\
+      await this._client._connection.send('Target.closeTarget', { targetId: this._target._targetId });\n\
+      await this._target._isClosedPromise;\n\
+    }\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isClosed() {\n\
+    return this._closed;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Mouse}\n\
+   */\n\
+  get mouse() {\n\
+    return this._mouse;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{delay?: number, button?: \"left\"|\"right\"|\"middle\", clickCount?: number}=} options\n\
+   */\n\
+  click(selector, options = {}) {\n\
+    return this.mainFrame().click(selector, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  focus(selector) {\n\
+    return this.mainFrame().focus(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  hover(selector) {\n\
+    return this.mainFrame().hover(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!Array<string>} values\n\
+   * @return {!Promise<!Array<string>>}\n\
+   */\n\
+  select(selector, ...values) {\n\
+    return this.mainFrame().select(selector, ...values);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   */\n\
+  tap(selector) {\n\
+    return this.mainFrame().tap(selector);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {string} text\n\
+   * @param {{delay: (number|undefined)}=} options\n\
+   */\n\
+  type(selector, text, options) {\n\
+    return this.mainFrame().type(selector, text, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {(string|number|Function)} selectorOrFunctionOrTimeout\n\
+   * @param {!Object=} options\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  waitFor(selectorOrFunctionOrTimeout, options = {}, ...args) {\n\
+    return this.mainFrame().waitFor(selectorOrFunctionOrTimeout, options, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} selector\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  waitForSelector(selector, options = {}) {\n\
+    return this.mainFrame().waitForSelector(selector, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} xpath\n\
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options\n\
+   * @return {!Promise<?Puppeteer.ElementHandle>}\n\
+   */\n\
+  waitForXPath(xpath, options = {}) {\n\
+    return this.mainFrame().waitForXPath(xpath, options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function} pageFunction\n\
+   * @param {!{polling?: string|number, timeout?: number}=} options\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!Puppeteer.JSHandle>}\n\
+   */\n\
+  waitForFunction(pageFunction, options = {}, ...args) {\n\
+    return this.mainFrame().waitForFunction(pageFunction, options, ...args);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * @typedef {Object} PDFOptions\n\
+ * @property {number=} scale\n\
+ * @property {boolean=} displayHeaderFooter\n\
+ * @property {string=} headerTemplate\n\
+ * @property {string=} footerTemplate\n\
+ * @property {boolean=} printBackground\n\
+ * @property {boolean=} landscape\n\
+ * @property {string=} pageRanges\n\
+ * @property {string=} format\n\
+ * @property {string|number=} width\n\
+ * @property {string|number=} height\n\
+ * @property {boolean=} preferCSSPageSize\n\
+ * @property {!{top?: string|number, bottom?: string|number, left?: string|number, right?: string|number}=} margin\n\
+ * @property {string=} path\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} Metrics\n\
+ * @property {number=} Timestamp\n\
+ * @property {number=} Documents\n\
+ * @property {number=} Frames\n\
+ * @property {number=} JSEventListeners\n\
+ * @property {number=} Nodes\n\
+ * @property {number=} LayoutCount\n\
+ * @property {number=} RecalcStyleCount\n\
+ * @property {number=} LayoutDuration\n\
+ * @property {number=} RecalcStyleDuration\n\
+ * @property {number=} ScriptDuration\n\
+ * @property {number=} TaskDuration\n\
+ * @property {number=} JSHeapUsedSize\n\
+ * @property {number=} JSHeapTotalSize\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} ScreenshotOptions\n\
+ * @property {string=} type\n\
+ * @property {string=} path\n\
+ * @property {boolean=} fullPage\n\
+ * @property {{x: number, y: number, width: number, height: number}=} clip\n\
+ * @property {number=} quality\n\
+ * @property {boolean=} omitBackground\n\
+ * @property {string=} encoding\n\
+ */\n\
+\n\
+/** @type {!Set<string>} */\n\
+const supportedMetrics = new Set([\n\
+  'Timestamp',\n\
+  'Documents',\n\
+  'Frames',\n\
+  'JSEventListeners',\n\
+  'Nodes',\n\
+  'LayoutCount',\n\
+  'RecalcStyleCount',\n\
+  'LayoutDuration',\n\
+  'RecalcStyleDuration',\n\
+  'ScriptDuration',\n\
+  'TaskDuration',\n\
+  'JSHeapUsedSize',\n\
+  'JSHeapTotalSize',\n\
+]);\n\
+\n\
+/** @enum {!{width: number, height: number}} */\n\
+Page.PaperFormats = {\n\
+  letter: {width: 8.5, height: 11},\n\
+  legal: {width: 8.5, height: 14},\n\
+  tabloid: {width: 11, height: 17},\n\
+  ledger: {width: 17, height: 11},\n\
+  a0: {width: 33.1, height: 46.8 },\n\
+  a1: {width: 23.4, height: 33.1 },\n\
+  a2: {width: 16.54, height: 23.4 },\n\
+  a3: {width: 11.7, height: 16.54 },\n\
+  a4: {width: 8.27, height: 11.7 },\n\
+  a5: {width: 5.83, height: 8.27 },\n\
+  a6: {width: 4.13, height: 5.83 },\n\
+};\n\
+\n\
+const unitToPixels = {\n\
+  'px': 1,\n\
+  'in': 96,\n\
+  'cm': 37.8,\n\
+  'mm': 3.78\n\
+};\n\
+\n\
+/**\n\
+ * @param {(string|number|undefined)} parameter\n\
+ * @return {(number|undefined)}\n\
+ */\n\
+function convertPrintParameterToInches(parameter) {\n\
+  if (typeof parameter === 'undefined')\n\
+    return undefined;\n\
+  let pixels;\n\
+  if (helper.isNumber(parameter)) {\n\
+    // Treat numbers as pixel values to be aligned with phantom's paperSize.\n\
+    pixels = /** @type {number} */ (parameter);\n\
+  } else if (helper.isString(parameter)) {\n\
+    const text = /** @type {string} */ (parameter);\n\
+    let unit = text.substring(text.length - 2).toLowerCase();\n\
+    let valueText = '';\n\
+    if (unitToPixels.hasOwnProperty(unit)) {\n\
+      valueText = text.substring(0, text.length - 2);\n\
+    } else {\n\
+      // In case of unknown unit try to parse the whole parameter as number of pixels.\n\
+      // This is consistent with phantom's paperSize behavior.\n\
+      unit = 'px';\n\
+      valueText = text;\n\
+    }\n\
+    const value = Number(valueText);\n\
+    assert(!isNaN(value), 'Failed to parse parameter value: ' + text);\n\
+    pixels = value * unitToPixels[unit];\n\
+  } else {\n\
+    throw new Error('page.pdf() Cannot handle parameter type: ' + (typeof parameter));\n\
+  }\n\
+  return pixels / 96;\n\
+}\n\
+\n\
+/**\n\
+ * @typedef {Object} Network.Cookie\n\
+ * @property {string} name\n\
+ * @property {string} value\n\
+ * @property {string} domain\n\
+ * @property {string} path\n\
+ * @property {number} expires\n\
+ * @property {number} size\n\
+ * @property {boolean} httpOnly\n\
+ * @property {boolean} secure\n\
+ * @property {boolean} session\n\
+ * @property {(\"Strict\"|\"Lax\"|\"Extended\"|\"None\")=} sameSite\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} Network.CookieParam\n\
+ * @property {string} name\n\
+ * @property {string} value\n\
+ * @property {string=} url\n\
+ * @property {string=} domain\n\
+ * @property {string=} path\n\
+ * @property {number=} expires\n\
+ * @property {boolean=} httpOnly\n\
+ * @property {boolean=} secure\n\
+ * @property {(\"Strict\"|\"Lax\")=} sameSite\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} ConsoleMessage.Location\n\
+ * @property {string=} url\n\
+ * @property {number=} lineNumber\n\
+ * @property {number=} columnNumber\n\
+ */\n\
+\n\
+class ConsoleMessage {\n\
+  /**\n\
+   * @param {string} type\n\
+   * @param {string} text\n\
+   * @param {!Array<!Puppeteer.JSHandle>} args\n\
+   * @param {ConsoleMessage.Location} location\n\
+   */\n\
+  constructor(type, text, args, location = {}) {\n\
+    this._type = type;\n\
+    this._text = text;\n\
+    this._args = args;\n\
+    this._location = location;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  type() {\n\
+    return this._type;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  text() {\n\
+    return this._text;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Array<!Puppeteer.JSHandle>}\n\
+   */\n\
+  args() {\n\
+    return this._args;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {Object}\n\
+   */\n\
+  location() {\n\
+    return this._location;\n\
+  }\n\
+}\n\
+\n\
+class FileChooser {\n\
+  /**\n\
+   * @param {Puppeteer.CDPSession} client\n\
+   * @param {!Protocol.Page.fileChooserOpenedPayload} event\n\
+   */\n\
+  constructor(client, event) {\n\
+    this._client = client;\n\
+    this._multiple = event.mode !== 'selectSingle';\n\
+    this._handled = false;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {boolean}\n\
+   */\n\
+  isMultiple() {\n\
+    return this._multiple;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Array<string>} filePaths\n\
+   * @return {!Promise}\n\
+   */\n\
+  async accept(filePaths) {\n\
+    assert(!this._handled, 'Cannot accept FileChooser which is already handled!');\n\
+    this._handled = true;\n\
+    const files = filePaths.map(filePath => path.resolve(filePath));\n\
+    await this._client.send('Page.handleFileChooser', {\n\
+      action: 'accept',\n\
+      files,\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise}\n\
+   */\n\
+  async cancel() {\n\
+    assert(!this._handled, 'Cannot cancel FileChooser which is already handled!');\n\
+    this._handled = true;\n\
+    await this._client.send('Page.handleFileChooser', {\n\
+      action: 'cancel',\n\
+    });\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Page, ConsoleMessage, FileChooser};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/PipeTransport.js\n\
+*/\n\
+/**\n\
+ * Copyright 2018 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const {helper, debugError} = require('./helper');\n\
+\n\
+/**\n\
+ * @implements {!Puppeteer.ConnectionTransport}\n\
+ */\n\
+class PipeTransport {\n\
+  /**\n\
+   * @param {!NodeJS.WritableStream} pipeWrite\n\
+   * @param {!NodeJS.ReadableStream} pipeRead\n\
+   */\n\
+  constructor(pipeWrite, pipeRead) {\n\
+    this._pipeWrite = pipeWrite;\n\
+    this._pendingMessage = '';\n\
+    this._eventListeners = [\n\
+      helper.addEventListener(pipeRead, 'data', buffer => this._dispatch(buffer)),\n\
+      helper.addEventListener(pipeRead, 'close', () => {\n\
+        if (this.onclose)\n\
+          this.onclose.call(null);\n\
+      }),\n\
+      helper.addEventListener(pipeRead, 'error', debugError),\n\
+      helper.addEventListener(pipeWrite, 'error', debugError),\n\
+    ];\n\
+    this.onmessage = null;\n\
+    this.onclose = null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} message\n\
+   */\n\
+  send(message) {\n\
+    this._pipeWrite.write(message);\n\
+    this._pipeWrite.write('\\0');\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Buffer} buffer\n\
+   */\n\
+  _dispatch(buffer) {\n\
+    let end = buffer.indexOf('\\0');\n\
+    if (end === -1) {\n\
+      this._pendingMessage += buffer.toString();\n\
+      return;\n\
+    }\n\
+    const message = this._pendingMessage + buffer.toString(undefined, 0, end);\n\
+    if (this.onmessage)\n\
+      this.onmessage.call(null, message);\n\
+\n\
+    let start = end + 1;\n\
+    end = buffer.indexOf('\\0', start);\n\
+    while (end !== -1) {\n\
+      if (this.onmessage)\n\
+        this.onmessage.call(null, buffer.toString(undefined, start, end));\n\
+      start = end + 1;\n\
+      end = buffer.indexOf('\\0', start);\n\
+    }\n\
+    this._pendingMessage = buffer.toString(undefined, start);\n\
+  }\n\
+\n\
+  close() {\n\
+    this._pipeWrite = null;\n\
+    helper.removeEventListeners(this._eventListeners);\n\
+  }\n\
+}\n\
+\n\
+module.exports = PipeTransport;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Puppeteer.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const Launcher = require('./Launcher');\n\
+// const BrowserFetcher = require('./BrowserFetcher');\n\
+// const Errors = require('./Errors');\n\
+// const DeviceDescriptors = require('./DeviceDescriptors');\n\
+\n\
+module.exports = class {\n\
+  /**\n\
+   * @param {string} projectRoot\n\
+   * @param {string} preferredRevision\n\
+   * @param {boolean} isPuppeteerCore\n\
+   */\n\
+  constructor(projectRoot, preferredRevision, isPuppeteerCore) {\n\
+    this._projectRoot = projectRoot;\n\
+    this._launcher = new Launcher(projectRoot, preferredRevision, isPuppeteerCore);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!(Launcher.LaunchOptions & Launcher.ChromeArgOptions & Launcher.BrowserOptions)=} options\n\
+   * @return {!Promise<!Puppeteer.Browser>}\n\
+   */\n\
+  launch(options) {\n\
+    return this._launcher.launch(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!(Launcher.BrowserOptions & {browserWSEndpoint?: string, browserURL?: string, transport?: !Puppeteer.ConnectionTransport})} options\n\
+   * @return {!Promise<!Puppeteer.Browser>}\n\
+   */\n\
+  connect(options) {\n\
+    return this._launcher.connect(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  executablePath() {\n\
+    return this._launcher.executablePath();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {Object}\n\
+   */\n\
+  get devices() {\n\
+    return DeviceDescriptors;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {Object}\n\
+   */\n\
+  get errors() {\n\
+    return Errors;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Launcher.ChromeArgOptions=} options\n\
+   * @return {!Array<string>}\n\
+   */\n\
+  defaultArgs(options) {\n\
+    return this._launcher.defaultArgs(options);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!BrowserFetcher.Options=} options\n\
+   * @return {!BrowserFetcher}\n\
+   */\n\
+  createBrowserFetcher(options) {\n\
+    return new BrowserFetcher(this._projectRoot, options);\n\
+  }\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const Puppeteer = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Target.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// const {Events} = require('./Events');\n\
+// const {Page} = require('./Page');\n\
+// const {Worker} = require('./Worker');\n\
+// const {Connection} = require('./Connection');\n\
+\n\
+class Target {\n\
+  /**\n\
+   * @param {!Protocol.Target.TargetInfo} targetInfo\n\
+   * @param {!Puppeteer.BrowserContext} browserContext\n\
+   * @param {!function():!Promise<!Puppeteer.CDPSession>} sessionFactory\n\
+   * @param {boolean} ignoreHTTPSErrors\n\
+   * @param {?Puppeteer.Viewport} defaultViewport\n\
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue\n\
+   */\n\
+  constructor(targetInfo, browserContext, sessionFactory, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {\n\
+    this._targetInfo = targetInfo;\n\
+    this._browserContext = browserContext;\n\
+    this._targetId = targetInfo.targetId;\n\
+    this._sessionFactory = sessionFactory;\n\
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;\n\
+    this._defaultViewport = defaultViewport;\n\
+    this._screenshotTaskQueue = screenshotTaskQueue;\n\
+    /** @type {?Promise<!Puppeteer.Page>} */\n\
+    this._pagePromise = null;\n\
+    /** @type {?Promise<!Worker>} */\n\
+    this._workerPromise = null;\n\
+    this._initializedPromise = new Promise(fulfill => this._initializedCallback = fulfill).then(async success => {\n\
+      if (!success)\n\
+        return false;\n\
+      const opener = this.opener();\n\
+      if (!opener || !opener._pagePromise || this.type() !== 'page')\n\
+        return true;\n\
+      const openerPage = await opener._pagePromise;\n\
+      if (!openerPage.listenerCount(Events.Page.Popup))\n\
+        return true;\n\
+      const popupPage = await this.page();\n\
+      openerPage.emit(Events.Page.Popup, popupPage);\n\
+      return true;\n\
+    });\n\
+    this._isClosedPromise = new Promise(fulfill => this._closedCallback = fulfill);\n\
+    this._isInitialized = this._targetInfo.type !== 'page' || this._targetInfo.url !== '';\n\
+    if (this._isInitialized)\n\
+      this._initializedCallback(true);\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Puppeteer.CDPSession>}\n\
+   */\n\
+  createCDPSession() {\n\
+    return this._sessionFactory();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Page>}\n\
+   */\n\
+  async page() {\n\
+    if ((this._targetInfo.type === 'page' || this._targetInfo.type === 'background_page') && !this._pagePromise) {\n\
+      this._pagePromise = this._sessionFactory()\n\
+          .then(client => Page.create(client, this, this._ignoreHTTPSErrors, this._defaultViewport, this._screenshotTaskQueue));\n\
+    }\n\
+    return this._pagePromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<?Worker>}\n\
+   */\n\
+  async worker() {\n\
+    if (this._targetInfo.type !== 'service_worker' && this._targetInfo.type !== 'shared_worker')\n\
+      return null;\n\
+    if (!this._workerPromise) {\n\
+      this._workerPromise = this._sessionFactory().then(async client => {\n\
+        // Top level workers have a fake page wrapping the actual worker.\n\
+        const [targetAttached] = await Promise.all([\n\
+          new Promise(x => client.once('Target.attachedToTarget', x)),\n\
+          client.send('Target.setAutoAttach', {autoAttach: true, waitForDebuggerOnStart: false, flatten: true}),\n\
+        ]);\n\
+        const session = Connection.fromSession(client).session(targetAttached.sessionId);\n\
+        // TODO(einbinder): Make workers send their console logs.\n\
+        return new Worker(session, this._targetInfo.url, () => {} /* consoleAPICalled */, () => {} /* exceptionThrown */);\n\
+      });\n\
+    }\n\
+    return this._workerPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._targetInfo.url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {\"page\"|\"background_page\"|\"service_worker\"|\"shared_worker\"|\"other\"|\"browser\"}\n\
+   */\n\
+  type() {\n\
+    const type = this._targetInfo.type;\n\
+    if (type === 'page' || type === 'background_page' || type === 'service_worker' || type === 'shared_worker' || type === 'browser')\n\
+      return type;\n\
+    return 'other';\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.Browser}\n\
+   */\n\
+  browser() {\n\
+    return this._browserContext.browser();\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Puppeteer.BrowserContext}\n\
+   */\n\
+  browserContext() {\n\
+    return this._browserContext;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {?Puppeteer.Target}\n\
+   */\n\
+  opener() {\n\
+    const { openerId } = this._targetInfo;\n\
+    if (!openerId)\n\
+      return null;\n\
+    return this.browser()._targets.get(openerId);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!Protocol.Target.TargetInfo} targetInfo\n\
+   */\n\
+  _targetInfoChanged(targetInfo) {\n\
+    this._targetInfo = targetInfo;\n\
+\n\
+    if (!this._isInitialized && (this._targetInfo.type !== 'page' || this._targetInfo.url !== '')) {\n\
+      this._isInitialized = true;\n\
+      this._initializedCallback(true);\n\
+      return;\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Target};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/TaskQueue.js\n\
+*/\n\
+class TaskQueue {\n\
+  constructor() {\n\
+    this._chain = Promise.resolve();\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function} task\n\
+   * @return {!Promise}\n\
+   */\n\
+  postTask(task) {\n\
+    const result = this._chain.then(task);\n\
+    this._chain = result.catch(() => {});\n\
+    return result;\n\
+  }\n\
+}\n\
+\n\
+module.exports = {TaskQueue};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/TimeoutSettings.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+const DEFAULT_TIMEOUT = 30000;\n\
+\n\
+class TimeoutSettings {\n\
+  constructor() {\n\
+    this._defaultTimeout = null;\n\
+    this._defaultNavigationTimeout = null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} timeout\n\
+   */\n\
+  setDefaultTimeout(timeout) {\n\
+    this._defaultTimeout = timeout;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {number} timeout\n\
+   */\n\
+  setDefaultNavigationTimeout(timeout) {\n\
+    this._defaultNavigationTimeout = timeout;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {number}\n\
+   */\n\
+  navigationTimeout() {\n\
+    if (this._defaultNavigationTimeout !== null)\n\
+      return this._defaultNavigationTimeout;\n\
+    if (this._defaultTimeout !== null)\n\
+      return this._defaultTimeout;\n\
+    return DEFAULT_TIMEOUT;\n\
+  }\n\
+\n\
+  timeout() {\n\
+    if (this._defaultTimeout !== null)\n\
+      return this._defaultTimeout;\n\
+    return DEFAULT_TIMEOUT;\n\
+  }\n\
+}\n\
+\n\
+module.exports = {TimeoutSettings};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Tracing.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const {helper, assert} = require('./helper');\n\
+\n\
+class Tracing {\n\
+  /**\n\
+   * @param {!Puppeteer.CDPSession} client\n\
+   */\n\
+  constructor(client) {\n\
+    this._client = client;\n\
+    this._recording = false;\n\
+    this._path = '';\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!{path?: string, screenshots?: boolean, categories?: !Array<string>}} options\n\
+   */\n\
+  async start(options = {}) {\n\
+    assert(!this._recording, 'Cannot start recording trace while already recording trace.');\n\
+\n\
+    const defaultCategories = [\n\
+      '-*', 'devtools.timeline', 'v8.execute', 'disabled-by-default-devtools.timeline',\n\
+      'disabled-by-default-devtools.timeline.frame', 'toplevel',\n\
+      'blink.console', 'blink.user_timing', 'latencyInfo', 'disabled-by-default-devtools.timeline.stack',\n\
+      'disabled-by-default-v8.cpu_profiler', 'disabled-by-default-v8.cpu_profiler.hires'\n\
+    ];\n\
+    const {\n\
+      path = null,\n\
+      screenshots = false,\n\
+      categories = defaultCategories,\n\
+    } = options;\n\
+\n\
+    if (screenshots)\n\
+      categories.push('disabled-by-default-devtools.screenshot');\n\
+\n\
+    this._path = path;\n\
+    this._recording = true;\n\
+    await this._client.send('Tracing.start', {\n\
+      transferMode: 'ReturnAsStream',\n\
+      categories: categories.join(',')\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<!Buffer>}\n\
+   */\n\
+  async stop() {\n\
+    let fulfill;\n\
+    const contentPromise = new Promise(x => fulfill = x);\n\
+    this._client.once('Tracing.tracingComplete', event => {\n\
+      helper.readProtocolStream(this._client, event.stream, this._path).then(fulfill);\n\
+    });\n\
+    await this._client.send('Tracing.end');\n\
+    this._recording = false;\n\
+    return contentPromise;\n\
+  }\n\
+}\n\
+\n\
+module.exports = Tracing;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/USKeyboardLayout.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the 'License');\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an 'AS IS' BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+/**\n\
+ * @typedef {Object} KeyDefinition\n\
+ * @property {number=} keyCode\n\
+ * @property {number=} shiftKeyCode\n\
+ * @property {string=} key\n\
+ * @property {string=} shiftKey\n\
+ * @property {string=} code\n\
+ * @property {string=} text\n\
+ * @property {string=} shiftText\n\
+ * @property {number=} location\n\
+ */\n\
+\n\
+/**\n\
+ * @type {Object<string, KeyDefinition>}\n\
+ */\n\
+module.exports = {\n\
+  '0': {'keyCode': 48, 'key': '0', 'code': 'Digit0'},\n\
+  '1': {'keyCode': 49, 'key': '1', 'code': 'Digit1'},\n\
+  '2': {'keyCode': 50, 'key': '2', 'code': 'Digit2'},\n\
+  '3': {'keyCode': 51, 'key': '3', 'code': 'Digit3'},\n\
+  '4': {'keyCode': 52, 'key': '4', 'code': 'Digit4'},\n\
+  '5': {'keyCode': 53, 'key': '5', 'code': 'Digit5'},\n\
+  '6': {'keyCode': 54, 'key': '6', 'code': 'Digit6'},\n\
+  '7': {'keyCode': 55, 'key': '7', 'code': 'Digit7'},\n\
+  '8': {'keyCode': 56, 'key': '8', 'code': 'Digit8'},\n\
+  '9': {'keyCode': 57, 'key': '9', 'code': 'Digit9'},\n\
+  'Power': {'key': 'Power', 'code': 'Power'},\n\
+  'Eject': {'key': 'Eject', 'code': 'Eject'},\n\
+  'Abort': {'keyCode': 3, 'code': 'Abort', 'key': 'Cancel'},\n\
+  'Help': {'keyCode': 6, 'code': 'Help', 'key': 'Help'},\n\
+  'Backspace': {'keyCode': 8, 'code': 'Backspace', 'key': 'Backspace'},\n\
+  'Tab': {'keyCode': 9, 'code': 'Tab', 'key': 'Tab'},\n\
+  'Numpad5': {'keyCode': 12, 'shiftKeyCode': 101, 'key': 'Clear', 'code': 'Numpad5', 'shiftKey': '5', 'location': 3},\n\
+  'NumpadEnter': {'keyCode': 13, 'code': 'NumpadEnter', 'key': 'Enter', 'text': '\\r', 'location': 3},\n\
+  'Enter': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\\r'},\n\
+  '\\r': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\\r'},\n\
+  '\\n': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\\r'},\n\
+  'ShiftLeft': {'keyCode': 16, 'code': 'ShiftLeft', 'key': 'Shift', 'location': 1},\n\
+  'ShiftRight': {'keyCode': 16, 'code': 'ShiftRight', 'key': 'Shift', 'location': 2},\n\
+  'ControlLeft': {'keyCode': 17, 'code': 'ControlLeft', 'key': 'Control', 'location': 1},\n\
+  'ControlRight': {'keyCode': 17, 'code': 'ControlRight', 'key': 'Control', 'location': 2},\n\
+  'AltLeft': {'keyCode': 18, 'code': 'AltLeft', 'key': 'Alt', 'location': 1},\n\
+  'AltRight': {'keyCode': 18, 'code': 'AltRight', 'key': 'Alt', 'location': 2},\n\
+  'Pause': {'keyCode': 19, 'code': 'Pause', 'key': 'Pause'},\n\
+  'CapsLock': {'keyCode': 20, 'code': 'CapsLock', 'key': 'CapsLock'},\n\
+  'Escape': {'keyCode': 27, 'code': 'Escape', 'key': 'Escape'},\n\
+  'Convert': {'keyCode': 28, 'code': 'Convert', 'key': 'Convert'},\n\
+  'NonConvert': {'keyCode': 29, 'code': 'NonConvert', 'key': 'NonConvert'},\n\
+  'Space': {'keyCode': 32, 'code': 'Space', 'key': ' '},\n\
+  'Numpad9': {'keyCode': 33, 'shiftKeyCode': 105, 'key': 'PageUp', 'code': 'Numpad9', 'shiftKey': '9', 'location': 3},\n\
+  'PageUp': {'keyCode': 33, 'code': 'PageUp', 'key': 'PageUp'},\n\
+  'Numpad3': {'keyCode': 34, 'shiftKeyCode': 99, 'key': 'PageDown', 'code': 'Numpad3', 'shiftKey': '3', 'location': 3},\n\
+  'PageDown': {'keyCode': 34, 'code': 'PageDown', 'key': 'PageDown'},\n\
+  'End': {'keyCode': 35, 'code': 'End', 'key': 'End'},\n\
+  'Numpad1': {'keyCode': 35, 'shiftKeyCode': 97, 'key': 'End', 'code': 'Numpad1', 'shiftKey': '1', 'location': 3},\n\
+  'Home': {'keyCode': 36, 'code': 'Home', 'key': 'Home'},\n\
+  'Numpad7': {'keyCode': 36, 'shiftKeyCode': 103, 'key': 'Home', 'code': 'Numpad7', 'shiftKey': '7', 'location': 3},\n\
+  'ArrowLeft': {'keyCode': 37, 'code': 'ArrowLeft', 'key': 'ArrowLeft'},\n\
+  'Numpad4': {'keyCode': 37, 'shiftKeyCode': 100, 'key': 'ArrowLeft', 'code': 'Numpad4', 'shiftKey': '4', 'location': 3},\n\
+  'Numpad8': {'keyCode': 38, 'shiftKeyCode': 104, 'key': 'ArrowUp', 'code': 'Numpad8', 'shiftKey': '8', 'location': 3},\n\
+  'ArrowUp': {'keyCode': 38, 'code': 'ArrowUp', 'key': 'ArrowUp'},\n\
+  'ArrowRight': {'keyCode': 39, 'code': 'ArrowRight', 'key': 'ArrowRight'},\n\
+  'Numpad6': {'keyCode': 39, 'shiftKeyCode': 102, 'key': 'ArrowRight', 'code': 'Numpad6', 'shiftKey': '6', 'location': 3},\n\
+  'Numpad2': {'keyCode': 40, 'shiftKeyCode': 98, 'key': 'ArrowDown', 'code': 'Numpad2', 'shiftKey': '2', 'location': 3},\n\
+  'ArrowDown': {'keyCode': 40, 'code': 'ArrowDown', 'key': 'ArrowDown'},\n\
+  'Select': {'keyCode': 41, 'code': 'Select', 'key': 'Select'},\n\
+  'Open': {'keyCode': 43, 'code': 'Open', 'key': 'Execute'},\n\
+  'PrintScreen': {'keyCode': 44, 'code': 'PrintScreen', 'key': 'PrintScreen'},\n\
+  'Insert': {'keyCode': 45, 'code': 'Insert', 'key': 'Insert'},\n\
+  'Numpad0': {'keyCode': 45, 'shiftKeyCode': 96, 'key': 'Insert', 'code': 'Numpad0', 'shiftKey': '0', 'location': 3},\n\
+  'Delete': {'keyCode': 46, 'code': 'Delete', 'key': 'Delete'},\n\
+  'NumpadDecimal': {'keyCode': 46, 'shiftKeyCode': 110, 'code': 'NumpadDecimal', 'key': '\\u0000', 'shiftKey': '.', 'location': 3},\n\
+  'Digit0': {'keyCode': 48, 'code': 'Digit0', 'shiftKey': ')', 'key': '0'},\n\
+  'Digit1': {'keyCode': 49, 'code': 'Digit1', 'shiftKey': '!', 'key': '1'},\n\
+  'Digit2': {'keyCode': 50, 'code': 'Digit2', 'shiftKey': '@', 'key': '2'},\n\
+  'Digit3': {'keyCode': 51, 'code': 'Digit3', 'shiftKey': '#', 'key': '3'},\n\
+  'Digit4': {'keyCode': 52, 'code': 'Digit4', 'shiftKey': '$', 'key': '4'},\n\
+  'Digit5': {'keyCode': 53, 'code': 'Digit5', 'shiftKey': '%', 'key': '5'},\n\
+  'Digit6': {'keyCode': 54, 'code': 'Digit6', 'shiftKey': '^', 'key': '6'},\n\
+  'Digit7': {'keyCode': 55, 'code': 'Digit7', 'shiftKey': '&', 'key': '7'},\n\
+  'Digit8': {'keyCode': 56, 'code': 'Digit8', 'shiftKey': '*', 'key': '8'},\n\
+  'Digit9': {'keyCode': 57, 'code': 'Digit9', 'shiftKey': '\\(', 'key': '9'},\n\
+  'KeyA': {'keyCode': 65, 'code': 'KeyA', 'shiftKey': 'A', 'key': 'a'},\n\
+  'KeyB': {'keyCode': 66, 'code': 'KeyB', 'shiftKey': 'B', 'key': 'b'},\n\
+  'KeyC': {'keyCode': 67, 'code': 'KeyC', 'shiftKey': 'C', 'key': 'c'},\n\
+  'KeyD': {'keyCode': 68, 'code': 'KeyD', 'shiftKey': 'D', 'key': 'd'},\n\
+  'KeyE': {'keyCode': 69, 'code': 'KeyE', 'shiftKey': 'E', 'key': 'e'},\n\
+  'KeyF': {'keyCode': 70, 'code': 'KeyF', 'shiftKey': 'F', 'key': 'f'},\n\
+  'KeyG': {'keyCode': 71, 'code': 'KeyG', 'shiftKey': 'G', 'key': 'g'},\n\
+  'KeyH': {'keyCode': 72, 'code': 'KeyH', 'shiftKey': 'H', 'key': 'h'},\n\
+  'KeyI': {'keyCode': 73, 'code': 'KeyI', 'shiftKey': 'I', 'key': 'i'},\n\
+  'KeyJ': {'keyCode': 74, 'code': 'KeyJ', 'shiftKey': 'J', 'key': 'j'},\n\
+  'KeyK': {'keyCode': 75, 'code': 'KeyK', 'shiftKey': 'K', 'key': 'k'},\n\
+  'KeyL': {'keyCode': 76, 'code': 'KeyL', 'shiftKey': 'L', 'key': 'l'},\n\
+  'KeyM': {'keyCode': 77, 'code': 'KeyM', 'shiftKey': 'M', 'key': 'm'},\n\
+  'KeyN': {'keyCode': 78, 'code': 'KeyN', 'shiftKey': 'N', 'key': 'n'},\n\
+  'KeyO': {'keyCode': 79, 'code': 'KeyO', 'shiftKey': 'O', 'key': 'o'},\n\
+  'KeyP': {'keyCode': 80, 'code': 'KeyP', 'shiftKey': 'P', 'key': 'p'},\n\
+  'KeyQ': {'keyCode': 81, 'code': 'KeyQ', 'shiftKey': 'Q', 'key': 'q'},\n\
+  'KeyR': {'keyCode': 82, 'code': 'KeyR', 'shiftKey': 'R', 'key': 'r'},\n\
+  'KeyS': {'keyCode': 83, 'code': 'KeyS', 'shiftKey': 'S', 'key': 's'},\n\
+  'KeyT': {'keyCode': 84, 'code': 'KeyT', 'shiftKey': 'T', 'key': 't'},\n\
+  'KeyU': {'keyCode': 85, 'code': 'KeyU', 'shiftKey': 'U', 'key': 'u'},\n\
+  'KeyV': {'keyCode': 86, 'code': 'KeyV', 'shiftKey': 'V', 'key': 'v'},\n\
+  'KeyW': {'keyCode': 87, 'code': 'KeyW', 'shiftKey': 'W', 'key': 'w'},\n\
+  'KeyX': {'keyCode': 88, 'code': 'KeyX', 'shiftKey': 'X', 'key': 'x'},\n\
+  'KeyY': {'keyCode': 89, 'code': 'KeyY', 'shiftKey': 'Y', 'key': 'y'},\n\
+  'KeyZ': {'keyCode': 90, 'code': 'KeyZ', 'shiftKey': 'Z', 'key': 'z'},\n\
+  'MetaLeft': {'keyCode': 91, 'code': 'MetaLeft', 'key': 'Meta', 'location': 1},\n\
+  'MetaRight': {'keyCode': 92, 'code': 'MetaRight', 'key': 'Meta', 'location': 2},\n\
+  'ContextMenu': {'keyCode': 93, 'code': 'ContextMenu', 'key': 'ContextMenu'},\n\
+  'NumpadMultiply': {'keyCode': 106, 'code': 'NumpadMultiply', 'key': '*', 'location': 3},\n\
+  'NumpadAdd': {'keyCode': 107, 'code': 'NumpadAdd', 'key': '+', 'location': 3},\n\
+  'NumpadSubtract': {'keyCode': 109, 'code': 'NumpadSubtract', 'key': '-', 'location': 3},\n\
+  'NumpadDivide': {'keyCode': 111, 'code': 'NumpadDivide', 'key': '/', 'location': 3},\n\
+  'F1': {'keyCode': 112, 'code': 'F1', 'key': 'F1'},\n\
+  'F2': {'keyCode': 113, 'code': 'F2', 'key': 'F2'},\n\
+  'F3': {'keyCode': 114, 'code': 'F3', 'key': 'F3'},\n\
+  'F4': {'keyCode': 115, 'code': 'F4', 'key': 'F4'},\n\
+  'F5': {'keyCode': 116, 'code': 'F5', 'key': 'F5'},\n\
+  'F6': {'keyCode': 117, 'code': 'F6', 'key': 'F6'},\n\
+  'F7': {'keyCode': 118, 'code': 'F7', 'key': 'F7'},\n\
+  'F8': {'keyCode': 119, 'code': 'F8', 'key': 'F8'},\n\
+  'F9': {'keyCode': 120, 'code': 'F9', 'key': 'F9'},\n\
+  'F10': {'keyCode': 121, 'code': 'F10', 'key': 'F10'},\n\
+  'F11': {'keyCode': 122, 'code': 'F11', 'key': 'F11'},\n\
+  'F12': {'keyCode': 123, 'code': 'F12', 'key': 'F12'},\n\
+  'F13': {'keyCode': 124, 'code': 'F13', 'key': 'F13'},\n\
+  'F14': {'keyCode': 125, 'code': 'F14', 'key': 'F14'},\n\
+  'F15': {'keyCode': 126, 'code': 'F15', 'key': 'F15'},\n\
+  'F16': {'keyCode': 127, 'code': 'F16', 'key': 'F16'},\n\
+  'F17': {'keyCode': 128, 'code': 'F17', 'key': 'F17'},\n\
+  'F18': {'keyCode': 129, 'code': 'F18', 'key': 'F18'},\n\
+  'F19': {'keyCode': 130, 'code': 'F19', 'key': 'F19'},\n\
+  'F20': {'keyCode': 131, 'code': 'F20', 'key': 'F20'},\n\
+  'F21': {'keyCode': 132, 'code': 'F21', 'key': 'F21'},\n\
+  'F22': {'keyCode': 133, 'code': 'F22', 'key': 'F22'},\n\
+  'F23': {'keyCode': 134, 'code': 'F23', 'key': 'F23'},\n\
+  'F24': {'keyCode': 135, 'code': 'F24', 'key': 'F24'},\n\
+  'NumLock': {'keyCode': 144, 'code': 'NumLock', 'key': 'NumLock'},\n\
+  'ScrollLock': {'keyCode': 145, 'code': 'ScrollLock', 'key': 'ScrollLock'},\n\
+  'AudioVolumeMute': {'keyCode': 173, 'code': 'AudioVolumeMute', 'key': 'AudioVolumeMute'},\n\
+  'AudioVolumeDown': {'keyCode': 174, 'code': 'AudioVolumeDown', 'key': 'AudioVolumeDown'},\n\
+  'AudioVolumeUp': {'keyCode': 175, 'code': 'AudioVolumeUp', 'key': 'AudioVolumeUp'},\n\
+  'MediaTrackNext': {'keyCode': 176, 'code': 'MediaTrackNext', 'key': 'MediaTrackNext'},\n\
+  'MediaTrackPrevious': {'keyCode': 177, 'code': 'MediaTrackPrevious', 'key': 'MediaTrackPrevious'},\n\
+  'MediaStop': {'keyCode': 178, 'code': 'MediaStop', 'key': 'MediaStop'},\n\
+  'MediaPlayPause': {'keyCode': 179, 'code': 'MediaPlayPause', 'key': 'MediaPlayPause'},\n\
+  'Semicolon': {'keyCode': 186, 'code': 'Semicolon', 'shiftKey': ':', 'key': ';'},\n\
+  'Equal': {'keyCode': 187, 'code': 'Equal', 'shiftKey': '+', 'key': '='},\n\
+  'NumpadEqual': {'keyCode': 187, 'code': 'NumpadEqual', 'key': '=', 'location': 3},\n\
+  'Comma': {'keyCode': 188, 'code': 'Comma', 'shiftKey': '\\<', 'key': ','},\n\
+  'Minus': {'keyCode': 189, 'code': 'Minus', 'shiftKey': '_', 'key': '-'},\n\
+  'Period': {'keyCode': 190, 'code': 'Period', 'shiftKey': '>', 'key': '.'},\n\
+  'Slash': {'keyCode': 191, 'code': 'Slash', 'shiftKey': '?', 'key': '/'},\n\
+  'Backquote': {'keyCode': 192, 'code': 'Backquote', 'shiftKey': '~', 'key': '`'},\n\
+  'BracketLeft': {'keyCode': 219, 'code': 'BracketLeft', 'shiftKey': '{', 'key': '['},\n\
+  'Backslash': {'keyCode': 220, 'code': 'Backslash', 'shiftKey': '|', 'key': '\\\\'},\n\
+  'BracketRight': {'keyCode': 221, 'code': 'BracketRight', 'shiftKey': '}', 'key': ']'},\n\
+  'Quote': {'keyCode': 222, 'code': 'Quote', 'shiftKey': '\"', 'key': '\\''},\n\
+  'AltGraph': {'keyCode': 225, 'code': 'AltGraph', 'key': 'AltGraph'},\n\
+  'Props': {'keyCode': 247, 'code': 'Props', 'key': 'CrSel'},\n\
+  'Cancel': {'keyCode': 3, 'key': 'Cancel', 'code': 'Abort'},\n\
+  'Clear': {'keyCode': 12, 'key': 'Clear', 'code': 'Numpad5', 'location': 3},\n\
+  'Shift': {'keyCode': 16, 'key': 'Shift', 'code': 'ShiftLeft', 'location': 1},\n\
+  'Control': {'keyCode': 17, 'key': 'Control', 'code': 'ControlLeft', 'location': 1},\n\
+  'Alt': {'keyCode': 18, 'key': 'Alt', 'code': 'AltLeft', 'location': 1},\n\
+  'Accept': {'keyCode': 30, 'key': 'Accept'},\n\
+  'ModeChange': {'keyCode': 31, 'key': 'ModeChange'},\n\
+  ' ': {'keyCode': 32, 'key': ' ', 'code': 'Space'},\n\
+  'Print': {'keyCode': 42, 'key': 'Print'},\n\
+  'Execute': {'keyCode': 43, 'key': 'Execute', 'code': 'Open'},\n\
+  '\\u0000': {'keyCode': 46, 'key': '\\u0000', 'code': 'NumpadDecimal', 'location': 3},\n\
+  'a': {'keyCode': 65, 'key': 'a', 'code': 'KeyA'},\n\
+  'b': {'keyCode': 66, 'key': 'b', 'code': 'KeyB'},\n\
+  'c': {'keyCode': 67, 'key': 'c', 'code': 'KeyC'},\n\
+  'd': {'keyCode': 68, 'key': 'd', 'code': 'KeyD'},\n\
+  'e': {'keyCode': 69, 'key': 'e', 'code': 'KeyE'},\n\
+  'f': {'keyCode': 70, 'key': 'f', 'code': 'KeyF'},\n\
+  'g': {'keyCode': 71, 'key': 'g', 'code': 'KeyG'},\n\
+  'h': {'keyCode': 72, 'key': 'h', 'code': 'KeyH'},\n\
+  'i': {'keyCode': 73, 'key': 'i', 'code': 'KeyI'},\n\
+  'j': {'keyCode': 74, 'key': 'j', 'code': 'KeyJ'},\n\
+  'k': {'keyCode': 75, 'key': 'k', 'code': 'KeyK'},\n\
+  'l': {'keyCode': 76, 'key': 'l', 'code': 'KeyL'},\n\
+  'm': {'keyCode': 77, 'key': 'm', 'code': 'KeyM'},\n\
+  'n': {'keyCode': 78, 'key': 'n', 'code': 'KeyN'},\n\
+  'o': {'keyCode': 79, 'key': 'o', 'code': 'KeyO'},\n\
+  'p': {'keyCode': 80, 'key': 'p', 'code': 'KeyP'},\n\
+  'q': {'keyCode': 81, 'key': 'q', 'code': 'KeyQ'},\n\
+  'r': {'keyCode': 82, 'key': 'r', 'code': 'KeyR'},\n\
+  's': {'keyCode': 83, 'key': 's', 'code': 'KeyS'},\n\
+  't': {'keyCode': 84, 'key': 't', 'code': 'KeyT'},\n\
+  'u': {'keyCode': 85, 'key': 'u', 'code': 'KeyU'},\n\
+  'v': {'keyCode': 86, 'key': 'v', 'code': 'KeyV'},\n\
+  'w': {'keyCode': 87, 'key': 'w', 'code': 'KeyW'},\n\
+  'x': {'keyCode': 88, 'key': 'x', 'code': 'KeyX'},\n\
+  'y': {'keyCode': 89, 'key': 'y', 'code': 'KeyY'},\n\
+  'z': {'keyCode': 90, 'key': 'z', 'code': 'KeyZ'},\n\
+  'Meta': {'keyCode': 91, 'key': 'Meta', 'code': 'MetaLeft', 'location': 1},\n\
+  '*': {'keyCode': 106, 'key': '*', 'code': 'NumpadMultiply', 'location': 3},\n\
+  '+': {'keyCode': 107, 'key': '+', 'code': 'NumpadAdd', 'location': 3},\n\
+  '-': {'keyCode': 109, 'key': '-', 'code': 'NumpadSubtract', 'location': 3},\n\
+  '/': {'keyCode': 111, 'key': '/', 'code': 'NumpadDivide', 'location': 3},\n\
+  ';': {'keyCode': 186, 'key': ';', 'code': 'Semicolon'},\n\
+  '=': {'keyCode': 187, 'key': '=', 'code': 'Equal'},\n\
+  ',': {'keyCode': 188, 'key': ',', 'code': 'Comma'},\n\
+  '.': {'keyCode': 190, 'key': '.', 'code': 'Period'},\n\
+  '`': {'keyCode': 192, 'key': '`', 'code': 'Backquote'},\n\
+  '[': {'keyCode': 219, 'key': '[', 'code': 'BracketLeft'},\n\
+  '\\\\': {'keyCode': 220, 'key': '\\\\', 'code': 'Backslash'},\n\
+  ']': {'keyCode': 221, 'key': ']', 'code': 'BracketRight'},\n\
+  '\\'': {'keyCode': 222, 'key': '\\'', 'code': 'Quote'},\n\
+  'Attn': {'keyCode': 246, 'key': 'Attn'},\n\
+  'CrSel': {'keyCode': 247, 'key': 'CrSel', 'code': 'Props'},\n\
+  'ExSel': {'keyCode': 248, 'key': 'ExSel'},\n\
+  'EraseEof': {'keyCode': 249, 'key': 'EraseEof'},\n\
+  'Play': {'keyCode': 250, 'key': 'Play'},\n\
+  'ZoomOut': {'keyCode': 251, 'key': 'ZoomOut'},\n\
+  ')': {'keyCode': 48, 'key': ')', 'code': 'Digit0'},\n\
+  '!': {'keyCode': 49, 'key': '!', 'code': 'Digit1'},\n\
+  '@': {'keyCode': 50, 'key': '@', 'code': 'Digit2'},\n\
+  '#': {'keyCode': 51, 'key': '#', 'code': 'Digit3'},\n\
+  '$': {'keyCode': 52, 'key': '$', 'code': 'Digit4'},\n\
+  '%': {'keyCode': 53, 'key': '%', 'code': 'Digit5'},\n\
+  '^': {'keyCode': 54, 'key': '^', 'code': 'Digit6'},\n\
+  '&': {'keyCode': 55, 'key': '&', 'code': 'Digit7'},\n\
+  '(': {'keyCode': 57, 'key': '\\(', 'code': 'Digit9'},\n\
+  'A': {'keyCode': 65, 'key': 'A', 'code': 'KeyA'},\n\
+  'B': {'keyCode': 66, 'key': 'B', 'code': 'KeyB'},\n\
+  'C': {'keyCode': 67, 'key': 'C', 'code': 'KeyC'},\n\
+  'D': {'keyCode': 68, 'key': 'D', 'code': 'KeyD'},\n\
+  'E': {'keyCode': 69, 'key': 'E', 'code': 'KeyE'},\n\
+  'F': {'keyCode': 70, 'key': 'F', 'code': 'KeyF'},\n\
+  'G': {'keyCode': 71, 'key': 'G', 'code': 'KeyG'},\n\
+  'H': {'keyCode': 72, 'key': 'H', 'code': 'KeyH'},\n\
+  'I': {'keyCode': 73, 'key': 'I', 'code': 'KeyI'},\n\
+  'J': {'keyCode': 74, 'key': 'J', 'code': 'KeyJ'},\n\
+  'K': {'keyCode': 75, 'key': 'K', 'code': 'KeyK'},\n\
+  'L': {'keyCode': 76, 'key': 'L', 'code': 'KeyL'},\n\
+  'M': {'keyCode': 77, 'key': 'M', 'code': 'KeyM'},\n\
+  'N': {'keyCode': 78, 'key': 'N', 'code': 'KeyN'},\n\
+  'O': {'keyCode': 79, 'key': 'O', 'code': 'KeyO'},\n\
+  'P': {'keyCode': 80, 'key': 'P', 'code': 'KeyP'},\n\
+  'Q': {'keyCode': 81, 'key': 'Q', 'code': 'KeyQ'},\n\
+  'R': {'keyCode': 82, 'key': 'R', 'code': 'KeyR'},\n\
+  'S': {'keyCode': 83, 'key': 'S', 'code': 'KeyS'},\n\
+  'T': {'keyCode': 84, 'key': 'T', 'code': 'KeyT'},\n\
+  'U': {'keyCode': 85, 'key': 'U', 'code': 'KeyU'},\n\
+  'V': {'keyCode': 86, 'key': 'V', 'code': 'KeyV'},\n\
+  'W': {'keyCode': 87, 'key': 'W', 'code': 'KeyW'},\n\
+  'X': {'keyCode': 88, 'key': 'X', 'code': 'KeyX'},\n\
+  'Y': {'keyCode': 89, 'key': 'Y', 'code': 'KeyY'},\n\
+  'Z': {'keyCode': 90, 'key': 'Z', 'code': 'KeyZ'},\n\
+  ':': {'keyCode': 186, 'key': ':', 'code': 'Semicolon'},\n\
+  '<': {'keyCode': 188, 'key': '\\<', 'code': 'Comma'},\n\
+  '_': {'keyCode': 189, 'key': '_', 'code': 'Minus'},\n\
+  '>': {'keyCode': 190, 'key': '>', 'code': 'Period'},\n\
+  '?': {'keyCode': 191, 'key': '?', 'code': 'Slash'},\n\
+  '~': {'keyCode': 192, 'key': '~', 'code': 'Backquote'},\n\
+  '{': {'keyCode': 219, 'key': '{', 'code': 'BracketLeft'},\n\
+  '|': {'keyCode': 220, 'key': '|', 'code': 'Backslash'},\n\
+  '}': {'keyCode': 221, 'key': '}', 'code': 'BracketRight'},\n\
+  '\"': {'keyCode': 222, 'key': '\"', 'code': 'Quote'},\n\
+  'SoftLeft': {'key': 'SoftLeft', 'code': 'SoftLeft', 'location': 4},\n\
+  'SoftRight': {'key': 'SoftRight', 'code': 'SoftRight', 'location': 4},\n\
+  'Camera': {'keyCode': 44, 'key': 'Camera', 'code': 'Camera', 'location': 4},\n\
+  'Call': {'key': 'Call', 'code': 'Call', 'location': 4},\n\
+  'EndCall': {'keyCode': 95, 'key': 'EndCall', 'code': 'EndCall', 'location': 4},\n\
+  'VolumeDown': {'keyCode': 182, 'key': 'VolumeDown', 'code': 'VolumeDown', 'location': 4},\n\
+  'VolumeUp': {'keyCode': 183, 'key': 'VolumeUp', 'code': 'VolumeUp', 'location': 4},\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const USKeyboardLayout = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/WebSocketTransport.js\n\
+*/\n\
+/**\n\
+ * Copyright 2018 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const WebSocket = require('ws');\n\
+\n\
+/**\n\
+ * @implements {!Puppeteer.ConnectionTransport}\n\
+ */\n\
+class WebSocketTransport {\n\
+  /**\n\
+   * @param {string} url\n\
+   * @return {!Promise<!WebSocketTransport>}\n\
+   */\n\
+  static create(url) {\n\
+    return new Promise((resolve, reject) => {\n\
+      const ws = new WebSocket(url, [], {\n\
+        perMessageDeflate: false,\n\
+        maxPayload: 256 * 1024 * 1024, // 256Mb\n\
+      });\n\
+      ws.addEventListener('open', () => resolve(new WebSocketTransport(ws)));\n\
+      ws.addEventListener('error', reject);\n\
+    });\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {!WebSocket} ws\n\
+   */\n\
+  constructor(ws) {\n\
+    this._ws = ws;\n\
+    this._ws.addEventListener('message', event => {\n\
+      if (this.onmessage)\n\
+        this.onmessage.call(null, event.data);\n\
+    });\n\
+    this._ws.addEventListener('close', event => {\n\
+      if (this.onclose)\n\
+        this.onclose.call(null);\n\
+    });\n\
+    // Silently ignore all errors - we don't know what to do with them.\n\
+    this._ws.addEventListener('error', () => {});\n\
+    this.onmessage = null;\n\
+    this.onclose = null;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {string} message\n\
+   */\n\
+  send(message) {\n\
+    this._ws.send(message);\n\
+  }\n\
+\n\
+  close() {\n\
+    this._ws.close();\n\
+  }\n\
+}\n\
+\n\
+module.exports = WebSocketTransport;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Worker.js\n\
+*/\n\
+/**\n\
+ * Copyright 2018 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+// const EventEmitter = require('events');\n\
+// const {debugError} = require('./helper');\n\
+// const {ExecutionContext} = require('./ExecutionContext');\n\
+// const {JSHandle} = require('./JSHandle');\n\
+\n\
+class Worker extends EventEmitter {\n\
+  /**\n\
+   * @param {Puppeteer.CDPSession} client\n\
+   * @param {string} url\n\
+   * @param {function(string, !Array<!JSHandle>, Protocol.Runtime.StackTrace=):void} consoleAPICalled\n\
+   * @param {function(!Protocol.Runtime.ExceptionDetails):void} exceptionThrown\n\
+   */\n\
+  constructor(client, url, consoleAPICalled, exceptionThrown) {\n\
+    super();\n\
+    this._client = client;\n\
+    this._url = url;\n\
+    this._executionContextPromise = new Promise(x => this._executionContextCallback = x);\n\
+    /** @type {function(!Protocol.Runtime.RemoteObject):!JSHandle} */\n\
+    let jsHandleFactory;\n\
+    this._client.once('Runtime.executionContextCreated', async event => {\n\
+      jsHandleFactory = remoteObject => new JSHandle(executionContext, client, remoteObject);\n\
+      const executionContext = new ExecutionContext(client, event.context, null);\n\
+      this._executionContextCallback(executionContext);\n\
+    });\n\
+    // This might fail if the target is closed before we recieve all execution contexts.\n\
+    this._client.send('Runtime.enable', {}).catch(debugError);\n\
+\n\
+    this._client.on('Runtime.consoleAPICalled', event => consoleAPICalled(event.type, event.args.map(jsHandleFactory), event.stackTrace));\n\
+    this._client.on('Runtime.exceptionThrown', exception => exceptionThrown(exception.exceptionDetails));\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {string}\n\
+   */\n\
+  url() {\n\
+    return this._url;\n\
+  }\n\
+\n\
+  /**\n\
+   * @return {!Promise<ExecutionContext>}\n\
+   */\n\
+  async executionContext() {\n\
+    return this._executionContextPromise;\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<*>}\n\
+   */\n\
+  async evaluate(pageFunction, ...args) {\n\
+    return (await this._executionContextPromise).evaluate(pageFunction, ...args);\n\
+  }\n\
+\n\
+  /**\n\
+   * @param {Function|string} pageFunction\n\
+   * @param {!Array<*>} args\n\
+   * @return {!Promise<!JSHandle>}\n\
+   */\n\
+  async evaluateHandle(pageFunction, ...args) {\n\
+    return (await this._executionContextPromise).evaluateHandle(pageFunction, ...args);\n\
+  }\n\
+}\n\
+\n\
+module.exports = {Worker};\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/api.js\n\
+*/\n\
+/**\n\
+ * Copyright 2019 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+module.exports = {\n\
+  Accessibility,\n\
+  Browser,\n\
+  BrowserContext,\n\
+  BrowserFetcher,\n\
+  CDPSession,\n\
+  ConsoleMessage,\n\
+  Coverage,\n\
+  Dialog,\n\
+  ElementHandle,\n\
+  ExecutionContext,\n\
+  FileChooser,\n\
+  Frame,\n\
+  JSHandle,\n\
+  Keyboard,\n\
+  Mouse,\n\
+  Page,\n\
+  Puppeteer,\n\
+  Request,\n\
+  Response,\n\
+  SecurityDetails,\n\
+  Target,\n\
+  TimeoutError,\n\
+  Touchscreen,\n\
+  Tracing,\n\
+  Worker,\n\
+};\n\
+// hack-puppeteer - module.exports\n\
+const api = module.exports;\n\
+\n\
+\n\
+\n\
+/*\n\
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/index.js\n\
+*/\n\
+/**\n\
+ * Copyright 2017 Google Inc. All rights reserved.\n\
+ *\n\
+ * Licensed under the Apache License, Version 2.0 (the \"License\");\n\
+ * you may not use this file except in compliance with the License.\n\
+ * You may obtain a copy of the License at\n\
+ *\n\
+ *     http://www.apache.org/licenses/LICENSE-2.0\n\
+ *\n\
+ * Unless required by applicable law or agreed to in writing, software\n\
+ * distributed under the License is distributed on an \"AS IS\" BASIS,\n\
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\
+ * See the License for the specific language governing permissions and\n\
+ * limitations under the License.\n\
+ */\n\
+\n\
+// hack-puppeteer - module.exports\n\
+let asyncawait = true;\n\
+\n\
+if (asyncawait) {\n\
+//   const {helper} = require('./lib/helper');\n\
+//   const api = require('./lib/api');\n\
+  for (const className in api) {\n\
+    // Puppeteer-web excludes certain classes from bundle, e.g. BrowserFetcher.\n\
+    if (typeof api[className] === 'function')\n\
+      helper.installAsyncStackHooks(api[className]);\n\
+  }\n\
+}\n\
+\n\
+// If node does not support async await, use the compiled version.\n\
+// hack-puppeteer - module.exports\n\
+// const Puppeteer = asyncawait ? require('./lib/Puppeteer') : require('./node6/lib/Puppeteer');\n\
+// const packageJson = require('./package.json');\n\
+const preferredRevision = packageJson.puppeteer.chromium_revision;\n\
+const isPuppeteerCore = packageJson.name === 'puppeteer-core';\n\
+\n\
+module.exports = local;\n\
+module.exports.puppeteer = new Puppeteer(__dirname, preferredRevision, isPuppeteerCore);\n\
+module.exports.WebSocketTransport = WebSocketTransport;\n\
+module.exports.Connection = Connection;\n\
+module.exports.Browser = Browser;\n\
+\n\
+\n\
+\n\
+/*\n\
+file none\n\
+*/\n\
+/* jslint ignore:end */\n\
 }());\n\
 }());\n\
 "
@@ -57076,15 +69788,15 @@ return;\n\
 
 // usr/bin/env node
 /*
- * lib.puppeteer_lite.js (2019.8.31)
+ * lib.puppeteer.js (2019.8.31)
  * https://github.com/kaizhu256/node-puppeteer-lite
- * the greatest app in the world!
+ * this package will provide a zero-dependency version puppeteer v1.19.0
  *
  */
 
 
 
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
@@ -57242,18 +69954,12730 @@ local = (
 );
 // init exports
 if (local.isBrowser) {
-    globalThis.utility2_puppeteer_lite = local;
+    globalThis.utility2_puppeteer = local;
 } else {
     module.exports = local;
     module.exports.__dirname = __dirname;
 }
 // init lib main
-local.puppeteer_lite = local;
+local.puppeteer = local;
 
 
 
 /* validateLineSortedReset */
-return;
+/* jslint ignore:start */
+if (local.isBrowser) {
+    return;
+}
+const EventEmitter = require('events');
+const URL = require('url');
+const childProcess = require('child_process');
+const crypto = require('crypto');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const net = require('net');
+const os = require('os');
+const path = require('path');
+const readline = require('readline');
+const tls = require('tls');
+const url = require('url');
+const util = require('util');
+const { Writable } = require('stream');
+const { randomBytes } = require('crypto');
+
+
+
+const child_process = require('child_process');
+const debugError = console.error;
+const debugProtocol = function () {
+    return;
+}
+const PerMessageDeflate = function () {
+    return;
+}
+const mime = {
+    getType: function (file) {
+        file = path.extname(String(file).toLowerCase());
+        switch (file) {
+        case ".png":
+            return "image/png";
+        case ".jpe":
+        case ".jpeg":
+        case ".jpg":
+            return "image/jpeg";
+        default:
+            return file;
+        }
+    }
+};
+const removeFolder = function (dir, onError) {
+/*
+ * this function will asynchronously "rm -fr" <dir>
+ */
+    child_process.spawn("rm", [
+        "-fr", path.resolve(process.cwd(), dir)
+    ], {
+        stdio: [
+            "ignore", 1, 2
+        ]
+    }).on("exit", onError);
+};
+removeFolder.sync = function (dir) {
+/*
+ * this function will synchronously "rm -fr" <dir>
+ */
+    child_process.spawnSync("rm", [
+        "-fr", path.resolve(process.cwd(), dir)
+    ], {
+        stdio: [
+            "ignore", 1, 2
+        ]
+    });
+};
+const removeRecursive = removeFolder;
+
+
+
+/*
+file https://github.com/websockets/ws/tree/6.2.1
+*/
+// require('./buffer-util') // const bufferUtil = require('./buffer-util');
+// require('./buffer-util') // const { concat, toArrayBuffer, unmask } = require('./buffer-util');
+// require('./buffer-util') // const { mask: applyMask, toBuffer } = require('./buffer-util');
+// require('./constants') // const { EMPTY_BUFFER } = require('./constants');
+// require('./constants') // const { GUID } = require('./constants');
+// require('./constants') // const { kStatusCode, NOOP } = require('./constants');
+// require('./constants') // } = require('./constants');
+// require('./event-target') // const EventTarget = require('./event-target');
+// require('./extension') // const extension = require('./extension');
+// require('./lib/receiver') // WebSocket.Receiver = require('./lib/receiver');
+// require('./lib/sender') // WebSocket.Sender = require('./lib/sender');
+// require('./lib/websocket') // const WebSocket = require('./lib/websocket');
+// require('./lib/websocket-server') // WebSocket.Server = require('./lib/websocket-server');
+// require('./permessage-deflate') // const PerMessageDeflate = require('./permessage-deflate');
+// require('./receiver') // const Receiver = require('./receiver');
+// require('./sender') // const Sender = require('./sender');
+// require('./validation') // const { isValidStatusCode } = require('./validation');
+// require('./validation') // const { isValidStatusCode, isValidUTF8 } = require('./validation');
+// require('./websocket') // const WebSocket = require('./websocket');
+// require('async-limiter') // const Limiter = require('async-limiter');
+// require('bufferutil') // const bufferUtil = require('bufferutil');
+// require('crypto') // const crypto = require('crypto');
+// require('crypto') // const { randomBytes } = require('crypto');
+// require('events') // const EventEmitter = require('events');
+// require('http') // const http = require('http');
+// require('https') // const https = require('https');
+// require('net') // const net = require('net');
+// require('stream') // const { Writable } = require('stream');
+// require('tls') // const tls = require('tls');
+// require('url') // const url = require('url');
+// require('utf-8-validate') // const isValidUTF8 = require('utf-8-validate');
+// require('zlib') // const zlib = require('zlib');
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/validation.js
+*/
+'use strict';
+
+// hack-puppeteer - module.exports
+const isValidUTF8 = () => true;
+
+/**
+ * Checks if a status code is allowed in a close frame.
+ *
+ * @param {Number} code The status code
+ * @return {Boolean} `true` if the status code is valid, else `false`
+ * @public
+ */
+// hack-puppeteer - module.exports
+const isValidStatusCode = (code) => {
+  return (
+    (code >= 1000 &&
+      code <= 1013 &&
+      code !== 1004 &&
+      code !== 1005 &&
+      code !== 1006) ||
+    (code >= 3000 && code <= 4999)
+  );
+};
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/buffer-util.js
+*/
+'use strict';
+
+// const { EMPTY_BUFFER } = require('./constants');
+
+/**
+ * Merges an array of buffers into a new buffer.
+ *
+ * @param {Buffer[]} list The array of buffers to concat
+ * @param {Number} totalLength The total length of buffers in the list
+ * @return {Buffer} The resulting buffer
+ * @public
+ */
+function concat(list, totalLength) {
+  if (list.length === 0) return EMPTY_BUFFER;
+  if (list.length === 1) return list[0];
+
+  const target = Buffer.allocUnsafe(totalLength);
+  var offset = 0;
+
+  for (var i = 0; i < list.length; i++) {
+    const buf = list[i];
+    buf.copy(target, offset);
+    offset += buf.length;
+  }
+
+  return target;
+}
+
+/**
+ * Masks a buffer using the given mask.
+ *
+ * @param {Buffer} source The buffer to mask
+ * @param {Buffer} mask The mask to use
+ * @param {Buffer} output The buffer where to store the result
+ * @param {Number} offset The offset at which to start writing
+ * @param {Number} length The number of bytes to mask.
+ * @public
+ */
+function _mask(source, mask, output, offset, length) {
+  for (var i = 0; i < length; i++) {
+    output[offset + i] = source[i] ^ mask[i & 3];
+  }
+}
+
+/**
+ * Unmasks a buffer using the given mask.
+ *
+ * @param {Buffer} buffer The buffer to unmask
+ * @param {Buffer} mask The mask to use
+ * @public
+ */
+function _unmask(buffer, mask) {
+  // Required until https://github.com/nodejs/node/issues/9006 is resolved.
+  const length = buffer.length;
+  for (var i = 0; i < length; i++) {
+    buffer[i] ^= mask[i & 3];
+  }
+}
+
+/**
+ * Converts a buffer to an `ArrayBuffer`.
+ *
+ * @param {Buffer} buf The buffer to convert
+ * @return {ArrayBuffer} Converted buffer
+ * @public
+ */
+function toArrayBuffer(buf) {
+  if (buf.byteLength === buf.buffer.byteLength) {
+    return buf.buffer;
+  }
+
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+}
+
+/**
+ * Converts `data` to a `Buffer`.
+ *
+ * @param {*} data The data to convert
+ * @return {Buffer} The buffer
+ * @throws {TypeError}
+ * @public
+ */
+function toBuffer(data) {
+  toBuffer.readOnly = true;
+
+  if (Buffer.isBuffer(data)) return data;
+
+  var buf;
+
+  if (data instanceof ArrayBuffer) {
+    buf = Buffer.from(data);
+  } else if (ArrayBuffer.isView(data)) {
+    buf = viewToBuffer(data);
+  } else {
+    buf = Buffer.from(data);
+    toBuffer.readOnly = false;
+  }
+
+  return buf;
+}
+
+/**
+ * Converts an `ArrayBuffer` view into a buffer.
+ *
+ * @param {(DataView|TypedArray)} view The view to convert
+ * @return {Buffer} Converted view
+ * @private
+ */
+function viewToBuffer(view) {
+  const buf = Buffer.from(view.buffer);
+
+  if (view.byteLength !== view.buffer.byteLength) {
+    return buf.slice(view.byteOffset, view.byteOffset + view.byteLength);
+  }
+
+  return buf;
+}
+
+// hack-puppeteer - module.exports
+const applyMask = _mask;
+const bufferUtil = { concat };
+const mask = _mask;
+const unmask = _mask;
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/constants.js
+*/
+'use strict';
+
+module.exports = {
+  BINARY_TYPES: ['nodebuffer', 'arraybuffer', 'fragments'],
+  GUID: '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',
+  kStatusCode: Symbol('status-code'),
+  kWebSocket: Symbol('websocket'),
+  EMPTY_BUFFER: Buffer.alloc(0),
+  NOOP: () => {}
+};
+// hack-puppeteer - module.exports
+const {
+  BINARY_TYPES,
+  GUID,
+  kStatusCode,
+  kWebSocket,
+  EMPTY_BUFFER,
+  NOOP
+} = module.exports;
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/event-target.js
+*/
+'use strict';
+
+/**
+ * Class representing an event.
+ *
+ * @private
+ */
+class Event {
+  /**
+   * Create a new `Event`.
+   *
+   * @param {String} type The name of the event
+   * @param {Object} target A reference to the target to which the event was dispatched
+   */
+  constructor(type, target) {
+    this.target = target;
+    this.type = type;
+  }
+}
+
+/**
+ * Class representing a message event.
+ *
+ * @extends Event
+ * @private
+ */
+class MessageEvent extends Event {
+  /**
+   * Create a new `MessageEvent`.
+   *
+   * @param {(String|Buffer|ArrayBuffer|Buffer[])} data The received data
+   * @param {WebSocket} target A reference to the target to which the event was dispatched
+   */
+  constructor(data, target) {
+    super('message', target);
+
+    this.data = data;
+  }
+}
+
+/**
+ * Class representing a close event.
+ *
+ * @extends Event
+ * @private
+ */
+class CloseEvent extends Event {
+  /**
+   * Create a new `CloseEvent`.
+   *
+   * @param {Number} code The status code explaining why the connection is being closed
+   * @param {String} reason A human-readable string explaining why the connection is closing
+   * @param {WebSocket} target A reference to the target to which the event was dispatched
+   */
+  constructor(code, reason, target) {
+    super('close', target);
+
+    this.wasClean = target._closeFrameReceived && target._closeFrameSent;
+    this.reason = reason;
+    this.code = code;
+  }
+}
+
+/**
+ * Class representing an open event.
+ *
+ * @extends Event
+ * @private
+ */
+class OpenEvent extends Event {
+  /**
+   * Create a new `OpenEvent`.
+   *
+   * @param {WebSocket} target A reference to the target to which the event was dispatched
+   */
+  constructor(target) {
+    super('open', target);
+  }
+}
+
+/**
+ * Class representing an error event.
+ *
+ * @extends Event
+ * @private
+ */
+class ErrorEvent extends Event {
+  /**
+   * Create a new `ErrorEvent`.
+   *
+   * @param {Object} error The error that generated this event
+   * @param {WebSocket} target A reference to the target to which the event was dispatched
+   */
+  constructor(error, target) {
+    super('error', target);
+
+    this.message = error.message;
+    this.error = error;
+  }
+}
+
+/**
+ * This provides methods for emulating the `EventTarget` interface. It's not
+ * meant to be used directly.
+ *
+ * @mixin
+ */
+const EventTarget = {
+  /**
+   * Register an event listener.
+   *
+   * @param {String} method A string representing the event type to listen for
+   * @param {Function} listener The listener to add
+   * @public
+   */
+  addEventListener(method, listener) {
+    if (typeof listener !== 'function') return;
+
+    function onMessage(data) {
+      listener.call(this, new MessageEvent(data, this));
+    }
+
+    function onClose(code, message) {
+      listener.call(this, new CloseEvent(code, message, this));
+    }
+
+    function onError(error) {
+      listener.call(this, new ErrorEvent(error, this));
+    }
+
+    function onOpen() {
+      listener.call(this, new OpenEvent(this));
+    }
+
+    if (method === 'message') {
+      onMessage._listener = listener;
+      this.on(method, onMessage);
+    } else if (method === 'close') {
+      onClose._listener = listener;
+      this.on(method, onClose);
+    } else if (method === 'error') {
+      onError._listener = listener;
+      this.on(method, onError);
+    } else if (method === 'open') {
+      onOpen._listener = listener;
+      this.on(method, onOpen);
+    } else {
+      this.on(method, listener);
+    }
+  },
+
+  /**
+   * Remove an event listener.
+   *
+   * @param {String} method A string representing the event type to remove
+   * @param {Function} listener The listener to remove
+   * @public
+   */
+  removeEventListener(method, listener) {
+    const listeners = this.listeners(method);
+
+    for (var i = 0; i < listeners.length; i++) {
+      if (listeners[i] === listener || listeners[i]._listener === listener) {
+        this.removeListener(method, listeners[i]);
+      }
+    }
+  }
+};
+
+module.exports = EventTarget;
+// hack-puppeteer - module.exports
+const addEventListener = EventTarget.addEventListener;
+const removeEventListener = EventTarget.removeEventListener;
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/extension.js
+*/
+'use strict';
+
+//
+// Allowed token characters:
+//
+// '!', '#', '$', '%', '&', ''', '*', '+', '-',
+// '.', 0-9, A-Z, '^', '_', '`', a-z, '|', '~'
+//
+// tokenChars[32] === 0 // ' '
+// tokenChars[33] === 1 // '!'
+// tokenChars[34] === 0 // '"'
+// ...
+//
+// prettier-ignore
+const tokenChars = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0 - 15
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 16 - 31
+  0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, // 32 - 47
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, // 48 - 63
+  0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 64 - 79
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, // 80 - 95
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 96 - 111
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0 // 112 - 127
+];
+
+/**
+ * Adds an offer to the map of extension offers or a parameter to the map of
+ * parameters.
+ *
+ * @param {Object} dest The map of extension offers or parameters
+ * @param {String} name The extension or parameter name
+ * @param {(Object|Boolean|String)} elem The extension parameters or the
+ *     parameter value
+ * @private
+ */
+function push(dest, name, elem) {
+  if (Object.prototype.hasOwnProperty.call(dest, name)) dest[name].push(elem);
+  else dest[name] = [elem];
+}
+
+/**
+ * Parses the `Sec-WebSocket-Extensions` header into an object.
+ *
+ * @param {String} header The field value of the header
+ * @return {Object} The parsed object
+ * @public
+ */
+function parse(header) {
+  const offers = {};
+
+  if (header === undefined || header === '') return offers;
+
+  var params = {};
+  var mustUnescape = false;
+  var isEscaping = false;
+  var inQuotes = false;
+  var extensionName;
+  var paramName;
+  var start = -1;
+  var end = -1;
+
+  for (var i = 0; i < header.length; i++) {
+    const code = header.charCodeAt(i);
+
+    if (extensionName === undefined) {
+      if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (code === 0x20 /* ' ' */ || code === 0x09 /* '\t' */) {
+        if (end === -1 && start !== -1) end = i;
+      } else if (code === 0x3b /* ';' */ || code === 0x2c /* ',' */) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        const name = header.slice(start, end);
+        if (code === 0x2c) {
+          push(offers, name, params);
+          params = {};
+        } else {
+          extensionName = name;
+        }
+
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    } else if (paramName === undefined) {
+      if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (code === 0x20 || code === 0x09) {
+        if (end === -1 && start !== -1) end = i;
+      } else if (code === 0x3b || code === 0x2c) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        push(params, header.slice(start, end), true);
+        if (code === 0x2c) {
+          push(offers, extensionName, params);
+          params = {};
+          extensionName = undefined;
+        }
+
+        start = end = -1;
+      } else if (code === 0x3d /* '=' */ && start !== -1 && end === -1) {
+        paramName = header.slice(start, i);
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    } else {
+      //
+      // The value of a quoted-string after unescaping must conform to the
+      // token ABNF, so only token characters are valid.
+      // Ref: https://tools.ietf.org/html/rfc6455#section-9.1
+      //
+      if (isEscaping) {
+        if (tokenChars[code] !== 1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+        if (start === -1) start = i;
+        else if (!mustUnescape) mustUnescape = true;
+        isEscaping = false;
+      } else if (inQuotes) {
+        if (tokenChars[code] === 1) {
+          if (start === -1) start = i;
+        } else if (code === 0x22 /* '"' */ && start !== -1) {
+          inQuotes = false;
+          end = i;
+        } else if (code === 0x5c /* '\' */) {
+          isEscaping = true;
+        } else {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+      } else if (code === 0x22 && header.charCodeAt(i - 1) === 0x3d) {
+        inQuotes = true;
+      } else if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (start !== -1 && (code === 0x20 || code === 0x09)) {
+        if (end === -1) end = i;
+      } else if (code === 0x3b || code === 0x2c) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        var value = header.slice(start, end);
+        if (mustUnescape) {
+          value = value.replace(/\\/g, '');
+          mustUnescape = false;
+        }
+        push(params, paramName, value);
+        if (code === 0x2c) {
+          push(offers, extensionName, params);
+          params = {};
+          extensionName = undefined;
+        }
+
+        paramName = undefined;
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    }
+  }
+
+  if (start === -1 || inQuotes) {
+    throw new SyntaxError('Unexpected end of input');
+  }
+
+  if (end === -1) end = i;
+  const token = header.slice(start, end);
+  if (extensionName === undefined) {
+    push(offers, token, {});
+  } else {
+    if (paramName === undefined) {
+      push(params, token, true);
+    } else if (mustUnescape) {
+      push(params, paramName, token.replace(/\\/g, ''));
+    } else {
+      push(params, paramName, token);
+    }
+    push(offers, extensionName, params);
+  }
+
+  return offers;
+}
+
+/**
+ * Builds the `Sec-WebSocket-Extensions` header field value.
+ *
+ * @param {Object} extensions The map of extensions and parameters to format
+ * @return {String} A string representing the given object
+ * @public
+ */
+function format(extensions) {
+  return Object.keys(extensions)
+    .map((extension) => {
+      var configurations = extensions[extension];
+      if (!Array.isArray(configurations)) configurations = [configurations];
+      return configurations
+        .map((params) => {
+          return [extension]
+            .concat(
+              Object.keys(params).map((k) => {
+                var values = params[k];
+                if (!Array.isArray(values)) values = [values];
+                return values
+                  .map((v) => (v === true ? k : `${k}=${v}`))
+                  .join('; ');
+              })
+            )
+            .join('; ');
+        })
+        .join(', ');
+    })
+    .join(', ');
+}
+
+module.exports = { format, parse };
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/receiver.js
+*/
+'use strict';
+
+// const { Writable } = require('stream');
+
+// const PerMessageDeflate = require('./permessage-deflate');
+// hack-puppeteer - module.exports
+// const {
+  // BINARY_TYPES,
+  // EMPTY_BUFFER,
+  // kStatusCode,
+  // kWebSocket
+// } = require('./constants');
+// const { concat, toArrayBuffer, unmask } = require('./buffer-util');
+// const { isValidStatusCode, isValidUTF8 } = require('./validation');
+
+const GET_INFO = 0;
+const GET_PAYLOAD_LENGTH_16 = 1;
+const GET_PAYLOAD_LENGTH_64 = 2;
+const GET_MASK = 3;
+const GET_DATA = 4;
+const INFLATING = 5;
+
+/**
+ * HyBi Receiver implementation.
+ *
+ * @extends stream.Writable
+ */
+class Receiver extends Writable {
+  /**
+   * Creates a Receiver instance.
+   *
+   * @param {String} binaryType The type for binary data
+   * @param {Object} extensions An object containing the negotiated extensions
+   * @param {Number} maxPayload The maximum allowed message length
+   */
+  constructor(binaryType, extensions, maxPayload) {
+    super();
+
+    this._binaryType = binaryType || BINARY_TYPES[0];
+    this[kWebSocket] = undefined;
+    this._extensions = extensions || {};
+    this._maxPayload = maxPayload | 0;
+
+    this._bufferedBytes = 0;
+    this._buffers = [];
+
+    this._compressed = false;
+    this._payloadLength = 0;
+    this._mask = undefined;
+    this._fragmented = 0;
+    this._masked = false;
+    this._fin = false;
+    this._opcode = 0;
+
+    this._totalPayloadLength = 0;
+    this._messageLength = 0;
+    this._fragments = [];
+
+    this._state = GET_INFO;
+    this._loop = false;
+  }
+
+  /**
+   * Implements `Writable.prototype._write()`.
+   *
+   * @param {Buffer} chunk The chunk of data to write
+   * @param {String} encoding The character encoding of `chunk`
+   * @param {Function} cb Callback
+   */
+  _write(chunk, encoding, cb) {
+    if (this._opcode === 0x08 && this._state == GET_INFO) return cb();
+
+    this._bufferedBytes += chunk.length;
+    this._buffers.push(chunk);
+    this.startLoop(cb);
+  }
+
+  /**
+   * Consumes `n` bytes from the buffered data.
+   *
+   * @param {Number} n The number of bytes to consume
+   * @return {Buffer} The consumed bytes
+   * @private
+   */
+  consume(n) {
+    this._bufferedBytes -= n;
+
+    if (n === this._buffers[0].length) return this._buffers.shift();
+
+    if (n < this._buffers[0].length) {
+      const buf = this._buffers[0];
+      this._buffers[0] = buf.slice(n);
+      return buf.slice(0, n);
+    }
+
+    const dst = Buffer.allocUnsafe(n);
+
+    do {
+      const buf = this._buffers[0];
+
+      if (n >= buf.length) {
+        this._buffers.shift().copy(dst, dst.length - n);
+      } else {
+        buf.copy(dst, dst.length - n, 0, n);
+        this._buffers[0] = buf.slice(n);
+      }
+
+      n -= buf.length;
+    } while (n > 0);
+
+    return dst;
+  }
+
+  /**
+   * Starts the parsing loop.
+   *
+   * @param {Function} cb Callback
+   * @private
+   */
+  startLoop(cb) {
+    var err;
+    this._loop = true;
+
+    do {
+      switch (this._state) {
+        case GET_INFO:
+          err = this.getInfo();
+          break;
+        case GET_PAYLOAD_LENGTH_16:
+          err = this.getPayloadLength16();
+          break;
+        case GET_PAYLOAD_LENGTH_64:
+          err = this.getPayloadLength64();
+          break;
+        case GET_MASK:
+          this.getMask();
+          break;
+        case GET_DATA:
+          err = this.getData(cb);
+          break;
+        default:
+          // `INFLATING`
+          this._loop = false;
+          return;
+      }
+    } while (this._loop);
+
+    cb(err);
+  }
+
+  /**
+   * Reads the first two bytes of a frame.
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getInfo() {
+    if (this._bufferedBytes < 2) {
+      this._loop = false;
+      return;
+    }
+
+    const buf = this.consume(2);
+
+    if ((buf[0] & 0x30) !== 0x00) {
+      this._loop = false;
+      return error(RangeError, 'RSV2 and RSV3 must be clear', true, 1002);
+    }
+
+    const compressed = (buf[0] & 0x40) === 0x40;
+
+    if (compressed && !this._extensions[PerMessageDeflate.extensionName]) {
+      this._loop = false;
+      return error(RangeError, 'RSV1 must be clear', true, 1002);
+    }
+
+    this._fin = (buf[0] & 0x80) === 0x80;
+    this._opcode = buf[0] & 0x0f;
+    this._payloadLength = buf[1] & 0x7f;
+
+    if (this._opcode === 0x00) {
+      if (compressed) {
+        this._loop = false;
+        return error(RangeError, 'RSV1 must be clear', true, 1002);
+      }
+
+      if (!this._fragmented) {
+        this._loop = false;
+        return error(RangeError, 'invalid opcode 0', true, 1002);
+      }
+
+      this._opcode = this._fragmented;
+    } else if (this._opcode === 0x01 || this._opcode === 0x02) {
+      if (this._fragmented) {
+        this._loop = false;
+        return error(RangeError, `invalid opcode ${this._opcode}`, true, 1002);
+      }
+
+      this._compressed = compressed;
+    } else if (this._opcode > 0x07 && this._opcode < 0x0b) {
+      if (!this._fin) {
+        this._loop = false;
+        return error(RangeError, 'FIN must be set', true, 1002);
+      }
+
+      if (compressed) {
+        this._loop = false;
+        return error(RangeError, 'RSV1 must be clear', true, 1002);
+      }
+
+      if (this._payloadLength > 0x7d) {
+        this._loop = false;
+        return error(
+          RangeError,
+          `invalid payload length ${this._payloadLength}`,
+          true,
+          1002
+        );
+      }
+    } else {
+      this._loop = false;
+      return error(RangeError, `invalid opcode ${this._opcode}`, true, 1002);
+    }
+
+    if (!this._fin && !this._fragmented) this._fragmented = this._opcode;
+    this._masked = (buf[1] & 0x80) === 0x80;
+
+    if (this._payloadLength === 126) this._state = GET_PAYLOAD_LENGTH_16;
+    else if (this._payloadLength === 127) this._state = GET_PAYLOAD_LENGTH_64;
+    else return this.haveLength();
+  }
+
+  /**
+   * Gets extended payload length (7+16).
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getPayloadLength16() {
+    if (this._bufferedBytes < 2) {
+      this._loop = false;
+      return;
+    }
+
+    this._payloadLength = this.consume(2).readUInt16BE(0);
+    return this.haveLength();
+  }
+
+  /**
+   * Gets extended payload length (7+64).
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getPayloadLength64() {
+    if (this._bufferedBytes < 8) {
+      this._loop = false;
+      return;
+    }
+
+    const buf = this.consume(8);
+    const num = buf.readUInt32BE(0);
+
+    //
+    // The maximum safe integer in JavaScript is 2^53 - 1. An error is returned
+    // if payload length is greater than this number.
+    //
+    if (num > Math.pow(2, 53 - 32) - 1) {
+      this._loop = false;
+      return error(
+        RangeError,
+        'Unsupported WebSocket frame: payload length > 2^53 - 1',
+        false,
+        1009
+      );
+    }
+
+    this._payloadLength = num * Math.pow(2, 32) + buf.readUInt32BE(4);
+    return this.haveLength();
+  }
+
+  /**
+   * Payload length has been read.
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  haveLength() {
+    if (this._payloadLength && this._opcode < 0x08) {
+      this._totalPayloadLength += this._payloadLength;
+      if (this._totalPayloadLength > this._maxPayload && this._maxPayload > 0) {
+        this._loop = false;
+        return error(RangeError, 'Max payload size exceeded', false, 1009);
+      }
+    }
+
+    if (this._masked) this._state = GET_MASK;
+    else this._state = GET_DATA;
+  }
+
+  /**
+   * Reads mask bytes.
+   *
+   * @private
+   */
+  getMask() {
+    if (this._bufferedBytes < 4) {
+      this._loop = false;
+      return;
+    }
+
+    this._mask = this.consume(4);
+    this._state = GET_DATA;
+  }
+
+  /**
+   * Reads data bytes.
+   *
+   * @param {Function} cb Callback
+   * @return {(Error|RangeError|undefined)} A possible error
+   * @private
+   */
+  getData(cb) {
+    var data = EMPTY_BUFFER;
+
+    if (this._payloadLength) {
+      if (this._bufferedBytes < this._payloadLength) {
+        this._loop = false;
+        return;
+      }
+
+      data = this.consume(this._payloadLength);
+      if (this._masked) unmask(data, this._mask);
+    }
+
+    if (this._opcode > 0x07) return this.controlMessage(data);
+
+    if (this._compressed) {
+      this._state = INFLATING;
+      this.decompress(data, cb);
+      return;
+    }
+
+    if (data.length) {
+      //
+      // This message is not compressed so its lenght is the sum of the payload
+      // length of all fragments.
+      //
+      this._messageLength = this._totalPayloadLength;
+      this._fragments.push(data);
+    }
+
+    return this.dataMessage();
+  }
+
+  /**
+   * Decompresses data.
+   *
+   * @param {Buffer} data Compressed data
+   * @param {Function} cb Callback
+   * @private
+   */
+  decompress(data, cb) {
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+
+    perMessageDeflate.decompress(data, this._fin, (err, buf) => {
+      if (err) return cb(err);
+
+      if (buf.length) {
+        this._messageLength += buf.length;
+        if (this._messageLength > this._maxPayload && this._maxPayload > 0) {
+          return cb(
+            error(RangeError, 'Max payload size exceeded', false, 1009)
+          );
+        }
+
+        this._fragments.push(buf);
+      }
+
+      const er = this.dataMessage();
+      if (er) return cb(er);
+
+      this.startLoop(cb);
+    });
+  }
+
+  /**
+   * Handles a data message.
+   *
+   * @return {(Error|undefined)} A possible error
+   * @private
+   */
+  dataMessage() {
+    if (this._fin) {
+      const messageLength = this._messageLength;
+      const fragments = this._fragments;
+
+      this._totalPayloadLength = 0;
+      this._messageLength = 0;
+      this._fragmented = 0;
+      this._fragments = [];
+
+      if (this._opcode === 2) {
+        var data;
+
+        if (this._binaryType === 'nodebuffer') {
+          data = concat(fragments, messageLength);
+        } else if (this._binaryType === 'arraybuffer') {
+          data = toArrayBuffer(concat(fragments, messageLength));
+        } else {
+          data = fragments;
+        }
+
+        this.emit('message', data);
+      } else {
+        const buf = concat(fragments, messageLength);
+
+        if (!isValidUTF8(buf)) {
+          this._loop = false;
+          return error(Error, 'invalid UTF-8 sequence', true, 1007);
+        }
+
+        this.emit('message', buf.toString());
+      }
+    }
+
+    this._state = GET_INFO;
+  }
+
+  /**
+   * Handles a control message.
+   *
+   * @param {Buffer} data Data to handle
+   * @return {(Error|RangeError|undefined)} A possible error
+   * @private
+   */
+  controlMessage(data) {
+    if (this._opcode === 0x08) {
+      this._loop = false;
+
+      if (data.length === 0) {
+        this.emit('conclude', 1005, '');
+        this.end();
+      } else if (data.length === 1) {
+        return error(RangeError, 'invalid payload length 1', true, 1002);
+      } else {
+        const code = data.readUInt16BE(0);
+
+        if (!isValidStatusCode(code)) {
+          return error(RangeError, `invalid status code ${code}`, true, 1002);
+        }
+
+        const buf = data.slice(2);
+
+        if (!isValidUTF8(buf)) {
+          return error(Error, 'invalid UTF-8 sequence', true, 1007);
+        }
+
+        this.emit('conclude', code, buf.toString());
+        this.end();
+      }
+    } else if (this._opcode === 0x09) {
+      this.emit('ping', data);
+    } else {
+      this.emit('pong', data);
+    }
+
+    this._state = GET_INFO;
+  }
+}
+
+module.exports = Receiver;
+
+/**
+ * Builds an error object.
+ *
+ * @param {(Error|RangeError)} ErrorCtor The error constructor
+ * @param {String} message The error message
+ * @param {Boolean} prefix Specifies whether or not to add a default prefix to
+ *     `message`
+ * @param {Number} statusCode The status code
+ * @return {(Error|RangeError)} The error
+ * @private
+ */
+function error(ErrorCtor, message, prefix, statusCode) {
+  const err = new ErrorCtor(
+    prefix ? `Invalid WebSocket frame: ${message}` : message
+  );
+
+  Error.captureStackTrace(err, error);
+  err[kStatusCode] = statusCode;
+  return err;
+}
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/sender.js
+*/
+'use strict';
+
+// const { randomBytes } = require('crypto');
+
+// const PerMessageDeflate = require('./permessage-deflate');
+// const { EMPTY_BUFFER } = require('./constants');
+// const { isValidStatusCode } = require('./validation');
+// const { mask: applyMask, toBuffer } = require('./buffer-util');
+
+/**
+ * HyBi Sender implementation.
+ */
+class Sender {
+  /**
+   * Creates a Sender instance.
+   *
+   * @param {net.Socket} socket The connection socket
+   * @param {Object} extensions An object containing the negotiated extensions
+   */
+  constructor(socket, extensions) {
+    this._extensions = extensions || {};
+    this._socket = socket;
+
+    this._firstFragment = true;
+    this._compress = false;
+
+    this._bufferedBytes = 0;
+    this._deflating = false;
+    this._queue = [];
+  }
+
+  /**
+   * Frames a piece of data according to the HyBi WebSocket protocol.
+   *
+   * @param {Buffer} data The data to frame
+   * @param {Object} options Options object
+   * @param {Number} options.opcode The opcode
+   * @param {Boolean} options.readOnly Specifies whether `data` can be modified
+   * @param {Boolean} options.fin Specifies whether or not to set the FIN bit
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`
+   * @param {Boolean} options.rsv1 Specifies whether or not to set the RSV1 bit
+   * @return {Buffer[]} The framed data as a list of `Buffer` instances
+   * @public
+   */
+  static frame(data, options) {
+    const merge = options.mask && options.readOnly;
+    var offset = options.mask ? 6 : 2;
+    var payloadLength = data.length;
+
+    if (data.length >= 65536) {
+      offset += 8;
+      payloadLength = 127;
+    } else if (data.length > 125) {
+      offset += 2;
+      payloadLength = 126;
+    }
+
+    const target = Buffer.allocUnsafe(merge ? data.length + offset : offset);
+
+    target[0] = options.fin ? options.opcode | 0x80 : options.opcode;
+    if (options.rsv1) target[0] |= 0x40;
+
+    target[1] = payloadLength;
+
+    if (payloadLength === 126) {
+      target.writeUInt16BE(data.length, 2);
+    } else if (payloadLength === 127) {
+      target.writeUInt32BE(0, 2);
+      target.writeUInt32BE(data.length, 6);
+    }
+
+    if (!options.mask) return [target, data];
+
+    const mask = randomBytes(4);
+
+    target[1] |= 0x80;
+    target[offset - 4] = mask[0];
+    target[offset - 3] = mask[1];
+    target[offset - 2] = mask[2];
+    target[offset - 1] = mask[3];
+
+    if (merge) {
+      applyMask(data, mask, target, offset, data.length);
+      return [target];
+    }
+
+    applyMask(data, mask, data, 0, data.length);
+    return [target, data];
+  }
+
+  /**
+   * Sends a close message to the other peer.
+   *
+   * @param {(Number|undefined)} code The status code component of the body
+   * @param {String} data The message component of the body
+   * @param {Boolean} mask Specifies whether or not to mask the message
+   * @param {Function} cb Callback
+   * @public
+   */
+  close(code, data, mask, cb) {
+    var buf;
+
+    if (code === undefined) {
+      buf = EMPTY_BUFFER;
+    } else if (typeof code !== 'number' || !isValidStatusCode(code)) {
+      throw new TypeError('First argument must be a valid error code number');
+    } else if (data === undefined || data === '') {
+      buf = Buffer.allocUnsafe(2);
+      buf.writeUInt16BE(code, 0);
+    } else {
+      buf = Buffer.allocUnsafe(2 + Buffer.byteLength(data));
+      buf.writeUInt16BE(code, 0);
+      buf.write(data, 2);
+    }
+
+    if (this._deflating) {
+      this.enqueue([this.doClose, buf, mask, cb]);
+    } else {
+      this.doClose(buf, mask, cb);
+    }
+  }
+
+  /**
+   * Frames and sends a close message.
+   *
+   * @param {Buffer} data The message to send
+   * @param {Boolean} mask Specifies whether or not to mask `data`
+   * @param {Function} cb Callback
+   * @private
+   */
+  doClose(data, mask, cb) {
+    this.sendFrame(
+      Sender.frame(data, {
+        fin: true,
+        rsv1: false,
+        opcode: 0x08,
+        mask,
+        readOnly: false
+      }),
+      cb
+    );
+  }
+
+  /**
+   * Sends a ping message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} mask Specifies whether or not to mask `data`
+   * @param {Function} cb Callback
+   * @public
+   */
+  ping(data, mask, cb) {
+    const buf = toBuffer(data);
+
+    if (this._deflating) {
+      this.enqueue([this.doPing, buf, mask, toBuffer.readOnly, cb]);
+    } else {
+      this.doPing(buf, mask, toBuffer.readOnly, cb);
+    }
+  }
+
+  /**
+   * Frames and sends a ping message.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} mask Specifies whether or not to mask `data`
+   * @param {Boolean} readOnly Specifies whether `data` can be modified
+   * @param {Function} cb Callback
+   * @private
+   */
+  doPing(data, mask, readOnly, cb) {
+    this.sendFrame(
+      Sender.frame(data, {
+        fin: true,
+        rsv1: false,
+        opcode: 0x09,
+        mask,
+        readOnly
+      }),
+      cb
+    );
+  }
+
+  /**
+   * Sends a pong message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} mask Specifies whether or not to mask `data`
+   * @param {Function} cb Callback
+   * @public
+   */
+  pong(data, mask, cb) {
+    const buf = toBuffer(data);
+
+    if (this._deflating) {
+      this.enqueue([this.doPong, buf, mask, toBuffer.readOnly, cb]);
+    } else {
+      this.doPong(buf, mask, toBuffer.readOnly, cb);
+    }
+  }
+
+  /**
+   * Frames and sends a pong message.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} mask Specifies whether or not to mask `data`
+   * @param {Boolean} readOnly Specifies whether `data` can be modified
+   * @param {Function} cb Callback
+   * @private
+   */
+  doPong(data, mask, readOnly, cb) {
+    this.sendFrame(
+      Sender.frame(data, {
+        fin: true,
+        rsv1: false,
+        opcode: 0x0a,
+        mask,
+        readOnly
+      }),
+      cb
+    );
+  }
+
+  /**
+   * Sends a data message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Object} options Options object
+   * @param {Boolean} options.compress Specifies whether or not to compress `data`
+   * @param {Boolean} options.binary Specifies whether `data` is binary or text
+   * @param {Boolean} options.fin Specifies whether the fragment is the last one
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`
+   * @param {Function} cb Callback
+   * @public
+   */
+  send(data, options, cb) {
+    const buf = toBuffer(data);
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+    var opcode = options.binary ? 2 : 1;
+    var rsv1 = options.compress;
+
+    if (this._firstFragment) {
+      this._firstFragment = false;
+      if (rsv1 && perMessageDeflate) {
+        rsv1 = buf.length >= perMessageDeflate._threshold;
+      }
+      this._compress = rsv1;
+    } else {
+      rsv1 = false;
+      opcode = 0;
+    }
+
+    if (options.fin) this._firstFragment = true;
+
+    if (perMessageDeflate) {
+      const opts = {
+        fin: options.fin,
+        rsv1,
+        opcode,
+        mask: options.mask,
+        readOnly: toBuffer.readOnly
+      };
+
+      if (this._deflating) {
+        this.enqueue([this.dispatch, buf, this._compress, opts, cb]);
+      } else {
+        this.dispatch(buf, this._compress, opts, cb);
+      }
+    } else {
+      this.sendFrame(
+        Sender.frame(buf, {
+          fin: options.fin,
+          rsv1: false,
+          opcode,
+          mask: options.mask,
+          readOnly: toBuffer.readOnly
+        }),
+        cb
+      );
+    }
+  }
+
+  /**
+   * Dispatches a data message.
+   *
+   * @param {Buffer} data The message to send
+   * @param {Boolean} compress Specifies whether or not to compress `data`
+   * @param {Object} options Options object
+   * @param {Number} options.opcode The opcode
+   * @param {Boolean} options.readOnly Specifies whether `data` can be modified
+   * @param {Boolean} options.fin Specifies whether or not to set the FIN bit
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`
+   * @param {Boolean} options.rsv1 Specifies whether or not to set the RSV1 bit
+   * @param {Function} cb Callback
+   * @private
+   */
+  dispatch(data, compress, options, cb) {
+    if (!compress) {
+      this.sendFrame(Sender.frame(data, options), cb);
+      return;
+    }
+
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+
+    this._deflating = true;
+    perMessageDeflate.compress(data, options.fin, (_, buf) => {
+      this._deflating = false;
+      options.readOnly = false;
+      this.sendFrame(Sender.frame(buf, options), cb);
+      this.dequeue();
+    });
+  }
+
+  /**
+   * Executes queued send operations.
+   *
+   * @private
+   */
+  dequeue() {
+    while (!this._deflating && this._queue.length) {
+      const params = this._queue.shift();
+
+      this._bufferedBytes -= params[1].length;
+      params[0].apply(this, params.slice(1));
+    }
+  }
+
+  /**
+   * Enqueues a send operation.
+   *
+   * @param {Array} params Send operation parameters.
+   * @private
+   */
+  enqueue(params) {
+    this._bufferedBytes += params[1].length;
+    this._queue.push(params);
+  }
+
+  /**
+   * Sends a frame.
+   *
+   * @param {Buffer[]} list The frame to send
+   * @param {Function} cb Callback
+   * @private
+   */
+  sendFrame(list, cb) {
+    if (list.length === 2) {
+      this._socket.cork();
+      this._socket.write(list[0]);
+      this._socket.write(list[1], cb);
+      this._socket.uncork();
+    } else {
+      this._socket.write(list[0], cb);
+    }
+  }
+}
+
+module.exports = Sender;
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/websocket-server.js
+*/
+'use strict';
+
+// const EventEmitter = require('events');
+// const crypto = require('crypto');
+// const http = require('http');
+
+// const PerMessageDeflate = require('./permessage-deflate');
+// const extension = require('./extension');
+// const WebSocket = require('./websocket');
+// const { GUID } = require('./constants');
+
+const keyRegex = /^[+/0-9A-Za-z]{22}==$/;
+
+/**
+ * Class representing a WebSocket server.
+ *
+ * @extends EventEmitter
+ */
+class WebSocketServer extends EventEmitter {
+  /**
+   * Create a `WebSocketServer` instance.
+   *
+   * @param {Object} options Configuration options
+   * @param {Number} options.backlog The maximum length of the queue of pending
+   *     connections
+   * @param {Boolean} options.clientTracking Specifies whether or not to track
+   *     clients
+   * @param {Function} options.handleProtocols An hook to handle protocols
+   * @param {String} options.host The hostname where to bind the server
+   * @param {Number} options.maxPayload The maximum allowed message size
+   * @param {Boolean} options.noServer Enable no server mode
+   * @param {String} options.path Accept only connections matching this path
+   * @param {(Boolean|Object)} options.perMessageDeflate Enable/disable
+   *     permessage-deflate
+   * @param {Number} options.port The port where to bind the server
+   * @param {http.Server} options.server A pre-created HTTP/S server to use
+   * @param {Function} options.verifyClient An hook to reject connections
+   * @param {Function} callback A listener for the `listening` event
+   */
+  constructor(options, callback) {
+    super();
+
+    options = Object.assign(
+      {
+        maxPayload: 100 * 1024 * 1024,
+        perMessageDeflate: false,
+        handleProtocols: null,
+        clientTracking: true,
+        verifyClient: null,
+        noServer: false,
+        backlog: null, // use default (511 as implemented in net.js)
+        server: null,
+        host: null,
+        path: null,
+        port: null
+      },
+      options
+    );
+
+    if (options.port == null && !options.server && !options.noServer) {
+      throw new TypeError(
+        'One of the "port", "server", or "noServer" options must be specified'
+      );
+    }
+
+    if (options.port != null) {
+      this._server = http.createServer((req, res) => {
+        const body = http.STATUS_CODES[426];
+
+        res.writeHead(426, {
+          'Content-Length': body.length,
+          'Content-Type': 'text/plain'
+        });
+        res.end(body);
+      });
+      this._server.listen(
+        options.port,
+        options.host,
+        options.backlog,
+        callback
+      );
+    } else if (options.server) {
+      this._server = options.server;
+    }
+
+    if (this._server) {
+      this._removeListeners = addListeners(this._server, {
+        listening: this.emit.bind(this, 'listening'),
+        error: this.emit.bind(this, 'error'),
+        upgrade: (req, socket, head) => {
+          this.handleUpgrade(req, socket, head, (ws) => {
+            this.emit('connection', ws, req);
+          });
+        }
+      });
+    }
+
+    if (options.perMessageDeflate === true) options.perMessageDeflate = {};
+    if (options.clientTracking) this.clients = new Set();
+    this.options = options;
+  }
+
+  /**
+   * Returns the bound address, the address family name, and port of the server
+   * as reported by the operating system if listening on an IP socket.
+   * If the server is listening on a pipe or UNIX domain socket, the name is
+   * returned as a string.
+   *
+   * @return {(Object|String|null)} The address of the server
+   * @public
+   */
+  address() {
+    if (this.options.noServer) {
+      throw new Error('The server is operating in "noServer" mode');
+    }
+
+    if (!this._server) return null;
+    return this._server.address();
+  }
+
+  /**
+   * Close the server.
+   *
+   * @param {Function} cb Callback
+   * @public
+   */
+  close(cb) {
+    if (cb) this.once('close', cb);
+
+    //
+    // Terminate all associated clients.
+    //
+    if (this.clients) {
+      for (const client of this.clients) client.terminate();
+    }
+
+    const server = this._server;
+
+    if (server) {
+      this._removeListeners();
+      this._removeListeners = this._server = null;
+
+      //
+      // Close the http server if it was internally created.
+      //
+      if (this.options.port != null) {
+        server.close(() => this.emit('close'));
+        return;
+      }
+    }
+
+    process.nextTick(emitClose, this);
+  }
+
+  /**
+   * See if a given request should be handled by this server instance.
+   *
+   * @param {http.IncomingMessage} req Request object to inspect
+   * @return {Boolean} `true` if the request is valid, else `false`
+   * @public
+   */
+  shouldHandle(req) {
+    if (this.options.path) {
+      const index = req.url.indexOf('?');
+      const pathname = index !== -1 ? req.url.slice(0, index) : req.url;
+
+      if (pathname !== this.options.path) return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Handle a HTTP Upgrade request.
+   *
+   * @param {http.IncomingMessage} req The request object
+   * @param {net.Socket} socket The network socket between the server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Function} cb Callback
+   * @public
+   */
+  handleUpgrade(req, socket, head, cb) {
+    socket.on('error', socketOnError);
+
+    const key =
+      req.headers['sec-websocket-key'] !== undefined
+        ? req.headers['sec-websocket-key'].trim()
+        : false;
+    const version = +req.headers['sec-websocket-version'];
+    const extensions = {};
+
+    if (
+      req.method !== 'GET' ||
+      req.headers.upgrade.toLowerCase() !== 'websocket' ||
+      !key ||
+      !keyRegex.test(key) ||
+      (version !== 8 && version !== 13) ||
+      !this.shouldHandle(req)
+    ) {
+      return abortHandshake(socket, 400);
+    }
+
+    if (this.options.perMessageDeflate) {
+      const perMessageDeflate = new PerMessageDeflate(
+        this.options.perMessageDeflate,
+        true,
+        this.options.maxPayload
+      );
+
+      try {
+        const offers = extension.parse(req.headers['sec-websocket-extensions']);
+
+        if (offers[PerMessageDeflate.extensionName]) {
+          perMessageDeflate.accept(offers[PerMessageDeflate.extensionName]);
+          extensions[PerMessageDeflate.extensionName] = perMessageDeflate;
+        }
+      } catch (err) {
+        return abortHandshake(socket, 400);
+      }
+    }
+
+    //
+    // Optionally call external client verification handler.
+    //
+    if (this.options.verifyClient) {
+      const info = {
+        origin:
+          req.headers[`${version === 8 ? 'sec-websocket-origin' : 'origin'}`],
+        secure: !!(req.connection.authorized || req.connection.encrypted),
+        req
+      };
+
+      if (this.options.verifyClient.length === 2) {
+        this.options.verifyClient(info, (verified, code, message, headers) => {
+          if (!verified) {
+            return abortHandshake(socket, code || 401, message, headers);
+          }
+
+          this.completeUpgrade(key, extensions, req, socket, head, cb);
+        });
+        return;
+      }
+
+      if (!this.options.verifyClient(info)) return abortHandshake(socket, 401);
+    }
+
+    this.completeUpgrade(key, extensions, req, socket, head, cb);
+  }
+
+  /**
+   * Upgrade the connection to WebSocket.
+   *
+   * @param {String} key The value of the `Sec-WebSocket-Key` header
+   * @param {Object} extensions The accepted extensions
+   * @param {http.IncomingMessage} req The request object
+   * @param {net.Socket} socket The network socket between the server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Function} cb Callback
+   * @private
+   */
+  completeUpgrade(key, extensions, req, socket, head, cb) {
+    //
+    // Destroy the socket if the client has already sent a FIN packet.
+    //
+    if (!socket.readable || !socket.writable) return socket.destroy();
+
+    const digest = crypto
+      .createHash('sha1')
+      .update(key + GUID)
+      .digest('base64');
+
+    const headers = [
+      'HTTP/1.1 101 Switching Protocols',
+      'Upgrade: websocket',
+      'Connection: Upgrade',
+      `Sec-WebSocket-Accept: ${digest}`
+    ];
+
+    const ws = new WebSocket(null);
+    var protocol = req.headers['sec-websocket-protocol'];
+
+    if (protocol) {
+      protocol = protocol.trim().split(/ *, */);
+
+      //
+      // Optionally call external protocol selection handler.
+      //
+      if (this.options.handleProtocols) {
+        protocol = this.options.handleProtocols(protocol, req);
+      } else {
+        protocol = protocol[0];
+      }
+
+      if (protocol) {
+        headers.push(`Sec-WebSocket-Protocol: ${protocol}`);
+        ws.protocol = protocol;
+      }
+    }
+
+    if (extensions[PerMessageDeflate.extensionName]) {
+      const params = extensions[PerMessageDeflate.extensionName].params;
+      const value = extension.format({
+        [PerMessageDeflate.extensionName]: [params]
+      });
+      headers.push(`Sec-WebSocket-Extensions: ${value}`);
+      ws._extensions = extensions;
+    }
+
+    //
+    // Allow external modification/inspection of handshake headers.
+    //
+    this.emit('headers', headers, req);
+
+    socket.write(headers.concat('\r\n').join('\r\n'));
+    socket.removeListener('error', socketOnError);
+
+    ws.setSocket(socket, head, this.options.maxPayload);
+
+    if (this.clients) {
+      this.clients.add(ws);
+      ws.on('close', () => this.clients.delete(ws));
+    }
+
+    cb(ws);
+  }
+}
+
+module.exports = WebSocketServer;
+
+/**
+ * Add event listeners on an `EventEmitter` using a map of <event, listener>
+ * pairs.
+ *
+ * @param {EventEmitter} server The event emitter
+ * @param {Object.<String, Function>} map The listeners to add
+ * @return {Function} A function that will remove the added listeners when called
+ * @private
+ */
+function addListeners(server, map) {
+  for (const event of Object.keys(map)) server.on(event, map[event]);
+
+  return function removeListeners() {
+    for (const event of Object.keys(map)) {
+      server.removeListener(event, map[event]);
+    }
+  };
+}
+
+/**
+ * Emit a `'close'` event on an `EventEmitter`.
+ *
+ * @param {EventEmitter} server The event emitter
+ * @private
+ */
+function emitClose(server) {
+  server.emit('close');
+}
+
+/**
+ * Handle premature socket errors.
+ *
+ * @private
+ */
+function socketOnError() {
+  this.destroy();
+}
+
+/**
+ * Close the connection when preconditions are not fulfilled.
+ *
+ * @param {net.Socket} socket The socket of the upgrade request
+ * @param {Number} code The HTTP response status code
+ * @param {String} [message] The HTTP response body
+ * @param {Object} [headers] Additional HTTP response headers
+ * @private
+ */
+function abortHandshake(socket, code, message, headers) {
+  if (socket.writable) {
+    message = message || http.STATUS_CODES[code];
+    headers = Object.assign(
+      {
+        Connection: 'close',
+        'Content-type': 'text/html',
+        'Content-Length': Buffer.byteLength(message)
+      },
+      headers
+    );
+
+    socket.write(
+      `HTTP/1.1 ${code} ${http.STATUS_CODES[code]}\r\n` +
+        Object.keys(headers)
+          .map((h) => `${h}: ${headers[h]}`)
+          .join('\r\n') +
+        '\r\n\r\n' +
+        message
+    );
+  }
+
+  socket.removeListener('error', socketOnError);
+  socket.destroy();
+}
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/lib/websocket.js
+*/
+'use strict';
+
+// const EventEmitter = require('events');
+// const crypto = require('crypto');
+// const https = require('https');
+// const http = require('http');
+// const net = require('net');
+// const tls = require('tls');
+// const url = require('url');
+
+// const PerMessageDeflate = require('./permessage-deflate');
+// const EventTarget = require('./event-target');
+// const extension = require('./extension');
+// const Receiver = require('./receiver');
+// const Sender = require('./sender');
+// hack-puppeteer - module.exports
+// const {
+//   BINARY_TYPES,
+//   EMPTY_BUFFER,
+//   GUID,
+//   kStatusCode,
+//   kWebSocket,
+//   NOOP
+// } = require('./constants');
+
+const readyStates = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'];
+const protocolVersions = [8, 13];
+const closeTimeout = 30 * 1000;
+
+/**
+ * Class representing a WebSocket.
+ *
+ * @extends EventEmitter
+ */
+class WebSocket extends EventEmitter {
+  /**
+   * Create a new `WebSocket`.
+   *
+   * @param {(String|url.Url|url.URL)} address The URL to which to connect
+   * @param {(String|String[])} protocols The subprotocols
+   * @param {Object} options Connection options
+   */
+  constructor(address, protocols, options) {
+    super();
+
+    this.readyState = WebSocket.CONNECTING;
+    this.protocol = '';
+
+    this._binaryType = BINARY_TYPES[0];
+    this._closeFrameReceived = false;
+    this._closeFrameSent = false;
+    this._closeMessage = '';
+    this._closeTimer = null;
+    this._closeCode = 1006;
+    this._extensions = {};
+    this._receiver = null;
+    this._sender = null;
+    this._socket = null;
+
+    if (address !== null) {
+      this._isServer = false;
+      this._redirects = 0;
+
+      if (Array.isArray(protocols)) {
+        protocols = protocols.join(', ');
+      } else if (typeof protocols === 'object' && protocols !== null) {
+        options = protocols;
+        protocols = undefined;
+      }
+
+      initAsClient(this, address, protocols, options);
+    } else {
+      this._isServer = true;
+    }
+  }
+
+  get CONNECTING() {
+    return WebSocket.CONNECTING;
+  }
+  get CLOSING() {
+    return WebSocket.CLOSING;
+  }
+  get CLOSED() {
+    return WebSocket.CLOSED;
+  }
+  get OPEN() {
+    return WebSocket.OPEN;
+  }
+
+  /**
+   * This deviates from the WHATWG interface since ws doesn't support the
+   * required default "blob" type (instead we define a custom "nodebuffer"
+   * type).
+   *
+   * @type {String}
+   */
+  get binaryType() {
+    return this._binaryType;
+  }
+
+  set binaryType(type) {
+    if (!BINARY_TYPES.includes(type)) return;
+
+    this._binaryType = type;
+
+    //
+    // Allow to change `binaryType` on the fly.
+    //
+    if (this._receiver) this._receiver._binaryType = type;
+  }
+
+  /**
+   * @type {Number}
+   */
+  get bufferedAmount() {
+    if (!this._socket) return 0;
+
+    //
+    // `socket.bufferSize` is `undefined` if the socket is closed.
+    //
+    return (this._socket.bufferSize || 0) + this._sender._bufferedBytes;
+  }
+
+  /**
+   * @type {String}
+   */
+  get extensions() {
+    return Object.keys(this._extensions).join();
+  }
+
+  /**
+   * Set up the socket and the internal resources.
+   *
+   * @param {net.Socket} socket The network socket between the server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Number} maxPayload The maximum allowed message size
+   * @private
+   */
+  setSocket(socket, head, maxPayload) {
+    const receiver = new Receiver(
+      this._binaryType,
+      this._extensions,
+      maxPayload
+    );
+
+    this._sender = new Sender(socket, this._extensions);
+    this._receiver = receiver;
+    this._socket = socket;
+
+    receiver[kWebSocket] = this;
+    socket[kWebSocket] = this;
+
+    receiver.on('conclude', receiverOnConclude);
+    receiver.on('drain', receiverOnDrain);
+    receiver.on('error', receiverOnError);
+    receiver.on('message', receiverOnMessage);
+    receiver.on('ping', receiverOnPing);
+    receiver.on('pong', receiverOnPong);
+
+    socket.setTimeout(0);
+    socket.setNoDelay();
+
+    if (head.length > 0) socket.unshift(head);
+
+    socket.on('close', socketOnClose);
+    socket.on('data', socketOnData);
+    socket.on('end', socketOnEnd);
+    socket.on('error', socketOnError);
+
+    this.readyState = WebSocket.OPEN;
+    this.emit('open');
+  }
+
+  /**
+   * Emit the `'close'` event.
+   *
+   * @private
+   */
+  emitClose() {
+    this.readyState = WebSocket.CLOSED;
+
+    if (!this._socket) {
+      this.emit('close', this._closeCode, this._closeMessage);
+      return;
+    }
+
+    if (this._extensions[PerMessageDeflate.extensionName]) {
+      this._extensions[PerMessageDeflate.extensionName].cleanup();
+    }
+
+    this._receiver.removeAllListeners();
+    this.emit('close', this._closeCode, this._closeMessage);
+  }
+
+  /**
+   * Start a closing handshake.
+   *
+   *          +----------+   +-----------+   +----------+
+   *     - - -|ws.close()|-->|close frame|-->|ws.close()|- - -
+   *    |     +----------+   +-----------+   +----------+     |
+   *          +----------+   +-----------+         |
+   * CLOSING  |ws.close()|<--|close frame|<--+-----+       CLOSING
+   *          +----------+   +-----------+   |
+   *    |           |                        |   +---+        |
+   *                +------------------------+-->|fin| - - - -
+   *    |         +---+                      |   +---+
+   *     - - - - -|fin|<---------------------+
+   *              +---+
+   *
+   * @param {Number} code Status code explaining why the connection is closing
+   * @param {String} data A string explaining why the connection is closing
+   * @public
+   */
+  close(code, data) {
+    if (this.readyState === WebSocket.CLOSED) return;
+    if (this.readyState === WebSocket.CONNECTING) {
+      const msg = 'WebSocket was closed before the connection was established';
+      return abortHandshake(this, this._req, msg);
+    }
+
+    if (this.readyState === WebSocket.CLOSING) {
+      if (this._closeFrameSent && this._closeFrameReceived) this._socket.end();
+      return;
+    }
+
+    this.readyState = WebSocket.CLOSING;
+    this._sender.close(code, data, !this._isServer, (err) => {
+      //
+      // This error is handled by the `'error'` listener on the socket. We only
+      // want to know if the close frame has been sent here.
+      //
+      if (err) return;
+
+      this._closeFrameSent = true;
+      if (this._closeFrameReceived) this._socket.end();
+    });
+
+    //
+    // Specify a timeout for the closing handshake to complete.
+    //
+    this._closeTimer = setTimeout(
+      this._socket.destroy.bind(this._socket),
+      closeTimeout
+    );
+  }
+
+  /**
+   * Send a ping.
+   *
+   * @param {*} data The data to send
+   * @param {Boolean} mask Indicates whether or not to mask `data`
+   * @param {Function} cb Callback which is executed when the ping is sent
+   * @public
+   */
+  ping(data, mask, cb) {
+    if (typeof data === 'function') {
+      cb = data;
+      data = mask = undefined;
+    } else if (typeof mask === 'function') {
+      cb = mask;
+      mask = undefined;
+    }
+
+    if (this.readyState !== WebSocket.OPEN) {
+      const err = new Error(
+        `WebSocket is not open: readyState ${this.readyState} ` +
+          `(${readyStates[this.readyState]})`
+      );
+
+      if (cb) return cb(err);
+      throw err;
+    }
+
+    if (typeof data === 'number') data = data.toString();
+    if (mask === undefined) mask = !this._isServer;
+    this._sender.ping(data || EMPTY_BUFFER, mask, cb);
+  }
+
+  /**
+   * Send a pong.
+   *
+   * @param {*} data The data to send
+   * @param {Boolean} mask Indicates whether or not to mask `data`
+   * @param {Function} cb Callback which is executed when the pong is sent
+   * @public
+   */
+  pong(data, mask, cb) {
+    if (typeof data === 'function') {
+      cb = data;
+      data = mask = undefined;
+    } else if (typeof mask === 'function') {
+      cb = mask;
+      mask = undefined;
+    }
+
+    if (this.readyState !== WebSocket.OPEN) {
+      const err = new Error(
+        `WebSocket is not open: readyState ${this.readyState} ` +
+          `(${readyStates[this.readyState]})`
+      );
+
+      if (cb) return cb(err);
+      throw err;
+    }
+
+    if (typeof data === 'number') data = data.toString();
+    if (mask === undefined) mask = !this._isServer;
+    this._sender.pong(data || EMPTY_BUFFER, mask, cb);
+  }
+
+  /**
+   * Send a data message.
+   *
+   * @param {*} data The message to send
+   * @param {Object} options Options object
+   * @param {Boolean} options.compress Specifies whether or not to compress `data`
+   * @param {Boolean} options.binary Specifies whether `data` is binary or text
+   * @param {Boolean} options.fin Specifies whether the fragment is the last one
+   * @param {Boolean} options.mask Specifies whether or not to mask `data`
+   * @param {Function} cb Callback which is executed when data is written out
+   * @public
+   */
+  send(data, options, cb) {
+    if (typeof options === 'function') {
+      cb = options;
+      options = {};
+    }
+
+    if (this.readyState !== WebSocket.OPEN) {
+      const err = new Error(
+        `WebSocket is not open: readyState ${this.readyState} ` +
+          `(${readyStates[this.readyState]})`
+      );
+
+      if (cb) return cb(err);
+      throw err;
+    }
+
+    if (typeof data === 'number') data = data.toString();
+
+    const opts = Object.assign(
+      {
+        binary: typeof data !== 'string',
+        mask: !this._isServer,
+        compress: true,
+        fin: true
+      },
+      options
+    );
+
+    if (!this._extensions[PerMessageDeflate.extensionName]) {
+      opts.compress = false;
+    }
+
+    this._sender.send(data || EMPTY_BUFFER, opts, cb);
+  }
+
+  /**
+   * Forcibly close the connection.
+   *
+   * @public
+   */
+  terminate() {
+    if (this.readyState === WebSocket.CLOSED) return;
+    if (this.readyState === WebSocket.CONNECTING) {
+      const msg = 'WebSocket was closed before the connection was established';
+      return abortHandshake(this, this._req, msg);
+    }
+
+    if (this._socket) {
+      this.readyState = WebSocket.CLOSING;
+      this._socket.destroy();
+    }
+  }
+}
+
+readyStates.forEach((readyState, i) => {
+  WebSocket[readyState] = i;
+});
+
+//
+// Add the `onopen`, `onerror`, `onclose`, and `onmessage` attributes.
+// See https://html.spec.whatwg.org/multipage/comms.html#the-websocket-interface
+//
+['open', 'error', 'close', 'message'].forEach((method) => {
+  Object.defineProperty(WebSocket.prototype, `on${method}`, {
+    /**
+     * Return the listener of the event.
+     *
+     * @return {(Function|undefined)} The event listener or `undefined`
+     * @public
+     */
+    get() {
+      const listeners = this.listeners(method);
+      for (var i = 0; i < listeners.length; i++) {
+        if (listeners[i]._listener) return listeners[i]._listener;
+      }
+
+      return undefined;
+    },
+    /**
+     * Add a listener for the event.
+     *
+     * @param {Function} listener The listener to add
+     * @public
+     */
+    set(listener) {
+      const listeners = this.listeners(method);
+      for (var i = 0; i < listeners.length; i++) {
+        //
+        // Remove only the listeners added via `addEventListener`.
+        //
+        if (listeners[i]._listener) this.removeListener(method, listeners[i]);
+      }
+      this.addEventListener(method, listener);
+    }
+  });
+});
+
+WebSocket.prototype.addEventListener = EventTarget.addEventListener;
+WebSocket.prototype.removeEventListener = EventTarget.removeEventListener;
+
+module.exports = WebSocket;
+
+/**
+ * Initialize a WebSocket client.
+ *
+ * @param {WebSocket} websocket The client to initialize
+ * @param {(String|url.Url|url.URL)} address The URL to which to connect
+ * @param {String} protocols The subprotocols
+ * @param {Object} options Connection options
+ * @param {(Boolean|Object)} options.perMessageDeflate Enable/disable
+ *     permessage-deflate
+ * @param {Number} options.handshakeTimeout Timeout in milliseconds for the
+ *     handshake request
+ * @param {Number} options.protocolVersion Value of the `Sec-WebSocket-Version`
+ *     header
+ * @param {String} options.origin Value of the `Origin` or
+ *     `Sec-WebSocket-Origin` header
+ * @param {Number} options.maxPayload The maximum allowed message size
+ * @param {Boolean} options.followRedirects Whether or not to follow redirects
+ * @param {Number} options.maxRedirects The maximum number of redirects allowed
+ * @private
+ */
+function initAsClient(websocket, address, protocols, options) {
+  const opts = Object.assign(
+    {
+      protocolVersion: protocolVersions[1],
+      maxPayload: 100 * 1024 * 1024,
+      perMessageDeflate: true,
+      followRedirects: false,
+      maxRedirects: 10
+    },
+    options,
+    {
+      createConnection: undefined,
+      socketPath: undefined,
+      hostname: undefined,
+      protocol: undefined,
+      timeout: undefined,
+      method: undefined,
+      auth: undefined,
+      host: undefined,
+      path: undefined,
+      port: undefined
+    }
+  );
+
+  if (!protocolVersions.includes(opts.protocolVersion)) {
+    throw new RangeError(
+      `Unsupported protocol version: ${opts.protocolVersion} ` +
+        `(supported versions: ${protocolVersions.join(', ')})`
+    );
+  }
+
+  var parsedUrl;
+
+  if (typeof address === 'object' && address.href !== undefined) {
+    parsedUrl = address;
+    websocket.url = address.href;
+  } else {
+    //
+    // The WHATWG URL constructor is not available on Node.js < 6.13.0
+    //
+    parsedUrl = url.URL ? new url.URL(address) : url.parse(address);
+    websocket.url = address;
+  }
+
+  const isUnixSocket = parsedUrl.protocol === 'ws+unix:';
+
+  if (!parsedUrl.host && (!isUnixSocket || !parsedUrl.pathname)) {
+    throw new Error(`Invalid URL: ${websocket.url}`);
+  }
+
+  const isSecure =
+    parsedUrl.protocol === 'wss:' || parsedUrl.protocol === 'https:';
+  const defaultPort = isSecure ? 443 : 80;
+  const key = crypto.randomBytes(16).toString('base64');
+  const get = isSecure ? https.get : http.get;
+  const path = parsedUrl.search
+    ? `${parsedUrl.pathname || '/'}${parsedUrl.search}`
+    : parsedUrl.pathname || '/';
+  var perMessageDeflate;
+
+  opts.createConnection = isSecure ? tlsConnect : netConnect;
+  opts.defaultPort = opts.defaultPort || defaultPort;
+  opts.port = parsedUrl.port || defaultPort;
+  opts.host = parsedUrl.hostname.startsWith('[')
+    ? parsedUrl.hostname.slice(1, -1)
+    : parsedUrl.hostname;
+  opts.headers = Object.assign(
+    {
+      'Sec-WebSocket-Version': opts.protocolVersion,
+      'Sec-WebSocket-Key': key,
+      Connection: 'Upgrade',
+      Upgrade: 'websocket'
+    },
+    opts.headers
+  );
+  opts.path = path;
+  opts.timeout = opts.handshakeTimeout;
+
+  if (opts.perMessageDeflate) {
+    perMessageDeflate = new PerMessageDeflate(
+      opts.perMessageDeflate !== true ? opts.perMessageDeflate : {},
+      false,
+      opts.maxPayload
+    );
+    opts.headers['Sec-WebSocket-Extensions'] = extension.format({
+      [PerMessageDeflate.extensionName]: perMessageDeflate.offer()
+    });
+  }
+  if (protocols) {
+    opts.headers['Sec-WebSocket-Protocol'] = protocols;
+  }
+  if (opts.origin) {
+    if (opts.protocolVersion < 13) {
+      opts.headers['Sec-WebSocket-Origin'] = opts.origin;
+    } else {
+      opts.headers.Origin = opts.origin;
+    }
+  }
+  if (parsedUrl.auth) {
+    opts.auth = parsedUrl.auth;
+  } else if (parsedUrl.username || parsedUrl.password) {
+    opts.auth = `${parsedUrl.username}:${parsedUrl.password}`;
+  }
+
+  if (isUnixSocket) {
+    const parts = path.split(':');
+
+    opts.socketPath = parts[0];
+    opts.path = parts[1];
+  }
+
+  var req = (websocket._req = get(opts));
+
+  if (opts.timeout) {
+    req.on('timeout', () => {
+      abortHandshake(websocket, req, 'Opening handshake has timed out');
+    });
+  }
+
+  req.on('error', (err) => {
+    if (websocket._req.aborted) return;
+
+    req = websocket._req = null;
+    websocket.readyState = WebSocket.CLOSING;
+    websocket.emit('error', err);
+    websocket.emitClose();
+  });
+
+  req.on('response', (res) => {
+    const location = res.headers.location;
+    const statusCode = res.statusCode;
+
+    if (
+      location &&
+      opts.followRedirects &&
+      statusCode >= 300 &&
+      statusCode < 400
+    ) {
+      if (++websocket._redirects > opts.maxRedirects) {
+        abortHandshake(websocket, req, 'Maximum redirects exceeded');
+        return;
+      }
+
+      req.abort();
+
+      const addr = url.URL
+        ? new url.URL(location, address)
+        : url.resolve(address, location);
+
+      initAsClient(websocket, addr, protocols, options);
+    } else if (!websocket.emit('unexpected-response', req, res)) {
+      abortHandshake(
+        websocket,
+        req,
+        `Unexpected server response: ${res.statusCode}`
+      );
+    }
+  });
+
+  req.on('upgrade', (res, socket, head) => {
+    websocket.emit('upgrade', res);
+
+    //
+    // The user may have closed the connection from a listener of the `upgrade`
+    // event.
+    //
+    if (websocket.readyState !== WebSocket.CONNECTING) return;
+
+    req = websocket._req = null;
+
+    const digest = crypto
+      .createHash('sha1')
+      .update(key + GUID)
+      .digest('base64');
+
+    if (res.headers['sec-websocket-accept'] !== digest) {
+      abortHandshake(websocket, socket, 'Invalid Sec-WebSocket-Accept header');
+      return;
+    }
+
+    const serverProt = res.headers['sec-websocket-protocol'];
+    const protList = (protocols || '').split(/, */);
+    var protError;
+
+    if (!protocols && serverProt) {
+      protError = 'Server sent a subprotocol but none was requested';
+    } else if (protocols && !serverProt) {
+      protError = 'Server sent no subprotocol';
+    } else if (serverProt && !protList.includes(serverProt)) {
+      protError = 'Server sent an invalid subprotocol';
+    }
+
+    if (protError) {
+      abortHandshake(websocket, socket, protError);
+      return;
+    }
+
+    if (serverProt) websocket.protocol = serverProt;
+
+    if (perMessageDeflate) {
+      try {
+        const extensions = extension.parse(
+          res.headers['sec-websocket-extensions']
+        );
+
+        if (extensions[PerMessageDeflate.extensionName]) {
+          perMessageDeflate.accept(extensions[PerMessageDeflate.extensionName]);
+          websocket._extensions[
+            PerMessageDeflate.extensionName
+          ] = perMessageDeflate;
+        }
+      } catch (err) {
+        abortHandshake(
+          websocket,
+          socket,
+          'Invalid Sec-WebSocket-Extensions header'
+        );
+        return;
+      }
+    }
+
+    websocket.setSocket(socket, head, opts.maxPayload);
+  });
+}
+
+/**
+ * Create a `net.Socket` and initiate a connection.
+ *
+ * @param {Object} options Connection options
+ * @return {net.Socket} The newly created socket used to start the connection
+ * @private
+ */
+function netConnect(options) {
+  //
+  // Override `options.path` only if `options` is a copy of the original options
+  // object. This is always true on Node.js >= 8 but not on Node.js 6 where
+  // `options.socketPath` might be `undefined` even if the `socketPath` option
+  // was originally set.
+  //
+  if (options.protocolVersion) options.path = options.socketPath;
+  return net.connect(options);
+}
+
+/**
+ * Create a `tls.TLSSocket` and initiate a connection.
+ *
+ * @param {Object} options Connection options
+ * @return {tls.TLSSocket} The newly created socket used to start the connection
+ * @private
+ */
+function tlsConnect(options) {
+  options.path = undefined;
+  options.servername = options.servername || options.host;
+  return tls.connect(options);
+}
+
+/**
+ * Abort the handshake and emit an error.
+ *
+ * @param {WebSocket} websocket The WebSocket instance
+ * @param {(http.ClientRequest|net.Socket)} stream The request to abort or the
+ *     socket to destroy
+ * @param {String} message The error message
+ * @private
+ */
+function abortHandshake(websocket, stream, message) {
+  websocket.readyState = WebSocket.CLOSING;
+
+  const err = new Error(message);
+  Error.captureStackTrace(err, abortHandshake);
+
+  if (stream.setHeader) {
+    stream.abort();
+    stream.once('abort', websocket.emitClose.bind(websocket));
+    websocket.emit('error', err);
+  } else {
+    stream.destroy(err);
+    stream.once('error', websocket.emit.bind(websocket, 'error'));
+    stream.once('close', websocket.emitClose.bind(websocket));
+  }
+}
+
+/**
+ * The listener of the `Receiver` `'conclude'` event.
+ *
+ * @param {Number} code The status code
+ * @param {String} reason The reason for closing
+ * @private
+ */
+function receiverOnConclude(code, reason) {
+  const websocket = this[kWebSocket];
+
+  websocket._socket.removeListener('data', socketOnData);
+  websocket._socket.resume();
+
+  websocket._closeFrameReceived = true;
+  websocket._closeMessage = reason;
+  websocket._closeCode = code;
+
+  if (code === 1005) websocket.close();
+  else websocket.close(code, reason);
+}
+
+/**
+ * The listener of the `Receiver` `'drain'` event.
+ *
+ * @private
+ */
+function receiverOnDrain() {
+  this[kWebSocket]._socket.resume();
+}
+
+/**
+ * The listener of the `Receiver` `'error'` event.
+ *
+ * @param {(RangeError|Error)} err The emitted error
+ * @private
+ */
+function receiverOnError(err) {
+  const websocket = this[kWebSocket];
+
+  websocket._socket.removeListener('data', socketOnData);
+
+  websocket.readyState = WebSocket.CLOSING;
+  websocket._closeCode = err[kStatusCode];
+  websocket.emit('error', err);
+  websocket._socket.destroy();
+}
+
+/**
+ * The listener of the `Receiver` `'finish'` event.
+ *
+ * @private
+ */
+function receiverOnFinish() {
+  this[kWebSocket].emitClose();
+}
+
+/**
+ * The listener of the `Receiver` `'message'` event.
+ *
+ * @param {(String|Buffer|ArrayBuffer|Buffer[])} data The message
+ * @private
+ */
+function receiverOnMessage(data) {
+  this[kWebSocket].emit('message', data);
+}
+
+/**
+ * The listener of the `Receiver` `'ping'` event.
+ *
+ * @param {Buffer} data The data included in the ping frame
+ * @private
+ */
+function receiverOnPing(data) {
+  const websocket = this[kWebSocket];
+
+  websocket.pong(data, !websocket._isServer, NOOP);
+  websocket.emit('ping', data);
+}
+
+/**
+ * The listener of the `Receiver` `'pong'` event.
+ *
+ * @param {Buffer} data The data included in the pong frame
+ * @private
+ */
+function receiverOnPong(data) {
+  this[kWebSocket].emit('pong', data);
+}
+
+/**
+ * The listener of the `net.Socket` `'close'` event.
+ *
+ * @private
+ */
+function socketOnClose() {
+  const websocket = this[kWebSocket];
+
+  this.removeListener('close', socketOnClose);
+  this.removeListener('end', socketOnEnd);
+
+  websocket.readyState = WebSocket.CLOSING;
+
+  //
+  // The close frame might not have been received or the `'end'` event emitted,
+  // for example, if the socket was destroyed due to an error. Ensure that the
+  // `receiver` stream is closed after writing any remaining buffered data to
+  // it. If the readable side of the socket is in flowing mode then there is no
+  // buffered data as everything has been already written and `readable.read()`
+  // will return `null`. If instead, the socket is paused, any possible buffered
+  // data will be read as a single chunk and emitted synchronously in a single
+  // `'data'` event.
+  //
+  websocket._socket.read();
+  websocket._receiver.end();
+
+  this.removeListener('data', socketOnData);
+  this[kWebSocket] = undefined;
+
+  clearTimeout(websocket._closeTimer);
+
+  if (
+    websocket._receiver._writableState.finished ||
+    websocket._receiver._writableState.errorEmitted
+  ) {
+    websocket.emitClose();
+  } else {
+    websocket._receiver.on('error', receiverOnFinish);
+    websocket._receiver.on('finish', receiverOnFinish);
+  }
+}
+
+/**
+ * The listener of the `net.Socket` `'data'` event.
+ *
+ * @param {Buffer} chunk A chunk of data
+ * @private
+ */
+function socketOnData(chunk) {
+  if (!this[kWebSocket]._receiver.write(chunk)) {
+    this.pause();
+  }
+}
+
+/**
+ * The listener of the `net.Socket` `'end'` event.
+ *
+ * @private
+ */
+function socketOnEnd() {
+  const websocket = this[kWebSocket];
+
+  websocket.readyState = WebSocket.CLOSING;
+  websocket._receiver.end();
+  this.end();
+}
+
+/**
+ * The listener of the `net.Socket` `'error'` event.
+ *
+ * @private
+ */
+function socketOnError() {
+  const websocket = this[kWebSocket];
+
+  this.removeListener('error', socketOnError);
+  this.on('error', NOOP);
+
+  websocket.readyState = WebSocket.CLOSING;
+  this.destroy();
+}
+
+
+
+/*
+lib https://github.com/websockets/ws/blob/6.2.1/index.js
+*/
+'use strict';
+
+// const WebSocket = require('./lib/websocket');
+
+// hack-puppeteer - module.exports
+WebSocket.Server = WebSocketServer;
+WebSocket.Receiver = Receiver;
+WebSocket.Sender = Sender.js;
+
+module.exports = WebSocket;
+
+
+
+/*
+file https://github.com/GoogleChrome/puppeteer/tree/v1.19.0
+*/
+// require('./Accessibility') // Accessibility,
+// require('./Accessibility') // const {Accessibility} = require('./Accessibility');
+// require('./Browser') // Browser,
+// require('./Browser') // BrowserContext,
+// require('./Browser') // const {Browser} = require('./Browser');
+// require('./BrowserFetcher') // BrowserFetcher,
+// require('./BrowserFetcher') // const BrowserFetcher = require('./BrowserFetcher');
+// require('./Connection') // CDPSession,
+// require('./Connection') // const {Connection} = require('./Connection');
+// require('./Coverage') // Coverage,
+// require('./Coverage') // const {Coverage} = require('./Coverage');
+// require('./DOMWorld') // const {DOMWorld} = require('./DOMWorld');
+// require('./DeviceDescriptors') // const DeviceDescriptors = require('./DeviceDescriptors');
+// require('./Dialog') // Dialog,
+// require('./Dialog') // const {Dialog} = require('./Dialog');
+// require('./EmulationManager') // const {EmulationManager} = require('./EmulationManager');
+// require('./Errors') // TimeoutError,
+// require('./Errors') // const Errors = require('./Errors');
+// require('./Errors') // const {TimeoutError} = require('./Errors');
+// require('./Events') // const {Events} = require('./Events');
+// require('./ExecutionContext') // ExecutionContext,
+// require('./ExecutionContext') // const {EVALUATION_SCRIPT_URL} = require('./ExecutionContext');
+// require('./ExecutionContext') // const {ExecutionContext, EVALUATION_SCRIPT_URL} = require('./ExecutionContext');
+// require('./ExecutionContext') // const {ExecutionContext} = require('./ExecutionContext');
+// require('./FrameManager') // Frame,
+// require('./FrameManager') // const {FrameManager} = require('./FrameManager');
+// require('./Input') // Keyboard,
+// require('./Input') // Mouse,
+// require('./Input') // Touchscreen,
+// require('./Input') // const {Keyboard, Mouse, Touchscreen} = require('./Input');
+// require('./JSHandle') // ElementHandle,
+// require('./JSHandle') // JSHandle,
+// require('./JSHandle') // const {JSHandle} = require('./JSHandle');
+// require('./JSHandle') // const {createJSHandle, JSHandle} = require('./JSHandle');
+// require('./JSHandle') // const {createJSHandle} = require('./JSHandle');
+// require('./Launcher') // const Launcher = require('./Launcher');
+// require('./LifecycleWatcher') // const {LifecycleWatcher} = require('./LifecycleWatcher');
+// require('./NetworkManager') // Request,
+// require('./NetworkManager') // Response,
+// require('./NetworkManager') // SecurityDetails,
+// require('./NetworkManager') // const {NetworkManager} = require('./NetworkManager');
+// require('./Page') // ConsoleMessage,
+// require('./Page') // FileChooser,
+// require('./Page') // Page,
+// require('./Page') // const {Page} = require('./Page');
+// require('./PipeTransport') // const PipeTransport = require('./PipeTransport');
+// require('./Puppeteer') // Puppeteer,
+// require('./Target') // Target,
+// require('./Target') // const {Target} = require('./Target');
+// require('./TaskQueue') // const {TaskQueue} = require('./TaskQueue');
+// require('./TimeoutSettings') // const {TimeoutSettings} = require('./TimeoutSettings');
+// require('./Tracing') // Tracing,
+// require('./Tracing') // const Tracing = require('./Tracing');
+// require('./USKeyboardLayout') // const keyDefinitions = require('./USKeyboardLayout');
+// require('./WebSocketTransport') // const WebSocketTransport = require('./WebSocketTransport');
+// require('./Worker') // Worker,
+// require('./Worker') // const {Worker} = require('./Worker');
+// require('./helper') // const { helper, assert } = require('./helper');
+// require('./helper') // const {assert} = require('./helper');
+// require('./helper') // const {debugError} = require('./helper');
+// require('./helper') // const {helper, assert, debugError} = require('./helper');
+// require('./helper') // const {helper, assert} = require('./helper');
+// require('./helper') // const {helper, debugError, assert} = require('./helper');
+// require('./helper') // const {helper, debugError} = require('./helper');
+// require('./lib/Puppeteer') // const Puppeteer = asyncawait ? require('./lib/Puppeteer') : require('./node6/lib/Puppeteer');
+// require('./lib/api') // const api = require('./lib/api');
+// require('./lib/helper') // const {helper} = require('./lib/helper');
+// require('./package.json') // const packageJson = require('./package.json');
+// require('child_process') // const childProcess = require('child_process');
+// require('debug') // const debugError = require('debug')(`puppeteer:error`);
+// require('debug') // const debugProtocol = require('debug')('puppeteer:protocol');
+// require('events') // const EventEmitter = require('events');
+// require('extract-zip') // const extract = require('extract-zip');
+// require('fs') // const fs = require('fs');
+// require('http') // const http = require('http');
+// require('http') // require('http').request(options, requestCallback);
+// require('https') // const https = require('https');
+// require('https') // require('https').request(options, requestCallback) :
+// require('https-proxy-agent') // const ProxyAgent = require('https-proxy-agent');
+// require('mime') // const mime = require('mime');
+// require('os') // const os = require('os');
+// require('path') // const path = require('path');
+// require('proxy-from-env') // const getProxyForUrl = require('proxy-from-env').getProxyForUrl;
+// require('readline') // const readline = require('readline');
+// require('rimraf') // const removeFolder = require('rimraf');
+// require('rimraf') // const removeRecursive = require('rimraf');
+// require('url') // const URL = require('url');
+// require('util') // const util = require('util');
+// require('ws') // const WebSocket = require('ws');
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/package.json
+*/
+// hack-puppeteer - module.exports
+const packageJson = {
+  "name": "puppeteer",
+  "version": "1.19.0",
+  "description": "A high-level API to control headless Chrome over the DevTools Protocol",
+  "main": "index.js",
+  "repository": "github:GoogleChrome/puppeteer",
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "puppeteer": {
+    "chromium_revision": "674921"
+  },
+  "scripts": {
+    "unit": "node test/test.js",
+    "funit": "BROWSER=firefox node test/test.js",
+    "debug-unit": "node --inspect-brk test/test.js",
+    "test-doclint": "node utils/doclint/check_public_api/test/test.js && node utils/doclint/preprocessor/test.js",
+    "test": "npm run lint --silent && npm run coverage && npm run test-doclint && npm run test-node6-transformer && npm run test-types",
+    "install": "node install.js",
+    "lint": "([ \"$CI\" = true ] && eslint --quiet -f codeframe . || eslint .) && npm run tsc && npm run doc",
+    "doc": "node utils/doclint/cli.js",
+    "coverage": "cross-env COVERAGE=true npm run unit",
+    "test-node6-transformer": "node utils/node6-transform/test/test.js",
+    "build": "node utils/node6-transform/index.js && node utils/doclint/generate_types",
+    "unit-node6": "node node6/test/test.js",
+    "tsc": "tsc -p .",
+    "prepublishOnly": "npm run build",
+    "apply-next-version": "node utils/apply_next_version.js",
+    "bundle": "npx browserify -r ./index.js:puppeteer -o utils/browser/puppeteer-web.js",
+    "test-types": "node utils/doclint/generate_types && npx -p typescript@2.1 tsc -p utils/doclint/generate_types/test/",
+    "unit-bundle": "node utils/browser/test.js"
+  },
+  "author": "The Chromium Authors",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "extract-zip": "^1.6.6",
+    "https-proxy-agent": "^2.2.1",
+    "mime": "^2.0.3",
+    "progress": "^2.0.1",
+    "proxy-from-env": "^1.0.0",
+    "rimraf": "^2.6.1",
+    "ws": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.31",
+    "@types/extract-zip": "^1.6.2",
+    "@types/mime": "^2.0.0",
+    "@types/node": "^8.10.34",
+    "@types/rimraf": "^2.0.2",
+    "@types/ws": "^6.0.1",
+    "commonmark": "^0.28.1",
+    "cross-env": "^5.0.5",
+    "eslint": "^5.15.1",
+    "esprima": "^4.0.0",
+    "jpeg-js": "^0.3.4",
+    "minimist": "^1.2.0",
+    "ncp": "^2.0.0",
+    "pixelmatch": "^4.0.2",
+    "pngjs": "^3.3.3",
+    "text-diff": "^1.0.1",
+    "typescript": "3.2.2"
+  },
+  "browser": {
+    "./lib/BrowserFetcher.js": false,
+    "./node6/lib/Puppeteer": false,
+    "ws": "./utils/browser/WebSocket",
+    "fs": false,
+    "child_process": false,
+    "rimraf": false,
+    "readline": false
+  }
+}
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/helper.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const {TimeoutError} = require('./Errors');
+// const debugError = require('debug')(`puppeteer:error`);
+// const fs = require('fs');
+
+class Helper {
+  /**
+   * @param {Function|string} fun
+   * @param {!Array<*>} args
+   * @return {string}
+   */
+  static evaluationString(fun, ...args) {
+    if (Helper.isString(fun)) {
+      assert(args.length === 0, 'Cannot evaluate a string with arguments');
+      return /** @type {string} */ (fun);
+    }
+    return `(${fun})(${args.map(serializeArgument).join(',')})`;
+
+    /**
+     * @param {*} arg
+     * @return {string}
+     */
+    function serializeArgument(arg) {
+      if (Object.is(arg, undefined))
+        return 'undefined';
+      return JSON.stringify(arg);
+    }
+  }
+
+  /**
+   * @param {!Protocol.Runtime.ExceptionDetails} exceptionDetails
+   * @return {string}
+   */
+  static getExceptionMessage(exceptionDetails) {
+    if (exceptionDetails.exception)
+      return exceptionDetails.exception.description || exceptionDetails.exception.value;
+    let message = exceptionDetails.text;
+    if (exceptionDetails.stackTrace) {
+      for (const callframe of exceptionDetails.stackTrace.callFrames) {
+        const location = callframe.url + ':' + callframe.lineNumber + ':' + callframe.columnNumber;
+        const functionName = callframe.functionName || '<anonymous>';
+        message += `\n    at ${functionName} (${location})`;
+      }
+    }
+    return message;
+  }
+
+  /**
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject
+   * @return {*}
+   */
+  static valueFromRemoteObject(remoteObject) {
+    assert(!remoteObject.objectId, 'Cannot extract value when objectId is given');
+    if (remoteObject.unserializableValue) {
+      if (remoteObject.type === 'bigint' && typeof BigInt !== 'undefined')
+        return BigInt(remoteObject.unserializableValue.replace('n', ''));
+      switch (remoteObject.unserializableValue) {
+        case '-0':
+          return -0;
+        case 'NaN':
+          return NaN;
+        case 'Infinity':
+          return Infinity;
+        case '-Infinity':
+          return -Infinity;
+        default:
+          throw new Error('Unsupported unserializable value: ' + remoteObject.unserializableValue);
+      }
+    }
+    return remoteObject.value;
+  }
+
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject
+   */
+  static async releaseObject(client, remoteObject) {
+    if (!remoteObject.objectId)
+      return;
+    await client.send('Runtime.releaseObject', {objectId: remoteObject.objectId}).catch(error => {
+      // Exceptions might happen in case of a page been navigated or closed.
+      // Swallow these since they are harmless and we don't leak anything in this case.
+      debugError(error);
+    });
+  }
+
+  /**
+   * @param {!Object} classType
+   */
+  static installAsyncStackHooks(classType) {
+    for (const methodName of Reflect.ownKeys(classType.prototype)) {
+      const method = Reflect.get(classType.prototype, methodName);
+      if (methodName === 'constructor' || typeof methodName !== 'string' || methodName.startsWith('_') || typeof method !== 'function' || method.constructor.name !== 'AsyncFunction')
+        continue;
+      Reflect.set(classType.prototype, methodName, function(...args) {
+        const syncStack = {};
+        Error.captureStackTrace(syncStack);
+        return method.call(this, ...args).catch(e => {
+          const stack = syncStack.stack.substring(syncStack.stack.indexOf('\n') + 1);
+          const clientStack = stack.substring(stack.indexOf('\n'));
+          if (e instanceof Error && e.stack && !e.stack.includes(clientStack))
+            e.stack += '\n  -- ASYNC --\n' + stack;
+          throw e;
+        });
+      });
+    }
+  }
+
+  /**
+   * @param {!NodeJS.EventEmitter} emitter
+   * @param {(string|symbol)} eventName
+   * @param {function(?):void} handler
+   * @return {{emitter: !NodeJS.EventEmitter, eventName: (string|symbol), handler: function(?)}}
+   */
+  static addEventListener(emitter, eventName, handler) {
+    emitter.on(eventName, handler);
+    return { emitter, eventName, handler };
+  }
+
+  /**
+   * @param {!Array<{emitter: !NodeJS.EventEmitter, eventName: (string|symbol), handler: function(?):void}>} listeners
+   */
+  static removeEventListeners(listeners) {
+    for (const listener of listeners)
+      listener.emitter.removeListener(listener.eventName, listener.handler);
+    listeners.splice(0, listeners.length);
+  }
+
+  /**
+   * @param {!Object} obj
+   * @return {boolean}
+   */
+  static isString(obj) {
+    return typeof obj === 'string' || obj instanceof String;
+  }
+
+  /**
+   * @param {!Object} obj
+   * @return {boolean}
+   */
+  static isNumber(obj) {
+    return typeof obj === 'number' || obj instanceof Number;
+  }
+
+  static promisify(nodeFunction) {
+    function promisified(...args) {
+      return new Promise((resolve, reject) => {
+        function callback(err, ...result) {
+          if (err)
+            return reject(err);
+          if (result.length === 1)
+            return resolve(result[0]);
+          return resolve(result);
+        }
+        nodeFunction.call(null, ...args, callback);
+      });
+    }
+    return promisified;
+  }
+
+  /**
+   * @param {!NodeJS.EventEmitter} emitter
+   * @param {(string|symbol)} eventName
+   * @param {function} predicate
+   * @return {!Promise}
+   */
+  static waitForEvent(emitter, eventName, predicate, timeout) {
+    let eventTimeout, resolveCallback, rejectCallback;
+    const promise = new Promise((resolve, reject) => {
+      resolveCallback = resolve;
+      rejectCallback = reject;
+    });
+    const listener = Helper.addEventListener(emitter, eventName, event => {
+      if (!predicate(event))
+        return;
+      cleanup();
+      resolveCallback(event);
+    });
+    if (timeout) {
+      eventTimeout = setTimeout(() => {
+        cleanup();
+        rejectCallback(new TimeoutError('Timeout exceeded while waiting for event'));
+      }, timeout);
+    }
+    function cleanup() {
+      Helper.removeEventListeners([listener]);
+      clearTimeout(eventTimeout);
+    }
+    return promise;
+  }
+
+  /**
+   * @template T
+   * @param {!Promise<T>} promise
+   * @param {string} taskName
+   * @param {number} timeout
+   * @return {!Promise<T>}
+   */
+  static async waitWithTimeout(promise, taskName, timeout) {
+    let reject;
+    const timeoutError = new TimeoutError(`waiting for ${taskName} failed: timeout ${timeout}ms exceeded`);
+    const timeoutPromise = new Promise((resolve, x) => reject = x);
+    let timeoutTimer = null;
+    if (timeout)
+      timeoutTimer = setTimeout(() => reject(timeoutError), timeout);
+    try {
+      return await Promise.race([promise, timeoutPromise]);
+    } finally {
+      if (timeoutTimer)
+        clearTimeout(timeoutTimer);
+    }
+  }
+
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {string} handle
+   * @param {?string} path
+   * @return {!Promise<!Buffer>}
+   */
+  static async readProtocolStream(client, handle, path) {
+    let eof = false;
+    let file;
+    if (path)
+      file = await openAsync(path, 'w');
+    const bufs = [];
+    while (!eof) {
+      const response = await client.send('IO.read', {handle});
+      eof = response.eof;
+      const buf = Buffer.from(response.data, response.base64Encoded ? 'base64' : undefined);
+      bufs.push(buf);
+      if (path)
+        await writeAsync(file, buf);
+    }
+    if (path)
+      await closeAsync(file);
+    await client.send('IO.close', {handle});
+    let resultBuffer = null;
+    try {
+      resultBuffer = Buffer.concat(bufs);
+    } finally {
+      return resultBuffer;
+    }
+  }
+}
+
+const openAsync = Helper.promisify(fs.open);
+const writeAsync = Helper.promisify(fs.write);
+const closeAsync = Helper.promisify(fs.close);
+
+/**
+ * @param {*} value
+ * @param {string=} message
+ */
+function assert(value, message) {
+  if (!value)
+    throw new Error(message);
+}
+
+module.exports = {
+  helper: Helper,
+  assert,
+  debugError
+};
+// hack-puppeteer - module.exports
+const helper = Helper;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Accessibility.js
+*/
+/**
+ * Copyright 2018 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @typedef {Object} SerializedAXNode
+ * @property {string} role
+ *
+ * @property {string=} name
+ * @property {string|number=} value
+ * @property {string=} description
+ *
+ * @property {string=} keyshortcuts
+ * @property {string=} roledescription
+ * @property {string=} valuetext
+ *
+ * @property {boolean=} disabled
+ * @property {boolean=} expanded
+ * @property {boolean=} focused
+ * @property {boolean=} modal
+ * @property {boolean=} multiline
+ * @property {boolean=} multiselectable
+ * @property {boolean=} readonly
+ * @property {boolean=} required
+ * @property {boolean=} selected
+ *
+ * @property {boolean|"mixed"=} checked
+ * @property {boolean|"mixed"=} pressed
+ *
+ * @property {number=} level
+ * @property {number=} valuemin
+ * @property {number=} valuemax
+ *
+ * @property {string=} autocomplete
+ * @property {string=} haspopup
+ * @property {string=} invalid
+ * @property {string=} orientation
+ *
+ * @property {Array<SerializedAXNode>=} children
+ */
+
+class Accessibility {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+  }
+
+  /**
+   * @param {{interestingOnly?: boolean, root?: ?Puppeteer.ElementHandle}=} options
+   * @return {!Promise<!SerializedAXNode>}
+   */
+  async snapshot(options = {}) {
+    const {
+      interestingOnly = true,
+      root = null,
+    } = options;
+    const {nodes} = await this._client.send('Accessibility.getFullAXTree');
+    let backendNodeId = null;
+    if (root) {
+      const {node} = await this._client.send('DOM.describeNode', {objectId: root._remoteObject.objectId});
+      backendNodeId = node.backendNodeId;
+    }
+    const defaultRoot = AXNode.createTree(nodes);
+    let needle = defaultRoot;
+    if (backendNodeId) {
+      needle = defaultRoot.find(node => node._payload.backendDOMNodeId === backendNodeId);
+      if (!needle)
+        return null;
+    }
+    if (!interestingOnly)
+      return serializeTree(needle)[0];
+
+    /** @type {!Set<!AXNode>} */
+    const interestingNodes = new Set();
+    collectInterestingNodes(interestingNodes, defaultRoot, false);
+    if (!interestingNodes.has(needle))
+      return null;
+    return serializeTree(needle, interestingNodes)[0];
+  }
+}
+
+/**
+ * @param {!Set<!AXNode>} collection
+ * @param {!AXNode} node
+ * @param {boolean} insideControl
+ */
+function collectInterestingNodes(collection, node, insideControl) {
+  if (node.isInteresting(insideControl))
+    collection.add(node);
+  if (node.isLeafNode())
+    return;
+  insideControl = insideControl || node.isControl();
+  for (const child of node._children)
+    collectInterestingNodes(collection, child, insideControl);
+}
+
+/**
+ * @param {!AXNode} node
+ * @param {!Set<!AXNode>=} whitelistedNodes
+ * @return {!Array<!SerializedAXNode>}
+ */
+function serializeTree(node, whitelistedNodes) {
+  /** @type {!Array<!SerializedAXNode>} */
+  const children = [];
+  for (const child of node._children)
+    children.push(...serializeTree(child, whitelistedNodes));
+
+  if (whitelistedNodes && !whitelistedNodes.has(node))
+    return children;
+
+  const serializedNode = node.serialize();
+  if (children.length)
+    serializedNode.children = children;
+  return [serializedNode];
+}
+
+class AXNode {
+  /**
+   * @param {!Protocol.Accessibility.AXNode} payload
+   */
+  constructor(payload) {
+    this._payload = payload;
+
+    /** @type {!Array<!AXNode>} */
+    this._children = [];
+
+    this._richlyEditable = false;
+    this._editable = false;
+    this._focusable = false;
+    this._expanded = false;
+    this._name = this._payload.name ? this._payload.name.value : '';
+    this._role = this._payload.role ? this._payload.role.value : 'Unknown';
+    this._cachedHasFocusableChild;
+
+    for (const property of this._payload.properties || []) {
+      if (property.name === 'editable') {
+        this._richlyEditable = property.value.value === 'richtext';
+        this._editable = true;
+      }
+      if (property.name === 'focusable')
+        this._focusable = property.value.value;
+      if (property.name === 'expanded')
+        this._expanded = property.value.value;
+    }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _isPlainTextField() {
+    if (this._richlyEditable)
+      return false;
+    if (this._editable)
+      return true;
+    return this._role === 'textbox' || this._role === 'ComboBox' || this._role === 'searchbox';
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _isTextOnlyObject() {
+    const role = this._role;
+    return (role === 'LineBreak' || role === 'text' ||
+            role === 'InlineTextBox');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _hasFocusableChild() {
+    if (this._cachedHasFocusableChild === undefined) {
+      this._cachedHasFocusableChild = false;
+      for (const child of this._children) {
+        if (child._focusable || child._hasFocusableChild()) {
+          this._cachedHasFocusableChild = true;
+          break;
+        }
+      }
+    }
+    return this._cachedHasFocusableChild;
+  }
+
+  /**
+   * @param {function(AXNode):boolean} predicate
+   * @return {?AXNode}
+   */
+  find(predicate) {
+    if (predicate(this))
+      return this;
+    for (const child of this._children) {
+      const result = child.find(predicate);
+      if (result)
+        return result;
+    }
+    return null;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isLeafNode() {
+    if (!this._children.length)
+      return true;
+
+    // These types of objects may have children that we use as internal
+    // implementation details, but we want to expose them as leaves to platform
+    // accessibility APIs because screen readers might be confused if they find
+    // any children.
+    if (this._isPlainTextField() || this._isTextOnlyObject())
+      return true;
+
+    // Roles whose children are only presentational according to the ARIA and
+    // HTML5 Specs should be hidden from screen readers.
+    // (Note that whilst ARIA buttons can have only presentational children, HTML5
+    // buttons are allowed to have content.)
+    switch (this._role) {
+      case 'doc-cover':
+      case 'graphics-symbol':
+      case 'img':
+      case 'Meter':
+      case 'scrollbar':
+      case 'slider':
+      case 'separator':
+      case 'progressbar':
+        return true;
+      default:
+        break;
+    }
+
+    // Here and below: Android heuristics
+    if (this._hasFocusableChild())
+      return false;
+    if (this._focusable && this._name)
+      return true;
+    if (this._role === 'heading' && this._name)
+      return true;
+    return false;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isControl() {
+    switch (this._role) {
+      case 'button':
+      case 'checkbox':
+      case 'ColorWell':
+      case 'combobox':
+      case 'DisclosureTriangle':
+      case 'listbox':
+      case 'menu':
+      case 'menubar':
+      case 'menuitem':
+      case 'menuitemcheckbox':
+      case 'menuitemradio':
+      case 'radio':
+      case 'scrollbar':
+      case 'searchbox':
+      case 'slider':
+      case 'spinbutton':
+      case 'switch':
+      case 'tab':
+      case 'textbox':
+      case 'tree':
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  /**
+   * @param {boolean} insideControl
+   * @return {boolean}
+   */
+  isInteresting(insideControl) {
+    const role = this._role;
+    if (role === 'Ignored')
+      return false;
+
+    if (this._focusable || this._richlyEditable)
+      return true;
+
+    // If it's not focusable but has a control role, then it's interesting.
+    if (this.isControl())
+      return true;
+
+    // A non focusable child of a control is not interesting
+    if (insideControl)
+      return false;
+
+    return this.isLeafNode() && !!this._name;
+  }
+
+  /**
+   * @return {!SerializedAXNode}
+   */
+  serialize() {
+    /** @type {!Map<string, number|string|boolean>} */
+    const properties = new Map();
+    for (const property of this._payload.properties || [])
+      properties.set(property.name.toLowerCase(), property.value.value);
+    if (this._payload.name)
+      properties.set('name', this._payload.name.value);
+    if (this._payload.value)
+      properties.set('value', this._payload.value.value);
+    if (this._payload.description)
+      properties.set('description', this._payload.description.value);
+
+    /** @type {SerializedAXNode} */
+    const node = {
+      role: this._role
+    };
+
+    /** @type {!Array<keyof SerializedAXNode>} */
+    const userStringProperties = [
+      'name',
+      'value',
+      'description',
+      'keyshortcuts',
+      'roledescription',
+      'valuetext',
+    ];
+    for (const userStringProperty of userStringProperties) {
+      if (!properties.has(userStringProperty))
+        continue;
+      node[userStringProperty] = properties.get(userStringProperty);
+    }
+
+    /** @type {!Array<keyof SerializedAXNode>} */
+    const booleanProperties = [
+      'disabled',
+      'expanded',
+      'focused',
+      'modal',
+      'multiline',
+      'multiselectable',
+      'readonly',
+      'required',
+      'selected',
+    ];
+    for (const booleanProperty of booleanProperties) {
+      // WebArea's treat focus differently than other nodes. They report whether their frame  has focus,
+      // not whether focus is specifically on the root node.
+      if (booleanProperty === 'focused' && this._role === 'WebArea')
+        continue;
+      const value = properties.get(booleanProperty);
+      if (!value)
+        continue;
+      node[booleanProperty] = value;
+    }
+
+    /** @type {!Array<keyof SerializedAXNode>} */
+    const tristateProperties = [
+      'checked',
+      'pressed',
+    ];
+    for (const tristateProperty of tristateProperties) {
+      if (!properties.has(tristateProperty))
+        continue;
+      const value = properties.get(tristateProperty);
+      node[tristateProperty] = value === 'mixed' ? 'mixed' : value === 'true' ? true : false;
+    }
+    /** @type {!Array<keyof SerializedAXNode>} */
+    const numericalProperties = [
+      'level',
+      'valuemax',
+      'valuemin',
+    ];
+    for (const numericalProperty of numericalProperties) {
+      if (!properties.has(numericalProperty))
+        continue;
+      node[numericalProperty] = properties.get(numericalProperty);
+    }
+    /** @type {!Array<keyof SerializedAXNode>} */
+    const tokenProperties = [
+      'autocomplete',
+      'haspopup',
+      'invalid',
+      'orientation',
+    ];
+    for (const tokenProperty of tokenProperties) {
+      const value = properties.get(tokenProperty);
+      if (!value || value === 'false')
+        continue;
+      node[tokenProperty] = value;
+    }
+    return node;
+  }
+
+  /**
+   * @param {!Array<!Protocol.Accessibility.AXNode>} payloads
+   * @return {!AXNode}
+   */
+  static createTree(payloads) {
+    /** @type {!Map<string, !AXNode>} */
+    const nodeById = new Map();
+    for (const payload of payloads)
+      nodeById.set(payload.nodeId, new AXNode(payload));
+    for (const node of nodeById.values()) {
+      for (const childId of node._payload.childIds || [])
+        node._children.push(nodeById.get(childId));
+    }
+    return nodeById.values().next().value;
+  }
+}
+
+module.exports = {Accessibility};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Browser.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const { helper, assert } = require('./helper');
+// const {Target} = require('./Target');
+// const EventEmitter = require('events');
+// const {TaskQueue} = require('./TaskQueue');
+// const {Events} = require('./Events');
+
+class Browser extends EventEmitter {
+  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array<string>} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {function()=} closeCallback
+   */
+  static async create(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    const browser = new Browser(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback);
+    await connection.send('Target.setDiscoverTargets', {discover: true});
+    return browser;
+  }
+
+  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array<string>} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {(function():Promise)=} closeCallback
+   */
+  constructor(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    super();
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;
+    this._defaultViewport = defaultViewport;
+    this._process = process;
+    this._screenshotTaskQueue = new TaskQueue();
+    this._connection = connection;
+    this._closeCallback = closeCallback || new Function();
+
+    this._defaultContext = new BrowserContext(this._connection, this, null);
+    /** @type {Map<string, BrowserContext>} */
+    this._contexts = new Map();
+    for (const contextId of contextIds)
+      this._contexts.set(contextId, new BrowserContext(this._connection, this, contextId));
+
+    /** @type {Map<string, Target>} */
+    this._targets = new Map();
+    this._connection.on(Events.Connection.Disconnected, () => this.emit(Events.Browser.Disconnected));
+    this._connection.on('Target.targetCreated', this._targetCreated.bind(this));
+    this._connection.on('Target.targetDestroyed', this._targetDestroyed.bind(this));
+    this._connection.on('Target.targetInfoChanged', this._targetInfoChanged.bind(this));
+  }
+
+  /**
+   * @return {?Puppeteer.ChildProcess}
+   */
+  process() {
+    return this._process;
+  }
+
+  /**
+   * @return {!Promise<!BrowserContext>}
+   */
+  async createIncognitoBrowserContext() {
+    const {browserContextId} = await this._connection.send('Target.createBrowserContext');
+    const context = new BrowserContext(this._connection, this, browserContextId);
+    this._contexts.set(browserContextId, context);
+    return context;
+  }
+
+  /**
+   * @return {!Array<!BrowserContext>}
+   */
+  browserContexts() {
+    return [this._defaultContext, ...Array.from(this._contexts.values())];
+  }
+
+  /**
+   * @return {!BrowserContext}
+   */
+  defaultBrowserContext() {
+    return this._defaultContext;
+  }
+
+  /**
+   * @param {?string} contextId
+   */
+  async _disposeContext(contextId) {
+    await this._connection.send('Target.disposeBrowserContext', {browserContextId: contextId || undefined});
+    this._contexts.delete(contextId);
+  }
+
+  /**
+   * @param {!Protocol.Target.targetCreatedPayload} event
+   */
+  async _targetCreated(event) {
+    const targetInfo = event.targetInfo;
+    const {browserContextId} = targetInfo;
+    const context = (browserContextId && this._contexts.has(browserContextId)) ? this._contexts.get(browserContextId) : this._defaultContext;
+
+    const target = new Target(targetInfo, context, () => this._connection.createSession(targetInfo), this._ignoreHTTPSErrors, this._defaultViewport, this._screenshotTaskQueue);
+    assert(!this._targets.has(event.targetInfo.targetId), 'Target should not exist before targetCreated');
+    this._targets.set(event.targetInfo.targetId, target);
+
+    if (await target._initializedPromise) {
+      this.emit(Events.Browser.TargetCreated, target);
+      context.emit(Events.BrowserContext.TargetCreated, target);
+    }
+  }
+
+  /**
+   * @param {{targetId: string}} event
+   */
+  async _targetDestroyed(event) {
+    const target = this._targets.get(event.targetId);
+    target._initializedCallback(false);
+    this._targets.delete(event.targetId);
+    target._closedCallback();
+    if (await target._initializedPromise) {
+      this.emit(Events.Browser.TargetDestroyed, target);
+      target.browserContext().emit(Events.BrowserContext.TargetDestroyed, target);
+    }
+  }
+
+  /**
+   * @param {!Protocol.Target.targetInfoChangedPayload} event
+   */
+  _targetInfoChanged(event) {
+    const target = this._targets.get(event.targetInfo.targetId);
+    assert(target, 'target should exist before targetInfoChanged');
+    const previousURL = target.url();
+    const wasInitialized = target._isInitialized;
+    target._targetInfoChanged(event.targetInfo);
+    if (wasInitialized && previousURL !== target.url()) {
+      this.emit(Events.Browser.TargetChanged, target);
+      target.browserContext().emit(Events.BrowserContext.TargetChanged, target);
+    }
+  }
+
+  /**
+   * @return {string}
+   */
+  wsEndpoint() {
+    return this._connection.url();
+  }
+
+  /**
+   * @return {!Promise<!Puppeteer.Page>}
+   */
+  async newPage() {
+    return this._defaultContext.newPage();
+  }
+
+  /**
+   * @param {?string} contextId
+   * @return {!Promise<!Puppeteer.Page>}
+   */
+  async _createPageInContext(contextId) {
+    const {targetId} = await this._connection.send('Target.createTarget', {url: 'about:blank', browserContextId: contextId || undefined});
+    const target = await this._targets.get(targetId);
+    assert(await target._initializedPromise, 'Failed to create target for page');
+    const page = await target.page();
+    return page;
+  }
+
+  /**
+   * @return {!Array<!Target>}
+   */
+  targets() {
+    return Array.from(this._targets.values()).filter(target => target._isInitialized);
+  }
+
+  /**
+   * @return {!Target}
+   */
+  target() {
+    return this.targets().find(target => target.type() === 'browser');
+  }
+
+  /**
+   * @param {function(!Target):boolean} predicate
+   * @param {{timeout?: number}=} options
+   * @return {!Promise<!Target>}
+   */
+  async waitForTarget(predicate, options = {}) {
+    const {
+      timeout = 30000
+    } = options;
+    const existingTarget = this.targets().find(predicate);
+    if (existingTarget)
+      return existingTarget;
+    let resolve;
+    const targetPromise = new Promise(x => resolve = x);
+    this.on(Events.Browser.TargetCreated, check);
+    this.on(Events.Browser.TargetChanged, check);
+    try {
+      if (!timeout)
+        return await targetPromise;
+      return await helper.waitWithTimeout(targetPromise, 'target', timeout);
+    } finally {
+      this.removeListener(Events.Browser.TargetCreated, check);
+      this.removeListener(Events.Browser.TargetChanged, check);
+    }
+
+    /**
+     * @param {!Target} target
+     */
+    function check(target) {
+      if (predicate(target))
+        resolve(target);
+    }
+  }
+
+  /**
+   * @return {!Promise<!Array<!Puppeteer.Page>>}
+   */
+  async pages() {
+    const contextPages = await Promise.all(this.browserContexts().map(context => context.pages()));
+    // Flatten array.
+    return contextPages.reduce((acc, x) => acc.concat(x), []);
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async version() {
+    const version = await this._getVersion();
+    return version.product;
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async userAgent() {
+    const version = await this._getVersion();
+    return version.userAgent;
+  }
+
+  async close() {
+    await this._closeCallback.call(null);
+    this.disconnect();
+  }
+
+  disconnect() {
+    this._connection.dispose();
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isConnected() {
+    return !this._connection._closed;
+  }
+
+  /**
+   * @return {!Promise<!Object>}
+   */
+  _getVersion() {
+    return this._connection.send('Browser.getVersion');
+  }
+}
+
+class BrowserContext extends EventEmitter {
+  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Browser} browser
+   * @param {?string} contextId
+   */
+  constructor(connection, browser, contextId) {
+    super();
+    this._connection = connection;
+    this._browser = browser;
+    this._id = contextId;
+  }
+
+  /**
+   * @return {!Array<!Target>} target
+   */
+  targets() {
+    return this._browser.targets().filter(target => target.browserContext() === this);
+  }
+
+  /**
+   * @param {function(!Target):boolean} predicate
+   * @param {{timeout?: number}=} options
+   * @return {!Promise<!Target>}
+   */
+  waitForTarget(predicate, options) {
+    return this._browser.waitForTarget(target => target.browserContext() === this && predicate(target), options);
+  }
+
+  /**
+   * @return {!Promise<!Array<!Puppeteer.Page>>}
+   */
+  async pages() {
+    const pages = await Promise.all(
+        this.targets()
+            .filter(target => target.type() === 'page')
+            .map(target => target.page())
+    );
+    return pages.filter(page => !!page);
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isIncognito() {
+    return !!this._id;
+  }
+
+  /**
+   * @param {string} origin
+   * @param {!Array<string>} permissions
+   */
+  async overridePermissions(origin, permissions) {
+    const webPermissionToProtocol = new Map([
+      ['geolocation', 'geolocation'],
+      ['midi', 'midi'],
+      ['notifications', 'notifications'],
+      ['push', 'push'],
+      ['camera', 'videoCapture'],
+      ['microphone', 'audioCapture'],
+      ['background-sync', 'backgroundSync'],
+      ['ambient-light-sensor', 'sensors'],
+      ['accelerometer', 'sensors'],
+      ['gyroscope', 'sensors'],
+      ['magnetometer', 'sensors'],
+      ['accessibility-events', 'accessibilityEvents'],
+      ['clipboard-read', 'clipboardRead'],
+      ['clipboard-write', 'clipboardWrite'],
+      ['payment-handler', 'paymentHandler'],
+      // chrome-specific permissions we have.
+      ['midi-sysex', 'midiSysex'],
+    ]);
+    permissions = permissions.map(permission => {
+      const protocolPermission = webPermissionToProtocol.get(permission);
+      if (!protocolPermission)
+        throw new Error('Unknown permission: ' + permission);
+      return protocolPermission;
+    });
+    await this._connection.send('Browser.grantPermissions', {origin, browserContextId: this._id || undefined, permissions});
+  }
+
+  async clearPermissionOverrides() {
+    await this._connection.send('Browser.resetPermissions', {browserContextId: this._id || undefined});
+  }
+
+  /**
+   * @return {!Promise<!Puppeteer.Page>}
+   */
+  newPage() {
+    return this._browser._createPageInContext(this._id);
+  }
+
+  /**
+   * @return {!Browser}
+   */
+  browser() {
+    return this._browser;
+  }
+
+  async close() {
+    assert(this._id, 'Non-incognito profiles cannot be closed!');
+    await this._browser._disposeContext(this._id);
+  }
+}
+
+module.exports = {Browser, BrowserContext};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/BrowserFetcher.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const os = require('os');
+// const fs = require('fs');
+// const path = require('path');
+// const extract = require('extract-zip');
+// const util = require('util');
+// const URL = require('url');
+// const {helper, assert} = require('./helper');
+// const removeRecursive = require('rimraf');
+// @ts-ignore
+// const ProxyAgent = require('https-proxy-agent');
+// @ts-ignore
+// const getProxyForUrl = require('proxy-from-env').getProxyForUrl;
+
+const DEFAULT_DOWNLOAD_HOST = 'https://storage.googleapis.com';
+
+const supportedPlatforms = ['mac', 'linux', 'win32', 'win64'];
+const downloadURLs = {
+  linux: '%s/chromium-browser-snapshots/Linux_x64/%d/%s.zip',
+  mac: '%s/chromium-browser-snapshots/Mac/%d/%s.zip',
+  win32: '%s/chromium-browser-snapshots/Win/%d/%s.zip',
+  win64: '%s/chromium-browser-snapshots/Win_x64/%d/%s.zip',
+};
+
+/**
+ * @param {string} platform
+ * @param {string} revision
+ * @return {string}
+ */
+function archiveName(platform, revision) {
+  if (platform === 'linux')
+    return 'chrome-linux';
+  if (platform === 'mac')
+    return 'chrome-mac';
+  if (platform === 'win32' || platform === 'win64') {
+    // Windows archive name changed at r591479.
+    return parseInt(revision, 10) > 591479 ? 'chrome-win' : 'chrome-win32';
+  }
+  return null;
+}
+
+/**
+ * @param {string} platform
+ * @param {string} host
+ * @param {string} revision
+ * @return {string}
+ */
+function downloadURL(platform, host, revision) {
+  return util.format(downloadURLs[platform], host, revision, archiveName(platform, revision));
+}
+
+const readdirAsync = helper.promisify(fs.readdir.bind(fs));
+const mkdirAsync = helper.promisify(fs.mkdir.bind(fs));
+const unlinkAsync = helper.promisify(fs.unlink.bind(fs));
+const chmodAsync = helper.promisify(fs.chmod.bind(fs));
+
+function existsAsync(filePath) {
+  let fulfill = null;
+  const promise = new Promise(x => fulfill = x);
+  fs.access(filePath, err => fulfill(!err));
+  return promise;
+}
+
+class BrowserFetcher {
+  /**
+   * @param {string} projectRoot
+   * @param {!BrowserFetcher.Options=} options
+   */
+  constructor(projectRoot, options = {}) {
+    this._downloadsFolder = options.path || path.join(projectRoot, '.local-chromium');
+    this._downloadHost = options.host || DEFAULT_DOWNLOAD_HOST;
+    this._platform = options.platform || '';
+    if (!this._platform) {
+      const platform = os.platform();
+      if (platform === 'darwin')
+        this._platform = 'mac';
+      else if (platform === 'linux')
+        this._platform = 'linux';
+      else if (platform === 'win32')
+        this._platform = os.arch() === 'x64' ? 'win64' : 'win32';
+      assert(this._platform, 'Unsupported platform: ' + os.platform());
+    }
+    assert(supportedPlatforms.includes(this._platform), 'Unsupported platform: ' + this._platform);
+  }
+
+  /**
+   * @return {string}
+   */
+  platform() {
+    return this._platform;
+  }
+
+  /**
+   * @param {string} revision
+   * @return {!Promise<boolean>}
+   */
+  canDownload(revision) {
+    const url = downloadURL(this._platform, this._downloadHost, revision);
+    let resolve;
+    const promise = new Promise(x => resolve = x);
+    const request = httpRequest(url, 'HEAD', response => {
+      resolve(response.statusCode === 200);
+    });
+    request.on('error', error => {
+      console.error(error);
+      resolve(false);
+    });
+    return promise;
+  }
+
+  /**
+   * @param {string} revision
+   * @param {?function(number, number):void} progressCallback
+   * @return {!Promise<!BrowserFetcher.RevisionInfo>}
+   */
+  async download(revision, progressCallback) {
+    const url = downloadURL(this._platform, this._downloadHost, revision);
+    const zipPath = path.join(this._downloadsFolder, `download-${this._platform}-${revision}.zip`);
+    const folderPath = this._getFolderPath(revision);
+    if (await existsAsync(folderPath))
+      return this.revisionInfo(revision);
+    if (!(await existsAsync(this._downloadsFolder)))
+      await mkdirAsync(this._downloadsFolder);
+    try {
+      await downloadFile(url, zipPath, progressCallback);
+      await extractZip(zipPath, folderPath);
+    } finally {
+      if (await existsAsync(zipPath))
+        await unlinkAsync(zipPath);
+    }
+    const revisionInfo = this.revisionInfo(revision);
+    if (revisionInfo)
+      await chmodAsync(revisionInfo.executablePath, 0o755);
+    return revisionInfo;
+  }
+
+  /**
+   * @return {!Promise<!Array<string>>}
+   */
+  async localRevisions() {
+    if (!await existsAsync(this._downloadsFolder))
+      return [];
+    const fileNames = await readdirAsync(this._downloadsFolder);
+    return fileNames.map(fileName => parseFolderPath(fileName)).filter(entry => entry && entry.platform === this._platform).map(entry => entry.revision);
+  }
+
+  /**
+   * @param {string} revision
+   */
+  async remove(revision) {
+    const folderPath = this._getFolderPath(revision);
+    assert(await existsAsync(folderPath), `Failed to remove: revision ${revision} is not downloaded`);
+    await new Promise(fulfill => removeRecursive(folderPath, fulfill));
+  }
+
+  /**
+   * @param {string} revision
+   * @return {!BrowserFetcher.RevisionInfo}
+   */
+  revisionInfo(revision) {
+    const folderPath = this._getFolderPath(revision);
+    let executablePath = '';
+    if (this._platform === 'mac')
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'Chromium.app', 'Contents', 'MacOS', 'Chromium');
+    else if (this._platform === 'linux')
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'chrome');
+    else if (this._platform === 'win32' || this._platform === 'win64')
+      executablePath = path.join(folderPath, archiveName(this._platform, revision), 'chrome.exe');
+    else
+      throw new Error('Unsupported platform: ' + this._platform);
+    const url = downloadURL(this._platform, this._downloadHost, revision);
+    const local = fs.existsSync(folderPath);
+    return {revision, executablePath, folderPath, local, url};
+  }
+
+  /**
+   * @param {string} revision
+   * @return {string}
+   */
+  _getFolderPath(revision) {
+    return path.join(this._downloadsFolder, this._platform + '-' + revision);
+  }
+}
+
+module.exports = BrowserFetcher;
+
+/**
+ * @param {string} folderPath
+ * @return {?{platform: string, revision: string}}
+ */
+function parseFolderPath(folderPath) {
+  const name = path.basename(folderPath);
+  const splits = name.split('-');
+  if (splits.length !== 2)
+    return null;
+  const [platform, revision] = splits;
+  if (!supportedPlatforms.includes(platform))
+    return null;
+  return {platform, revision};
+}
+
+/**
+ * @param {string} url
+ * @param {string} destinationPath
+ * @param {?function(number, number):void} progressCallback
+ * @return {!Promise}
+ */
+function downloadFile(url, destinationPath, progressCallback) {
+  let fulfill, reject;
+  let downloadedBytes = 0;
+  let totalBytes = 0;
+
+  const promise = new Promise((x, y) => { fulfill = x; reject = y; });
+
+  const request = httpRequest(url, 'GET', response => {
+    if (response.statusCode !== 200) {
+      const error = new Error(`Download failed: server returned code ${response.statusCode}. URL: ${url}`);
+      // consume response data to free up memory
+      response.resume();
+      reject(error);
+      return;
+    }
+    const file = fs.createWriteStream(destinationPath);
+    file.on('finish', () => fulfill());
+    file.on('error', error => reject(error));
+    response.pipe(file);
+    totalBytes = parseInt(/** @type {string} */ (response.headers['content-length']), 10);
+    if (progressCallback)
+      response.on('data', onData);
+  });
+  request.on('error', error => reject(error));
+  return promise;
+
+  function onData(chunk) {
+    downloadedBytes += chunk.length;
+    progressCallback(downloadedBytes, totalBytes);
+  }
+}
+
+/**
+ * @param {string} zipPath
+ * @param {string} folderPath
+ * @return {!Promise<?Error>}
+ */
+function extractZip(zipPath, folderPath) {
+  return new Promise((fulfill, reject) => extract(zipPath, {dir: folderPath}, err => {
+    if (err)
+      reject(err);
+    else
+      fulfill();
+  }));
+}
+
+function httpRequest(url, method, response) {
+  /** @type {Object} */
+  let options = URL.parse(url);
+  options.method = method;
+
+  const proxyURL = getProxyForUrl(url);
+  if (proxyURL) {
+    if (url.startsWith('http:')) {
+      const proxy = URL.parse(proxyURL);
+      options = {
+        path: options.href,
+        host: proxy.hostname,
+        port: proxy.port,
+      };
+    } else {
+      /** @type {Object} */
+      const parsedProxyURL = URL.parse(proxyURL);
+      parsedProxyURL.secureProxy = parsedProxyURL.protocol === 'https:';
+
+      options.agent = new ProxyAgent(parsedProxyURL);
+      options.rejectUnauthorized = false;
+    }
+  }
+
+  const requestCallback = res => {
+    if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location)
+      httpRequest(res.headers.location, method, response);
+    else
+      response(res);
+  };
+  const request = options.protocol === 'https:' ?
+    require('https').request(options, requestCallback) :
+    require('http').request(options, requestCallback);
+  request.end();
+  return request;
+}
+
+/**
+ * @typedef {Object} BrowserFetcher.Options
+ * @property {string=} platform
+ * @property {string=} path
+ * @property {string=} host
+ */
+
+/**
+ * @typedef {Object} BrowserFetcher.RevisionInfo
+ * @property {string} folderPath
+ * @property {string} executablePath
+ * @property {string} url
+ * @property {boolean} local
+ * @property {string} revision
+ */
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Connection.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const {assert} = require('./helper');
+// const {Events} = require('./Events');
+// const debugProtocol = require('debug')('puppeteer:protocol');
+// const EventEmitter = require('events');
+
+class Connection extends EventEmitter {
+  /**
+   * @param {string} url
+   * @param {!Puppeteer.ConnectionTransport} transport
+   * @param {number=} delay
+   */
+  constructor(url, transport, delay = 0) {
+    super();
+    this._url = url;
+    this._lastId = 0;
+    /** @type {!Map<number, {resolve: function, reject: function, error: !Error, method: string}>}*/
+    this._callbacks = new Map();
+    this._delay = delay;
+
+    this._transport = transport;
+    this._transport.onmessage = this._onMessage.bind(this);
+    this._transport.onclose = this._onClose.bind(this);
+    /** @type {!Map<string, !CDPSession>}*/
+    this._sessions = new Map();
+    this._closed = false;
+  }
+
+  /**
+   * @param {!CDPSession} session
+   * @return {!Connection}
+   */
+  static fromSession(session) {
+    return session._connection;
+  }
+
+  /**
+   * @param {string} sessionId
+   * @return {?CDPSession}
+   */
+  session(sessionId) {
+    return this._sessions.get(sessionId) || null;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Object=} params
+   * @return {!Promise<?Object>}
+   */
+  send(method, params = {}) {
+    const id = this._rawSend({method, params});
+    return new Promise((resolve, reject) => {
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});
+    });
+  }
+
+  /**
+   * @param {*} message
+   * @return {number}
+   */
+  _rawSend(message) {
+    const id = ++this._lastId;
+    message = JSON.stringify(Object.assign({}, message, {id}));
+    debugProtocol('SEND ► ' + message);
+    this._transport.send(message);
+    return id;
+  }
+
+  /**
+   * @param {string} message
+   */
+  async _onMessage(message) {
+    if (this._delay)
+      await new Promise(f => setTimeout(f, this._delay));
+    debugProtocol('◀ RECV ' + message);
+    const object = JSON.parse(message);
+    if (object.method === 'Target.attachedToTarget') {
+      const sessionId = object.params.sessionId;
+      const session = new CDPSession(this, object.params.targetInfo.type, sessionId);
+      this._sessions.set(sessionId, session);
+    } else if (object.method === 'Target.detachedFromTarget') {
+      const session = this._sessions.get(object.params.sessionId);
+      if (session) {
+        session._onClosed();
+        this._sessions.delete(object.params.sessionId);
+      }
+    }
+    if (object.sessionId) {
+      const session = this._sessions.get(object.sessionId);
+      if (session)
+        session._onMessage(object);
+    } else if (object.id) {
+      const callback = this._callbacks.get(object.id);
+      // Callbacks could be all rejected if someone has called `.dispose()`.
+      if (callback) {
+        this._callbacks.delete(object.id);
+        if (object.error)
+          callback.reject(createProtocolError(callback.error, callback.method, object));
+        else
+          callback.resolve(object.result);
+      }
+    } else {
+      this.emit(object.method, object.params);
+    }
+  }
+
+  _onClose() {
+    if (this._closed)
+      return;
+    this._closed = true;
+    this._transport.onmessage = null;
+    this._transport.onclose = null;
+    for (const callback of this._callbacks.values())
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));
+    this._callbacks.clear();
+    for (const session of this._sessions.values())
+      session._onClosed();
+    this._sessions.clear();
+    this.emit(Events.Connection.Disconnected);
+  }
+
+  dispose() {
+    this._onClose();
+    this._transport.close();
+  }
+
+  /**
+   * @param {Protocol.Target.TargetInfo} targetInfo
+   * @return {!Promise<!CDPSession>}
+   */
+  async createSession(targetInfo) {
+    const {sessionId} = await this.send('Target.attachToTarget', {targetId: targetInfo.targetId, flatten: true});
+    return this._sessions.get(sessionId);
+  }
+}
+
+class CDPSession extends EventEmitter {
+  /**
+   * @param {!Connection} connection
+   * @param {string} targetType
+   * @param {string} sessionId
+   */
+  constructor(connection, targetType, sessionId) {
+    super();
+    /** @type {!Map<number, {resolve: function, reject: function, error: !Error, method: string}>}*/
+    this._callbacks = new Map();
+    this._connection = connection;
+    this._targetType = targetType;
+    this._sessionId = sessionId;
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Object=} params
+   * @return {!Promise<?Object>}
+   */
+  send(method, params = {}) {
+    if (!this._connection)
+      return Promise.reject(new Error(`Protocol error (${method}): Session closed. Most likely the ${this._targetType} has been closed.`));
+    const id = this._connection._rawSend({sessionId: this._sessionId, method, params});
+    return new Promise((resolve, reject) => {
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});
+    });
+  }
+
+  /**
+   * @param {{id?: number, method: string, params: Object, error: {message: string, data: any}, result?: *}} object
+   */
+  _onMessage(object) {
+    if (object.id && this._callbacks.has(object.id)) {
+      const callback = this._callbacks.get(object.id);
+      this._callbacks.delete(object.id);
+      if (object.error)
+        callback.reject(createProtocolError(callback.error, callback.method, object));
+      else
+        callback.resolve(object.result);
+    } else {
+      assert(!object.id);
+      this.emit(object.method, object.params);
+    }
+  }
+
+  async detach() {
+    if (!this._connection)
+      throw new Error(`Session already detached. Most likely the ${this._targetType} has been closed.`);
+    await this._connection.send('Target.detachFromTarget',  {sessionId: this._sessionId});
+  }
+
+  _onClosed() {
+    for (const callback of this._callbacks.values())
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));
+    this._callbacks.clear();
+    this._connection = null;
+    this.emit(Events.CDPSession.Disconnected);
+  }
+}
+
+/**
+ * @param {!Error} error
+ * @param {string} method
+ * @param {{error: {message: string, data: any}}} object
+ * @return {!Error}
+ */
+function createProtocolError(error, method, object) {
+  let message = `Protocol error (${method}): ${object.error.message}`;
+  if ('data' in object.error)
+    message += ` ${object.error.data}`;
+  return rewriteError(error, message);
+}
+
+/**
+ * @param {!Error} error
+ * @param {string} message
+ * @return {!Error}
+ */
+function rewriteError(error, message) {
+  error.message = message;
+  return error;
+}
+
+module.exports = {Connection, CDPSession};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Coverage.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {helper, debugError, assert} = require('./helper');
+
+// const {EVALUATION_SCRIPT_URL} = require('./ExecutionContext');
+
+/**
+ * @typedef {Object} CoverageEntry
+ * @property {string} url
+ * @property {string} text
+ * @property {!Array<!{start: number, end: number}>} ranges
+ */
+
+class Coverage {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._jsCoverage = new JSCoverage(client);
+    this._cssCoverage = new CSSCoverage(client);
+  }
+
+  /**
+   * @param {!{resetOnNavigation?: boolean, reportAnonymousScripts?: boolean}} options
+   */
+  async startJSCoverage(options) {
+    return await this._jsCoverage.start(options);
+  }
+
+  /**
+   * @return {!Promise<!Array<!CoverageEntry>>}
+   */
+  async stopJSCoverage() {
+    return await this._jsCoverage.stop();
+  }
+
+  /**
+   * @param {{resetOnNavigation?: boolean}=} options
+   */
+  async startCSSCoverage(options) {
+    return await this._cssCoverage.start(options);
+  }
+
+  /**
+   * @return {!Promise<!Array<!CoverageEntry>>}
+   */
+  async stopCSSCoverage() {
+    return await this._cssCoverage.stop();
+  }
+}
+
+module.exports = {Coverage};
+
+class JSCoverage {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+    this._enabled = false;
+    this._scriptURLs = new Map();
+    this._scriptSources = new Map();
+    this._eventListeners = [];
+    this._resetOnNavigation = false;
+  }
+
+  /**
+   * @param {!{resetOnNavigation?: boolean, reportAnonymousScripts?: boolean}} options
+   */
+  async start(options = {}) {
+    assert(!this._enabled, 'JSCoverage is already enabled');
+    const {
+      resetOnNavigation = true,
+      reportAnonymousScripts = false
+    } = options;
+    this._resetOnNavigation = resetOnNavigation;
+    this._reportAnonymousScripts = reportAnonymousScripts;
+    this._enabled = true;
+    this._scriptURLs.clear();
+    this._scriptSources.clear();
+    this._eventListeners = [
+      helper.addEventListener(this._client, 'Debugger.scriptParsed', this._onScriptParsed.bind(this)),
+      helper.addEventListener(this._client, 'Runtime.executionContextsCleared', this._onExecutionContextsCleared.bind(this)),
+    ];
+    await Promise.all([
+      this._client.send('Profiler.enable'),
+      this._client.send('Profiler.startPreciseCoverage', {callCount: false, detailed: true}),
+      this._client.send('Debugger.enable'),
+      this._client.send('Debugger.setSkipAllPauses', {skip: true})
+    ]);
+  }
+
+  _onExecutionContextsCleared() {
+    if (!this._resetOnNavigation)
+      return;
+    this._scriptURLs.clear();
+    this._scriptSources.clear();
+  }
+
+  /**
+   * @param {!Protocol.Debugger.scriptParsedPayload} event
+   */
+  async _onScriptParsed(event) {
+    // Ignore puppeteer-injected scripts
+    if (event.url === EVALUATION_SCRIPT_URL)
+      return;
+    // Ignore other anonymous scripts unless the reportAnonymousScripts option is true.
+    if (!event.url && !this._reportAnonymousScripts)
+      return;
+    try {
+      const response = await this._client.send('Debugger.getScriptSource', {scriptId: event.scriptId});
+      this._scriptURLs.set(event.scriptId, event.url);
+      this._scriptSources.set(event.scriptId, response.scriptSource);
+    } catch (e) {
+      // This might happen if the page has already navigated away.
+      debugError(e);
+    }
+  }
+
+  /**
+   * @return {!Promise<!Array<!CoverageEntry>>}
+   */
+  async stop() {
+    assert(this._enabled, 'JSCoverage is not enabled');
+    this._enabled = false;
+    const [profileResponse] = await Promise.all([
+      this._client.send('Profiler.takePreciseCoverage'),
+      this._client.send('Profiler.stopPreciseCoverage'),
+      this._client.send('Profiler.disable'),
+      this._client.send('Debugger.disable'),
+    ]);
+    helper.removeEventListeners(this._eventListeners);
+
+    const coverage = [];
+    for (const entry of profileResponse.result) {
+      let url = this._scriptURLs.get(entry.scriptId);
+      if (!url && this._reportAnonymousScripts)
+        url = 'debugger://VM' + entry.scriptId;
+      const text = this._scriptSources.get(entry.scriptId);
+      if (text === undefined || url === undefined)
+        continue;
+      const flattenRanges = [];
+      for (const func of entry.functions)
+        flattenRanges.push(...func.ranges);
+      const ranges = convertToDisjointRanges(flattenRanges);
+      coverage.push({url, ranges, text});
+    }
+    return coverage;
+  }
+}
+
+class CSSCoverage {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+    this._enabled = false;
+    this._stylesheetURLs = new Map();
+    this._stylesheetSources = new Map();
+    this._eventListeners = [];
+    this._resetOnNavigation = false;
+  }
+
+  /**
+   * @param {{resetOnNavigation?: boolean}=} options
+   */
+  async start(options = {}) {
+    assert(!this._enabled, 'CSSCoverage is already enabled');
+    const {resetOnNavigation = true} = options;
+    this._resetOnNavigation = resetOnNavigation;
+    this._enabled = true;
+    this._stylesheetURLs.clear();
+    this._stylesheetSources.clear();
+    this._eventListeners = [
+      helper.addEventListener(this._client, 'CSS.styleSheetAdded', this._onStyleSheet.bind(this)),
+      helper.addEventListener(this._client, 'Runtime.executionContextsCleared', this._onExecutionContextsCleared.bind(this)),
+    ];
+    await Promise.all([
+      this._client.send('DOM.enable'),
+      this._client.send('CSS.enable'),
+      this._client.send('CSS.startRuleUsageTracking'),
+    ]);
+  }
+
+  _onExecutionContextsCleared() {
+    if (!this._resetOnNavigation)
+      return;
+    this._stylesheetURLs.clear();
+    this._stylesheetSources.clear();
+  }
+
+  /**
+   * @param {!Protocol.CSS.styleSheetAddedPayload} event
+   */
+  async _onStyleSheet(event) {
+    const header = event.header;
+    // Ignore anonymous scripts
+    if (!header.sourceURL)
+      return;
+    try {
+      const response = await this._client.send('CSS.getStyleSheetText', {styleSheetId: header.styleSheetId});
+      this._stylesheetURLs.set(header.styleSheetId, header.sourceURL);
+      this._stylesheetSources.set(header.styleSheetId, response.text);
+    } catch (e) {
+      // This might happen if the page has already navigated away.
+      debugError(e);
+    }
+  }
+
+  /**
+   * @return {!Promise<!Array<!CoverageEntry>>}
+   */
+  async stop() {
+    assert(this._enabled, 'CSSCoverage is not enabled');
+    this._enabled = false;
+    const ruleTrackingResponse = await this._client.send('CSS.stopRuleUsageTracking');
+    await Promise.all([
+      this._client.send('CSS.disable'),
+      this._client.send('DOM.disable'),
+    ]);
+    helper.removeEventListeners(this._eventListeners);
+
+    // aggregate by styleSheetId
+    const styleSheetIdToCoverage = new Map();
+    for (const entry of ruleTrackingResponse.ruleUsage) {
+      let ranges = styleSheetIdToCoverage.get(entry.styleSheetId);
+      if (!ranges) {
+        ranges = [];
+        styleSheetIdToCoverage.set(entry.styleSheetId, ranges);
+      }
+      ranges.push({
+        startOffset: entry.startOffset,
+        endOffset: entry.endOffset,
+        count: entry.used ? 1 : 0,
+      });
+    }
+
+    const coverage = [];
+    for (const styleSheetId of this._stylesheetURLs.keys()) {
+      const url = this._stylesheetURLs.get(styleSheetId);
+      const text = this._stylesheetSources.get(styleSheetId);
+      const ranges = convertToDisjointRanges(styleSheetIdToCoverage.get(styleSheetId) || []);
+      coverage.push({url, ranges, text});
+    }
+
+    return coverage;
+  }
+}
+
+/**
+ * @param {!Array<!{startOffset:number, endOffset:number, count:number}>} nestedRanges
+ * @return {!Array<!{start:number, end:number}>}
+ */
+function convertToDisjointRanges(nestedRanges) {
+  const points = [];
+  for (const range of nestedRanges) {
+    points.push({ offset: range.startOffset, type: 0, range });
+    points.push({ offset: range.endOffset, type: 1, range });
+  }
+  // Sort points to form a valid parenthesis sequence.
+  points.sort((a, b) => {
+    // Sort with increasing offsets.
+    if (a.offset !== b.offset)
+      return a.offset - b.offset;
+    // All "end" points should go before "start" points.
+    if (a.type !== b.type)
+      return b.type - a.type;
+    const aLength = a.range.endOffset - a.range.startOffset;
+    const bLength = b.range.endOffset - b.range.startOffset;
+    // For two "start" points, the one with longer range goes first.
+    if (a.type === 0)
+      return bLength - aLength;
+    // For two "end" points, the one with shorter range goes first.
+    return aLength - bLength;
+  });
+
+  const hitCountStack = [];
+  const results = [];
+  let lastOffset = 0;
+  // Run scanning line to intersect all ranges.
+  for (const point of points) {
+    if (hitCountStack.length && lastOffset < point.offset && hitCountStack[hitCountStack.length - 1] > 0) {
+      const lastResult = results.length ? results[results.length - 1] : null;
+      if (lastResult && lastResult.end === lastOffset)
+        lastResult.end = point.offset;
+      else
+        results.push({start: lastOffset, end: point.offset});
+    }
+    lastOffset = point.offset;
+    if (point.type === 0)
+      hitCountStack.push(point.range.count);
+    else
+      hitCountStack.pop();
+  }
+  // Filter out empty ranges.
+  return results.filter(range => range.end - range.start > 1);
+}
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/DOMWorld.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const fs = require('fs');
+// const {helper, assert} = require('./helper');
+// const {LifecycleWatcher} = require('./LifecycleWatcher');
+// const {TimeoutError} = require('./Errors');
+const readFileAsync = helper.promisify(fs.readFile);
+
+/**
+ * @unrestricted
+ */
+class DOMWorld {
+  /**
+   * @param {!Puppeteer.FrameManager} frameManager
+   * @param {!Puppeteer.Frame} frame
+   * @param {!Puppeteer.TimeoutSettings} timeoutSettings
+   */
+  constructor(frameManager, frame, timeoutSettings) {
+    this._frameManager = frameManager;
+    this._frame = frame;
+    this._timeoutSettings = timeoutSettings;
+
+    /** @type {?Promise<!Puppeteer.ElementHandle>} */
+    this._documentPromise = null;
+    /** @type {!Promise<!Puppeteer.ExecutionContext>} */
+    this._contextPromise;
+    this._contextResolveCallback = null;
+    this._setContext(null);
+
+    /** @type {!Set<!WaitTask>} */
+    this._waitTasks = new Set();
+    this._detached = false;
+  }
+
+  /**
+   * @return {!Puppeteer.Frame}
+   */
+  frame() {
+    return this._frame;
+  }
+
+  /**
+   * @param {?Puppeteer.ExecutionContext} context
+   */
+  _setContext(context) {
+    if (context) {
+      this._contextResolveCallback.call(null, context);
+      this._contextResolveCallback = null;
+      for (const waitTask of this._waitTasks)
+        waitTask.rerun();
+    } else {
+      this._documentPromise = null;
+      this._contextPromise = new Promise(fulfill => {
+        this._contextResolveCallback = fulfill;
+      });
+    }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  _hasContext() {
+    return !this._contextResolveCallback;
+  }
+
+  _detach() {
+    this._detached = true;
+    for (const waitTask of this._waitTasks)
+      waitTask.terminate(new Error('waitForFunction failed: frame got detached.'));
+  }
+
+  /**
+   * @return {!Promise<!Puppeteer.ExecutionContext>}
+   */
+  executionContext() {
+    if (this._detached)
+      throw new Error(`Execution Context is not available in detached frame "${this._frame.url()}" (are you trying to evaluate?)`);
+    return this._contextPromise;
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  async evaluateHandle(pageFunction, ...args) {
+    const context = await this.executionContext();
+    return context.evaluateHandle(pageFunction, ...args);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<*>}
+   */
+  async evaluate(pageFunction, ...args) {
+    const context = await this.executionContext();
+    return context.evaluate(pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async $(selector) {
+    const document = await this._document();
+    const value = await document.$(selector);
+    return value;
+  }
+
+  /**
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async _document() {
+    if (this._documentPromise)
+      return this._documentPromise;
+    this._documentPromise = this.executionContext().then(async context => {
+      const document = await context.evaluateHandle('document');
+      return document.asElement();
+    });
+    return this._documentPromise;
+  }
+
+  /**
+   * @param {string} expression
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $x(expression) {
+    const document = await this._document();
+    const value = await document.$x(expression);
+    return value;
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $eval(selector, pageFunction, ...args) {
+    const document = await this._document();
+    return document.$eval(selector, pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $$eval(selector, pageFunction, ...args) {
+    const document = await this._document();
+    const value = await document.$$eval(selector, pageFunction, ...args);
+    return value;
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $$(selector) {
+    const document = await this._document();
+    const value = await document.$$(selector);
+    return value;
+  }
+
+  /**
+   * @return {!Promise<String>}
+   */
+  async content() {
+    return await this.evaluate(() => {
+      let retVal = '';
+      if (document.doctype)
+        retVal = new XMLSerializer().serializeToString(document.doctype);
+      if (document.documentElement)
+        retVal += document.documentElement.outerHTML;
+      return retVal;
+    });
+  }
+
+  /**
+   * @param {string} html
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   */
+  async setContent(html, options = {}) {
+    const {
+      waitUntil = ['load'],
+      timeout = this._timeoutSettings.navigationTimeout(),
+    } = options;
+    // We rely upon the fact that document.open() will reset frame lifecycle with "init"
+    // lifecycle event. @see https://crrev.com/608658
+    await this.evaluate(html => {
+      document.open();
+      document.write(html);
+      document.close();
+    }, html);
+    const watcher = new LifecycleWatcher(this._frameManager, this._frame, waitUntil, timeout);
+    const error = await Promise.race([
+      watcher.timeoutOrTerminationPromise(),
+      watcher.lifecyclePromise(),
+    ]);
+    watcher.dispose();
+    if (error)
+      throw error;
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addScriptTag(options) {
+    const {
+      url = null,
+      path = null,
+      content = null,
+      type = ''
+    } = options;
+    if (url !== null) {
+      try {
+        const context = await this.executionContext();
+        return (await context.evaluateHandle(addScriptUrl, url, type)).asElement();
+      } catch (error) {
+        throw new Error(`Loading script from ${url} failed`);
+      }
+    }
+
+    if (path !== null) {
+      let contents = await readFileAsync(path, 'utf8');
+      contents += '//# sourceURL=' + path.replace(/\n/g, '');
+      const context = await this.executionContext();
+      return (await context.evaluateHandle(addScriptContent, contents, type)).asElement();
+    }
+
+    if (content !== null) {
+      const context = await this.executionContext();
+      return (await context.evaluateHandle(addScriptContent, content, type)).asElement();
+    }
+
+    throw new Error('Provide an object with a `url`, `path` or `content` property');
+
+    /**
+     * @param {string} url
+     * @param {string} type
+     * @return {!Promise<!HTMLElement>}
+     */
+    async function addScriptUrl(url, type) {
+      const script = document.createElement('script');
+      script.src = url;
+      if (type)
+        script.type = type;
+      const promise = new Promise((res, rej) => {
+        script.onload = res;
+        script.onerror = rej;
+      });
+      document.head.appendChild(script);
+      await promise;
+      return script;
+    }
+
+    /**
+     * @param {string} content
+     * @param {string} type
+     * @return {!HTMLElement}
+     */
+    function addScriptContent(content, type = 'text/javascript') {
+      const script = document.createElement('script');
+      script.type = type;
+      script.text = content;
+      let error = null;
+      script.onerror = e => error = e;
+      document.head.appendChild(script);
+      if (error)
+        throw error;
+      return script;
+    }
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addStyleTag(options) {
+    const {
+      url = null,
+      path = null,
+      content = null
+    } = options;
+    if (url !== null) {
+      try {
+        const context = await this.executionContext();
+        return (await context.evaluateHandle(addStyleUrl, url)).asElement();
+      } catch (error) {
+        throw new Error(`Loading style from ${url} failed`);
+      }
+    }
+
+    if (path !== null) {
+      let contents = await readFileAsync(path, 'utf8');
+      contents += '/*# sourceURL=' + path.replace(/\n/g, '') + '*/';
+      const context = await this.executionContext();
+      return (await context.evaluateHandle(addStyleContent, contents)).asElement();
+    }
+
+    if (content !== null) {
+      const context = await this.executionContext();
+      return (await context.evaluateHandle(addStyleContent, content)).asElement();
+    }
+
+    throw new Error('Provide an object with a `url`, `path` or `content` property');
+
+    /**
+     * @param {string} url
+     * @return {!Promise<!HTMLElement>}
+     */
+    async function addStyleUrl(url) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = url;
+      const promise = new Promise((res, rej) => {
+        link.onload = res;
+        link.onerror = rej;
+      });
+      document.head.appendChild(link);
+      await promise;
+      return link;
+    }
+
+    /**
+     * @param {string} content
+     * @return {!Promise<!HTMLElement>}
+     */
+    async function addStyleContent(content) {
+      const style = document.createElement('style');
+      style.type = 'text/css';
+      style.appendChild(document.createTextNode(content));
+      const promise = new Promise((res, rej) => {
+        style.onload = res;
+        style.onerror = rej;
+      });
+      document.head.appendChild(style);
+      await promise;
+      return style;
+    }
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{delay?: number, button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async click(selector, options) {
+    const handle = await this.$(selector);
+    assert(handle, 'No node found for selector: ' + selector);
+    await handle.click(options);
+    await handle.dispose();
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async focus(selector) {
+    const handle = await this.$(selector);
+    assert(handle, 'No node found for selector: ' + selector);
+    await handle.focus();
+    await handle.dispose();
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async hover(selector) {
+    const handle = await this.$(selector);
+    assert(handle, 'No node found for selector: ' + selector);
+    await handle.hover();
+    await handle.dispose();
+  }
+
+  /**
+  * @param {string} selector
+  * @param {!Array<string>} values
+  * @return {!Promise<!Array<string>>}
+  */
+  select(selector, ...values){
+    for (const value of values)
+      assert(helper.isString(value), 'Values must be strings. Found value "' + value + '" of type "' + (typeof value) + '"');
+    return this.$eval(selector, (element, values) => {
+      if (element.nodeName.toLowerCase() !== 'select')
+        throw new Error('Element is not a <select> element.');
+
+      const options = Array.from(element.options);
+      element.value = undefined;
+      for (const option of options) {
+        option.selected = values.includes(option.value);
+        if (option.selected && !element.multiple)
+          break;
+      }
+      element.dispatchEvent(new Event('input', { 'bubbles': true }));
+      element.dispatchEvent(new Event('change', { 'bubbles': true }));
+      return options.filter(option => option.selected).map(option => option.value);
+    }, values);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async tap(selector) {
+    const handle = await this.$(selector);
+    assert(handle, 'No node found for selector: ' + selector);
+    await handle.tap();
+    await handle.dispose();
+  }
+
+  /**
+   * @param {string} selector
+   * @param {string} text
+   * @param {{delay: (number|undefined)}=} options
+   */
+  async type(selector, text, options) {
+    const handle = await this.$(selector);
+    assert(handle, 'No node found for selector: ' + selector);
+    await handle.type(text, options);
+    await handle.dispose();
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  waitForSelector(selector, options) {
+    return this._waitForSelectorOrXPath(selector, false, options);
+  }
+
+  /**
+   * @param {string} xpath
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  waitForXPath(xpath, options) {
+    return this._waitForSelectorOrXPath(xpath, true, options);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!{polling?: string|number, timeout?: number}=} options
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  waitForFunction(pageFunction, options = {}, ...args) {
+    const {
+      polling = 'raf',
+      timeout = this._timeoutSettings.timeout(),
+    } = options;
+    return new WaitTask(this, pageFunction, 'function', polling, timeout, ...args).promise;
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async title() {
+    return this.evaluate(() => document.title);
+  }
+
+  /**
+   * @param {string} selectorOrXPath
+   * @param {boolean} isXPath
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async _waitForSelectorOrXPath(selectorOrXPath, isXPath, options = {}) {
+    const {
+      visible: waitForVisible = false,
+      hidden: waitForHidden = false,
+      timeout = this._timeoutSettings.timeout(),
+    } = options;
+    const polling = waitForVisible || waitForHidden ? 'raf' : 'mutation';
+    const title = `${isXPath ? 'XPath' : 'selector'} "${selectorOrXPath}"${waitForHidden ? ' to be hidden' : ''}`;
+    const waitTask = new WaitTask(this, predicate, title, polling, timeout, selectorOrXPath, isXPath, waitForVisible, waitForHidden);
+    const handle = await waitTask.promise;
+    if (!handle.asElement()) {
+      await handle.dispose();
+      return null;
+    }
+    return handle.asElement();
+
+    /**
+     * @param {string} selectorOrXPath
+     * @param {boolean} isXPath
+     * @param {boolean} waitForVisible
+     * @param {boolean} waitForHidden
+     * @return {?Node|boolean}
+     */
+    function predicate(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
+      const node = isXPath
+        ? document.evaluate(selectorOrXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        : document.querySelector(selectorOrXPath);
+      if (!node)
+        return waitForHidden;
+      if (!waitForVisible && !waitForHidden)
+        return node;
+      const element = /** @type {Element} */ (node.nodeType === Node.TEXT_NODE ? node.parentElement : node);
+
+      const style = window.getComputedStyle(element);
+      const isVisible = style && style.visibility !== 'hidden' && hasVisibleBoundingBox();
+      const success = (waitForVisible === isVisible || waitForHidden === !isVisible);
+      return success ? node : null;
+
+      /**
+       * @return {boolean}
+       */
+      function hasVisibleBoundingBox() {
+        const rect = element.getBoundingClientRect();
+        return !!(rect.top || rect.bottom || rect.width || rect.height);
+      }
+    }
+  }
+}
+
+class WaitTask {
+  /**
+   * @param {!DOMWorld} domWorld
+   * @param {Function|string} predicateBody
+   * @param {string|number} polling
+   * @param {number} timeout
+   * @param {!Array<*>} args
+   */
+  constructor(domWorld, predicateBody, title, polling, timeout, ...args) {
+    if (helper.isString(polling))
+      assert(polling === 'raf' || polling === 'mutation', 'Unknown polling option: ' + polling);
+    else if (helper.isNumber(polling))
+      assert(polling > 0, 'Cannot poll with non-positive interval: ' + polling);
+    else
+      throw new Error('Unknown polling options: ' + polling);
+
+    this._domWorld = domWorld;
+    this._polling = polling;
+    this._timeout = timeout;
+    this._predicateBody = helper.isString(predicateBody) ? 'return (' + predicateBody + ')' : 'return (' + predicateBody + ')(...args)';
+    this._args = args;
+    this._runCount = 0;
+    domWorld._waitTasks.add(this);
+    this.promise = new Promise((resolve, reject) => {
+      this._resolve = resolve;
+      this._reject = reject;
+    });
+    // Since page navigation requires us to re-install the pageScript, we should track
+    // timeout on our end.
+    if (timeout) {
+      const timeoutError = new TimeoutError(`waiting for ${title} failed: timeout ${timeout}ms exceeded`);
+      this._timeoutTimer = setTimeout(() => this.terminate(timeoutError), timeout);
+    }
+    this.rerun();
+  }
+
+  /**
+   * @param {!Error} error
+   */
+  terminate(error) {
+    this._terminated = true;
+    this._reject(error);
+    this._cleanup();
+  }
+
+  async rerun() {
+    const runCount = ++this._runCount;
+    /** @type {?Puppeteer.JSHandle} */
+    let success = null;
+    let error = null;
+    try {
+      success = await (await this._domWorld.executionContext()).evaluateHandle(waitForPredicatePageFunction, this._predicateBody, this._polling, this._timeout, ...this._args);
+    } catch (e) {
+      error = e;
+    }
+
+    if (this._terminated || runCount !== this._runCount) {
+      if (success)
+        await success.dispose();
+      return;
+    }
+
+    // Ignore timeouts in pageScript - we track timeouts ourselves.
+    // If the frame's execution context has already changed, `frame.evaluate` will
+    // throw an error - ignore this predicate run altogether.
+    if (!error && await this._domWorld.evaluate(s => !s, success).catch(e => true)) {
+      await success.dispose();
+      return;
+    }
+
+    // When the page is navigated, the promise is rejected.
+    // We will try again in the new execution context.
+    if (error && error.message.includes('Execution context was destroyed'))
+      return;
+
+    // We could have tried to evaluate in a context which was already
+    // destroyed.
+    if (error && error.message.includes('Cannot find context with specified id'))
+      return;
+
+    if (error)
+      this._reject(error);
+    else
+      this._resolve(success);
+
+    this._cleanup();
+  }
+
+  _cleanup() {
+    clearTimeout(this._timeoutTimer);
+    this._domWorld._waitTasks.delete(this);
+    this._runningTask = null;
+  }
+}
+
+/**
+ * @param {string} predicateBody
+ * @param {string} polling
+ * @param {number} timeout
+ * @return {!Promise<*>}
+ */
+async function waitForPredicatePageFunction(predicateBody, polling, timeout, ...args) {
+  const predicate = new Function('...args', predicateBody);
+  let timedOut = false;
+  if (timeout)
+    setTimeout(() => timedOut = true, timeout);
+  if (polling === 'raf')
+    return await pollRaf();
+  if (polling === 'mutation')
+    return await pollMutation();
+  if (typeof polling === 'number')
+    return await pollInterval(polling);
+
+  /**
+   * @return {!Promise<*>}
+   */
+  function pollMutation() {
+    const success = predicate.apply(null, args);
+    if (success)
+      return Promise.resolve(success);
+
+    let fulfill;
+    const result = new Promise(x => fulfill = x);
+    const observer = new MutationObserver(mutations => {
+      if (timedOut) {
+        observer.disconnect();
+        fulfill();
+      }
+      const success = predicate.apply(null, args);
+      if (success) {
+        observer.disconnect();
+        fulfill(success);
+      }
+    });
+    observer.observe(document, {
+      childList: true,
+      subtree: true,
+      attributes: true
+    });
+    return result;
+  }
+
+  /**
+   * @return {!Promise<*>}
+   */
+  function pollRaf() {
+    let fulfill;
+    const result = new Promise(x => fulfill = x);
+    onRaf();
+    return result;
+
+    function onRaf() {
+      if (timedOut) {
+        fulfill();
+        return;
+      }
+      const success = predicate.apply(null, args);
+      if (success)
+        fulfill(success);
+      else
+        requestAnimationFrame(onRaf);
+    }
+  }
+
+  /**
+   * @param {number} pollInterval
+   * @return {!Promise<*>}
+   */
+  function pollInterval(pollInterval) {
+    let fulfill;
+    const result = new Promise(x => fulfill = x);
+    onTimeout();
+    return result;
+
+    function onTimeout() {
+      if (timedOut) {
+        fulfill();
+        return;
+      }
+      const success = predicate.apply(null, args);
+      if (success)
+        fulfill(success);
+      else
+        setTimeout(onTimeout, pollInterval);
+    }
+  }
+}
+
+module.exports = {DOMWorld};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/DeviceDescriptors.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+module.exports = [
+  {
+    'name': 'Blackberry PlayBook',
+    'userAgent': 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML like Gecko) Version/7.2.1.0 Safari/536.2+',
+    'viewport': {
+      'width': 600,
+      'height': 1024,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Blackberry PlayBook landscape',
+    'userAgent': 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML like Gecko) Version/7.2.1.0 Safari/536.2+',
+    'viewport': {
+      'width': 1024,
+      'height': 600,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'BlackBerry Z30',
+    'userAgent': 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'BlackBerry Z30 landscape',
+    'userAgent': 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Galaxy Note 3',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Galaxy Note 3 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Galaxy Note II',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Galaxy Note II landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Galaxy S III',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Galaxy S III landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Galaxy S5',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Galaxy S5 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPad',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 768,
+      'height': 1024,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPad landscape',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 1024,
+      'height': 768,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPad Mini',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 768,
+      'height': 1024,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPad Mini landscape',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 1024,
+      'height': 768,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPad Pro',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 1024,
+      'height': 1366,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPad Pro landscape',
+    'userAgent': 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1',
+    'viewport': {
+      'width': 1366,
+      'height': 1024,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 4',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53',
+    'viewport': {
+      'width': 320,
+      'height': 480,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 4 landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53',
+    'viewport': {
+      'width': 480,
+      'height': 320,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 5',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'viewport': {
+      'width': 320,
+      'height': 568,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 5 landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'viewport': {
+      'width': 568,
+      'height': 320,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 6',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 375,
+      'height': 667,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 6 landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 667,
+      'height': 375,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 6 Plus',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 414,
+      'height': 736,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 6 Plus landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 736,
+      'height': 414,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 7',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 375,
+      'height': 667,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 7 landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 667,
+      'height': 375,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 7 Plus',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 414,
+      'height': 736,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 7 Plus landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 736,
+      'height': 414,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 8',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 375,
+      'height': 667,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 8 landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 667,
+      'height': 375,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone 8 Plus',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 414,
+      'height': 736,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone 8 Plus landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 736,
+      'height': 414,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone SE',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'viewport': {
+      'width': 320,
+      'height': 568,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone SE landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    'viewport': {
+      'width': 568,
+      'height': 320,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'iPhone X',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 375,
+      'height': 812,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'iPhone X landscape',
+    'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    'viewport': {
+      'width': 812,
+      'height': 375,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'JioPhone 2',
+    'userAgent': 'Mozilla/5.0 (Mobile; LYF/F300B/LYF-F300B-001-01-15-130718-i;Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
+    'viewport': {
+      'width': 240,
+      'height': 320,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'JioPhone 2 landscape',
+    'userAgent': 'Mozilla/5.0 (Mobile; LYF/F300B/LYF-F300B-001-01-15-130718-i;Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
+    'viewport': {
+      'width': 320,
+      'height': 240,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Kindle Fire HDX',
+    'userAgent': 'Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true',
+    'viewport': {
+      'width': 800,
+      'height': 1280,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Kindle Fire HDX landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true',
+    'viewport': {
+      'width': 1280,
+      'height': 800,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'LG Optimus L70',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 384,
+      'height': 640,
+      'deviceScaleFactor': 1.25,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'LG Optimus L70 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 640,
+      'height': 384,
+      'deviceScaleFactor': 1.25,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Microsoft Lumia 550',
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 550) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Microsoft Lumia 950',
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 4,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Microsoft Lumia 950 landscape',
+    'userAgent': 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/14.14263',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 4,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 10',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 10 Build/MOB31T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',
+    'viewport': {
+      'width': 800,
+      'height': 1280,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 10 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 10 Build/MOB31T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',
+    'viewport': {
+      'width': 1280,
+      'height': 800,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 4',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 384,
+      'height': 640,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 4 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 640,
+      'height': 384,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 5',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 360,
+      'height': 640,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 5 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 640,
+      'height': 360,
+      'deviceScaleFactor': 3,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 5X',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 5X Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 412,
+      'height': 732,
+      'deviceScaleFactor': 2.625,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 5X landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 5X Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 732,
+      'height': 412,
+      'deviceScaleFactor': 2.625,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 6',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6 Build/N6F26U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 412,
+      'height': 732,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 6 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6 Build/N6F26U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 732,
+      'height': 412,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 6P',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 412,
+      'height': 732,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 6P landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 732,
+      'height': 412,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nexus 7',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MOB30X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',
+    'viewport': {
+      'width': 600,
+      'height': 960,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nexus 7 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MOB30X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Safari/537.36',
+    'viewport': {
+      'width': 960,
+      'height': 600,
+      'deviceScaleFactor': 2,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nokia Lumia 520',
+    'userAgent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 520)',
+    'viewport': {
+      'width': 320,
+      'height': 533,
+      'deviceScaleFactor': 1.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nokia Lumia 520 landscape',
+    'userAgent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 520)',
+    'viewport': {
+      'width': 533,
+      'height': 320,
+      'deviceScaleFactor': 1.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Nokia N9',
+    'userAgent': 'Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13',
+    'viewport': {
+      'width': 480,
+      'height': 854,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Nokia N9 landscape',
+    'userAgent': 'Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13',
+    'viewport': {
+      'width': 854,
+      'height': 480,
+      'deviceScaleFactor': 1,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Pixel 2',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 411,
+      'height': 731,
+      'deviceScaleFactor': 2.625,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Pixel 2 landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 731,
+      'height': 411,
+      'deviceScaleFactor': 2.625,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  },
+  {
+    'name': 'Pixel 2 XL',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 411,
+      'height': 823,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': false
+    }
+  },
+  {
+    'name': 'Pixel 2 XL landscape',
+    'userAgent': 'Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mobile Safari/537.36',
+    'viewport': {
+      'width': 823,
+      'height': 411,
+      'deviceScaleFactor': 3.5,
+      'isMobile': true,
+      'hasTouch': true,
+      'isLandscape': true
+    }
+  }
+];
+for (const device of module.exports)
+  module.exports[device.name] = device;
+// hack-puppeteer - module.exports
+const DeviceDescriptors = module.exports;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Dialog.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {assert} = require('./helper');
+
+class Dialog {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {string} type
+   * @param {string} message
+   * @param {(string|undefined)} defaultValue
+   */
+  constructor(client, type, message, defaultValue = '') {
+    this._client = client;
+    this._type = type;
+    this._message = message;
+    this._handled = false;
+    this._defaultValue = defaultValue;
+  }
+
+  /**
+   * @return {string}
+   */
+  type() {
+    return this._type;
+  }
+
+  /**
+   * @return {string}
+   */
+  message() {
+    return this._message;
+  }
+
+  /**
+   * @return {string}
+   */
+  defaultValue() {
+    return this._defaultValue;
+  }
+
+  /**
+   * @param {string=} promptText
+   */
+  async accept(promptText) {
+    assert(!this._handled, 'Cannot accept dialog which is already handled!');
+    this._handled = true;
+    await this._client.send('Page.handleJavaScriptDialog', {
+      accept: true,
+      promptText: promptText
+    });
+  }
+
+  async dismiss() {
+    assert(!this._handled, 'Cannot dismiss dialog which is already handled!');
+    this._handled = true;
+    await this._client.send('Page.handleJavaScriptDialog', {
+      accept: false
+    });
+  }
+}
+
+Dialog.Type = {
+  Alert: 'alert',
+  BeforeUnload: 'beforeunload',
+  Confirm: 'confirm',
+  Prompt: 'prompt'
+};
+
+module.exports = {Dialog};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/EmulationManager.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+class EmulationManager {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+    this._emulatingMobile = false;
+    this._hasTouch = false;
+  }
+
+  /**
+   * @param {!Puppeteer.Viewport} viewport
+   * @return {Promise<boolean>}
+   */
+  async emulateViewport(viewport) {
+    const mobile = viewport.isMobile || false;
+    const width = viewport.width;
+    const height = viewport.height;
+    const deviceScaleFactor = viewport.deviceScaleFactor || 1;
+    /** @type {Protocol.Emulation.ScreenOrientation} */
+    const screenOrientation = viewport.isLandscape ? { angle: 90, type: 'landscapePrimary' } : { angle: 0, type: 'portraitPrimary' };
+    const hasTouch = viewport.hasTouch || false;
+
+    await Promise.all([
+      this._client.send('Emulation.setDeviceMetricsOverride', { mobile, width, height, deviceScaleFactor, screenOrientation }),
+      this._client.send('Emulation.setTouchEmulationEnabled', {
+        enabled: hasTouch
+      })
+    ]);
+
+    const reloadNeeded = this._emulatingMobile !== mobile || this._hasTouch !== hasTouch;
+    this._emulatingMobile = mobile;
+    this._hasTouch = hasTouch;
+    return reloadNeeded;
+  }
+}
+
+module.exports = {EmulationManager};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Errors.js
+*/
+/**
+ * Copyright 2018 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+class CustomError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+class TimeoutError extends CustomError {}
+
+module.exports = {
+  TimeoutError,
+};
+// hack-puppeteer - module.exports
+const Errors = module.exports;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Events.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+const Events = {
+  Page: {
+    Close: 'close',
+    Console: 'console',
+    Dialog: 'dialog',
+    DOMContentLoaded: 'domcontentloaded',
+    Error: 'error',
+    // Can't use just 'error' due to node.js special treatment of error events.
+    // @see https://nodejs.org/api/events.html#events_error_events
+    PageError: 'pageerror',
+    Request: 'request',
+    Response: 'response',
+    RequestFailed: 'requestfailed',
+    RequestFinished: 'requestfinished',
+    FrameAttached: 'frameattached',
+    FrameDetached: 'framedetached',
+    FrameNavigated: 'framenavigated',
+    Load: 'load',
+    Metrics: 'metrics',
+    Popup: 'popup',
+    WorkerCreated: 'workercreated',
+    WorkerDestroyed: 'workerdestroyed',
+  },
+
+  Browser: {
+    TargetCreated: 'targetcreated',
+    TargetDestroyed: 'targetdestroyed',
+    TargetChanged: 'targetchanged',
+    Disconnected: 'disconnected'
+  },
+
+  BrowserContext: {
+    TargetCreated: 'targetcreated',
+    TargetDestroyed: 'targetdestroyed',
+    TargetChanged: 'targetchanged',
+  },
+
+  NetworkManager: {
+    Request: Symbol('Events.NetworkManager.Request'),
+    Response: Symbol('Events.NetworkManager.Response'),
+    RequestFailed: Symbol('Events.NetworkManager.RequestFailed'),
+    RequestFinished: Symbol('Events.NetworkManager.RequestFinished'),
+  },
+
+  FrameManager: {
+    FrameAttached: Symbol('Events.FrameManager.FrameAttached'),
+    FrameNavigated: Symbol('Events.FrameManager.FrameNavigated'),
+    FrameDetached: Symbol('Events.FrameManager.FrameDetached'),
+    LifecycleEvent: Symbol('Events.FrameManager.LifecycleEvent'),
+    FrameNavigatedWithinDocument: Symbol('Events.FrameManager.FrameNavigatedWithinDocument'),
+    ExecutionContextCreated: Symbol('Events.FrameManager.ExecutionContextCreated'),
+    ExecutionContextDestroyed: Symbol('Events.FrameManager.ExecutionContextDestroyed'),
+  },
+
+  Connection: {
+    Disconnected: Symbol('Events.Connection.Disconnected'),
+  },
+
+  CDPSession: {
+    Disconnected: Symbol('Events.CDPSession.Disconnected'),
+  },
+};
+
+module.exports = { Events };
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/ExecutionContext.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {helper, assert} = require('./helper');
+// const {createJSHandle, JSHandle} = require('./JSHandle');
+
+const EVALUATION_SCRIPT_URL = '__puppeteer_evaluation_script__';
+const SOURCE_URL_REGEX = /^[\040\t]*\/\/[@#] sourceURL=\s*(\S*?)\s*$/m;
+
+class ExecutionContext {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Protocol.Runtime.ExecutionContextDescription} contextPayload
+   * @param {?Puppeteer.DOMWorld} world
+   */
+  constructor(client, contextPayload, world) {
+    this._client = client;
+    this._world = world;
+    this._contextId = contextPayload.id;
+  }
+
+  /**
+   * @return {?Puppeteer.Frame}
+   */
+  frame() {
+    return this._world ? this._world.frame() : null;
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {...*} args
+   * @return {!Promise<*>}
+   */
+  async evaluate(pageFunction, ...args) {
+    return await this._evaluateInternal(true /* returnByValue */, pageFunction, ...args);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {...*} args
+   * @return {!Promise<!JSHandle>}
+   */
+  async evaluateHandle(pageFunction, ...args) {
+    return this._evaluateInternal(false /* returnByValue */, pageFunction, ...args);
+  }
+
+  /**
+   * @param {boolean} returnByValue
+   * @param {Function|string} pageFunction
+   * @param {...*} args
+   * @return {!Promise<*>}
+   */
+  async _evaluateInternal(returnByValue, pageFunction, ...args) {
+    const suffix = `//# sourceURL=${EVALUATION_SCRIPT_URL}`;
+
+    if (helper.isString(pageFunction)) {
+      const contextId = this._contextId;
+      const expression = /** @type {string} */ (pageFunction);
+      const expressionWithSourceUrl = SOURCE_URL_REGEX.test(expression) ? expression : expression + '\n' + suffix;
+      const {exceptionDetails, result: remoteObject} = await this._client.send('Runtime.evaluate', {
+        expression: expressionWithSourceUrl,
+        contextId,
+        returnByValue,
+        awaitPromise: true,
+        userGesture: true
+      }).catch(rewriteError);
+      if (exceptionDetails)
+        throw new Error('Evaluation failed: ' + helper.getExceptionMessage(exceptionDetails));
+      return returnByValue ? helper.valueFromRemoteObject(remoteObject) : createJSHandle(this, remoteObject);
+    }
+
+    if (typeof pageFunction !== 'function')
+      throw new Error(`Expected to get |string| or |function| as the first argument, but got "${pageFunction}" instead.`);
+
+    let functionText = pageFunction.toString();
+    // hack-istanbul - un-instrument
+    functionText = functionText.replace((/\b__cov_.*?\+\+/g), "0");
+    try {
+      new Function('(' + functionText + ')');
+    } catch (e1) {
+      // This means we might have a function shorthand. Try another
+      // time prefixing 'function '.
+      if (functionText.startsWith('async '))
+        functionText = 'async function ' + functionText.substring('async '.length);
+      else
+        functionText = 'function ' + functionText;
+      try {
+        new Function('(' + functionText  + ')');
+      } catch (e2) {
+        // We tried hard to serialize, but there's a weird beast here.
+        throw new Error('Passed function is not well-serializable!');
+      }
+    }
+    let callFunctionOnPromise;
+    try {
+      callFunctionOnPromise = this._client.send('Runtime.callFunctionOn', {
+        functionDeclaration: functionText + '\n' + suffix + '\n',
+        executionContextId: this._contextId,
+        arguments: args.map(convertArgument.bind(this)),
+        returnByValue,
+        awaitPromise: true,
+        userGesture: true
+      });
+    } catch (err) {
+      if (err instanceof TypeError && err.message.startsWith('Converting circular structure to JSON'))
+        err.message += ' Are you passing a nested JSHandle?';
+      throw err;
+    }
+    const { exceptionDetails, result: remoteObject } = await callFunctionOnPromise.catch(rewriteError);
+    if (exceptionDetails)
+      throw new Error('Evaluation failed: ' + helper.getExceptionMessage(exceptionDetails));
+    return returnByValue ? helper.valueFromRemoteObject(remoteObject) : createJSHandle(this, remoteObject);
+
+    /**
+     * @param {*} arg
+     * @return {*}
+     * @this {ExecutionContext}
+     */
+    function convertArgument(arg) {
+      if (typeof arg === 'bigint') // eslint-disable-line valid-typeof
+        return { unserializableValue: `${arg.toString()}n` };
+      if (Object.is(arg, -0))
+        return { unserializableValue: '-0' };
+      if (Object.is(arg, Infinity))
+        return { unserializableValue: 'Infinity' };
+      if (Object.is(arg, -Infinity))
+        return { unserializableValue: '-Infinity' };
+      if (Object.is(arg, NaN))
+        return { unserializableValue: 'NaN' };
+      const objectHandle = arg && (arg instanceof JSHandle) ? arg : null;
+      if (objectHandle) {
+        if (objectHandle._context !== this)
+          throw new Error('JSHandles can be evaluated only in the context they were created!');
+        if (objectHandle._disposed)
+          throw new Error('JSHandle is disposed!');
+        if (objectHandle._remoteObject.unserializableValue)
+          return { unserializableValue: objectHandle._remoteObject.unserializableValue };
+        if (!objectHandle._remoteObject.objectId)
+          return { value: objectHandle._remoteObject.value };
+        return { objectId: objectHandle._remoteObject.objectId };
+      }
+      return { value: arg };
+    }
+
+    /**
+     * @param {!Error} error
+     * @return {!Protocol.Runtime.evaluateReturnValue}
+     */
+    function rewriteError(error) {
+      if (error.message.includes('Object reference chain is too long'))
+        return {result: {type: 'undefined'}};
+      if (error.message.includes('Object couldn\'t be returned by value'))
+        return {result: {type: 'undefined'}};
+
+      if (error.message.endsWith('Cannot find context with specified id'))
+        throw new Error('Execution context was destroyed, most likely because of a navigation.');
+      throw error;
+    }
+  }
+
+  /**
+   * @param {!JSHandle} prototypeHandle
+   * @return {!Promise<!JSHandle>}
+   */
+  async queryObjects(prototypeHandle) {
+    assert(!prototypeHandle._disposed, 'Prototype JSHandle is disposed!');
+    assert(prototypeHandle._remoteObject.objectId, 'Prototype JSHandle must not be referencing primitive value');
+    const response = await this._client.send('Runtime.queryObjects', {
+      prototypeObjectId: prototypeHandle._remoteObject.objectId
+    });
+    return createJSHandle(this, response.objects);
+  }
+
+  /**
+   * @param {Puppeteer.ElementHandle} elementHandle
+   * @return {Promise<Puppeteer.ElementHandle>}
+   */
+  async _adoptElementHandle(elementHandle) {
+    assert(elementHandle.executionContext() !== this, 'Cannot adopt handle that already belongs to this execution context');
+    assert(this._world, 'Cannot adopt handle without DOMWorld');
+    const nodeInfo = await this._client.send('DOM.describeNode', {
+      objectId: elementHandle._remoteObject.objectId,
+    });
+    const {object} = await this._client.send('DOM.resolveNode', {
+      backendNodeId: nodeInfo.node.backendNodeId,
+      executionContextId: this._contextId,
+    });
+    return /** @type {Puppeteer.ElementHandle}*/(createJSHandle(this, object));
+  }
+}
+
+module.exports = {ExecutionContext, EVALUATION_SCRIPT_URL};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/FrameManager.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const EventEmitter = require('events');
+// const {helper, assert, debugError} = require('./helper');
+// const {Events} = require('./Events');
+// const {ExecutionContext, EVALUATION_SCRIPT_URL} = require('./ExecutionContext');
+// const {LifecycleWatcher} = require('./LifecycleWatcher');
+// const {DOMWorld} = require('./DOMWorld');
+// const {NetworkManager} = require('./NetworkManager');
+
+const UTILITY_WORLD_NAME = '__puppeteer_utility_world__';
+
+class FrameManager extends EventEmitter {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Puppeteer.Page} page
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {!Puppeteer.TimeoutSettings} timeoutSettings
+   */
+  constructor(client, page, ignoreHTTPSErrors, timeoutSettings) {
+    super();
+    this._client = client;
+    this._page = page;
+    this._networkManager = new NetworkManager(client, ignoreHTTPSErrors);
+    this._networkManager.setFrameManager(this);
+    this._timeoutSettings = timeoutSettings;
+    /** @type {!Map<string, !Frame>} */
+    this._frames = new Map();
+    /** @type {!Map<number, !ExecutionContext>} */
+    this._contextIdToContext = new Map();
+    /** @type {!Set<string>} */
+    this._isolatedWorlds = new Set();
+
+    this._client.on('Page.frameAttached', event => this._onFrameAttached(event.frameId, event.parentFrameId));
+    this._client.on('Page.frameNavigated', event => this._onFrameNavigated(event.frame));
+    this._client.on('Page.navigatedWithinDocument', event => this._onFrameNavigatedWithinDocument(event.frameId, event.url));
+    this._client.on('Page.frameDetached', event => this._onFrameDetached(event.frameId));
+    this._client.on('Page.frameStoppedLoading', event => this._onFrameStoppedLoading(event.frameId));
+    this._client.on('Runtime.executionContextCreated', event => this._onExecutionContextCreated(event.context));
+    this._client.on('Runtime.executionContextDestroyed', event => this._onExecutionContextDestroyed(event.executionContextId));
+    this._client.on('Runtime.executionContextsCleared', event => this._onExecutionContextsCleared());
+    this._client.on('Page.lifecycleEvent', event => this._onLifecycleEvent(event));
+  }
+
+  async initialize() {
+    const [,{frameTree}] = await Promise.all([
+      this._client.send('Page.enable'),
+      this._client.send('Page.getFrameTree'),
+    ]);
+    this._handleFrameTree(frameTree);
+    await Promise.all([
+      this._client.send('Page.setLifecycleEventsEnabled', { enabled: true }),
+      this._client.send('Runtime.enable', {}).then(() => this._ensureIsolatedWorld(UTILITY_WORLD_NAME)),
+      this._networkManager.initialize(),
+    ]);
+  }
+
+  /**
+   * @return {!NetworkManager}
+   */
+  networkManager() {
+    return this._networkManager;
+  }
+
+  /**
+   * @param {!Puppeteer.Frame} frame
+   * @param {string} url
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async navigateFrame(frame, url, options = {}) {
+    assertNoLegacyNavigationOptions(options);
+    const {
+      referer = this._networkManager.extraHTTPHeaders()['referer'],
+      waitUntil = ['load'],
+      timeout = this._timeoutSettings.navigationTimeout(),
+    } = options;
+
+    const watcher = new LifecycleWatcher(this, frame, waitUntil, timeout);
+    let ensureNewDocumentNavigation = false;
+    let error = await Promise.race([
+      navigate(this._client, url, referer, frame._id),
+      watcher.timeoutOrTerminationPromise(),
+    ]);
+    if (!error) {
+      error = await Promise.race([
+        watcher.timeoutOrTerminationPromise(),
+        ensureNewDocumentNavigation ? watcher.newDocumentNavigationPromise() : watcher.sameDocumentNavigationPromise(),
+      ]);
+    }
+    watcher.dispose();
+    if (error)
+      throw error;
+    return watcher.navigationResponse();
+
+    /**
+     * @param {!Puppeteer.CDPSession} client
+     * @param {string} url
+     * @param {string} referrer
+     * @param {string} frameId
+     * @return {!Promise<?Error>}
+     */
+    async function navigate(client, url, referrer, frameId) {
+      try {
+        const response = await client.send('Page.navigate', {url, referrer, frameId});
+        ensureNewDocumentNavigation = !!response.loaderId;
+        return response.errorText ? new Error(`${response.errorText} at ${url}`) : null;
+      } catch (error) {
+        return error;
+      }
+    }
+  }
+
+  /**
+   * @param {!Puppeteer.Frame} frame
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async waitForFrameNavigation(frame, options = {}) {
+    assertNoLegacyNavigationOptions(options);
+    const {
+      waitUntil = ['load'],
+      timeout = this._timeoutSettings.navigationTimeout(),
+    } = options;
+    const watcher = new LifecycleWatcher(this, frame, waitUntil, timeout);
+    const error = await Promise.race([
+      watcher.timeoutOrTerminationPromise(),
+      watcher.sameDocumentNavigationPromise(),
+      watcher.newDocumentNavigationPromise()
+    ]);
+    watcher.dispose();
+    if (error)
+      throw error;
+    return watcher.navigationResponse();
+  }
+
+  /**
+   * @param {!Protocol.Page.lifecycleEventPayload} event
+   */
+  _onLifecycleEvent(event) {
+    const frame = this._frames.get(event.frameId);
+    if (!frame)
+      return;
+    frame._onLifecycleEvent(event.loaderId, event.name);
+    this.emit(Events.FrameManager.LifecycleEvent, frame);
+  }
+
+  /**
+   * @param {string} frameId
+   */
+  _onFrameStoppedLoading(frameId) {
+    const frame = this._frames.get(frameId);
+    if (!frame)
+      return;
+    frame._onLoadingStopped();
+    this.emit(Events.FrameManager.LifecycleEvent, frame);
+  }
+
+  /**
+   * @param {!Protocol.Page.FrameTree} frameTree
+   */
+  _handleFrameTree(frameTree) {
+    if (frameTree.frame.parentId)
+      this._onFrameAttached(frameTree.frame.id, frameTree.frame.parentId);
+    this._onFrameNavigated(frameTree.frame);
+    if (!frameTree.childFrames)
+      return;
+
+    for (const child of frameTree.childFrames)
+      this._handleFrameTree(child);
+  }
+
+  /**
+   * @return {!Puppeteer.Page}
+   */
+  page() {
+    return this._page;
+  }
+
+  /**
+   * @return {!Frame}
+   */
+  mainFrame() {
+    return this._mainFrame;
+  }
+
+  /**
+   * @return {!Array<!Frame>}
+   */
+  frames() {
+    return Array.from(this._frames.values());
+  }
+
+  /**
+   * @param {!string} frameId
+   * @return {?Frame}
+   */
+  frame(frameId) {
+    return this._frames.get(frameId) || null;
+  }
+
+  /**
+   * @param {string} frameId
+   * @param {?string} parentFrameId
+   */
+  _onFrameAttached(frameId, parentFrameId) {
+    if (this._frames.has(frameId))
+      return;
+    assert(parentFrameId);
+    const parentFrame = this._frames.get(parentFrameId);
+    const frame = new Frame(this, this._client, parentFrame, frameId);
+    this._frames.set(frame._id, frame);
+    this.emit(Events.FrameManager.FrameAttached, frame);
+  }
+
+  /**
+   * @param {!Protocol.Page.Frame} framePayload
+   */
+  _onFrameNavigated(framePayload) {
+    const isMainFrame = !framePayload.parentId;
+    let frame = isMainFrame ? this._mainFrame : this._frames.get(framePayload.id);
+    assert(isMainFrame || frame, 'We either navigate top level or have old version of the navigated frame');
+
+    // Detach all child frames first.
+    if (frame) {
+      for (const child of frame.childFrames())
+        this._removeFramesRecursively(child);
+    }
+
+    // Update or create main frame.
+    if (isMainFrame) {
+      if (frame) {
+        // Update frame id to retain frame identity on cross-process navigation.
+        this._frames.delete(frame._id);
+        frame._id = framePayload.id;
+      } else {
+        // Initial main frame navigation.
+        frame = new Frame(this, this._client, null, framePayload.id);
+      }
+      this._frames.set(framePayload.id, frame);
+      this._mainFrame = frame;
+    }
+
+    // Update frame payload.
+    frame._navigated(framePayload);
+
+    this.emit(Events.FrameManager.FrameNavigated, frame);
+  }
+
+  /**
+   * @param {string} name
+   */
+  async _ensureIsolatedWorld(name) {
+    if (this._isolatedWorlds.has(name))
+      return;
+    this._isolatedWorlds.add(name);
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', {
+      source: `//# sourceURL=${EVALUATION_SCRIPT_URL}`,
+      worldName: name,
+    }),
+    await Promise.all(this.frames().map(frame => this._client.send('Page.createIsolatedWorld', {
+      frameId: frame._id,
+      grantUniveralAccess: true,
+      worldName: name,
+    }).catch(debugError))); // frames might be removed before we send this
+  }
+
+  /**
+   * @param {string} frameId
+   * @param {string} url
+   */
+  _onFrameNavigatedWithinDocument(frameId, url) {
+    const frame = this._frames.get(frameId);
+    if (!frame)
+      return;
+    frame._navigatedWithinDocument(url);
+    this.emit(Events.FrameManager.FrameNavigatedWithinDocument, frame);
+    this.emit(Events.FrameManager.FrameNavigated, frame);
+  }
+
+  /**
+   * @param {string} frameId
+   */
+  _onFrameDetached(frameId) {
+    const frame = this._frames.get(frameId);
+    if (frame)
+      this._removeFramesRecursively(frame);
+  }
+
+  _onExecutionContextCreated(contextPayload) {
+    const frameId = contextPayload.auxData ? contextPayload.auxData.frameId : null;
+    const frame = this._frames.get(frameId) || null;
+    let world = null;
+    if (frame) {
+      if (contextPayload.auxData && !!contextPayload.auxData['isDefault']) {
+        world = frame._mainWorld;
+      } else if (contextPayload.name === UTILITY_WORLD_NAME && !frame._secondaryWorld._hasContext()) {
+        // In case of multiple sessions to the same target, there's a race between
+        // connections so we might end up creating multiple isolated worlds.
+        // We can use either.
+        world = frame._secondaryWorld;
+      }
+    }
+    if (contextPayload.auxData && contextPayload.auxData['type'] === 'isolated')
+      this._isolatedWorlds.add(contextPayload.name);
+    /** @type {!ExecutionContext} */
+    const context = new ExecutionContext(this._client, contextPayload, world);
+    if (world)
+      world._setContext(context);
+    this._contextIdToContext.set(contextPayload.id, context);
+  }
+
+  /**
+   * @param {number} executionContextId
+   */
+  _onExecutionContextDestroyed(executionContextId) {
+    const context = this._contextIdToContext.get(executionContextId);
+    if (!context)
+      return;
+    this._contextIdToContext.delete(executionContextId);
+    if (context._world)
+      context._world._setContext(null);
+  }
+
+  _onExecutionContextsCleared() {
+    for (const context of this._contextIdToContext.values()) {
+      if (context._world)
+        context._world._setContext(null);
+    }
+    this._contextIdToContext.clear();
+  }
+
+  /**
+   * @param {number} contextId
+   * @return {!ExecutionContext}
+   */
+  executionContextById(contextId) {
+    const context = this._contextIdToContext.get(contextId);
+    assert(context, 'INTERNAL ERROR: missing context with id = ' + contextId);
+    return context;
+  }
+
+  /**
+   * @param {!Frame} frame
+   */
+  _removeFramesRecursively(frame) {
+    for (const child of frame.childFrames())
+      this._removeFramesRecursively(child);
+    frame._detach();
+    this._frames.delete(frame._id);
+    this.emit(Events.FrameManager.FrameDetached, frame);
+  }
+}
+
+/**
+ * @unrestricted
+ */
+class Frame {
+  /**
+   * @param {!FrameManager} frameManager
+   * @param {!Puppeteer.CDPSession} client
+   * @param {?Frame} parentFrame
+   * @param {string} frameId
+   */
+  constructor(frameManager, client, parentFrame, frameId) {
+    this._frameManager = frameManager;
+    this._client = client;
+    this._parentFrame = parentFrame;
+    this._url = '';
+    this._id = frameId;
+    this._detached = false;
+
+    this._loaderId = '';
+    /** @type {!Set<string>} */
+    this._lifecycleEvents = new Set();
+    /** @type {!DOMWorld} */
+    this._mainWorld = new DOMWorld(frameManager, this, frameManager._timeoutSettings);
+    /** @type {!DOMWorld} */
+    this._secondaryWorld = new DOMWorld(frameManager, this, frameManager._timeoutSettings);
+
+    /** @type {!Set<!Frame>} */
+    this._childFrames = new Set();
+    if (this._parentFrame)
+      this._parentFrame._childFrames.add(this);
+  }
+
+  /**
+   * @param {string} url
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async goto(url, options) {
+    return await this._frameManager.navigateFrame(this, url, options);
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async waitForNavigation(options) {
+    return await this._frameManager.waitForFrameNavigation(this, options);
+  }
+
+  /**
+   * @return {!Promise<!ExecutionContext>}
+   */
+  executionContext() {
+    return this._mainWorld.executionContext();
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  async evaluateHandle(pageFunction, ...args) {
+    return this._mainWorld.evaluateHandle(pageFunction, ...args);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<*>}
+   */
+  async evaluate(pageFunction, ...args) {
+    return this._mainWorld.evaluate(pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async $(selector) {
+    return this._mainWorld.$(selector);
+  }
+
+  /**
+   * @param {string} expression
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $x(expression) {
+    return this._mainWorld.$x(expression);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $eval(selector, pageFunction, ...args) {
+    return this._mainWorld.$eval(selector, pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $$eval(selector, pageFunction, ...args) {
+    return this._mainWorld.$$eval(selector, pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $$(selector) {
+    return this._mainWorld.$$(selector);
+  }
+
+  /**
+   * @return {!Promise<String>}
+   */
+  async content() {
+    return this._secondaryWorld.content();
+  }
+
+  /**
+   * @param {string} html
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   */
+  async setContent(html, options = {}) {
+    return this._secondaryWorld.setContent(html, options);
+  }
+
+  /**
+   * @return {string}
+   */
+  name() {
+    return this._name || '';
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @return {?Frame}
+   */
+  parentFrame() {
+    return this._parentFrame;
+  }
+
+  /**
+   * @return {!Array.<!Frame>}
+   */
+  childFrames() {
+    return Array.from(this._childFrames);
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isDetached() {
+    return this._detached;
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addScriptTag(options) {
+    return this._mainWorld.addScriptTag(options);
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addStyleTag(options) {
+    return this._mainWorld.addStyleTag(options);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{delay?: number, button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async click(selector, options) {
+    return this._secondaryWorld.click(selector, options);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async focus(selector) {
+    return this._secondaryWorld.focus(selector);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async hover(selector) {
+    return this._secondaryWorld.hover(selector);
+  }
+
+  /**
+  * @param {string} selector
+  * @param {!Array<string>} values
+  * @return {!Promise<!Array<string>>}
+  */
+  select(selector, ...values){
+    return this._secondaryWorld.select(selector, ...values);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  async tap(selector) {
+    return this._secondaryWorld.tap(selector);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {string} text
+   * @param {{delay: (number|undefined)}=} options
+   */
+  async type(selector, text, options) {
+    return this._mainWorld.type(selector, text, options);
+  }
+
+  /**
+   * @param {(string|number|Function)} selectorOrFunctionOrTimeout
+   * @param {!Object=} options
+   * @param {!Array<*>} args
+   * @return {!Promise<?Puppeteer.JSHandle>}
+   */
+  waitFor(selectorOrFunctionOrTimeout, options = {}, ...args) {
+    const xPathPattern = '//';
+
+    if (helper.isString(selectorOrFunctionOrTimeout)) {
+      const string = /** @type {string} */ (selectorOrFunctionOrTimeout);
+      if (string.startsWith(xPathPattern))
+        return this.waitForXPath(string, options);
+      return this.waitForSelector(string, options);
+    }
+    if (helper.isNumber(selectorOrFunctionOrTimeout))
+      return new Promise(fulfill => setTimeout(fulfill, /** @type {number} */ (selectorOrFunctionOrTimeout)));
+    if (typeof selectorOrFunctionOrTimeout === 'function')
+      return this.waitForFunction(selectorOrFunctionOrTimeout, options, ...args);
+    return Promise.reject(new Error('Unsupported target type: ' + (typeof selectorOrFunctionOrTimeout)));
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async waitForSelector(selector, options) {
+    const handle = await this._secondaryWorld.waitForSelector(selector, options);
+    if (!handle)
+      return null;
+    const mainExecutionContext = await this._mainWorld.executionContext();
+    const result = await mainExecutionContext._adoptElementHandle(handle);
+    await handle.dispose();
+    return result;
+  }
+
+  /**
+   * @param {string} xpath
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async waitForXPath(xpath, options) {
+    const handle = await this._secondaryWorld.waitForXPath(xpath, options);
+    if (!handle)
+      return null;
+    const mainExecutionContext = await this._mainWorld.executionContext();
+    const result = await mainExecutionContext._adoptElementHandle(handle);
+    await handle.dispose();
+    return result;
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!{polling?: string|number, timeout?: number}=} options
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  waitForFunction(pageFunction, options = {}, ...args) {
+    return this._mainWorld.waitForFunction(pageFunction, options, ...args);
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async title() {
+    return this._secondaryWorld.title();
+  }
+
+  /**
+   * @param {!Protocol.Page.Frame} framePayload
+   */
+  _navigated(framePayload) {
+    this._name = framePayload.name;
+    // TODO(lushnikov): remove this once requestInterception has loaderId exposed.
+    this._navigationURL = framePayload.url;
+    this._url = framePayload.url;
+  }
+
+  /**
+   * @param {string} url
+   */
+  _navigatedWithinDocument(url) {
+    this._url = url;
+  }
+
+  /**
+   * @param {string} loaderId
+   * @param {string} name
+   */
+  _onLifecycleEvent(loaderId, name) {
+    if (name === 'init') {
+      this._loaderId = loaderId;
+      this._lifecycleEvents.clear();
+    }
+    this._lifecycleEvents.add(name);
+  }
+
+  _onLoadingStopped() {
+    this._lifecycleEvents.add('DOMContentLoaded');
+    this._lifecycleEvents.add('load');
+  }
+
+  _detach() {
+    this._detached = true;
+    this._mainWorld._detach();
+    this._secondaryWorld._detach();
+    if (this._parentFrame)
+      this._parentFrame._childFrames.delete(this);
+    this._parentFrame = null;
+  }
+}
+
+function assertNoLegacyNavigationOptions(options) {
+  assert(options['networkIdleTimeout'] === undefined, 'ERROR: networkIdleTimeout option is no longer supported.');
+  assert(options['networkIdleInflight'] === undefined, 'ERROR: networkIdleInflight option is no longer supported.');
+  assert(options.waitUntil !== 'networkidle', 'ERROR: "networkidle" option is no longer supported. Use "networkidle2" instead');
+}
+
+module.exports = {FrameManager, Frame};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Input.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {assert} = require('./helper');
+// const keyDefinitions = require('./USKeyboardLayout');
+
+/**
+ * @typedef {Object} KeyDescription
+ * @property {number} keyCode
+ * @property {string} key
+ * @property {string} text
+ * @property {string} code
+ * @property {number} location
+ */
+
+class Keyboard {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+    this._modifiers = 0;
+    this._pressedKeys = new Set();
+  }
+
+  /**
+   * @param {string} key
+   * @param {{text?: string}=} options
+   */
+  async down(key, options = { text: undefined }) {
+    const description = this._keyDescriptionForString(key);
+
+    const autoRepeat = this._pressedKeys.has(description.code);
+    this._pressedKeys.add(description.code);
+    this._modifiers |= this._modifierBit(description.key);
+
+    const text = options.text === undefined ? description.text : options.text;
+    await this._client.send('Input.dispatchKeyEvent', {
+      type: text ? 'keyDown' : 'rawKeyDown',
+      modifiers: this._modifiers,
+      windowsVirtualKeyCode: description.keyCode,
+      code: description.code,
+      key: description.key,
+      text: text,
+      unmodifiedText: text,
+      autoRepeat,
+      location: description.location,
+      isKeypad: description.location === 3
+    });
+  }
+
+  /**
+   * @param {string} key
+   * @return {number}
+   */
+  _modifierBit(key) {
+    if (key === 'Alt')
+      return 1;
+    if (key === 'Control')
+      return 2;
+    if (key === 'Meta')
+      return 4;
+    if (key === 'Shift')
+      return 8;
+    return 0;
+  }
+
+  /**
+   * @param {string} keyString
+   * @return {KeyDescription}
+   */
+  _keyDescriptionForString(keyString) {
+    const shift = this._modifiers & 8;
+    const description = {
+      key: '',
+      keyCode: 0,
+      code: '',
+      text: '',
+      location: 0
+    };
+
+    const definition = keyDefinitions[keyString];
+    assert(definition, `Unknown key: "${keyString}"`);
+
+    if (definition.key)
+      description.key = definition.key;
+    if (shift && definition.shiftKey)
+      description.key = definition.shiftKey;
+
+    if (definition.keyCode)
+      description.keyCode = definition.keyCode;
+    if (shift && definition.shiftKeyCode)
+      description.keyCode = definition.shiftKeyCode;
+
+    if (definition.code)
+      description.code = definition.code;
+
+    if (definition.location)
+      description.location = definition.location;
+
+    if (description.key.length === 1)
+      description.text = description.key;
+
+    if (definition.text)
+      description.text = definition.text;
+    if (shift && definition.shiftText)
+      description.text = definition.shiftText;
+
+    // if any modifiers besides shift are pressed, no text should be sent
+    if (this._modifiers & ~8)
+      description.text = '';
+
+    return description;
+  }
+
+  /**
+   * @param {string} key
+   */
+  async up(key) {
+    const description = this._keyDescriptionForString(key);
+
+    this._modifiers &= ~this._modifierBit(description.key);
+    this._pressedKeys.delete(description.code);
+    await this._client.send('Input.dispatchKeyEvent', {
+      type: 'keyUp',
+      modifiers: this._modifiers,
+      key: description.key,
+      windowsVirtualKeyCode: description.keyCode,
+      code: description.code,
+      location: description.location
+    });
+  }
+
+  /**
+   * @param {string} char
+   */
+  async sendCharacter(char) {
+    await this._client.send('Input.insertText', {text: char});
+  }
+
+  /**
+   * @param {string} text
+   * @param {{delay: (number|undefined)}=} options
+   */
+  async type(text, options) {
+    let delay = 0;
+    if (options && options.delay)
+      delay = options.delay;
+    for (const char of text) {
+      if (keyDefinitions[char])
+        await this.press(char, {delay});
+      else
+        await this.sendCharacter(char);
+      if (delay)
+        await new Promise(f => setTimeout(f, delay));
+    }
+  }
+
+  /**
+   * @param {string} key
+   * @param {!{delay?: number, text?: string}=} options
+   */
+  async press(key, options = {}) {
+    const {delay = null} = options;
+    await this.down(key, options);
+    if (delay !== null)
+      await new Promise(f => setTimeout(f, options.delay));
+    await this.up(key);
+  }
+}
+
+class Mouse {
+  /**
+   * @param {Puppeteer.CDPSession} client
+   * @param {!Keyboard} keyboard
+   */
+  constructor(client, keyboard) {
+    this._client = client;
+    this._keyboard = keyboard;
+    this._x = 0;
+    this._y = 0;
+    /** @type {'none'|'left'|'right'|'middle'} */
+    this._button = 'none';
+  }
+
+  /**
+   * @param {number} x
+   * @param {number} y
+   * @param {!{steps?: number}=} options
+   */
+  async move(x, y, options = {}) {
+    const {steps = 1} = options;
+    const fromX = this._x, fromY = this._y;
+    this._x = x;
+    this._y = y;
+    for (let i = 1; i <= steps; i++) {
+      await this._client.send('Input.dispatchMouseEvent', {
+        type: 'mouseMoved',
+        button: this._button,
+        x: fromX + (this._x - fromX) * (i / steps),
+        y: fromY + (this._y - fromY) * (i / steps),
+        modifiers: this._keyboard._modifiers
+      });
+    }
+  }
+
+  /**
+   * @param {number} x
+   * @param {number} y
+   * @param {!{delay?: number, button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async click(x, y, options = {}) {
+    const {delay = null} = options;
+    if (delay !== null) {
+      await Promise.all([
+        this.move(x, y),
+        this.down(options),
+      ]);
+      await new Promise(f => setTimeout(f, delay));
+      await this.up(options);
+    } else {
+      await Promise.all([
+        this.move(x, y),
+        this.down(options),
+        this.up(options),
+      ]);
+    }
+  }
+
+  /**
+   * @param {!{button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async down(options = {}) {
+    const {button = 'left', clickCount = 1} = options;
+    this._button = button;
+    await this._client.send('Input.dispatchMouseEvent', {
+      type: 'mousePressed',
+      button,
+      x: this._x,
+      y: this._y,
+      modifiers: this._keyboard._modifiers,
+      clickCount
+    });
+  }
+
+  /**
+   * @param {!{button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async up(options = {}) {
+    const {button = 'left', clickCount = 1} = options;
+    this._button = 'none';
+    await this._client.send('Input.dispatchMouseEvent', {
+      type: 'mouseReleased',
+      button,
+      x: this._x,
+      y: this._y,
+      modifiers: this._keyboard._modifiers,
+      clickCount
+    });
+  }
+}
+
+class Touchscreen {
+  /**
+   * @param {Puppeteer.CDPSession} client
+   * @param {Keyboard} keyboard
+   */
+  constructor(client, keyboard) {
+    this._client = client;
+    this._keyboard = keyboard;
+  }
+
+  /**
+   * @param {number} x
+   * @param {number} y
+   */
+  async tap(x, y) {
+    // Touches appear to be lost during the first frame after navigation.
+    // This waits a frame before sending the tap.
+    // @see https://crbug.com/613219
+    await this._client.send('Runtime.evaluate', {
+      expression: 'new Promise(x => requestAnimationFrame(() => requestAnimationFrame(x)))',
+      awaitPromise: true
+    });
+
+    const touchPoints = [{x: Math.round(x), y: Math.round(y)}];
+    await this._client.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints,
+      modifiers: this._keyboard._modifiers
+    });
+    await this._client.send('Input.dispatchTouchEvent', {
+      type: 'touchEnd',
+      touchPoints: [],
+      modifiers: this._keyboard._modifiers
+    });
+  }
+}
+
+module.exports = { Keyboard, Mouse, Touchscreen};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/JSHandle.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {helper, assert, debugError} = require('./helper');
+// const path = require('path');
+
+function createJSHandle(context, remoteObject) {
+  const frame = context.frame();
+  if (remoteObject.subtype === 'node' && frame) {
+    const frameManager = frame._frameManager;
+    return new ElementHandle(context, context._client, remoteObject, frameManager.page(), frameManager);
+  }
+  return new JSHandle(context, context._client, remoteObject);
+}
+
+class JSHandle {
+  /**
+   * @param {!Puppeteer.ExecutionContext} context
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject
+   */
+  constructor(context, client, remoteObject) {
+    this._context = context;
+    this._client = client;
+    this._remoteObject = remoteObject;
+    this._disposed = false;
+  }
+
+  /**
+   * @return {!Puppeteer.ExecutionContext}
+   */
+  executionContext() {
+    return this._context;
+  }
+
+  /**
+   * @param {string} propertyName
+   * @return {!Promise<?JSHandle>}
+   */
+  async getProperty(propertyName) {
+    const objectHandle = await this._context.evaluateHandle((object, propertyName) => {
+      const result = {__proto__: null};
+      result[propertyName] = object[propertyName];
+      return result;
+    }, this, propertyName);
+    const properties = await objectHandle.getProperties();
+    const result = properties.get(propertyName) || null;
+    await objectHandle.dispose();
+    return result;
+  }
+
+  /**
+   * @return {!Promise<!Map<string, !JSHandle>>}
+   */
+  async getProperties() {
+    const response = await this._client.send('Runtime.getProperties', {
+      objectId: this._remoteObject.objectId,
+      ownProperties: true
+    });
+    const result = new Map();
+    for (const property of response.result) {
+      if (!property.enumerable)
+        continue;
+      result.set(property.name, createJSHandle(this._context, property.value));
+    }
+    return result;
+  }
+
+  /**
+   * @return {!Promise<?Object>}
+   */
+  async jsonValue() {
+    if (this._remoteObject.objectId) {
+      const response = await this._client.send('Runtime.callFunctionOn', {
+        functionDeclaration: 'function() { return this; }',
+        objectId: this._remoteObject.objectId,
+        returnByValue: true,
+        awaitPromise: true,
+      });
+      return helper.valueFromRemoteObject(response.result);
+    }
+    return helper.valueFromRemoteObject(this._remoteObject);
+  }
+
+  /**
+   * @return {?Puppeteer.ElementHandle}
+   */
+  asElement() {
+    return null;
+  }
+
+  async dispose() {
+    if (this._disposed)
+      return;
+    this._disposed = true;
+    await helper.releaseObject(this._client, this._remoteObject);
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  toString() {
+    if (this._remoteObject.objectId) {
+      const type =  this._remoteObject.subtype || this._remoteObject.type;
+      return 'JSHandle@' + type;
+    }
+    return 'JSHandle:' + helper.valueFromRemoteObject(this._remoteObject);
+  }
+}
+
+class ElementHandle extends JSHandle {
+  /**
+   * @param {!Puppeteer.ExecutionContext} context
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Protocol.Runtime.RemoteObject} remoteObject
+   * @param {!Puppeteer.Page} page
+   * @param {!Puppeteer.FrameManager} frameManager
+   */
+  constructor(context, client, remoteObject, page, frameManager) {
+    super(context, client, remoteObject);
+    this._client = client;
+    this._remoteObject = remoteObject;
+    this._page = page;
+    this._frameManager = frameManager;
+    this._disposed = false;
+  }
+
+  /**
+   * @override
+   * @return {?ElementHandle}
+   */
+  asElement() {
+    return this;
+  }
+
+  /**
+   * @return {!Promise<?Puppeteer.Frame>}
+   */
+  async contentFrame() {
+    const nodeInfo = await this._client.send('DOM.describeNode', {
+      objectId: this._remoteObject.objectId
+    });
+    if (typeof nodeInfo.node.frameId !== 'string')
+      return null;
+    return this._frameManager.frame(nodeInfo.node.frameId);
+  }
+
+  async _scrollIntoViewIfNeeded() {
+    const error = await this.executionContext().evaluate(async(element, pageJavascriptEnabled) => {
+      if (!element.isConnected)
+        return 'Node is detached from document';
+      if (element.nodeType !== Node.ELEMENT_NODE)
+        return 'Node is not of type HTMLElement';
+      // force-scroll if page's javascript is disabled.
+      if (!pageJavascriptEnabled) {
+        element.scrollIntoView({block: 'center', inline: 'center', behavior: 'instant'});
+        return false;
+      }
+      const visibleRatio = await new Promise(resolve => {
+        const observer = new IntersectionObserver(entries => {
+          resolve(entries[0].intersectionRatio);
+          observer.disconnect();
+        });
+        observer.observe(element);
+      });
+      if (visibleRatio !== 1.0)
+        element.scrollIntoView({block: 'center', inline: 'center', behavior: 'instant'});
+      return false;
+    }, this, this._page._javascriptEnabled);
+    if (error)
+      throw new Error(error);
+  }
+
+  /**
+   * @return {!Promise<!{x: number, y: number}>}
+   */
+  async _clickablePoint() {
+    const [result, layoutMetrics] = await Promise.all([
+      this._client.send('DOM.getContentQuads', {
+        objectId: this._remoteObject.objectId
+      }).catch(debugError),
+      this._client.send('Page.getLayoutMetrics'),
+    ]);
+    if (!result || !result.quads.length)
+      throw new Error('Node is either not visible or not an HTMLElement');
+    // Filter out quads that have too small area to click into.
+    const {clientWidth, clientHeight} = layoutMetrics.layoutViewport;
+    const quads = result.quads.map(quad => this._fromProtocolQuad(quad)).map(quad => this._intersectQuadWithViewport(quad, clientWidth, clientHeight)).filter(quad => computeQuadArea(quad) > 1);
+    if (!quads.length)
+      throw new Error('Node is either not visible or not an HTMLElement');
+    // Return the middle point of the first quad.
+    const quad = quads[0];
+    let x = 0;
+    let y = 0;
+    for (const point of quad) {
+      x += point.x;
+      y += point.y;
+    }
+    return {
+      x: x / 4,
+      y: y / 4
+    };
+  }
+
+  /**
+   * @return {!Promise<void|Protocol.DOM.getBoxModelReturnValue>}
+   */
+  _getBoxModel() {
+    return this._client.send('DOM.getBoxModel', {
+      objectId: this._remoteObject.objectId
+    }).catch(error => debugError(error));
+  }
+
+  /**
+   * @param {!Array<number>} quad
+   * @return {!Array<{x: number, y: number}>}
+   */
+  _fromProtocolQuad(quad) {
+    return [
+      {x: quad[0], y: quad[1]},
+      {x: quad[2], y: quad[3]},
+      {x: quad[4], y: quad[5]},
+      {x: quad[6], y: quad[7]}
+    ];
+  }
+
+  /**
+   * @param {!Array<{x: number, y: number}>} quad
+   * @param {number} width
+   * @param {number} height
+   * @return {!Array<{x: number, y: number}>}
+   */
+  _intersectQuadWithViewport(quad, width, height) {
+    return quad.map(point => ({
+      x: Math.min(Math.max(point.x, 0), width),
+      y: Math.min(Math.max(point.y, 0), height),
+    }));
+  }
+
+  async hover() {
+    await this._scrollIntoViewIfNeeded();
+    const {x, y} = await this._clickablePoint();
+    await this._page.mouse.move(x, y);
+  }
+
+  /**
+   * @param {!{delay?: number, button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  async click(options) {
+    await this._scrollIntoViewIfNeeded();
+    const {x, y} = await this._clickablePoint();
+    await this._page.mouse.click(x, y, options);
+  }
+
+  /**
+   * @param {!Array<string>} filePaths
+   */
+  async uploadFile(...filePaths) {
+    const files = filePaths.map(filePath => path.resolve(filePath));
+    const objectId = this._remoteObject.objectId;
+    await this._client.send('DOM.setFileInputFiles', { objectId, files });
+  }
+
+  async tap() {
+    await this._scrollIntoViewIfNeeded();
+    const {x, y} = await this._clickablePoint();
+    await this._page.touchscreen.tap(x, y);
+  }
+
+  async focus() {
+    await this.executionContext().evaluate(element => element.focus(), this);
+  }
+
+  /**
+   * @param {string} text
+   * @param {{delay: (number|undefined)}=} options
+   */
+  async type(text, options) {
+    await this.focus();
+    await this._page.keyboard.type(text, options);
+  }
+
+  /**
+   * @param {string} key
+   * @param {!{delay?: number, text?: string}=} options
+   */
+  async press(key, options) {
+    await this.focus();
+    await this._page.keyboard.press(key, options);
+  }
+
+  /**
+   * @return {!Promise<?{x: number, y: number, width: number, height: number}>}
+   */
+  async boundingBox() {
+    const result = await this._getBoxModel();
+
+    if (!result)
+      return null;
+
+    const quad = result.model.border;
+    const x = Math.min(quad[0], quad[2], quad[4], quad[6]);
+    const y = Math.min(quad[1], quad[3], quad[5], quad[7]);
+    const width = Math.max(quad[0], quad[2], quad[4], quad[6]) - x;
+    const height = Math.max(quad[1], quad[3], quad[5], quad[7]) - y;
+
+    return {x, y, width, height};
+  }
+
+  /**
+   * @return {!Promise<?BoxModel>}
+   */
+  async boxModel() {
+    const result = await this._getBoxModel();
+
+    if (!result)
+      return null;
+
+    const {content, padding, border, margin, width, height} = result.model;
+    return {
+      content: this._fromProtocolQuad(content),
+      padding: this._fromProtocolQuad(padding),
+      border: this._fromProtocolQuad(border),
+      margin: this._fromProtocolQuad(margin),
+      width,
+      height
+    };
+  }
+
+  /**
+   *
+   * @param {!Object=} options
+   * @returns {!Promise<string|!Buffer>}
+   */
+  async screenshot(options = {}) {
+    let needsViewportReset = false;
+
+    let boundingBox = await this.boundingBox();
+    assert(boundingBox, 'Node is either not visible or not an HTMLElement');
+
+    const viewport = this._page.viewport();
+
+    if (viewport && (boundingBox.width > viewport.width || boundingBox.height > viewport.height)) {
+      const newViewport = {
+        width: Math.max(viewport.width, Math.ceil(boundingBox.width)),
+        height: Math.max(viewport.height, Math.ceil(boundingBox.height)),
+      };
+      await this._page.setViewport(Object.assign({}, viewport, newViewport));
+
+      needsViewportReset = true;
+    }
+
+    await this._scrollIntoViewIfNeeded();
+
+    boundingBox = await this.boundingBox();
+    assert(boundingBox, 'Node is either not visible or not an HTMLElement');
+    assert(boundingBox.width !== 0, 'Node has 0 width.');
+    assert(boundingBox.height !== 0, 'Node has 0 height.');
+
+    const { layoutViewport: { pageX, pageY } } = await this._client.send('Page.getLayoutMetrics');
+
+    const clip = Object.assign({}, boundingBox);
+    clip.x += pageX;
+    clip.y += pageY;
+
+    const imageData = await this._page.screenshot(Object.assign({}, {
+      clip
+    }, options));
+
+    if (needsViewportReset)
+      await this._page.setViewport(viewport);
+
+    return imageData;
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<?ElementHandle>}
+   */
+  async $(selector) {
+    const handle = await this.executionContext().evaluateHandle(
+        (element, selector) => element.querySelector(selector),
+        this, selector
+    );
+    const element = handle.asElement();
+    if (element)
+      return element;
+    await handle.dispose();
+    return null;
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<!Array<!ElementHandle>>}
+   */
+  async $$(selector) {
+    const arrayHandle = await this.executionContext().evaluateHandle(
+        (element, selector) => element.querySelectorAll(selector),
+        this, selector
+    );
+    const properties = await arrayHandle.getProperties();
+    await arrayHandle.dispose();
+    const result = [];
+    for (const property of properties.values()) {
+      const elementHandle = property.asElement();
+      if (elementHandle)
+        result.push(elementHandle);
+    }
+    return result;
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|String} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $eval(selector, pageFunction, ...args) {
+    const elementHandle = await this.$(selector);
+    if (!elementHandle)
+      throw new Error(`Error: failed to find element matching selector "${selector}"`);
+    const result = await this.executionContext().evaluate(pageFunction, elementHandle, ...args);
+    await elementHandle.dispose();
+    return result;
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|String} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $$eval(selector, pageFunction, ...args) {
+    const arrayHandle = await this.executionContext().evaluateHandle(
+        (element, selector) => Array.from(element.querySelectorAll(selector)),
+        this, selector
+    );
+
+    const result = await this.executionContext().evaluate(pageFunction, arrayHandle, ...args);
+    await arrayHandle.dispose();
+    return result;
+  }
+
+  /**
+   * @param {string} expression
+   * @return {!Promise<!Array<!ElementHandle>>}
+   */
+  async $x(expression) {
+    const arrayHandle = await this.executionContext().evaluateHandle(
+        (element, expression) => {
+          const document = element.ownerDocument || element;
+          const iterator = document.evaluate(expression, element, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE);
+          const array = [];
+          let item;
+          while ((item = iterator.iterateNext()))
+            array.push(item);
+          return array;
+        },
+        this, expression
+    );
+    const properties = await arrayHandle.getProperties();
+    await arrayHandle.dispose();
+    const result = [];
+    for (const property of properties.values()) {
+      const elementHandle = property.asElement();
+      if (elementHandle)
+        result.push(elementHandle);
+    }
+    return result;
+  }
+
+  /**
+   * @returns {!Promise<boolean>}
+   */
+  isIntersectingViewport() {
+    return this.executionContext().evaluate(async element => {
+      const visibleRatio = await new Promise(resolve => {
+        const observer = new IntersectionObserver(entries => {
+          resolve(entries[0].intersectionRatio);
+          observer.disconnect();
+        });
+        observer.observe(element);
+      });
+      return visibleRatio > 0;
+    }, this);
+  }
+}
+
+function computeQuadArea(quad) {
+  // Compute sum of all directed areas of adjacent triangles
+  // https://en.wikipedia.org/wiki/Polygon#Simple_polygons
+  let area = 0;
+  for (let i = 0; i < quad.length; ++i) {
+    const p1 = quad[i];
+    const p2 = quad[(i + 1) % quad.length];
+    area += (p1.x * p2.y - p2.x * p1.y) / 2;
+  }
+  return Math.abs(area);
+}
+
+/**
+ * @typedef {Object} BoxModel
+ * @property {!Array<!{x: number, y: number}>} content
+ * @property {!Array<!{x: number, y: number}>} padding
+ * @property {!Array<!{x: number, y: number}>} border
+ * @property {!Array<!{x: number, y: number}>} margin
+ * @property {number} width
+ * @property {number} height
+ */
+
+module.exports = {createJSHandle, JSHandle, ElementHandle};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Launcher.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const os = require('os');
+// const path = require('path');
+// const http = require('http');
+// const https = require('https');
+// const URL = require('url');
+// const removeFolder = require('rimraf');
+// const childProcess = require('child_process');
+// const BrowserFetcher = require('./BrowserFetcher');
+// const {Connection} = require('./Connection');
+// const {Browser} = require('./Browser');
+// const readline = require('readline');
+// const fs = require('fs');
+// const {helper, assert, debugError} = require('./helper');
+// const {TimeoutError} = require('./Errors');
+// const WebSocketTransport = require('./WebSocketTransport');
+// const PipeTransport = require('./PipeTransport');
+
+const mkdtempAsync = helper.promisify(fs.mkdtemp);
+const removeFolderAsync = helper.promisify(removeFolder);
+
+const CHROME_PROFILE_PATH = path.join(os.tmpdir(), 'puppeteer_dev_profile-');
+
+const DEFAULT_ARGS = [
+  '--disable-background-networking',
+  '--enable-features=NetworkService,NetworkServiceInProcess',
+  '--disable-background-timer-throttling',
+  '--disable-backgrounding-occluded-windows',
+  '--disable-breakpad',
+  '--disable-client-side-phishing-detection',
+  '--disable-component-extensions-with-background-pages',
+  '--disable-default-apps',
+  '--disable-dev-shm-usage',
+  '--disable-extensions',
+  // TODO: Support OOOPIF. @see https://github.com/GoogleChrome/puppeteer/issues/2548
+  // BlinkGenPropertyTrees disabled due to crbug.com/937609
+  '--disable-features=site-per-process,TranslateUI,BlinkGenPropertyTrees',
+  '--disable-hang-monitor',
+  '--disable-ipc-flooding-protection',
+  '--disable-popup-blocking',
+  '--disable-prompt-on-repost',
+  '--disable-renderer-backgrounding',
+  '--disable-sync',
+  '--force-color-profile=srgb',
+  '--metrics-recording-only',
+  '--no-first-run',
+  '--enable-automation',
+  '--password-store=basic',
+  '--use-mock-keychain',
+];
+
+class Launcher {
+  /**
+   * @param {string} projectRoot
+   * @param {string} preferredRevision
+   * @param {boolean} isPuppeteerCore
+   */
+  constructor(projectRoot, preferredRevision, isPuppeteerCore) {
+    this._projectRoot = projectRoot;
+    this._preferredRevision = preferredRevision;
+    this._isPuppeteerCore = isPuppeteerCore;
+  }
+
+  /**
+   * @param {!(Launcher.LaunchOptions & Launcher.ChromeArgOptions & Launcher.BrowserOptions)=} options
+   * @return {!Promise<!Browser>}
+   */
+  async launch(options = {}) {
+    const {
+      ignoreDefaultArgs = false,
+      args = [],
+      dumpio = false,
+      executablePath = null,
+      pipe = false,
+      env = process.env,
+      handleSIGINT = true,
+      handleSIGTERM = true,
+      handleSIGHUP = true,
+      ignoreHTTPSErrors = false,
+      defaultViewport = {width: 800, height: 600},
+      slowMo = 0,
+      timeout = 30000
+    } = options;
+
+    const chromeArguments = [];
+    if (!ignoreDefaultArgs)
+      chromeArguments.push(...this.defaultArgs(options));
+    else if (Array.isArray(ignoreDefaultArgs))
+      chromeArguments.push(...this.defaultArgs(options).filter(arg => ignoreDefaultArgs.indexOf(arg) === -1));
+    else
+      chromeArguments.push(...args);
+
+    let temporaryUserDataDir = null;
+
+    if (!chromeArguments.some(argument => argument.startsWith('--remote-debugging-')))
+      chromeArguments.push(pipe ? '--remote-debugging-pipe' : '--remote-debugging-port=0');
+    if (!chromeArguments.some(arg => arg.startsWith('--user-data-dir'))) {
+      temporaryUserDataDir = await mkdtempAsync(CHROME_PROFILE_PATH);
+      chromeArguments.push(`--user-data-dir=${temporaryUserDataDir}`);
+    }
+
+    let chromeExecutable = executablePath;
+    if (!executablePath) {
+      const {missingText, executablePath} = this._resolveExecutablePath();
+      if (missingText)
+        throw new Error(missingText);
+      chromeExecutable = executablePath;
+    }
+
+    const usePipe = chromeArguments.includes('--remote-debugging-pipe');
+    /** @type {!Array<"ignore"|"pipe">} */
+    let stdio = ['pipe', 'pipe', 'pipe'];
+    if (usePipe) {
+      if (dumpio)
+        stdio = ['ignore', 'pipe', 'pipe', 'pipe', 'pipe'];
+      else
+        stdio = ['ignore', 'ignore', 'ignore', 'pipe', 'pipe'];
+    }
+    // hack-puppeteer
+    console.error(JSON.stringify([chromeExecutable, chromeArguments]));
+    const chromeProcess = childProcess.spawn(
+        chromeExecutable,
+        chromeArguments,
+        {
+          // On non-windows platforms, `detached: false` makes child process a leader of a new
+          // process group, making it possible to kill child process tree with `.kill(-pid)` command.
+          // @see https://nodejs.org/api/child_process.html#child_process_options_detached
+          detached: process.platform !== 'win32',
+          env,
+          stdio
+        }
+    );
+
+    if (dumpio) {
+      chromeProcess.stderr.pipe(process.stderr);
+      chromeProcess.stdout.pipe(process.stdout);
+    }
+
+    let chromeClosed = false;
+    const waitForChromeToClose = new Promise((fulfill, reject) => {
+      chromeProcess.once('exit', () => {
+        chromeClosed = true;
+        // Cleanup as processes exit.
+        if (temporaryUserDataDir) {
+          removeFolderAsync(temporaryUserDataDir)
+              .then(() => fulfill())
+              .catch(err => console.error(err));
+        } else {
+          fulfill();
+        }
+      });
+    });
+
+    const listeners = [ helper.addEventListener(process, 'exit', killChrome) ];
+    if (handleSIGINT)
+      listeners.push(helper.addEventListener(process, 'SIGINT', () => { killChrome(); process.exit(130); }));
+    if (handleSIGTERM)
+      listeners.push(helper.addEventListener(process, 'SIGTERM', gracefullyCloseChrome));
+    if (handleSIGHUP)
+      listeners.push(helper.addEventListener(process, 'SIGHUP', gracefullyCloseChrome));
+    /** @type {?Connection} */
+    let connection = null;
+    try {
+      if (!usePipe) {
+        const browserWSEndpoint = await waitForWSEndpoint(chromeProcess, timeout, this._preferredRevision);
+        const transport = await WebSocketTransport.create(browserWSEndpoint);
+        connection = new Connection(browserWSEndpoint, transport, slowMo);
+      } else {
+        const transport = new PipeTransport(/** @type {!NodeJS.WritableStream} */(chromeProcess.stdio[3]), /** @type {!NodeJS.ReadableStream} */ (chromeProcess.stdio[4]));
+        connection = new Connection('', transport, slowMo);
+      }
+      const browser = await Browser.create(connection, [], ignoreHTTPSErrors, defaultViewport, chromeProcess, gracefullyCloseChrome);
+      await browser.waitForTarget(t => t.type() === 'page');
+      return browser;
+    } catch (e) {
+      killChrome();
+      throw e;
+    }
+
+    /**
+     * @return {Promise}
+     */
+    function gracefullyCloseChrome() {
+      helper.removeEventListeners(listeners);
+      if (temporaryUserDataDir) {
+        killChrome();
+      } else if (connection) {
+        // Attempt to close chrome gracefully
+        connection.send('Browser.close').catch(error => {
+          debugError(error);
+          killChrome();
+        });
+      }
+      return waitForChromeToClose;
+    }
+
+    // This method has to be sync to be used as 'exit' event handler.
+    function killChrome() {
+      helper.removeEventListeners(listeners);
+      if (chromeProcess.pid && !chromeProcess.killed && !chromeClosed) {
+        // Force kill chrome.
+        try {
+          if (process.platform === 'win32')
+            childProcess.execSync(`taskkill /pid ${chromeProcess.pid} /T /F`);
+          else
+            process.kill(-chromeProcess.pid, 'SIGKILL');
+        } catch (e) {
+          // the process might have already stopped
+        }
+      }
+      // Attempt to remove temporary profile directory to avoid littering.
+      try {
+        removeFolder.sync(temporaryUserDataDir);
+      } catch (e) { }
+    }
+  }
+
+  /**
+   * @param {!Launcher.ChromeArgOptions=} options
+   * @return {!Array<string>}
+   */
+  defaultArgs(options = {}) {
+    const {
+      devtools = false,
+      headless = !devtools,
+      args = [],
+      userDataDir = null
+    } = options;
+    const chromeArguments = [...DEFAULT_ARGS];
+    if (userDataDir)
+      chromeArguments.push(`--user-data-dir=${userDataDir}`);
+    if (devtools)
+      chromeArguments.push('--auto-open-devtools-for-tabs');
+    if (headless) {
+      chromeArguments.push(
+          '--headless',
+          '--hide-scrollbars',
+          '--mute-audio'
+      );
+    }
+    if (args.every(arg => arg.startsWith('-')))
+      chromeArguments.push('about:blank');
+    chromeArguments.push(...args);
+    return chromeArguments;
+  }
+
+  /**
+   * @return {string}
+   */
+  executablePath() {
+    return this._resolveExecutablePath().executablePath;
+  }
+
+  /**
+   * @param {!(Launcher.BrowserOptions & {browserWSEndpoint?: string, browserURL?: string, transport?: !Puppeteer.ConnectionTransport})} options
+   * @return {!Promise<!Browser>}
+   */
+  async connect(options) {
+    const {
+      browserWSEndpoint,
+      browserURL,
+      ignoreHTTPSErrors = false,
+      defaultViewport = {width: 800, height: 600},
+      transport,
+      slowMo = 0,
+    } = options;
+
+    assert(Number(!!browserWSEndpoint) + Number(!!browserURL) + Number(!!transport) === 1, 'Exactly one of browserWSEndpoint, browserURL or transport must be passed to puppeteer.connect');
+
+    let connection = null;
+    if (transport) {
+      connection = new Connection('', transport, slowMo);
+    } else if (browserWSEndpoint) {
+      const connectionTransport = await WebSocketTransport.create(browserWSEndpoint);
+      connection = new Connection(browserWSEndpoint, connectionTransport, slowMo);
+    } else if (browserURL) {
+      const connectionURL = await getWSEndpoint(browserURL);
+      const connectionTransport = await WebSocketTransport.create(connectionURL);
+      connection = new Connection(connectionURL, connectionTransport, slowMo);
+    }
+
+    const {browserContextIds} = await connection.send('Target.getBrowserContexts');
+    return Browser.create(connection, browserContextIds, ignoreHTTPSErrors, defaultViewport, null, () => connection.send('Browser.close').catch(debugError));
+  }
+
+  /**
+   * @return {{executablePath: string, missingText: ?string}}
+   */
+  _resolveExecutablePath() {
+    // puppeteer-core doesn't take into account PUPPETEER_* env variables.
+    if (!this._isPuppeteerCore) {
+      const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.npm_config_puppeteer_executable_path || process.env.npm_package_config_puppeteer_executable_path;
+      if (executablePath) {
+        const missingText = !fs.existsSync(executablePath) ? 'Tried to use PUPPETEER_EXECUTABLE_PATH env variable to launch browser but did not find any executable at: ' + executablePath : null;
+        return { executablePath, missingText };
+      }
+    }
+    const browserFetcher = new BrowserFetcher(this._projectRoot);
+    if (!this._isPuppeteerCore) {
+      const revision = process.env['PUPPETEER_CHROMIUM_REVISION'];
+      if (revision) {
+        const revisionInfo = browserFetcher.revisionInfo(revision);
+        const missingText = !revisionInfo.local ? 'Tried to use PUPPETEER_CHROMIUM_REVISION env variable to launch browser but did not find executable at: ' + revisionInfo.executablePath : null;
+        return {executablePath: revisionInfo.executablePath, missingText};
+      }
+    }
+    const revisionInfo = browserFetcher.revisionInfo(this._preferredRevision);
+    const missingText = !revisionInfo.local ? `Chromium revision is not downloaded. Run "npm install" or "yarn install"` : null;
+    return {executablePath: revisionInfo.executablePath, missingText};
+  }
+}
+
+/**
+ * @param {!Puppeteer.ChildProcess} chromeProcess
+ * @param {number} timeout
+ * @param {string} preferredRevision
+ * @return {!Promise<string>}
+ */
+function waitForWSEndpoint(chromeProcess, timeout, preferredRevision) {
+  return new Promise((resolve, reject) => {
+    const rl = readline.createInterface({ input: chromeProcess.stderr });
+    let stderr = '';
+    const listeners = [
+      helper.addEventListener(rl, 'line', onLine),
+      helper.addEventListener(rl, 'close', () => onClose()),
+      helper.addEventListener(chromeProcess, 'exit', () => onClose()),
+      helper.addEventListener(chromeProcess, 'error', error => onClose(error))
+    ];
+    const timeoutId = timeout ? setTimeout(onTimeout, timeout) : 0;
+
+    /**
+     * @param {!Error=} error
+     */
+    function onClose(error) {
+      cleanup();
+      reject(new Error([
+        'Failed to launch chrome!' + (error ? ' ' + error.message : ''),
+        stderr,
+        '',
+        'TROUBLESHOOTING: https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md',
+        '',
+      ].join('\n')));
+    }
+
+    function onTimeout() {
+      cleanup();
+      reject(new TimeoutError(`Timed out after ${timeout} ms while trying to connect to Chrome! The only Chrome revision guaranteed to work is r${preferredRevision}`));
+    }
+
+    /**
+     * @param {string} line
+     */
+    function onLine(line) {
+      stderr += line + '\n';
+      const match = line.match(/^DevTools listening on (ws:\/\/.*)$/);
+      if (!match)
+        return;
+      cleanup();
+      resolve(match[1]);
+    }
+
+    function cleanup() {
+      if (timeoutId)
+        clearTimeout(timeoutId);
+      helper.removeEventListeners(listeners);
+    }
+  });
+}
+
+/**
+ * @param {string} browserURL
+ * @return {!Promise<string>}
+ */
+function getWSEndpoint(browserURL) {
+  let resolve, reject;
+  const promise = new Promise((res, rej) => { resolve = res; reject = rej; });
+
+  const endpointURL = URL.resolve(browserURL, '/json/version');
+  const protocol = endpointURL.startsWith('https') ? https : http;
+  const requestOptions = Object.assign(URL.parse(endpointURL), { method: 'GET' });
+  const request = protocol.request(requestOptions, res => {
+    let data = '';
+    if (res.statusCode !== 200) {
+      // Consume response data to free up memory.
+      res.resume();
+      reject(new Error('HTTP ' + res.statusCode));
+      return;
+    }
+    res.setEncoding('utf8');
+    res.on('data', chunk => data += chunk);
+    res.on('end', () => resolve(JSON.parse(data).webSocketDebuggerUrl));
+  });
+
+  request.on('error', reject);
+  request.end();
+
+  return promise.catch(e => {
+    e.message = `Failed to fetch browser webSocket url from ${endpointURL}: ` + e.message;
+    throw e;
+  });
+}
+
+/**
+ * @typedef {Object} Launcher.ChromeArgOptions
+ * @property {boolean=} headless
+ * @property {Array<string>=} args
+ * @property {string=} userDataDir
+ * @property {boolean=} devtools
+ */
+
+/**
+ * @typedef {Object} Launcher.LaunchOptions
+ * @property {string=} executablePath
+ * @property {boolean|Array<string>=} ignoreDefaultArgs
+ * @property {boolean=} handleSIGINT
+ * @property {boolean=} handleSIGTERM
+ * @property {boolean=} handleSIGHUP
+ * @property {number=} timeout
+ * @property {boolean=} dumpio
+ * @property {!Object<string, string | undefined>=} env
+ * @property {boolean=} pipe
+ */
+
+/**
+ * @typedef {Object} Launcher.BrowserOptions
+ * @property {boolean=} ignoreHTTPSErrors
+ * @property {(?Puppeteer.Viewport)=} defaultViewport
+ * @property {number=} slowMo
+ */
+
+module.exports = Launcher;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/LifecycleWatcher.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {helper, assert} = require('./helper');
+// const {Events} = require('./Events');
+// const {TimeoutError} = require('./Errors');
+
+class LifecycleWatcher {
+  /**
+   * @param {!Puppeteer.FrameManager} frameManager
+   * @param {!Puppeteer.Frame} frame
+   * @param {string|!Array<string>} waitUntil
+   * @param {number} timeout
+   */
+  constructor(frameManager, frame, waitUntil, timeout) {
+    if (Array.isArray(waitUntil))
+      waitUntil = waitUntil.slice();
+    else if (typeof waitUntil === 'string')
+      waitUntil = [waitUntil];
+    this._expectedLifecycle = waitUntil.map(value => {
+      const protocolEvent = puppeteerToProtocolLifecycle[value];
+      assert(protocolEvent, 'Unknown value for options.waitUntil: ' + value);
+      return protocolEvent;
+    });
+
+    this._frameManager = frameManager;
+    this._frame = frame;
+    this._initialLoaderId = frame._loaderId;
+    this._timeout = timeout;
+    /** @type {?Puppeteer.Request} */
+    this._navigationRequest = null;
+    this._eventListeners = [
+      helper.addEventListener(frameManager._client, Events.CDPSession.Disconnected, () => this._terminate(new Error('Navigation failed because browser has disconnected!'))),
+      helper.addEventListener(this._frameManager, Events.FrameManager.LifecycleEvent, this._checkLifecycleComplete.bind(this)),
+      helper.addEventListener(this._frameManager, Events.FrameManager.FrameNavigatedWithinDocument, this._navigatedWithinDocument.bind(this)),
+      helper.addEventListener(this._frameManager, Events.FrameManager.FrameDetached, this._onFrameDetached.bind(this)),
+      helper.addEventListener(this._frameManager.networkManager(), Events.NetworkManager.Request, this._onRequest.bind(this)),
+    ];
+
+    this._sameDocumentNavigationPromise = new Promise(fulfill => {
+      this._sameDocumentNavigationCompleteCallback = fulfill;
+    });
+
+    this._lifecyclePromise = new Promise(fulfill => {
+      this._lifecycleCallback = fulfill;
+    });
+
+    this._newDocumentNavigationPromise = new Promise(fulfill => {
+      this._newDocumentNavigationCompleteCallback = fulfill;
+    });
+
+    this._timeoutPromise = this._createTimeoutPromise();
+    this._terminationPromise = new Promise(fulfill => {
+      this._terminationCallback = fulfill;
+    });
+    this._checkLifecycleComplete();
+  }
+
+  /**
+   * @param {!Puppeteer.Request} request
+   */
+  _onRequest(request) {
+    if (request.frame() !== this._frame || !request.isNavigationRequest())
+      return;
+    this._navigationRequest = request;
+  }
+
+  /**
+   * @param {!Puppeteer.Frame} frame
+   */
+  _onFrameDetached(frame) {
+    if (this._frame === frame) {
+      this._terminationCallback.call(null, new Error('Navigating frame was detached'));
+      return;
+    }
+    this._checkLifecycleComplete();
+  }
+
+  /**
+   * @return {?Puppeteer.Response}
+   */
+  navigationResponse() {
+    return this._navigationRequest ? this._navigationRequest.response() : null;
+  }
+
+  /**
+   * @param {!Error} error
+   */
+  _terminate(error) {
+    this._terminationCallback.call(null, error);
+  }
+
+  /**
+   * @return {!Promise<?Error>}
+   */
+  sameDocumentNavigationPromise() {
+    return this._sameDocumentNavigationPromise;
+  }
+
+  /**
+   * @return {!Promise<?Error>}
+   */
+  newDocumentNavigationPromise() {
+    return this._newDocumentNavigationPromise;
+  }
+
+  /**
+   * @return {!Promise}
+   */
+  lifecyclePromise() {
+    return this._lifecyclePromise;
+  }
+
+  /**
+   * @return {!Promise<?Error>}
+   */
+  timeoutOrTerminationPromise() {
+    return Promise.race([this._timeoutPromise, this._terminationPromise]);
+  }
+
+  /**
+   * @return {!Promise<?Error>}
+   */
+  _createTimeoutPromise() {
+    if (!this._timeout)
+      return new Promise(() => {});
+    const errorMessage = 'Navigation Timeout Exceeded: ' + this._timeout + 'ms exceeded';
+    return new Promise(fulfill => this._maximumTimer = setTimeout(fulfill, this._timeout))
+        .then(() => new TimeoutError(errorMessage));
+  }
+
+  /**
+   * @param {!Puppeteer.Frame} frame
+   */
+  _navigatedWithinDocument(frame) {
+    if (frame !== this._frame)
+      return;
+    this._hasSameDocumentNavigation = true;
+    this._checkLifecycleComplete();
+  }
+
+  _checkLifecycleComplete() {
+    // We expect navigation to commit.
+    if (!checkLifecycle(this._frame, this._expectedLifecycle))
+      return;
+    this._lifecycleCallback();
+    if (this._frame._loaderId === this._initialLoaderId && !this._hasSameDocumentNavigation)
+      return;
+    if (this._hasSameDocumentNavigation)
+      this._sameDocumentNavigationCompleteCallback();
+    if (this._frame._loaderId !== this._initialLoaderId)
+      this._newDocumentNavigationCompleteCallback();
+
+    /**
+     * @param {!Puppeteer.Frame} frame
+     * @param {!Array<string>} expectedLifecycle
+     * @return {boolean}
+     */
+    function checkLifecycle(frame, expectedLifecycle) {
+      for (const event of expectedLifecycle) {
+        if (!frame._lifecycleEvents.has(event))
+          return false;
+      }
+      for (const child of frame.childFrames()) {
+        if (!checkLifecycle(child, expectedLifecycle))
+          return false;
+      }
+      return true;
+    }
+  }
+
+  dispose() {
+    helper.removeEventListeners(this._eventListeners);
+    clearTimeout(this._maximumTimer);
+  }
+}
+
+const puppeteerToProtocolLifecycle = {
+  'load': 'load',
+  'domcontentloaded': 'DOMContentLoaded',
+  'networkidle0': 'networkIdle',
+  'networkidle2': 'networkAlmostIdle',
+};
+
+module.exports = {LifecycleWatcher};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Multimap.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @template T
+ * @template V
+ */
+class Multimap {
+  constructor() {
+    this._map = new Map();
+  }
+
+  /**
+   * @param {T} key
+   * @param {V} value
+   */
+  set(key, value) {
+    let set = this._map.get(key);
+    if (!set) {
+      set = new Set();
+      this._map.set(key, set);
+    }
+    set.add(value);
+  }
+
+  /**
+   * @param {T} key
+   * @return {!Set<V>}
+   */
+  get(key) {
+    let result = this._map.get(key);
+    if (!result)
+      result = new Set();
+    return result;
+  }
+
+  /**
+   * @param {T} key
+   * @return {boolean}
+   */
+  has(key) {
+    return this._map.has(key);
+  }
+
+  /**
+   * @param {T} key
+   * @param {V} value
+   * @return {boolean}
+   */
+  hasValue(key, value) {
+    const set = this._map.get(key);
+    if (!set)
+      return false;
+    return set.has(value);
+  }
+
+  /**
+   * @return {number}
+   */
+  get size() {
+    return this._map.size;
+  }
+
+  /**
+   * @param {T} key
+   * @param {V} value
+   * @return {boolean}
+   */
+  delete(key, value) {
+    const values = this.get(key);
+    const result = values.delete(value);
+    if (!values.size)
+      this._map.delete(key);
+    return result;
+  }
+
+  /**
+   * @param {T} key
+   */
+  deleteAll(key) {
+    this._map.delete(key);
+  }
+
+  /**
+   * @param {T} key
+   * @return {V}
+   */
+  firstValue(key) {
+    const set = this._map.get(key);
+    if (!set)
+      return null;
+    return set.values().next().value;
+  }
+
+  /**
+   * @return {T}
+   */
+  firstKey() {
+    return this._map.keys().next().value;
+  }
+
+  /**
+   * @return {!Array<V>}
+   */
+  valuesArray() {
+    const result = [];
+    for (const key of this._map.keys())
+      result.push(...Array.from(this._map.get(key).values()));
+    return result;
+  }
+
+  /**
+   * @return {!Array<T>}
+   */
+  keysArray() {
+    return Array.from(this._map.keys());
+  }
+
+  clear() {
+    this._map.clear();
+  }
+}
+
+module.exports = Multimap;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/NetworkManager.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const EventEmitter = require('events');
+// const {helper, assert, debugError} = require('./helper');
+// const {Events} = require('./Events');
+
+class NetworkManager extends EventEmitter {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client, ignoreHTTPSErrors) {
+    super();
+    this._client = client;
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;
+    this._frameManager = null;
+    /** @type {!Map<string, !Request>} */
+    this._requestIdToRequest = new Map();
+    /** @type {!Map<string, !Protocol.Network.requestWillBeSentPayload>} */
+    this._requestIdToRequestWillBeSentEvent = new Map();
+    /** @type {!Object<string, string>} */
+    this._extraHTTPHeaders = {};
+
+    this._offline = false;
+
+    /** @type {?{username: string, password: string}} */
+    this._credentials = null;
+    /** @type {!Set<string>} */
+    this._attemptedAuthentications = new Set();
+    this._userRequestInterceptionEnabled = false;
+    this._protocolRequestInterceptionEnabled = false;
+    this._userCacheDisabled = false;
+    /** @type {!Map<string, string>} */
+    this._requestIdToInterceptionId = new Map();
+
+    this._client.on('Fetch.requestPaused', this._onRequestPaused.bind(this));
+    this._client.on('Fetch.authRequired', this._onAuthRequired.bind(this));
+    this._client.on('Network.requestWillBeSent', this._onRequestWillBeSent.bind(this));
+    this._client.on('Network.requestServedFromCache', this._onRequestServedFromCache.bind(this));
+    this._client.on('Network.responseReceived', this._onResponseReceived.bind(this));
+    this._client.on('Network.loadingFinished', this._onLoadingFinished.bind(this));
+    this._client.on('Network.loadingFailed', this._onLoadingFailed.bind(this));
+  }
+
+  async initialize() {
+    await this._client.send('Network.enable');
+    if (this._ignoreHTTPSErrors)
+      await this._client.send('Security.setIgnoreCertificateErrors', {ignore: true});
+  }
+
+  /**
+   * @param {!Puppeteer.FrameManager} frameManager
+   */
+  setFrameManager(frameManager) {
+    this._frameManager = frameManager;
+  }
+
+  /**
+   * @param {?{username: string, password: string}} credentials
+   */
+  async authenticate(credentials) {
+    this._credentials = credentials;
+    await this._updateProtocolRequestInterception();
+  }
+
+  /**
+   * @param {!Object<string, string>} extraHTTPHeaders
+   */
+  async setExtraHTTPHeaders(extraHTTPHeaders) {
+    this._extraHTTPHeaders = {};
+    for (const key of Object.keys(extraHTTPHeaders)) {
+      const value = extraHTTPHeaders[key];
+      assert(helper.isString(value), `Expected value of header "${key}" to be String, but "${typeof value}" is found.`);
+      this._extraHTTPHeaders[key.toLowerCase()] = value;
+    }
+    await this._client.send('Network.setExtraHTTPHeaders', { headers: this._extraHTTPHeaders });
+  }
+
+  /**
+   * @return {!Object<string, string>}
+   */
+  extraHTTPHeaders() {
+    return Object.assign({}, this._extraHTTPHeaders);
+  }
+
+  /**
+   * @param {boolean} value
+   */
+  async setOfflineMode(value) {
+    if (this._offline === value)
+      return;
+    this._offline = value;
+    await this._client.send('Network.emulateNetworkConditions', {
+      offline: this._offline,
+      // values of 0 remove any active throttling. crbug.com/456324#c9
+      latency: 0,
+      downloadThroughput: -1,
+      uploadThroughput: -1
+    });
+  }
+
+  /**
+   * @param {string} userAgent
+   */
+  async setUserAgent(userAgent) {
+    await this._client.send('Network.setUserAgentOverride', { userAgent });
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  async setCacheEnabled(enabled) {
+    this._userCacheDisabled = !enabled;
+    await this._updateProtocolCacheDisabled();
+  }
+
+  /**
+   * @param {boolean} value
+   */
+  async setRequestInterception(value) {
+    this._userRequestInterceptionEnabled = value;
+    await this._updateProtocolRequestInterception();
+  }
+
+  async _updateProtocolRequestInterception() {
+    const enabled = this._userRequestInterceptionEnabled || !!this._credentials;
+    if (enabled === this._protocolRequestInterceptionEnabled)
+      return;
+    this._protocolRequestInterceptionEnabled = enabled;
+    if (enabled) {
+      await Promise.all([
+        this._updateProtocolCacheDisabled(),
+        this._client.send('Fetch.enable', {
+          handleAuthRequests: true,
+          patterns: [{urlPattern: '*'}],
+        }),
+      ]);
+    } else {
+      await Promise.all([
+        this._updateProtocolCacheDisabled(),
+        this._client.send('Fetch.disable')
+      ]);
+    }
+  }
+
+  async _updateProtocolCacheDisabled() {
+    await this._client.send('Network.setCacheDisabled', {
+      cacheDisabled: this._userCacheDisabled || this._protocolRequestInterceptionEnabled
+    });
+  }
+
+  /**
+   * @param {!Protocol.Network.requestWillBeSentPayload} event
+   */
+  _onRequestWillBeSent(event) {
+    // Request interception doesn't happen for data URLs with Network Service.
+    if (this._protocolRequestInterceptionEnabled && !event.request.url.startsWith('data:')) {
+      const requestId = event.requestId;
+      const interceptionId = this._requestIdToInterceptionId.get(requestId);
+      if (interceptionId) {
+        this._onRequest(event, interceptionId);
+        this._requestIdToInterceptionId.delete(requestId);
+      } else {
+        this._requestIdToRequestWillBeSentEvent.set(event.requestId, event);
+      }
+      return;
+    }
+    this._onRequest(event, null);
+  }
+
+  /**
+   * @param {!Protocol.Fetch.authRequiredPayload} event
+   */
+  _onAuthRequired(event) {
+    /** @type {"Default"|"CancelAuth"|"ProvideCredentials"} */
+    let response = 'Default';
+    if (this._attemptedAuthentications.has(event.requestId)) {
+      response = 'CancelAuth';
+    } else if (this._credentials) {
+      response = 'ProvideCredentials';
+      this._attemptedAuthentications.add(event.requestId);
+    }
+    const {username, password} = this._credentials || {username: undefined, password: undefined};
+    this._client.send('Fetch.continueWithAuth', {
+      requestId: event.requestId,
+      authChallengeResponse: { response, username, password },
+    }).catch(debugError);
+  }
+
+  /**
+   * @param {!Protocol.Fetch.requestPausedPayload} event
+   */
+  _onRequestPaused(event) {
+    if (!this._userRequestInterceptionEnabled && this._protocolRequestInterceptionEnabled) {
+      this._client.send('Fetch.continueRequest', {
+        requestId: event.requestId
+      }).catch(debugError);
+    }
+
+    const requestId = event.networkId;
+    const interceptionId = event.requestId;
+    if (requestId && this._requestIdToRequestWillBeSentEvent.has(requestId)) {
+      const requestWillBeSentEvent = this._requestIdToRequestWillBeSentEvent.get(requestId);
+      this._onRequest(requestWillBeSentEvent, interceptionId);
+      this._requestIdToRequestWillBeSentEvent.delete(requestId);
+    } else {
+      this._requestIdToInterceptionId.set(requestId, interceptionId);
+    }
+  }
+
+  /**
+   * @param {!Protocol.Network.requestWillBeSentPayload} event
+   * @param {?string} interceptionId
+   */
+  _onRequest(event, interceptionId) {
+    let redirectChain = [];
+    if (event.redirectResponse) {
+      const request = this._requestIdToRequest.get(event.requestId);
+      // If we connect late to the target, we could have missed the requestWillBeSent event.
+      if (request) {
+        this._handleRequestRedirect(request, event.redirectResponse);
+        redirectChain = request._redirectChain;
+      }
+    }
+    const frame = event.frameId && this._frameManager ? this._frameManager.frame(event.frameId) : null;
+    const request = new Request(this._client, frame, interceptionId, this._userRequestInterceptionEnabled, event, redirectChain);
+    this._requestIdToRequest.set(event.requestId, request);
+    this.emit(Events.NetworkManager.Request, request);
+  }
+
+  /**
+   * @param {!Protocol.Network.requestServedFromCachePayload} event
+   */
+  _onRequestServedFromCache(event) {
+    const request = this._requestIdToRequest.get(event.requestId);
+    if (request)
+      request._fromMemoryCache = true;
+  }
+
+  /**
+   * @param {!Request} request
+   * @param {!Protocol.Network.Response} responsePayload
+   */
+  _handleRequestRedirect(request, responsePayload) {
+    const response = new Response(this._client, request, responsePayload);
+    request._response = response;
+    request._redirectChain.push(request);
+    response._bodyLoadedPromiseFulfill.call(null, new Error('Response body is unavailable for redirect responses'));
+    this._requestIdToRequest.delete(request._requestId);
+    this._attemptedAuthentications.delete(request._interceptionId);
+    this.emit(Events.NetworkManager.Response, response);
+    this.emit(Events.NetworkManager.RequestFinished, request);
+  }
+
+  /**
+   * @param {!Protocol.Network.responseReceivedPayload} event
+   */
+  _onResponseReceived(event) {
+    const request = this._requestIdToRequest.get(event.requestId);
+    // FileUpload sends a response without a matching request.
+    if (!request)
+      return;
+    const response = new Response(this._client, request, event.response);
+    request._response = response;
+    this.emit(Events.NetworkManager.Response, response);
+  }
+
+  /**
+   * @param {!Protocol.Network.loadingFinishedPayload} event
+   */
+  _onLoadingFinished(event) {
+    const request = this._requestIdToRequest.get(event.requestId);
+    // For certain requestIds we never receive requestWillBeSent event.
+    // @see https://crbug.com/750469
+    if (!request)
+      return;
+
+    // Under certain conditions we never get the Network.responseReceived
+    // event from protocol. @see https://crbug.com/883475
+    if (request.response())
+      request.response()._bodyLoadedPromiseFulfill.call(null);
+    this._requestIdToRequest.delete(request._requestId);
+    this._attemptedAuthentications.delete(request._interceptionId);
+    this.emit(Events.NetworkManager.RequestFinished, request);
+  }
+
+  /**
+   * @param {!Protocol.Network.loadingFailedPayload} event
+   */
+  _onLoadingFailed(event) {
+    const request = this._requestIdToRequest.get(event.requestId);
+    // For certain requestIds we never receive requestWillBeSent event.
+    // @see https://crbug.com/750469
+    if (!request)
+      return;
+    request._failureText = event.errorText;
+    const response = request.response();
+    if (response)
+      response._bodyLoadedPromiseFulfill.call(null);
+    this._requestIdToRequest.delete(request._requestId);
+    this._attemptedAuthentications.delete(request._interceptionId);
+    this.emit(Events.NetworkManager.RequestFailed, request);
+  }
+}
+
+class Request {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {?Puppeteer.Frame} frame
+   * @param {string} interceptionId
+   * @param {boolean} allowInterception
+   * @param {!Protocol.Network.requestWillBeSentPayload} event
+   * @param {!Array<!Request>} redirectChain
+   */
+  constructor(client, frame, interceptionId, allowInterception, event, redirectChain) {
+    this._client = client;
+    this._requestId = event.requestId;
+    this._isNavigationRequest = event.requestId === event.loaderId && event.type === 'Document';
+    this._interceptionId = interceptionId;
+    this._allowInterception = allowInterception;
+    this._interceptionHandled = false;
+    this._response = null;
+    this._failureText = null;
+
+    this._url = event.request.url;
+    this._resourceType = event.type.toLowerCase();
+    this._method = event.request.method;
+    this._postData = event.request.postData;
+    this._headers = {};
+    this._frame = frame;
+    this._redirectChain = redirectChain;
+    for (const key of Object.keys(event.request.headers))
+      this._headers[key.toLowerCase()] = event.request.headers[key];
+
+    this._fromMemoryCache = false;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @return {string}
+   */
+  resourceType() {
+    return this._resourceType;
+  }
+
+  /**
+   * @return {string}
+   */
+  method() {
+    return this._method;
+  }
+
+  /**
+   * @return {string|undefined}
+   */
+  postData() {
+    return this._postData;
+  }
+
+  /**
+   * @return {!Object}
+   */
+  headers() {
+    return this._headers;
+  }
+
+  /**
+   * @return {?Response}
+   */
+  response() {
+    return this._response;
+  }
+
+  /**
+   * @return {?Puppeteer.Frame}
+   */
+  frame() {
+    return this._frame;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isNavigationRequest() {
+    return this._isNavigationRequest;
+  }
+
+  /**
+   * @return {!Array<!Request>}
+   */
+  redirectChain() {
+    return this._redirectChain.slice();
+  }
+
+  /**
+   * @return {?{errorText: string}}
+   */
+  failure() {
+    if (!this._failureText)
+      return null;
+    return {
+      errorText: this._failureText
+    };
+  }
+
+  /**
+   * @param {!{url?: string, method?:string, postData?: string, headers?: !Object}} overrides
+   */
+  async continue(overrides = {}) {
+    // Request interception is not supported for data: urls.
+    if (this._url.startsWith('data:'))
+      return;
+    assert(this._allowInterception, 'Request Interception is not enabled!');
+    assert(!this._interceptionHandled, 'Request is already handled!');
+    const {
+      url,
+      method,
+      postData,
+      headers
+    } = overrides;
+    this._interceptionHandled = true;
+    await this._client.send('Fetch.continueRequest', {
+      requestId: this._interceptionId,
+      url,
+      method,
+      postData,
+      headers: headers ? headersArray(headers) : undefined,
+    }).catch(error => {
+      // In certain cases, protocol will return error if the request was already canceled
+      // or the page was closed. We should tolerate these errors.
+      debugError(error);
+    });
+  }
+
+  /**
+   * @param {!{status: number, headers: Object, contentType: string, body: (string|Buffer)}} response
+   */
+  async respond(response) {
+    // Mocking responses for dataURL requests is not currently supported.
+    if (this._url.startsWith('data:'))
+      return;
+    assert(this._allowInterception, 'Request Interception is not enabled!');
+    assert(!this._interceptionHandled, 'Request is already handled!');
+    this._interceptionHandled = true;
+
+    const responseBody = response.body && helper.isString(response.body) ? Buffer.from(/** @type {string} */(response.body)) : /** @type {?Buffer} */(response.body || null);
+
+    /** @type {!Object<string, string>} */
+    const responseHeaders = {};
+    if (response.headers) {
+      for (const header of Object.keys(response.headers))
+        responseHeaders[header.toLowerCase()] = response.headers[header];
+    }
+    if (response.contentType)
+      responseHeaders['content-type'] = response.contentType;
+    if (responseBody && !('content-length' in responseHeaders))
+      responseHeaders['content-length'] = String(Buffer.byteLength(responseBody));
+
+    await this._client.send('Fetch.fulfillRequest', {
+      requestId: this._interceptionId,
+      responseCode: response.status || 200,
+      responsePhrase: STATUS_TEXTS[response.status || 200],
+      responseHeaders: headersArray(responseHeaders),
+      body: responseBody ? responseBody.toString('base64') : undefined,
+    }).catch(error => {
+      // In certain cases, protocol will return error if the request was already canceled
+      // or the page was closed. We should tolerate these errors.
+      debugError(error);
+    });
+  }
+
+  /**
+   * @param {string=} errorCode
+   */
+  async abort(errorCode = 'failed') {
+    // Request interception is not supported for data: urls.
+    if (this._url.startsWith('data:'))
+      return;
+    const errorReason = errorReasons[errorCode];
+    assert(errorReason, 'Unknown error code: ' + errorCode);
+    assert(this._allowInterception, 'Request Interception is not enabled!');
+    assert(!this._interceptionHandled, 'Request is already handled!');
+    this._interceptionHandled = true;
+    await this._client.send('Fetch.failRequest', {
+      requestId: this._interceptionId,
+      errorReason
+    }).catch(error => {
+      // In certain cases, protocol will return error if the request was already canceled
+      // or the page was closed. We should tolerate these errors.
+      debugError(error);
+    });
+  }
+}
+
+const errorReasons = {
+  'aborted': 'Aborted',
+  'accessdenied': 'AccessDenied',
+  'addressunreachable': 'AddressUnreachable',
+  'blockedbyclient': 'BlockedByClient',
+  'blockedbyresponse': 'BlockedByResponse',
+  'connectionaborted': 'ConnectionAborted',
+  'connectionclosed': 'ConnectionClosed',
+  'connectionfailed': 'ConnectionFailed',
+  'connectionrefused': 'ConnectionRefused',
+  'connectionreset': 'ConnectionReset',
+  'internetdisconnected': 'InternetDisconnected',
+  'namenotresolved': 'NameNotResolved',
+  'timedout': 'TimedOut',
+  'failed': 'Failed',
+};
+
+class Response {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Request} request
+   * @param {!Protocol.Network.Response} responsePayload
+   */
+  constructor(client, request, responsePayload) {
+    this._client = client;
+    this._request = request;
+    this._contentPromise = null;
+
+    this._bodyLoadedPromise = new Promise(fulfill => {
+      this._bodyLoadedPromiseFulfill = fulfill;
+    });
+
+    this._remoteAddress = {
+      ip: responsePayload.remoteIPAddress,
+      port: responsePayload.remotePort,
+    };
+    this._status = responsePayload.status;
+    this._statusText = responsePayload.statusText;
+    this._url = request.url();
+    this._fromDiskCache = !!responsePayload.fromDiskCache;
+    this._fromServiceWorker = !!responsePayload.fromServiceWorker;
+    this._headers = {};
+    for (const key of Object.keys(responsePayload.headers))
+      this._headers[key.toLowerCase()] = responsePayload.headers[key];
+    this._securityDetails = responsePayload.securityDetails ? new SecurityDetails(responsePayload.securityDetails) : null;
+  }
+
+  /**
+   * @return {{ip: string, port: number}}
+   */
+  remoteAddress() {
+    return this._remoteAddress;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  ok() {
+    return this._status === 0 || (this._status >= 200 && this._status <= 299);
+  }
+
+  /**
+   * @return {number}
+   */
+  status() {
+    return this._status;
+  }
+
+  /**
+   * @return {string}
+   */
+  statusText() {
+    return this._statusText;
+  }
+
+  /**
+   * @return {!Object}
+   */
+  headers() {
+    return this._headers;
+  }
+
+  /**
+   * @return {?SecurityDetails}
+   */
+  securityDetails() {
+    return this._securityDetails;
+  }
+
+  /**
+   * @return {!Promise<!Buffer>}
+   */
+  buffer() {
+    if (!this._contentPromise) {
+      this._contentPromise = this._bodyLoadedPromise.then(async error => {
+        if (error)
+          throw error;
+        const response = await this._client.send('Network.getResponseBody', {
+          requestId: this._request._requestId
+        });
+        return Buffer.from(response.body, response.base64Encoded ? 'base64' : 'utf8');
+      });
+    }
+    return this._contentPromise;
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async text() {
+    const content = await this.buffer();
+    return content.toString('utf8');
+  }
+
+  /**
+   * @return {!Promise<!Object>}
+   */
+  async json() {
+    const content = await this.text();
+    return JSON.parse(content);
+  }
+
+  /**
+   * @return {!Request}
+   */
+  request() {
+    return this._request;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  fromCache() {
+    return this._fromDiskCache || this._request._fromMemoryCache;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  fromServiceWorker() {
+    return this._fromServiceWorker;
+  }
+
+  /**
+   * @return {?Puppeteer.Frame}
+   */
+  frame() {
+    return this._request.frame();
+  }
+}
+
+class SecurityDetails {
+  /**
+   * @param {!Protocol.Network.SecurityDetails} securityPayload
+   */
+  constructor(securityPayload) {
+    this._subjectName = securityPayload['subjectName'];
+    this._issuer = securityPayload['issuer'];
+    this._validFrom = securityPayload['validFrom'];
+    this._validTo = securityPayload['validTo'];
+    this._protocol = securityPayload['protocol'];
+  }
+
+  /**
+   * @return {string}
+   */
+  subjectName() {
+    return this._subjectName;
+  }
+
+  /**
+   * @return {string}
+   */
+  issuer() {
+    return this._issuer;
+  }
+
+  /**
+   * @return {number}
+   */
+  validFrom() {
+    return this._validFrom;
+  }
+
+  /**
+   * @return {number}
+   */
+  validTo() {
+    return this._validTo;
+  }
+
+  /**
+   * @return {string}
+   */
+  protocol() {
+    return this._protocol;
+  }
+}
+
+/**
+ * @param {Object<string, string>} headers
+ * @return {!Array<{name: string, value: string}>}
+ */
+function headersArray(headers) {
+  const result = [];
+  for (const name in headers)
+    result.push({name, value: headers[name] + ''});
+  return result;
+}
+
+// List taken from https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml with extra 306 and 418 codes.
+const STATUS_TEXTS = {
+  '100': 'Continue',
+  '101': 'Switching Protocols',
+  '102': 'Processing',
+  '103': 'Early Hints',
+  '200': 'OK',
+  '201': 'Created',
+  '202': 'Accepted',
+  '203': 'Non-Authoritative Information',
+  '204': 'No Content',
+  '205': 'Reset Content',
+  '206': 'Partial Content',
+  '207': 'Multi-Status',
+  '208': 'Already Reported',
+  '226': 'IM Used',
+  '300': 'Multiple Choices',
+  '301': 'Moved Permanently',
+  '302': 'Found',
+  '303': 'See Other',
+  '304': 'Not Modified',
+  '305': 'Use Proxy',
+  '306': 'Switch Proxy',
+  '307': 'Temporary Redirect',
+  '308': 'Permanent Redirect',
+  '400': 'Bad Request',
+  '401': 'Unauthorized',
+  '402': 'Payment Required',
+  '403': 'Forbidden',
+  '404': 'Not Found',
+  '405': 'Method Not Allowed',
+  '406': 'Not Acceptable',
+  '407': 'Proxy Authentication Required',
+  '408': 'Request Timeout',
+  '409': 'Conflict',
+  '410': 'Gone',
+  '411': 'Length Required',
+  '412': 'Precondition Failed',
+  '413': 'Payload Too Large',
+  '414': 'URI Too Long',
+  '415': 'Unsupported Media Type',
+  '416': 'Range Not Satisfiable',
+  '417': 'Expectation Failed',
+  '418': 'I\'m a teapot',
+  '421': 'Misdirected Request',
+  '422': 'Unprocessable Entity',
+  '423': 'Locked',
+  '424': 'Failed Dependency',
+  '425': 'Too Early',
+  '426': 'Upgrade Required',
+  '428': 'Precondition Required',
+  '429': 'Too Many Requests',
+  '431': 'Request Header Fields Too Large',
+  '451': 'Unavailable For Legal Reasons',
+  '500': 'Internal Server Error',
+  '501': 'Not Implemented',
+  '502': 'Bad Gateway',
+  '503': 'Service Unavailable',
+  '504': 'Gateway Timeout',
+  '505': 'HTTP Version Not Supported',
+  '506': 'Variant Also Negotiates',
+  '507': 'Insufficient Storage',
+  '508': 'Loop Detected',
+  '510': 'Not Extended',
+  '511': 'Network Authentication Required',
+};
+
+module.exports = {Request, Response, NetworkManager, SecurityDetails};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Page.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const fs = require('fs');
+// const path = require('path');
+// const EventEmitter = require('events');
+// const mime = require('mime');
+// const {Events} = require('./Events');
+// const {Connection} = require('./Connection');
+// const {Dialog} = require('./Dialog');
+// const {EmulationManager} = require('./EmulationManager');
+// const {FrameManager} = require('./FrameManager');
+// const {Keyboard, Mouse, Touchscreen} = require('./Input');
+// const Tracing = require('./Tracing');
+// const {helper, debugError, assert} = require('./helper');
+// const {Coverage} = require('./Coverage');
+// const {Worker} = require('./Worker');
+// const {createJSHandle} = require('./JSHandle');
+// const {Accessibility} = require('./Accessibility');
+// const {TimeoutSettings} = require('./TimeoutSettings');
+const writeFileAsync = helper.promisify(fs.writeFile);
+
+class Page extends EventEmitter {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Puppeteer.Target} target
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue
+   * @return {!Promise<!Page>}
+   */
+  static async create(client, target, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {
+    const page = new Page(client, target, ignoreHTTPSErrors, screenshotTaskQueue);
+    await page._initialize();
+    if (defaultViewport)
+      await page.setViewport(defaultViewport);
+    return page;
+  }
+
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   * @param {!Puppeteer.Target} target
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue
+   */
+  constructor(client, target, ignoreHTTPSErrors, screenshotTaskQueue) {
+    super();
+    this._closed = false;
+    this._client = client;
+    this._target = target;
+    this._keyboard = new Keyboard(client);
+    this._mouse = new Mouse(client, this._keyboard);
+    this._timeoutSettings = new TimeoutSettings();
+    this._touchscreen = new Touchscreen(client, this._keyboard);
+    this._accessibility = new Accessibility(client);
+    /** @type {!FrameManager} */
+    this._frameManager = new FrameManager(client, this, ignoreHTTPSErrors, this._timeoutSettings);
+    this._emulationManager = new EmulationManager(client);
+    this._tracing = new Tracing(client);
+    /** @type {!Map<string, Function>} */
+    this._pageBindings = new Map();
+    this._coverage = new Coverage(client);
+    this._javascriptEnabled = true;
+    /** @type {?Puppeteer.Viewport} */
+    this._viewport = null;
+
+    this._screenshotTaskQueue = screenshotTaskQueue;
+
+    /** @type {!Map<string, Worker>} */
+    this._workers = new Map();
+    client.on('Target.attachedToTarget', event => {
+      if (event.targetInfo.type !== 'worker') {
+        // If we don't detach from service workers, they will never die.
+        client.send('Target.detachFromTarget', {
+          sessionId: event.sessionId
+        }).catch(debugError);
+        return;
+      }
+      const session = Connection.fromSession(client).session(event.sessionId);
+      const worker = new Worker(session, event.targetInfo.url, this._addConsoleMessage.bind(this), this._handleException.bind(this));
+      this._workers.set(event.sessionId, worker);
+      this.emit(Events.Page.WorkerCreated, worker);
+    });
+    client.on('Target.detachedFromTarget', event => {
+      const worker = this._workers.get(event.sessionId);
+      if (!worker)
+        return;
+      this.emit(Events.Page.WorkerDestroyed, worker);
+      this._workers.delete(event.sessionId);
+    });
+
+    this._frameManager.on(Events.FrameManager.FrameAttached, event => this.emit(Events.Page.FrameAttached, event));
+    this._frameManager.on(Events.FrameManager.FrameDetached, event => this.emit(Events.Page.FrameDetached, event));
+    this._frameManager.on(Events.FrameManager.FrameNavigated, event => this.emit(Events.Page.FrameNavigated, event));
+
+    const networkManager = this._frameManager.networkManager();
+    networkManager.on(Events.NetworkManager.Request, event => this.emit(Events.Page.Request, event));
+    networkManager.on(Events.NetworkManager.Response, event => this.emit(Events.Page.Response, event));
+    networkManager.on(Events.NetworkManager.RequestFailed, event => this.emit(Events.Page.RequestFailed, event));
+    networkManager.on(Events.NetworkManager.RequestFinished, event => this.emit(Events.Page.RequestFinished, event));
+    this._fileChooserInterceptionIsDisabled = false;
+    this._fileChooserInterceptors = new Set();
+
+    client.on('Page.domContentEventFired', event => this.emit(Events.Page.DOMContentLoaded));
+    client.on('Page.loadEventFired', event => this.emit(Events.Page.Load));
+    client.on('Runtime.consoleAPICalled', event => this._onConsoleAPI(event));
+    client.on('Runtime.bindingCalled', event => this._onBindingCalled(event));
+    client.on('Page.javascriptDialogOpening', event => this._onDialog(event));
+    client.on('Runtime.exceptionThrown', exception => this._handleException(exception.exceptionDetails));
+    client.on('Inspector.targetCrashed', event => this._onTargetCrashed());
+    client.on('Performance.metrics', event => this._emitMetrics(event));
+    client.on('Log.entryAdded', event => this._onLogEntryAdded(event));
+    client.on('Page.fileChooserOpened', event => this._onFileChooser(event));
+    this._target._isClosedPromise.then(() => {
+      this.emit(Events.Page.Close);
+      this._closed = true;
+    });
+  }
+
+  async _initialize() {
+    await Promise.all([
+      this._frameManager.initialize(),
+      this._client.send('Target.setAutoAttach', {autoAttach: true, waitForDebuggerOnStart: false, flatten: true}),
+      this._client.send('Performance.enable', {}),
+      this._client.send('Log.enable', {}),
+      this._client.send('Page.setInterceptFileChooserDialog', {enabled: true}).catch(e => {
+        this._fileChooserInterceptionIsDisabled = true;
+      }),
+    ]);
+  }
+
+  /**
+   * @param {!Protocol.Page.fileChooserOpenedPayload} event
+   */
+  _onFileChooser(event) {
+    if (!this._fileChooserInterceptors.size) {
+      this._client.send('Page.handleFileChooser', { action: 'fallback' }).catch(debugError);
+      return;
+    }
+    const interceptors = Array.from(this._fileChooserInterceptors);
+    this._fileChooserInterceptors.clear();
+    const fileChooser = new FileChooser(this._client, event);
+    for (const interceptor of interceptors)
+      interceptor.call(null, fileChooser);
+  }
+
+  /**
+   * @param {!{timeout?: number}=} options
+   * @return !Promise<!FileChooser>}
+   */
+  async waitForFileChooser(options = {}) {
+    if (this._fileChooserInterceptionIsDisabled)
+      throw new Error('File chooser handling does not work with multiple connections to the same page');
+    const {
+      timeout = this._timeoutSettings.timeout(),
+    } = options;
+    let callback;
+    const promise = new Promise(x => callback = x);
+    this._fileChooserInterceptors.add(callback);
+    return helper.waitWithTimeout(promise, 'waiting for file chooser', timeout).catch(e => {
+      this._fileChooserInterceptors.delete(callback);
+      throw e;
+    });
+  }
+
+  /**
+   * @param {!{longitude: number, latitude: number, accuracy: (number|undefined)}} options
+   */
+  async setGeolocation(options) {
+    const { longitude, latitude, accuracy = 0} = options;
+    if (longitude < -180 || longitude > 180)
+      throw new Error(`Invalid longitude "${longitude}": precondition -180 <= LONGITUDE <= 180 failed.`);
+    if (latitude < -90 || latitude > 90)
+      throw new Error(`Invalid latitude "${latitude}": precondition -90 <= LATITUDE <= 90 failed.`);
+    if (accuracy < 0)
+      throw new Error(`Invalid accuracy "${accuracy}": precondition 0 <= ACCURACY failed.`);
+    await this._client.send('Emulation.setGeolocationOverride', {longitude, latitude, accuracy});
+  }
+
+  /**
+   * @return {!Puppeteer.Target}
+   */
+  target() {
+    return this._target;
+  }
+
+  /**
+   * @return {!Puppeteer.Browser}
+   */
+  browser() {
+    return this._target.browser();
+  }
+
+  /**
+   * @return {!Puppeteer.BrowserContext}
+   */
+  browserContext() {
+    return this._target.browserContext();
+  }
+
+  _onTargetCrashed() {
+    this.emit('error', new Error('Page crashed!'));
+  }
+
+  /**
+   * @param {!Protocol.Log.entryAddedPayload} event
+   */
+  _onLogEntryAdded(event) {
+    const {level, text, args, source, url, lineNumber} = event.entry;
+    if (args)
+      args.map(arg => helper.releaseObject(this._client, arg));
+    if (source !== 'worker')
+      this.emit(Events.Page.Console, new ConsoleMessage(level, text, [], {url, lineNumber}));
+  }
+
+  /**
+   * @return {!Puppeteer.Frame}
+   */
+  mainFrame() {
+    return this._frameManager.mainFrame();
+  }
+
+  /**
+   * @return {!Keyboard}
+   */
+  get keyboard() {
+    return this._keyboard;
+  }
+
+  /**
+   * @return {!Touchscreen}
+   */
+  get touchscreen() {
+    return this._touchscreen;
+  }
+
+  /**
+   * @return {!Coverage}
+   */
+  get coverage() {
+    return this._coverage;
+  }
+
+  /**
+   * @return {!Tracing}
+   */
+  get tracing() {
+    return this._tracing;
+  }
+
+  /**
+   * @return {!Accessibility}
+   */
+  get accessibility() {
+    return this._accessibility;
+  }
+
+  /**
+   * @return {!Array<Puppeteer.Frame>}
+   */
+  frames() {
+    return this._frameManager.frames();
+  }
+
+  /**
+   * @return {!Array<!Worker>}
+   */
+  workers() {
+    return Array.from(this._workers.values());
+  }
+
+  /**
+   * @param {boolean} value
+   */
+  async setRequestInterception(value) {
+    return this._frameManager.networkManager().setRequestInterception(value);
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  setOfflineMode(enabled) {
+    return this._frameManager.networkManager().setOfflineMode(enabled);
+  }
+
+  /**
+   * @param {number} timeout
+   */
+  setDefaultNavigationTimeout(timeout) {
+    this._timeoutSettings.setDefaultNavigationTimeout(timeout);
+  }
+
+  /**
+   * @param {number} timeout
+   */
+  setDefaultTimeout(timeout) {
+    this._timeoutSettings.setDefaultTimeout(timeout);
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  async $(selector) {
+    return this.mainFrame().$(selector);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  async evaluateHandle(pageFunction, ...args) {
+    const context = await this.mainFrame().executionContext();
+    return context.evaluateHandle(pageFunction, ...args);
+  }
+
+  /**
+   * @param {!Puppeteer.JSHandle} prototypeHandle
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  async queryObjects(prototypeHandle) {
+    const context = await this.mainFrame().executionContext();
+    return context.queryObjects(prototypeHandle);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $eval(selector, pageFunction, ...args) {
+    return this.mainFrame().$eval(selector, pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<(!Object|undefined)>}
+   */
+  async $$eval(selector, pageFunction, ...args) {
+    return this.mainFrame().$$eval(selector, pageFunction, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $$(selector) {
+    return this.mainFrame().$$(selector);
+  }
+
+  /**
+   * @param {string} expression
+   * @return {!Promise<!Array<!Puppeteer.ElementHandle>>}
+   */
+  async $x(expression) {
+    return this.mainFrame().$x(expression);
+  }
+
+  /**
+   * @param {!Array<string>} urls
+   * @return {!Promise<!Array<Network.Cookie>>}
+   */
+  async cookies(...urls) {
+    return (await this._client.send('Network.getCookies', {
+      urls: urls.length ? urls : [this.url()]
+    })).cookies;
+  }
+
+  /**
+   * @param {Array<Protocol.Network.deleteCookiesParameters>} cookies
+   */
+  async deleteCookie(...cookies) {
+    const pageURL = this.url();
+    for (const cookie of cookies) {
+      const item = Object.assign({}, cookie);
+      if (!cookie.url && pageURL.startsWith('http'))
+        item.url = pageURL;
+      await this._client.send('Network.deleteCookies', item);
+    }
+  }
+
+  /**
+   * @param {Array<Network.CookieParam>} cookies
+   */
+  async setCookie(...cookies) {
+    const pageURL = this.url();
+    const startsWithHTTP = pageURL.startsWith('http');
+    const items = cookies.map(cookie => {
+      const item = Object.assign({}, cookie);
+      if (!item.url && startsWithHTTP)
+        item.url = pageURL;
+      assert(item.url !== 'about:blank', `Blank page can not have cookie "${item.name}"`);
+      assert(!String.prototype.startsWith.call(item.url || '', 'data:'), `Data URL page can not have cookie "${item.name}"`);
+      return item;
+    });
+    await this.deleteCookie(...items);
+    if (items.length)
+      await this._client.send('Network.setCookies', { cookies: items });
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string, type?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addScriptTag(options) {
+    return this.mainFrame().addScriptTag(options);
+  }
+
+  /**
+   * @param {!{url?: string, path?: string, content?: string}} options
+   * @return {!Promise<!Puppeteer.ElementHandle>}
+   */
+  async addStyleTag(options) {
+    return this.mainFrame().addStyleTag(options);
+  }
+
+  /**
+   * @param {string} name
+   * @param {Function} puppeteerFunction
+   */
+  async exposeFunction(name, puppeteerFunction) {
+    if (this._pageBindings.has(name))
+      throw new Error(`Failed to add page binding with name ${name}: window['${name}'] already exists!`);
+    this._pageBindings.set(name, puppeteerFunction);
+
+    const expression = helper.evaluationString(addPageBinding, name);
+    await this._client.send('Runtime.addBinding', {name: name});
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', {source: expression});
+    await Promise.all(this.frames().map(frame => frame.evaluate(expression).catch(debugError)));
+
+    function addPageBinding(bindingName) {
+      const binding = window[bindingName];
+      window[bindingName] = (...args) => {
+        const me = window[bindingName];
+        let callbacks = me['callbacks'];
+        if (!callbacks) {
+          callbacks = new Map();
+          me['callbacks'] = callbacks;
+        }
+        const seq = (me['lastSeq'] || 0) + 1;
+        me['lastSeq'] = seq;
+        const promise = new Promise((resolve, reject) => callbacks.set(seq, {resolve, reject}));
+        binding(JSON.stringify({name: bindingName, seq, args}));
+        return promise;
+      };
+    }
+  }
+
+  /**
+   * @param {?{username: string, password: string}} credentials
+   */
+  async authenticate(credentials) {
+    return this._frameManager.networkManager().authenticate(credentials);
+  }
+
+  /**
+   * @param {!Object<string, string>} headers
+   */
+  async setExtraHTTPHeaders(headers) {
+    return this._frameManager.networkManager().setExtraHTTPHeaders(headers);
+  }
+
+  /**
+   * @param {string} userAgent
+   */
+  async setUserAgent(userAgent) {
+    return this._frameManager.networkManager().setUserAgent(userAgent);
+  }
+
+  /**
+   * @return {!Promise<!Metrics>}
+   */
+  async metrics() {
+    const response = await this._client.send('Performance.getMetrics');
+    return this._buildMetricsObject(response.metrics);
+  }
+
+  /**
+   * @param {!Protocol.Performance.metricsPayload} event
+   */
+  _emitMetrics(event) {
+    this.emit(Events.Page.Metrics, {
+      title: event.title,
+      metrics: this._buildMetricsObject(event.metrics)
+    });
+  }
+
+  /**
+   * @param {?Array<!Protocol.Performance.Metric>} metrics
+   * @return {!Metrics}
+   */
+  _buildMetricsObject(metrics) {
+    const result = {};
+    for (const metric of metrics || []) {
+      if (supportedMetrics.has(metric.name))
+        result[metric.name] = metric.value;
+    }
+    return result;
+  }
+
+  /**
+   * @param {!Protocol.Runtime.ExceptionDetails} exceptionDetails
+   */
+  _handleException(exceptionDetails) {
+    const message = helper.getExceptionMessage(exceptionDetails);
+    const err = new Error(message);
+    err.stack = ''; // Don't report clientside error with a node stack attached
+    this.emit(Events.Page.PageError, err);
+  }
+
+  /**
+   * @param {!Protocol.Runtime.consoleAPICalledPayload} event
+   */
+  async _onConsoleAPI(event) {
+    if (event.executionContextId === 0) {
+      // DevTools protocol stores the last 1000 console messages. These
+      // messages are always reported even for removed execution contexts. In
+      // this case, they are marked with executionContextId = 0 and are
+      // reported upon enabling Runtime agent.
+      //
+      // Ignore these messages since:
+      // - there's no execution context we can use to operate with message
+      //   arguments
+      // - these messages are reported before Puppeteer clients can subscribe
+      //   to the 'console'
+      //   page event.
+      //
+      // @see https://github.com/GoogleChrome/puppeteer/issues/3865
+      return;
+    }
+    const context = this._frameManager.executionContextById(event.executionContextId);
+    const values = event.args.map(arg => createJSHandle(context, arg));
+    this._addConsoleMessage(event.type, values, event.stackTrace);
+  }
+
+  /**
+   * @param {!Protocol.Runtime.bindingCalledPayload} event
+   */
+  async _onBindingCalled(event) {
+    const {name, seq, args} = JSON.parse(event.payload);
+    let expression = null;
+    try {
+      const result = await this._pageBindings.get(name)(...args);
+      expression = helper.evaluationString(deliverResult, name, seq, result);
+    } catch (error) {
+      if (error instanceof Error)
+        expression = helper.evaluationString(deliverError, name, seq, error.message, error.stack);
+      else
+        expression = helper.evaluationString(deliverErrorValue, name, seq, error);
+    }
+    this._client.send('Runtime.evaluate', { expression, contextId: event.executionContextId }).catch(debugError);
+
+    /**
+     * @param {string} name
+     * @param {number} seq
+     * @param {*} result
+     */
+    function deliverResult(name, seq, result) {
+      window[name]['callbacks'].get(seq).resolve(result);
+      window[name]['callbacks'].delete(seq);
+    }
+
+    /**
+     * @param {string} name
+     * @param {number} seq
+     * @param {string} message
+     * @param {string} stack
+     */
+    function deliverError(name, seq, message, stack) {
+      const error = new Error(message);
+      error.stack = stack;
+      window[name]['callbacks'].get(seq).reject(error);
+      window[name]['callbacks'].delete(seq);
+    }
+
+    /**
+     * @param {string} name
+     * @param {number} seq
+     * @param {*} value
+     */
+    function deliverErrorValue(name, seq, value) {
+      window[name]['callbacks'].get(seq).reject(value);
+      window[name]['callbacks'].delete(seq);
+    }
+  }
+
+  /**
+   * @param {string} type
+   * @param {!Array<!Puppeteer.JSHandle>} args
+   * @param {Protocol.Runtime.StackTrace=} stackTrace
+   */
+  _addConsoleMessage(type, args, stackTrace) {
+    if (!this.listenerCount(Events.Page.Console)) {
+      args.forEach(arg => arg.dispose());
+      return;
+    }
+    const textTokens = [];
+    for (const arg of args) {
+      const remoteObject = arg._remoteObject;
+      if (remoteObject.objectId)
+        textTokens.push(arg.toString());
+      else
+        textTokens.push(helper.valueFromRemoteObject(remoteObject));
+    }
+    const location = stackTrace && stackTrace.callFrames.length ? {
+      url: stackTrace.callFrames[0].url,
+      lineNumber: stackTrace.callFrames[0].lineNumber,
+      columnNumber: stackTrace.callFrames[0].columnNumber,
+    } : {};
+    const message = new ConsoleMessage(type, textTokens.join(' '), args, location);
+    this.emit(Events.Page.Console, message);
+  }
+
+  _onDialog(event) {
+    let dialogType = null;
+    if (event.type === 'alert')
+      dialogType = Dialog.Type.Alert;
+    else if (event.type === 'confirm')
+      dialogType = Dialog.Type.Confirm;
+    else if (event.type === 'prompt')
+      dialogType = Dialog.Type.Prompt;
+    else if (event.type === 'beforeunload')
+      dialogType = Dialog.Type.BeforeUnload;
+    assert(dialogType, 'Unknown javascript dialog type: ' + event.type);
+    const dialog = new Dialog(this._client, dialogType, event.message, event.defaultPrompt);
+    this.emit(Events.Page.Dialog, dialog);
+  }
+
+  /**
+   * @return {!string}
+   */
+  url() {
+    return this.mainFrame().url();
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async content() {
+    return await this._frameManager.mainFrame().content();
+  }
+
+  /**
+   * @param {string} html
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   */
+  async setContent(html, options) {
+    await this._frameManager.mainFrame().setContent(html, options);
+  }
+
+  /**
+   * @param {string} url
+   * @param {!{referer?: string, timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async goto(url, options) {
+    return await this._frameManager.mainFrame().goto(url, options);
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async reload(options) {
+    const [response] = await Promise.all([
+      this.waitForNavigation(options),
+      this._client.send('Page.reload')
+    ]);
+    return response;
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async waitForNavigation(options = {}) {
+    return await this._frameManager.mainFrame().waitForNavigation(options);
+  }
+
+  /**
+   * @param {(string|Function)} urlOrPredicate
+   * @param {!{timeout?: number}=} options
+   * @return {!Promise<!Puppeteer.Request>}
+   */
+  async waitForRequest(urlOrPredicate, options = {}) {
+    const {
+      timeout = this._timeoutSettings.timeout(),
+    } = options;
+    return helper.waitForEvent(this._frameManager.networkManager(), Events.NetworkManager.Request, request => {
+      if (helper.isString(urlOrPredicate))
+        return (urlOrPredicate === request.url());
+      if (typeof urlOrPredicate === 'function')
+        return !!(urlOrPredicate(request));
+      return false;
+    }, timeout);
+  }
+
+  /**
+   * @param {(string|Function)} urlOrPredicate
+   * @param {!{timeout?: number}=} options
+   * @return {!Promise<!Puppeteer.Response>}
+   */
+  async waitForResponse(urlOrPredicate, options = {}) {
+    const {
+      timeout = this._timeoutSettings.timeout(),
+    } = options;
+    return helper.waitForEvent(this._frameManager.networkManager(), Events.NetworkManager.Response, response => {
+      if (helper.isString(urlOrPredicate))
+        return (urlOrPredicate === response.url());
+      if (typeof urlOrPredicate === 'function')
+        return !!(urlOrPredicate(response));
+      return false;
+    }, timeout);
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async goBack(options) {
+    return this._go(-1, options);
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async goForward(options) {
+    return this._go(+1, options);
+  }
+
+  /**
+   * @param {!{timeout?: number, waitUntil?: string|!Array<string>}=} options
+   * @return {!Promise<?Puppeteer.Response>}
+   */
+  async _go(delta, options) {
+    const history = await this._client.send('Page.getNavigationHistory');
+    const entry = history.entries[history.currentIndex + delta];
+    if (!entry)
+      return null;
+    const [response] = await Promise.all([
+      this.waitForNavigation(options),
+      this._client.send('Page.navigateToHistoryEntry', {entryId: entry.id}),
+    ]);
+    return response;
+  }
+
+  async bringToFront() {
+    await this._client.send('Page.bringToFront');
+  }
+
+  /**
+   * @param {!{viewport: !Puppeteer.Viewport, userAgent: string}} options
+   */
+  async emulate(options) {
+    await Promise.all([
+      this.setViewport(options.viewport),
+      this.setUserAgent(options.userAgent)
+    ]);
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  async setJavaScriptEnabled(enabled) {
+    if (this._javascriptEnabled === enabled)
+      return;
+    this._javascriptEnabled = enabled;
+    await this._client.send('Emulation.setScriptExecutionDisabled', { value: !enabled });
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  async setBypassCSP(enabled) {
+    await this._client.send('Page.setBypassCSP', { enabled });
+  }
+
+  /**
+   * @param {?string} mediaType
+   */
+  async emulateMedia(mediaType) {
+    assert(mediaType === 'screen' || mediaType === 'print' || mediaType === null, 'Unsupported media type: ' + mediaType);
+    await this._client.send('Emulation.setEmulatedMedia', {media: mediaType || ''});
+  }
+
+  /**
+   * @param {!Puppeteer.Viewport} viewport
+   */
+  async setViewport(viewport) {
+    const needsReload = await this._emulationManager.emulateViewport(viewport);
+    this._viewport = viewport;
+    if (needsReload)
+      await this.reload();
+  }
+
+  /**
+   * @return {?Puppeteer.Viewport}
+   */
+  viewport() {
+    return this._viewport;
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<*>}
+   */
+  async evaluate(pageFunction, ...args) {
+    return this._frameManager.mainFrame().evaluate(pageFunction, ...args);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   */
+  async evaluateOnNewDocument(pageFunction, ...args) {
+    const source = helper.evaluationString(pageFunction, ...args);
+    await this._client.send('Page.addScriptToEvaluateOnNewDocument', { source });
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  async setCacheEnabled(enabled = true) {
+    await this._frameManager.networkManager().setCacheEnabled(enabled);
+  }
+
+  /**
+   * @param {!ScreenshotOptions=} options
+   * @return {!Promise<!Buffer|!String>}
+   */
+  async screenshot(options = {}) {
+    let screenshotType = null;
+    // options.type takes precedence over inferring the type from options.path
+    // because it may be a 0-length file with no extension created beforehand (i.e. as a temp file).
+    if (options.type) {
+      assert(options.type === 'png' || options.type === 'jpeg', 'Unknown options.type value: ' + options.type);
+      screenshotType = options.type;
+    } else if (options.path) {
+      const mimeType = mime.getType(options.path);
+      if (mimeType === 'image/png')
+        screenshotType = 'png';
+      else if (mimeType === 'image/jpeg')
+        screenshotType = 'jpeg';
+      assert(screenshotType, 'Unsupported screenshot mime type: ' + mimeType);
+    }
+
+    if (!screenshotType)
+      screenshotType = 'png';
+
+    if (options.quality) {
+      assert(screenshotType === 'jpeg', 'options.quality is unsupported for the ' + screenshotType + ' screenshots');
+      assert(typeof options.quality === 'number', 'Expected options.quality to be a number but found ' + (typeof options.quality));
+      assert(Number.isInteger(options.quality), 'Expected options.quality to be an integer');
+      assert(options.quality >= 0 && options.quality <= 100, 'Expected options.quality to be between 0 and 100 (inclusive), got ' + options.quality);
+    }
+    assert(!options.clip || !options.fullPage, 'options.clip and options.fullPage are exclusive');
+    if (options.clip) {
+      assert(typeof options.clip.x === 'number', 'Expected options.clip.x to be a number but found ' + (typeof options.clip.x));
+      assert(typeof options.clip.y === 'number', 'Expected options.clip.y to be a number but found ' + (typeof options.clip.y));
+      assert(typeof options.clip.width === 'number', 'Expected options.clip.width to be a number but found ' + (typeof options.clip.width));
+      assert(typeof options.clip.height === 'number', 'Expected options.clip.height to be a number but found ' + (typeof options.clip.height));
+      assert(options.clip.width !== 0, 'Expected options.clip.width not to be 0.');
+      assert(options.clip.height !== 0, 'Expected options.clip.width not to be 0.');
+    }
+    return this._screenshotTaskQueue.postTask(this._screenshotTask.bind(this, screenshotType, options));
+  }
+
+  /**
+   * @param {"png"|"jpeg"} format
+   * @param {!ScreenshotOptions=} options
+   * @return {!Promise<!Buffer|!String>}
+   */
+  async _screenshotTask(format, options) {
+    await this._client.send('Target.activateTarget', {targetId: this._target._targetId});
+    let clip = options.clip ? processClip(options.clip) : undefined;
+
+    if (options.fullPage) {
+      const metrics = await this._client.send('Page.getLayoutMetrics');
+      const width = Math.ceil(metrics.contentSize.width);
+      const height = Math.ceil(metrics.contentSize.height);
+
+      // Overwrite clip for full page at all times.
+      clip = { x: 0, y: 0, width, height, scale: 1 };
+      const {
+        isMobile = false,
+        deviceScaleFactor = 1,
+        isLandscape = false
+      } = this._viewport || {};
+      /** @type {!Protocol.Emulation.ScreenOrientation} */
+      const screenOrientation = isLandscape ? { angle: 90, type: 'landscapePrimary' } : { angle: 0, type: 'portraitPrimary' };
+      await this._client.send('Emulation.setDeviceMetricsOverride', { mobile: isMobile, width, height, deviceScaleFactor, screenOrientation });
+    }
+    const shouldSetDefaultBackground = options.omitBackground && format === 'png';
+    if (shouldSetDefaultBackground)
+      await this._client.send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 0, g: 0, b: 0, a: 0 } });
+    const result = await this._client.send('Page.captureScreenshot', { format, quality: options.quality, clip });
+    if (shouldSetDefaultBackground)
+      await this._client.send('Emulation.setDefaultBackgroundColorOverride');
+
+    if (options.fullPage && this._viewport)
+      await this.setViewport(this._viewport);
+
+    const buffer = options.encoding === 'base64' ? result.data : Buffer.from(result.data, 'base64');
+    if (options.path)
+      await writeFileAsync(options.path, buffer);
+    return buffer;
+
+    function processClip(clip) {
+      const x = Math.round(clip.x);
+      const y = Math.round(clip.y);
+      const width = Math.round(clip.width + clip.x - x);
+      const height = Math.round(clip.height + clip.y - y);
+      return {x, y, width, height, scale: 1};
+    }
+  }
+
+  /**
+   * @param {!PDFOptions=} options
+   * @return {!Promise<!Buffer>}
+   */
+  async pdf(options = {}) {
+    const {
+      scale = 1,
+      displayHeaderFooter = false,
+      headerTemplate = '',
+      footerTemplate = '',
+      printBackground = false,
+      landscape = false,
+      pageRanges = '',
+      preferCSSPageSize = false,
+      margin = {},
+      path = null
+    } = options;
+
+    let paperWidth = 8.5;
+    let paperHeight = 11;
+    if (options.format) {
+      const format = Page.PaperFormats[options.format.toLowerCase()];
+      assert(format, 'Unknown paper format: ' + options.format);
+      paperWidth = format.width;
+      paperHeight = format.height;
+    } else {
+      paperWidth = convertPrintParameterToInches(options.width) || paperWidth;
+      paperHeight = convertPrintParameterToInches(options.height) || paperHeight;
+    }
+
+    const marginTop = convertPrintParameterToInches(margin.top) || 0;
+    const marginLeft = convertPrintParameterToInches(margin.left) || 0;
+    const marginBottom = convertPrintParameterToInches(margin.bottom) || 0;
+    const marginRight = convertPrintParameterToInches(margin.right) || 0;
+
+    const result = await this._client.send('Page.printToPDF', {
+      transferMode: 'ReturnAsStream',
+      landscape,
+      displayHeaderFooter,
+      headerTemplate,
+      footerTemplate,
+      printBackground,
+      scale,
+      paperWidth,
+      paperHeight,
+      marginTop,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      pageRanges,
+      preferCSSPageSize
+    });
+    return await helper.readProtocolStream(this._client, result.stream, path);
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  async title() {
+    return this.mainFrame().title();
+  }
+
+  /**
+   * @param {!{runBeforeUnload: (boolean|undefined)}=} options
+   */
+  async close(options = {runBeforeUnload: undefined}) {
+    assert(!!this._client._connection, 'Protocol error: Connection closed. Most likely the page has been closed.');
+    const runBeforeUnload = !!options.runBeforeUnload;
+    if (runBeforeUnload) {
+      await this._client.send('Page.close');
+    } else {
+      await this._client._connection.send('Target.closeTarget', { targetId: this._target._targetId });
+      await this._target._isClosedPromise;
+    }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isClosed() {
+    return this._closed;
+  }
+
+  /**
+   * @return {!Mouse}
+   */
+  get mouse() {
+    return this._mouse;
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{delay?: number, button?: "left"|"right"|"middle", clickCount?: number}=} options
+   */
+  click(selector, options = {}) {
+    return this.mainFrame().click(selector, options);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  focus(selector) {
+    return this.mainFrame().focus(selector);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  hover(selector) {
+    return this.mainFrame().hover(selector);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!Array<string>} values
+   * @return {!Promise<!Array<string>>}
+   */
+  select(selector, ...values) {
+    return this.mainFrame().select(selector, ...values);
+  }
+
+  /**
+   * @param {string} selector
+   */
+  tap(selector) {
+    return this.mainFrame().tap(selector);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {string} text
+   * @param {{delay: (number|undefined)}=} options
+   */
+  type(selector, text, options) {
+    return this.mainFrame().type(selector, text, options);
+  }
+
+  /**
+   * @param {(string|number|Function)} selectorOrFunctionOrTimeout
+   * @param {!Object=} options
+   * @param {!Array<*>} args
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  waitFor(selectorOrFunctionOrTimeout, options = {}, ...args) {
+    return this.mainFrame().waitFor(selectorOrFunctionOrTimeout, options, ...args);
+  }
+
+  /**
+   * @param {string} selector
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  waitForSelector(selector, options = {}) {
+    return this.mainFrame().waitForSelector(selector, options);
+  }
+
+  /**
+   * @param {string} xpath
+   * @param {!{visible?: boolean, hidden?: boolean, timeout?: number}=} options
+   * @return {!Promise<?Puppeteer.ElementHandle>}
+   */
+  waitForXPath(xpath, options = {}) {
+    return this.mainFrame().waitForXPath(xpath, options);
+  }
+
+  /**
+   * @param {Function} pageFunction
+   * @param {!{polling?: string|number, timeout?: number}=} options
+   * @param {!Array<*>} args
+   * @return {!Promise<!Puppeteer.JSHandle>}
+   */
+  waitForFunction(pageFunction, options = {}, ...args) {
+    return this.mainFrame().waitForFunction(pageFunction, options, ...args);
+  }
+}
+
+/**
+ * @typedef {Object} PDFOptions
+ * @property {number=} scale
+ * @property {boolean=} displayHeaderFooter
+ * @property {string=} headerTemplate
+ * @property {string=} footerTemplate
+ * @property {boolean=} printBackground
+ * @property {boolean=} landscape
+ * @property {string=} pageRanges
+ * @property {string=} format
+ * @property {string|number=} width
+ * @property {string|number=} height
+ * @property {boolean=} preferCSSPageSize
+ * @property {!{top?: string|number, bottom?: string|number, left?: string|number, right?: string|number}=} margin
+ * @property {string=} path
+ */
+
+/**
+ * @typedef {Object} Metrics
+ * @property {number=} Timestamp
+ * @property {number=} Documents
+ * @property {number=} Frames
+ * @property {number=} JSEventListeners
+ * @property {number=} Nodes
+ * @property {number=} LayoutCount
+ * @property {number=} RecalcStyleCount
+ * @property {number=} LayoutDuration
+ * @property {number=} RecalcStyleDuration
+ * @property {number=} ScriptDuration
+ * @property {number=} TaskDuration
+ * @property {number=} JSHeapUsedSize
+ * @property {number=} JSHeapTotalSize
+ */
+
+/**
+ * @typedef {Object} ScreenshotOptions
+ * @property {string=} type
+ * @property {string=} path
+ * @property {boolean=} fullPage
+ * @property {{x: number, y: number, width: number, height: number}=} clip
+ * @property {number=} quality
+ * @property {boolean=} omitBackground
+ * @property {string=} encoding
+ */
+
+/** @type {!Set<string>} */
+const supportedMetrics = new Set([
+  'Timestamp',
+  'Documents',
+  'Frames',
+  'JSEventListeners',
+  'Nodes',
+  'LayoutCount',
+  'RecalcStyleCount',
+  'LayoutDuration',
+  'RecalcStyleDuration',
+  'ScriptDuration',
+  'TaskDuration',
+  'JSHeapUsedSize',
+  'JSHeapTotalSize',
+]);
+
+/** @enum {!{width: number, height: number}} */
+Page.PaperFormats = {
+  letter: {width: 8.5, height: 11},
+  legal: {width: 8.5, height: 14},
+  tabloid: {width: 11, height: 17},
+  ledger: {width: 17, height: 11},
+  a0: {width: 33.1, height: 46.8 },
+  a1: {width: 23.4, height: 33.1 },
+  a2: {width: 16.54, height: 23.4 },
+  a3: {width: 11.7, height: 16.54 },
+  a4: {width: 8.27, height: 11.7 },
+  a5: {width: 5.83, height: 8.27 },
+  a6: {width: 4.13, height: 5.83 },
+};
+
+const unitToPixels = {
+  'px': 1,
+  'in': 96,
+  'cm': 37.8,
+  'mm': 3.78
+};
+
+/**
+ * @param {(string|number|undefined)} parameter
+ * @return {(number|undefined)}
+ */
+function convertPrintParameterToInches(parameter) {
+  if (typeof parameter === 'undefined')
+    return undefined;
+  let pixels;
+  if (helper.isNumber(parameter)) {
+    // Treat numbers as pixel values to be aligned with phantom's paperSize.
+    pixels = /** @type {number} */ (parameter);
+  } else if (helper.isString(parameter)) {
+    const text = /** @type {string} */ (parameter);
+    let unit = text.substring(text.length - 2).toLowerCase();
+    let valueText = '';
+    if (unitToPixels.hasOwnProperty(unit)) {
+      valueText = text.substring(0, text.length - 2);
+    } else {
+      // In case of unknown unit try to parse the whole parameter as number of pixels.
+      // This is consistent with phantom's paperSize behavior.
+      unit = 'px';
+      valueText = text;
+    }
+    const value = Number(valueText);
+    assert(!isNaN(value), 'Failed to parse parameter value: ' + text);
+    pixels = value * unitToPixels[unit];
+  } else {
+    throw new Error('page.pdf() Cannot handle parameter type: ' + (typeof parameter));
+  }
+  return pixels / 96;
+}
+
+/**
+ * @typedef {Object} Network.Cookie
+ * @property {string} name
+ * @property {string} value
+ * @property {string} domain
+ * @property {string} path
+ * @property {number} expires
+ * @property {number} size
+ * @property {boolean} httpOnly
+ * @property {boolean} secure
+ * @property {boolean} session
+ * @property {("Strict"|"Lax"|"Extended"|"None")=} sameSite
+ */
+
+/**
+ * @typedef {Object} Network.CookieParam
+ * @property {string} name
+ * @property {string} value
+ * @property {string=} url
+ * @property {string=} domain
+ * @property {string=} path
+ * @property {number=} expires
+ * @property {boolean=} httpOnly
+ * @property {boolean=} secure
+ * @property {("Strict"|"Lax")=} sameSite
+ */
+
+/**
+ * @typedef {Object} ConsoleMessage.Location
+ * @property {string=} url
+ * @property {number=} lineNumber
+ * @property {number=} columnNumber
+ */
+
+class ConsoleMessage {
+  /**
+   * @param {string} type
+   * @param {string} text
+   * @param {!Array<!Puppeteer.JSHandle>} args
+   * @param {ConsoleMessage.Location} location
+   */
+  constructor(type, text, args, location = {}) {
+    this._type = type;
+    this._text = text;
+    this._args = args;
+    this._location = location;
+  }
+
+  /**
+   * @return {string}
+   */
+  type() {
+    return this._type;
+  }
+
+  /**
+   * @return {string}
+   */
+  text() {
+    return this._text;
+  }
+
+  /**
+   * @return {!Array<!Puppeteer.JSHandle>}
+   */
+  args() {
+    return this._args;
+  }
+
+  /**
+   * @return {Object}
+   */
+  location() {
+    return this._location;
+  }
+}
+
+class FileChooser {
+  /**
+   * @param {Puppeteer.CDPSession} client
+   * @param {!Protocol.Page.fileChooserOpenedPayload} event
+   */
+  constructor(client, event) {
+    this._client = client;
+    this._multiple = event.mode !== 'selectSingle';
+    this._handled = false;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isMultiple() {
+    return this._multiple;
+  }
+
+  /**
+   * @param {!Array<string>} filePaths
+   * @return {!Promise}
+   */
+  async accept(filePaths) {
+    assert(!this._handled, 'Cannot accept FileChooser which is already handled!');
+    this._handled = true;
+    const files = filePaths.map(filePath => path.resolve(filePath));
+    await this._client.send('Page.handleFileChooser', {
+      action: 'accept',
+      files,
+    });
+  }
+
+  /**
+   * @return {!Promise}
+   */
+  async cancel() {
+    assert(!this._handled, 'Cannot cancel FileChooser which is already handled!');
+    this._handled = true;
+    await this._client.send('Page.handleFileChooser', {
+      action: 'cancel',
+    });
+  }
+}
+
+module.exports = {Page, ConsoleMessage, FileChooser};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/PipeTransport.js
+*/
+/**
+ * Copyright 2018 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const {helper, debugError} = require('./helper');
+
+/**
+ * @implements {!Puppeteer.ConnectionTransport}
+ */
+class PipeTransport {
+  /**
+   * @param {!NodeJS.WritableStream} pipeWrite
+   * @param {!NodeJS.ReadableStream} pipeRead
+   */
+  constructor(pipeWrite, pipeRead) {
+    this._pipeWrite = pipeWrite;
+    this._pendingMessage = '';
+    this._eventListeners = [
+      helper.addEventListener(pipeRead, 'data', buffer => this._dispatch(buffer)),
+      helper.addEventListener(pipeRead, 'close', () => {
+        if (this.onclose)
+          this.onclose.call(null);
+      }),
+      helper.addEventListener(pipeRead, 'error', debugError),
+      helper.addEventListener(pipeWrite, 'error', debugError),
+    ];
+    this.onmessage = null;
+    this.onclose = null;
+  }
+
+  /**
+   * @param {string} message
+   */
+  send(message) {
+    this._pipeWrite.write(message);
+    this._pipeWrite.write('\0');
+  }
+
+  /**
+   * @param {!Buffer} buffer
+   */
+  _dispatch(buffer) {
+    let end = buffer.indexOf('\0');
+    if (end === -1) {
+      this._pendingMessage += buffer.toString();
+      return;
+    }
+    const message = this._pendingMessage + buffer.toString(undefined, 0, end);
+    if (this.onmessage)
+      this.onmessage.call(null, message);
+
+    let start = end + 1;
+    end = buffer.indexOf('\0', start);
+    while (end !== -1) {
+      if (this.onmessage)
+        this.onmessage.call(null, buffer.toString(undefined, start, end));
+      start = end + 1;
+      end = buffer.indexOf('\0', start);
+    }
+    this._pendingMessage = buffer.toString(undefined, start);
+  }
+
+  close() {
+    this._pipeWrite = null;
+    helper.removeEventListeners(this._eventListeners);
+  }
+}
+
+module.exports = PipeTransport;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Puppeteer.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const Launcher = require('./Launcher');
+// const BrowserFetcher = require('./BrowserFetcher');
+// const Errors = require('./Errors');
+// const DeviceDescriptors = require('./DeviceDescriptors');
+
+module.exports = class {
+  /**
+   * @param {string} projectRoot
+   * @param {string} preferredRevision
+   * @param {boolean} isPuppeteerCore
+   */
+  constructor(projectRoot, preferredRevision, isPuppeteerCore) {
+    this._projectRoot = projectRoot;
+    this._launcher = new Launcher(projectRoot, preferredRevision, isPuppeteerCore);
+  }
+
+  /**
+   * @param {!(Launcher.LaunchOptions & Launcher.ChromeArgOptions & Launcher.BrowserOptions)=} options
+   * @return {!Promise<!Puppeteer.Browser>}
+   */
+  launch(options) {
+    return this._launcher.launch(options);
+  }
+
+  /**
+   * @param {!(Launcher.BrowserOptions & {browserWSEndpoint?: string, browserURL?: string, transport?: !Puppeteer.ConnectionTransport})} options
+   * @return {!Promise<!Puppeteer.Browser>}
+   */
+  connect(options) {
+    return this._launcher.connect(options);
+  }
+
+  /**
+   * @return {string}
+   */
+  executablePath() {
+    return this._launcher.executablePath();
+  }
+
+  /**
+   * @return {Object}
+   */
+  get devices() {
+    return DeviceDescriptors;
+  }
+
+  /**
+   * @return {Object}
+   */
+  get errors() {
+    return Errors;
+  }
+
+  /**
+   * @param {!Launcher.ChromeArgOptions=} options
+   * @return {!Array<string>}
+   */
+  defaultArgs(options) {
+    return this._launcher.defaultArgs(options);
+  }
+
+  /**
+   * @param {!BrowserFetcher.Options=} options
+   * @return {!BrowserFetcher}
+   */
+  createBrowserFetcher(options) {
+    return new BrowserFetcher(this._projectRoot, options);
+  }
+};
+// hack-puppeteer - module.exports
+const Puppeteer = module.exports;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Target.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// const {Events} = require('./Events');
+// const {Page} = require('./Page');
+// const {Worker} = require('./Worker');
+// const {Connection} = require('./Connection');
+
+class Target {
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   * @param {!Puppeteer.BrowserContext} browserContext
+   * @param {!function():!Promise<!Puppeteer.CDPSession>} sessionFactory
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {!Puppeteer.TaskQueue} screenshotTaskQueue
+   */
+  constructor(targetInfo, browserContext, sessionFactory, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {
+    this._targetInfo = targetInfo;
+    this._browserContext = browserContext;
+    this._targetId = targetInfo.targetId;
+    this._sessionFactory = sessionFactory;
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;
+    this._defaultViewport = defaultViewport;
+    this._screenshotTaskQueue = screenshotTaskQueue;
+    /** @type {?Promise<!Puppeteer.Page>} */
+    this._pagePromise = null;
+    /** @type {?Promise<!Worker>} */
+    this._workerPromise = null;
+    this._initializedPromise = new Promise(fulfill => this._initializedCallback = fulfill).then(async success => {
+      if (!success)
+        return false;
+      const opener = this.opener();
+      if (!opener || !opener._pagePromise || this.type() !== 'page')
+        return true;
+      const openerPage = await opener._pagePromise;
+      if (!openerPage.listenerCount(Events.Page.Popup))
+        return true;
+      const popupPage = await this.page();
+      openerPage.emit(Events.Page.Popup, popupPage);
+      return true;
+    });
+    this._isClosedPromise = new Promise(fulfill => this._closedCallback = fulfill);
+    this._isInitialized = this._targetInfo.type !== 'page' || this._targetInfo.url !== '';
+    if (this._isInitialized)
+      this._initializedCallback(true);
+  }
+
+  /**
+   * @return {!Promise<!Puppeteer.CDPSession>}
+   */
+  createCDPSession() {
+    return this._sessionFactory();
+  }
+
+  /**
+   * @return {!Promise<?Page>}
+   */
+  async page() {
+    if ((this._targetInfo.type === 'page' || this._targetInfo.type === 'background_page') && !this._pagePromise) {
+      this._pagePromise = this._sessionFactory()
+          .then(client => Page.create(client, this, this._ignoreHTTPSErrors, this._defaultViewport, this._screenshotTaskQueue));
+    }
+    return this._pagePromise;
+  }
+
+  /**
+   * @return {!Promise<?Worker>}
+   */
+  async worker() {
+    if (this._targetInfo.type !== 'service_worker' && this._targetInfo.type !== 'shared_worker')
+      return null;
+    if (!this._workerPromise) {
+      this._workerPromise = this._sessionFactory().then(async client => {
+        // Top level workers have a fake page wrapping the actual worker.
+        const [targetAttached] = await Promise.all([
+          new Promise(x => client.once('Target.attachedToTarget', x)),
+          client.send('Target.setAutoAttach', {autoAttach: true, waitForDebuggerOnStart: false, flatten: true}),
+        ]);
+        const session = Connection.fromSession(client).session(targetAttached.sessionId);
+        // TODO(einbinder): Make workers send their console logs.
+        return new Worker(session, this._targetInfo.url, () => {} /* consoleAPICalled */, () => {} /* exceptionThrown */);
+      });
+    }
+    return this._workerPromise;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._targetInfo.url;
+  }
+
+  /**
+   * @return {"page"|"background_page"|"service_worker"|"shared_worker"|"other"|"browser"}
+   */
+  type() {
+    const type = this._targetInfo.type;
+    if (type === 'page' || type === 'background_page' || type === 'service_worker' || type === 'shared_worker' || type === 'browser')
+      return type;
+    return 'other';
+  }
+
+  /**
+   * @return {!Puppeteer.Browser}
+   */
+  browser() {
+    return this._browserContext.browser();
+  }
+
+  /**
+   * @return {!Puppeteer.BrowserContext}
+   */
+  browserContext() {
+    return this._browserContext;
+  }
+
+  /**
+   * @return {?Puppeteer.Target}
+   */
+  opener() {
+    const { openerId } = this._targetInfo;
+    if (!openerId)
+      return null;
+    return this.browser()._targets.get(openerId);
+  }
+
+  /**
+   * @param {!Protocol.Target.TargetInfo} targetInfo
+   */
+  _targetInfoChanged(targetInfo) {
+    this._targetInfo = targetInfo;
+
+    if (!this._isInitialized && (this._targetInfo.type !== 'page' || this._targetInfo.url !== '')) {
+      this._isInitialized = true;
+      this._initializedCallback(true);
+      return;
+    }
+  }
+}
+
+module.exports = {Target};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/TaskQueue.js
+*/
+class TaskQueue {
+  constructor() {
+    this._chain = Promise.resolve();
+  }
+
+  /**
+   * @param {Function} task
+   * @return {!Promise}
+   */
+  postTask(task) {
+    const result = this._chain.then(task);
+    this._chain = result.catch(() => {});
+    return result;
+  }
+}
+
+module.exports = {TaskQueue};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/TimeoutSettings.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+const DEFAULT_TIMEOUT = 30000;
+
+class TimeoutSettings {
+  constructor() {
+    this._defaultTimeout = null;
+    this._defaultNavigationTimeout = null;
+  }
+
+  /**
+   * @param {number} timeout
+   */
+  setDefaultTimeout(timeout) {
+    this._defaultTimeout = timeout;
+  }
+
+  /**
+   * @param {number} timeout
+   */
+  setDefaultNavigationTimeout(timeout) {
+    this._defaultNavigationTimeout = timeout;
+  }
+
+  /**
+   * @return {number}
+   */
+  navigationTimeout() {
+    if (this._defaultNavigationTimeout !== null)
+      return this._defaultNavigationTimeout;
+    if (this._defaultTimeout !== null)
+      return this._defaultTimeout;
+    return DEFAULT_TIMEOUT;
+  }
+
+  timeout() {
+    if (this._defaultTimeout !== null)
+      return this._defaultTimeout;
+    return DEFAULT_TIMEOUT;
+  }
+}
+
+module.exports = {TimeoutSettings};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Tracing.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const {helper, assert} = require('./helper');
+
+class Tracing {
+  /**
+   * @param {!Puppeteer.CDPSession} client
+   */
+  constructor(client) {
+    this._client = client;
+    this._recording = false;
+    this._path = '';
+  }
+
+  /**
+   * @param {!{path?: string, screenshots?: boolean, categories?: !Array<string>}} options
+   */
+  async start(options = {}) {
+    assert(!this._recording, 'Cannot start recording trace while already recording trace.');
+
+    const defaultCategories = [
+      '-*', 'devtools.timeline', 'v8.execute', 'disabled-by-default-devtools.timeline',
+      'disabled-by-default-devtools.timeline.frame', 'toplevel',
+      'blink.console', 'blink.user_timing', 'latencyInfo', 'disabled-by-default-devtools.timeline.stack',
+      'disabled-by-default-v8.cpu_profiler', 'disabled-by-default-v8.cpu_profiler.hires'
+    ];
+    const {
+      path = null,
+      screenshots = false,
+      categories = defaultCategories,
+    } = options;
+
+    if (screenshots)
+      categories.push('disabled-by-default-devtools.screenshot');
+
+    this._path = path;
+    this._recording = true;
+    await this._client.send('Tracing.start', {
+      transferMode: 'ReturnAsStream',
+      categories: categories.join(',')
+    });
+  }
+
+  /**
+   * @return {!Promise<!Buffer>}
+   */
+  async stop() {
+    let fulfill;
+    const contentPromise = new Promise(x => fulfill = x);
+    this._client.once('Tracing.tracingComplete', event => {
+      helper.readProtocolStream(this._client, event.stream, this._path).then(fulfill);
+    });
+    await this._client.send('Tracing.end');
+    this._recording = false;
+    return contentPromise;
+  }
+}
+
+module.exports = Tracing;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/USKeyboardLayout.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @typedef {Object} KeyDefinition
+ * @property {number=} keyCode
+ * @property {number=} shiftKeyCode
+ * @property {string=} key
+ * @property {string=} shiftKey
+ * @property {string=} code
+ * @property {string=} text
+ * @property {string=} shiftText
+ * @property {number=} location
+ */
+
+/**
+ * @type {Object<string, KeyDefinition>}
+ */
+module.exports = {
+  '0': {'keyCode': 48, 'key': '0', 'code': 'Digit0'},
+  '1': {'keyCode': 49, 'key': '1', 'code': 'Digit1'},
+  '2': {'keyCode': 50, 'key': '2', 'code': 'Digit2'},
+  '3': {'keyCode': 51, 'key': '3', 'code': 'Digit3'},
+  '4': {'keyCode': 52, 'key': '4', 'code': 'Digit4'},
+  '5': {'keyCode': 53, 'key': '5', 'code': 'Digit5'},
+  '6': {'keyCode': 54, 'key': '6', 'code': 'Digit6'},
+  '7': {'keyCode': 55, 'key': '7', 'code': 'Digit7'},
+  '8': {'keyCode': 56, 'key': '8', 'code': 'Digit8'},
+  '9': {'keyCode': 57, 'key': '9', 'code': 'Digit9'},
+  'Power': {'key': 'Power', 'code': 'Power'},
+  'Eject': {'key': 'Eject', 'code': 'Eject'},
+  'Abort': {'keyCode': 3, 'code': 'Abort', 'key': 'Cancel'},
+  'Help': {'keyCode': 6, 'code': 'Help', 'key': 'Help'},
+  'Backspace': {'keyCode': 8, 'code': 'Backspace', 'key': 'Backspace'},
+  'Tab': {'keyCode': 9, 'code': 'Tab', 'key': 'Tab'},
+  'Numpad5': {'keyCode': 12, 'shiftKeyCode': 101, 'key': 'Clear', 'code': 'Numpad5', 'shiftKey': '5', 'location': 3},
+  'NumpadEnter': {'keyCode': 13, 'code': 'NumpadEnter', 'key': 'Enter', 'text': '\r', 'location': 3},
+  'Enter': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\r'},
+  '\r': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\r'},
+  '\n': {'keyCode': 13, 'code': 'Enter', 'key': 'Enter', 'text': '\r'},
+  'ShiftLeft': {'keyCode': 16, 'code': 'ShiftLeft', 'key': 'Shift', 'location': 1},
+  'ShiftRight': {'keyCode': 16, 'code': 'ShiftRight', 'key': 'Shift', 'location': 2},
+  'ControlLeft': {'keyCode': 17, 'code': 'ControlLeft', 'key': 'Control', 'location': 1},
+  'ControlRight': {'keyCode': 17, 'code': 'ControlRight', 'key': 'Control', 'location': 2},
+  'AltLeft': {'keyCode': 18, 'code': 'AltLeft', 'key': 'Alt', 'location': 1},
+  'AltRight': {'keyCode': 18, 'code': 'AltRight', 'key': 'Alt', 'location': 2},
+  'Pause': {'keyCode': 19, 'code': 'Pause', 'key': 'Pause'},
+  'CapsLock': {'keyCode': 20, 'code': 'CapsLock', 'key': 'CapsLock'},
+  'Escape': {'keyCode': 27, 'code': 'Escape', 'key': 'Escape'},
+  'Convert': {'keyCode': 28, 'code': 'Convert', 'key': 'Convert'},
+  'NonConvert': {'keyCode': 29, 'code': 'NonConvert', 'key': 'NonConvert'},
+  'Space': {'keyCode': 32, 'code': 'Space', 'key': ' '},
+  'Numpad9': {'keyCode': 33, 'shiftKeyCode': 105, 'key': 'PageUp', 'code': 'Numpad9', 'shiftKey': '9', 'location': 3},
+  'PageUp': {'keyCode': 33, 'code': 'PageUp', 'key': 'PageUp'},
+  'Numpad3': {'keyCode': 34, 'shiftKeyCode': 99, 'key': 'PageDown', 'code': 'Numpad3', 'shiftKey': '3', 'location': 3},
+  'PageDown': {'keyCode': 34, 'code': 'PageDown', 'key': 'PageDown'},
+  'End': {'keyCode': 35, 'code': 'End', 'key': 'End'},
+  'Numpad1': {'keyCode': 35, 'shiftKeyCode': 97, 'key': 'End', 'code': 'Numpad1', 'shiftKey': '1', 'location': 3},
+  'Home': {'keyCode': 36, 'code': 'Home', 'key': 'Home'},
+  'Numpad7': {'keyCode': 36, 'shiftKeyCode': 103, 'key': 'Home', 'code': 'Numpad7', 'shiftKey': '7', 'location': 3},
+  'ArrowLeft': {'keyCode': 37, 'code': 'ArrowLeft', 'key': 'ArrowLeft'},
+  'Numpad4': {'keyCode': 37, 'shiftKeyCode': 100, 'key': 'ArrowLeft', 'code': 'Numpad4', 'shiftKey': '4', 'location': 3},
+  'Numpad8': {'keyCode': 38, 'shiftKeyCode': 104, 'key': 'ArrowUp', 'code': 'Numpad8', 'shiftKey': '8', 'location': 3},
+  'ArrowUp': {'keyCode': 38, 'code': 'ArrowUp', 'key': 'ArrowUp'},
+  'ArrowRight': {'keyCode': 39, 'code': 'ArrowRight', 'key': 'ArrowRight'},
+  'Numpad6': {'keyCode': 39, 'shiftKeyCode': 102, 'key': 'ArrowRight', 'code': 'Numpad6', 'shiftKey': '6', 'location': 3},
+  'Numpad2': {'keyCode': 40, 'shiftKeyCode': 98, 'key': 'ArrowDown', 'code': 'Numpad2', 'shiftKey': '2', 'location': 3},
+  'ArrowDown': {'keyCode': 40, 'code': 'ArrowDown', 'key': 'ArrowDown'},
+  'Select': {'keyCode': 41, 'code': 'Select', 'key': 'Select'},
+  'Open': {'keyCode': 43, 'code': 'Open', 'key': 'Execute'},
+  'PrintScreen': {'keyCode': 44, 'code': 'PrintScreen', 'key': 'PrintScreen'},
+  'Insert': {'keyCode': 45, 'code': 'Insert', 'key': 'Insert'},
+  'Numpad0': {'keyCode': 45, 'shiftKeyCode': 96, 'key': 'Insert', 'code': 'Numpad0', 'shiftKey': '0', 'location': 3},
+  'Delete': {'keyCode': 46, 'code': 'Delete', 'key': 'Delete'},
+  'NumpadDecimal': {'keyCode': 46, 'shiftKeyCode': 110, 'code': 'NumpadDecimal', 'key': '\u0000', 'shiftKey': '.', 'location': 3},
+  'Digit0': {'keyCode': 48, 'code': 'Digit0', 'shiftKey': ')', 'key': '0'},
+  'Digit1': {'keyCode': 49, 'code': 'Digit1', 'shiftKey': '!', 'key': '1'},
+  'Digit2': {'keyCode': 50, 'code': 'Digit2', 'shiftKey': '@', 'key': '2'},
+  'Digit3': {'keyCode': 51, 'code': 'Digit3', 'shiftKey': '#', 'key': '3'},
+  'Digit4': {'keyCode': 52, 'code': 'Digit4', 'shiftKey': '$', 'key': '4'},
+  'Digit5': {'keyCode': 53, 'code': 'Digit5', 'shiftKey': '%', 'key': '5'},
+  'Digit6': {'keyCode': 54, 'code': 'Digit6', 'shiftKey': '^', 'key': '6'},
+  'Digit7': {'keyCode': 55, 'code': 'Digit7', 'shiftKey': '&', 'key': '7'},
+  'Digit8': {'keyCode': 56, 'code': 'Digit8', 'shiftKey': '*', 'key': '8'},
+  'Digit9': {'keyCode': 57, 'code': 'Digit9', 'shiftKey': '\(', 'key': '9'},
+  'KeyA': {'keyCode': 65, 'code': 'KeyA', 'shiftKey': 'A', 'key': 'a'},
+  'KeyB': {'keyCode': 66, 'code': 'KeyB', 'shiftKey': 'B', 'key': 'b'},
+  'KeyC': {'keyCode': 67, 'code': 'KeyC', 'shiftKey': 'C', 'key': 'c'},
+  'KeyD': {'keyCode': 68, 'code': 'KeyD', 'shiftKey': 'D', 'key': 'd'},
+  'KeyE': {'keyCode': 69, 'code': 'KeyE', 'shiftKey': 'E', 'key': 'e'},
+  'KeyF': {'keyCode': 70, 'code': 'KeyF', 'shiftKey': 'F', 'key': 'f'},
+  'KeyG': {'keyCode': 71, 'code': 'KeyG', 'shiftKey': 'G', 'key': 'g'},
+  'KeyH': {'keyCode': 72, 'code': 'KeyH', 'shiftKey': 'H', 'key': 'h'},
+  'KeyI': {'keyCode': 73, 'code': 'KeyI', 'shiftKey': 'I', 'key': 'i'},
+  'KeyJ': {'keyCode': 74, 'code': 'KeyJ', 'shiftKey': 'J', 'key': 'j'},
+  'KeyK': {'keyCode': 75, 'code': 'KeyK', 'shiftKey': 'K', 'key': 'k'},
+  'KeyL': {'keyCode': 76, 'code': 'KeyL', 'shiftKey': 'L', 'key': 'l'},
+  'KeyM': {'keyCode': 77, 'code': 'KeyM', 'shiftKey': 'M', 'key': 'm'},
+  'KeyN': {'keyCode': 78, 'code': 'KeyN', 'shiftKey': 'N', 'key': 'n'},
+  'KeyO': {'keyCode': 79, 'code': 'KeyO', 'shiftKey': 'O', 'key': 'o'},
+  'KeyP': {'keyCode': 80, 'code': 'KeyP', 'shiftKey': 'P', 'key': 'p'},
+  'KeyQ': {'keyCode': 81, 'code': 'KeyQ', 'shiftKey': 'Q', 'key': 'q'},
+  'KeyR': {'keyCode': 82, 'code': 'KeyR', 'shiftKey': 'R', 'key': 'r'},
+  'KeyS': {'keyCode': 83, 'code': 'KeyS', 'shiftKey': 'S', 'key': 's'},
+  'KeyT': {'keyCode': 84, 'code': 'KeyT', 'shiftKey': 'T', 'key': 't'},
+  'KeyU': {'keyCode': 85, 'code': 'KeyU', 'shiftKey': 'U', 'key': 'u'},
+  'KeyV': {'keyCode': 86, 'code': 'KeyV', 'shiftKey': 'V', 'key': 'v'},
+  'KeyW': {'keyCode': 87, 'code': 'KeyW', 'shiftKey': 'W', 'key': 'w'},
+  'KeyX': {'keyCode': 88, 'code': 'KeyX', 'shiftKey': 'X', 'key': 'x'},
+  'KeyY': {'keyCode': 89, 'code': 'KeyY', 'shiftKey': 'Y', 'key': 'y'},
+  'KeyZ': {'keyCode': 90, 'code': 'KeyZ', 'shiftKey': 'Z', 'key': 'z'},
+  'MetaLeft': {'keyCode': 91, 'code': 'MetaLeft', 'key': 'Meta', 'location': 1},
+  'MetaRight': {'keyCode': 92, 'code': 'MetaRight', 'key': 'Meta', 'location': 2},
+  'ContextMenu': {'keyCode': 93, 'code': 'ContextMenu', 'key': 'ContextMenu'},
+  'NumpadMultiply': {'keyCode': 106, 'code': 'NumpadMultiply', 'key': '*', 'location': 3},
+  'NumpadAdd': {'keyCode': 107, 'code': 'NumpadAdd', 'key': '+', 'location': 3},
+  'NumpadSubtract': {'keyCode': 109, 'code': 'NumpadSubtract', 'key': '-', 'location': 3},
+  'NumpadDivide': {'keyCode': 111, 'code': 'NumpadDivide', 'key': '/', 'location': 3},
+  'F1': {'keyCode': 112, 'code': 'F1', 'key': 'F1'},
+  'F2': {'keyCode': 113, 'code': 'F2', 'key': 'F2'},
+  'F3': {'keyCode': 114, 'code': 'F3', 'key': 'F3'},
+  'F4': {'keyCode': 115, 'code': 'F4', 'key': 'F4'},
+  'F5': {'keyCode': 116, 'code': 'F5', 'key': 'F5'},
+  'F6': {'keyCode': 117, 'code': 'F6', 'key': 'F6'},
+  'F7': {'keyCode': 118, 'code': 'F7', 'key': 'F7'},
+  'F8': {'keyCode': 119, 'code': 'F8', 'key': 'F8'},
+  'F9': {'keyCode': 120, 'code': 'F9', 'key': 'F9'},
+  'F10': {'keyCode': 121, 'code': 'F10', 'key': 'F10'},
+  'F11': {'keyCode': 122, 'code': 'F11', 'key': 'F11'},
+  'F12': {'keyCode': 123, 'code': 'F12', 'key': 'F12'},
+  'F13': {'keyCode': 124, 'code': 'F13', 'key': 'F13'},
+  'F14': {'keyCode': 125, 'code': 'F14', 'key': 'F14'},
+  'F15': {'keyCode': 126, 'code': 'F15', 'key': 'F15'},
+  'F16': {'keyCode': 127, 'code': 'F16', 'key': 'F16'},
+  'F17': {'keyCode': 128, 'code': 'F17', 'key': 'F17'},
+  'F18': {'keyCode': 129, 'code': 'F18', 'key': 'F18'},
+  'F19': {'keyCode': 130, 'code': 'F19', 'key': 'F19'},
+  'F20': {'keyCode': 131, 'code': 'F20', 'key': 'F20'},
+  'F21': {'keyCode': 132, 'code': 'F21', 'key': 'F21'},
+  'F22': {'keyCode': 133, 'code': 'F22', 'key': 'F22'},
+  'F23': {'keyCode': 134, 'code': 'F23', 'key': 'F23'},
+  'F24': {'keyCode': 135, 'code': 'F24', 'key': 'F24'},
+  'NumLock': {'keyCode': 144, 'code': 'NumLock', 'key': 'NumLock'},
+  'ScrollLock': {'keyCode': 145, 'code': 'ScrollLock', 'key': 'ScrollLock'},
+  'AudioVolumeMute': {'keyCode': 173, 'code': 'AudioVolumeMute', 'key': 'AudioVolumeMute'},
+  'AudioVolumeDown': {'keyCode': 174, 'code': 'AudioVolumeDown', 'key': 'AudioVolumeDown'},
+  'AudioVolumeUp': {'keyCode': 175, 'code': 'AudioVolumeUp', 'key': 'AudioVolumeUp'},
+  'MediaTrackNext': {'keyCode': 176, 'code': 'MediaTrackNext', 'key': 'MediaTrackNext'},
+  'MediaTrackPrevious': {'keyCode': 177, 'code': 'MediaTrackPrevious', 'key': 'MediaTrackPrevious'},
+  'MediaStop': {'keyCode': 178, 'code': 'MediaStop', 'key': 'MediaStop'},
+  'MediaPlayPause': {'keyCode': 179, 'code': 'MediaPlayPause', 'key': 'MediaPlayPause'},
+  'Semicolon': {'keyCode': 186, 'code': 'Semicolon', 'shiftKey': ':', 'key': ';'},
+  'Equal': {'keyCode': 187, 'code': 'Equal', 'shiftKey': '+', 'key': '='},
+  'NumpadEqual': {'keyCode': 187, 'code': 'NumpadEqual', 'key': '=', 'location': 3},
+  'Comma': {'keyCode': 188, 'code': 'Comma', 'shiftKey': '\<', 'key': ','},
+  'Minus': {'keyCode': 189, 'code': 'Minus', 'shiftKey': '_', 'key': '-'},
+  'Period': {'keyCode': 190, 'code': 'Period', 'shiftKey': '>', 'key': '.'},
+  'Slash': {'keyCode': 191, 'code': 'Slash', 'shiftKey': '?', 'key': '/'},
+  'Backquote': {'keyCode': 192, 'code': 'Backquote', 'shiftKey': '~', 'key': '`'},
+  'BracketLeft': {'keyCode': 219, 'code': 'BracketLeft', 'shiftKey': '{', 'key': '['},
+  'Backslash': {'keyCode': 220, 'code': 'Backslash', 'shiftKey': '|', 'key': '\\'},
+  'BracketRight': {'keyCode': 221, 'code': 'BracketRight', 'shiftKey': '}', 'key': ']'},
+  'Quote': {'keyCode': 222, 'code': 'Quote', 'shiftKey': '"', 'key': '\''},
+  'AltGraph': {'keyCode': 225, 'code': 'AltGraph', 'key': 'AltGraph'},
+  'Props': {'keyCode': 247, 'code': 'Props', 'key': 'CrSel'},
+  'Cancel': {'keyCode': 3, 'key': 'Cancel', 'code': 'Abort'},
+  'Clear': {'keyCode': 12, 'key': 'Clear', 'code': 'Numpad5', 'location': 3},
+  'Shift': {'keyCode': 16, 'key': 'Shift', 'code': 'ShiftLeft', 'location': 1},
+  'Control': {'keyCode': 17, 'key': 'Control', 'code': 'ControlLeft', 'location': 1},
+  'Alt': {'keyCode': 18, 'key': 'Alt', 'code': 'AltLeft', 'location': 1},
+  'Accept': {'keyCode': 30, 'key': 'Accept'},
+  'ModeChange': {'keyCode': 31, 'key': 'ModeChange'},
+  ' ': {'keyCode': 32, 'key': ' ', 'code': 'Space'},
+  'Print': {'keyCode': 42, 'key': 'Print'},
+  'Execute': {'keyCode': 43, 'key': 'Execute', 'code': 'Open'},
+  '\u0000': {'keyCode': 46, 'key': '\u0000', 'code': 'NumpadDecimal', 'location': 3},
+  'a': {'keyCode': 65, 'key': 'a', 'code': 'KeyA'},
+  'b': {'keyCode': 66, 'key': 'b', 'code': 'KeyB'},
+  'c': {'keyCode': 67, 'key': 'c', 'code': 'KeyC'},
+  'd': {'keyCode': 68, 'key': 'd', 'code': 'KeyD'},
+  'e': {'keyCode': 69, 'key': 'e', 'code': 'KeyE'},
+  'f': {'keyCode': 70, 'key': 'f', 'code': 'KeyF'},
+  'g': {'keyCode': 71, 'key': 'g', 'code': 'KeyG'},
+  'h': {'keyCode': 72, 'key': 'h', 'code': 'KeyH'},
+  'i': {'keyCode': 73, 'key': 'i', 'code': 'KeyI'},
+  'j': {'keyCode': 74, 'key': 'j', 'code': 'KeyJ'},
+  'k': {'keyCode': 75, 'key': 'k', 'code': 'KeyK'},
+  'l': {'keyCode': 76, 'key': 'l', 'code': 'KeyL'},
+  'm': {'keyCode': 77, 'key': 'm', 'code': 'KeyM'},
+  'n': {'keyCode': 78, 'key': 'n', 'code': 'KeyN'},
+  'o': {'keyCode': 79, 'key': 'o', 'code': 'KeyO'},
+  'p': {'keyCode': 80, 'key': 'p', 'code': 'KeyP'},
+  'q': {'keyCode': 81, 'key': 'q', 'code': 'KeyQ'},
+  'r': {'keyCode': 82, 'key': 'r', 'code': 'KeyR'},
+  's': {'keyCode': 83, 'key': 's', 'code': 'KeyS'},
+  't': {'keyCode': 84, 'key': 't', 'code': 'KeyT'},
+  'u': {'keyCode': 85, 'key': 'u', 'code': 'KeyU'},
+  'v': {'keyCode': 86, 'key': 'v', 'code': 'KeyV'},
+  'w': {'keyCode': 87, 'key': 'w', 'code': 'KeyW'},
+  'x': {'keyCode': 88, 'key': 'x', 'code': 'KeyX'},
+  'y': {'keyCode': 89, 'key': 'y', 'code': 'KeyY'},
+  'z': {'keyCode': 90, 'key': 'z', 'code': 'KeyZ'},
+  'Meta': {'keyCode': 91, 'key': 'Meta', 'code': 'MetaLeft', 'location': 1},
+  '*': {'keyCode': 106, 'key': '*', 'code': 'NumpadMultiply', 'location': 3},
+  '+': {'keyCode': 107, 'key': '+', 'code': 'NumpadAdd', 'location': 3},
+  '-': {'keyCode': 109, 'key': '-', 'code': 'NumpadSubtract', 'location': 3},
+  '/': {'keyCode': 111, 'key': '/', 'code': 'NumpadDivide', 'location': 3},
+  ';': {'keyCode': 186, 'key': ';', 'code': 'Semicolon'},
+  '=': {'keyCode': 187, 'key': '=', 'code': 'Equal'},
+  ',': {'keyCode': 188, 'key': ',', 'code': 'Comma'},
+  '.': {'keyCode': 190, 'key': '.', 'code': 'Period'},
+  '`': {'keyCode': 192, 'key': '`', 'code': 'Backquote'},
+  '[': {'keyCode': 219, 'key': '[', 'code': 'BracketLeft'},
+  '\\': {'keyCode': 220, 'key': '\\', 'code': 'Backslash'},
+  ']': {'keyCode': 221, 'key': ']', 'code': 'BracketRight'},
+  '\'': {'keyCode': 222, 'key': '\'', 'code': 'Quote'},
+  'Attn': {'keyCode': 246, 'key': 'Attn'},
+  'CrSel': {'keyCode': 247, 'key': 'CrSel', 'code': 'Props'},
+  'ExSel': {'keyCode': 248, 'key': 'ExSel'},
+  'EraseEof': {'keyCode': 249, 'key': 'EraseEof'},
+  'Play': {'keyCode': 250, 'key': 'Play'},
+  'ZoomOut': {'keyCode': 251, 'key': 'ZoomOut'},
+  ')': {'keyCode': 48, 'key': ')', 'code': 'Digit0'},
+  '!': {'keyCode': 49, 'key': '!', 'code': 'Digit1'},
+  '@': {'keyCode': 50, 'key': '@', 'code': 'Digit2'},
+  '#': {'keyCode': 51, 'key': '#', 'code': 'Digit3'},
+  '$': {'keyCode': 52, 'key': '$', 'code': 'Digit4'},
+  '%': {'keyCode': 53, 'key': '%', 'code': 'Digit5'},
+  '^': {'keyCode': 54, 'key': '^', 'code': 'Digit6'},
+  '&': {'keyCode': 55, 'key': '&', 'code': 'Digit7'},
+  '(': {'keyCode': 57, 'key': '\(', 'code': 'Digit9'},
+  'A': {'keyCode': 65, 'key': 'A', 'code': 'KeyA'},
+  'B': {'keyCode': 66, 'key': 'B', 'code': 'KeyB'},
+  'C': {'keyCode': 67, 'key': 'C', 'code': 'KeyC'},
+  'D': {'keyCode': 68, 'key': 'D', 'code': 'KeyD'},
+  'E': {'keyCode': 69, 'key': 'E', 'code': 'KeyE'},
+  'F': {'keyCode': 70, 'key': 'F', 'code': 'KeyF'},
+  'G': {'keyCode': 71, 'key': 'G', 'code': 'KeyG'},
+  'H': {'keyCode': 72, 'key': 'H', 'code': 'KeyH'},
+  'I': {'keyCode': 73, 'key': 'I', 'code': 'KeyI'},
+  'J': {'keyCode': 74, 'key': 'J', 'code': 'KeyJ'},
+  'K': {'keyCode': 75, 'key': 'K', 'code': 'KeyK'},
+  'L': {'keyCode': 76, 'key': 'L', 'code': 'KeyL'},
+  'M': {'keyCode': 77, 'key': 'M', 'code': 'KeyM'},
+  'N': {'keyCode': 78, 'key': 'N', 'code': 'KeyN'},
+  'O': {'keyCode': 79, 'key': 'O', 'code': 'KeyO'},
+  'P': {'keyCode': 80, 'key': 'P', 'code': 'KeyP'},
+  'Q': {'keyCode': 81, 'key': 'Q', 'code': 'KeyQ'},
+  'R': {'keyCode': 82, 'key': 'R', 'code': 'KeyR'},
+  'S': {'keyCode': 83, 'key': 'S', 'code': 'KeyS'},
+  'T': {'keyCode': 84, 'key': 'T', 'code': 'KeyT'},
+  'U': {'keyCode': 85, 'key': 'U', 'code': 'KeyU'},
+  'V': {'keyCode': 86, 'key': 'V', 'code': 'KeyV'},
+  'W': {'keyCode': 87, 'key': 'W', 'code': 'KeyW'},
+  'X': {'keyCode': 88, 'key': 'X', 'code': 'KeyX'},
+  'Y': {'keyCode': 89, 'key': 'Y', 'code': 'KeyY'},
+  'Z': {'keyCode': 90, 'key': 'Z', 'code': 'KeyZ'},
+  ':': {'keyCode': 186, 'key': ':', 'code': 'Semicolon'},
+  '<': {'keyCode': 188, 'key': '\<', 'code': 'Comma'},
+  '_': {'keyCode': 189, 'key': '_', 'code': 'Minus'},
+  '>': {'keyCode': 190, 'key': '>', 'code': 'Period'},
+  '?': {'keyCode': 191, 'key': '?', 'code': 'Slash'},
+  '~': {'keyCode': 192, 'key': '~', 'code': 'Backquote'},
+  '{': {'keyCode': 219, 'key': '{', 'code': 'BracketLeft'},
+  '|': {'keyCode': 220, 'key': '|', 'code': 'Backslash'},
+  '}': {'keyCode': 221, 'key': '}', 'code': 'BracketRight'},
+  '"': {'keyCode': 222, 'key': '"', 'code': 'Quote'},
+  'SoftLeft': {'key': 'SoftLeft', 'code': 'SoftLeft', 'location': 4},
+  'SoftRight': {'key': 'SoftRight', 'code': 'SoftRight', 'location': 4},
+  'Camera': {'keyCode': 44, 'key': 'Camera', 'code': 'Camera', 'location': 4},
+  'Call': {'key': 'Call', 'code': 'Call', 'location': 4},
+  'EndCall': {'keyCode': 95, 'key': 'EndCall', 'code': 'EndCall', 'location': 4},
+  'VolumeDown': {'keyCode': 182, 'key': 'VolumeDown', 'code': 'VolumeDown', 'location': 4},
+  'VolumeUp': {'keyCode': 183, 'key': 'VolumeUp', 'code': 'VolumeUp', 'location': 4},
+};
+// hack-puppeteer - module.exports
+const USKeyboardLayout = module.exports;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/WebSocketTransport.js
+*/
+/**
+ * Copyright 2018 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const WebSocket = require('ws');
+
+/**
+ * @implements {!Puppeteer.ConnectionTransport}
+ */
+class WebSocketTransport {
+  /**
+   * @param {string} url
+   * @return {!Promise<!WebSocketTransport>}
+   */
+  static create(url) {
+    return new Promise((resolve, reject) => {
+      const ws = new WebSocket(url, [], {
+        perMessageDeflate: false,
+        maxPayload: 256 * 1024 * 1024, // 256Mb
+      });
+      ws.addEventListener('open', () => resolve(new WebSocketTransport(ws)));
+      ws.addEventListener('error', reject);
+    });
+  }
+
+  /**
+   * @param {!WebSocket} ws
+   */
+  constructor(ws) {
+    this._ws = ws;
+    this._ws.addEventListener('message', event => {
+      if (this.onmessage)
+        this.onmessage.call(null, event.data);
+    });
+    this._ws.addEventListener('close', event => {
+      if (this.onclose)
+        this.onclose.call(null);
+    });
+    // Silently ignore all errors - we don't know what to do with them.
+    this._ws.addEventListener('error', () => {});
+    this.onmessage = null;
+    this.onclose = null;
+  }
+
+  /**
+   * @param {string} message
+   */
+  send(message) {
+    this._ws.send(message);
+  }
+
+  close() {
+    this._ws.close();
+  }
+}
+
+module.exports = WebSocketTransport;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/Worker.js
+*/
+/**
+ * Copyright 2018 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// const EventEmitter = require('events');
+// const {debugError} = require('./helper');
+// const {ExecutionContext} = require('./ExecutionContext');
+// const {JSHandle} = require('./JSHandle');
+
+class Worker extends EventEmitter {
+  /**
+   * @param {Puppeteer.CDPSession} client
+   * @param {string} url
+   * @param {function(string, !Array<!JSHandle>, Protocol.Runtime.StackTrace=):void} consoleAPICalled
+   * @param {function(!Protocol.Runtime.ExceptionDetails):void} exceptionThrown
+   */
+  constructor(client, url, consoleAPICalled, exceptionThrown) {
+    super();
+    this._client = client;
+    this._url = url;
+    this._executionContextPromise = new Promise(x => this._executionContextCallback = x);
+    /** @type {function(!Protocol.Runtime.RemoteObject):!JSHandle} */
+    let jsHandleFactory;
+    this._client.once('Runtime.executionContextCreated', async event => {
+      jsHandleFactory = remoteObject => new JSHandle(executionContext, client, remoteObject);
+      const executionContext = new ExecutionContext(client, event.context, null);
+      this._executionContextCallback(executionContext);
+    });
+    // This might fail if the target is closed before we recieve all execution contexts.
+    this._client.send('Runtime.enable', {}).catch(debugError);
+
+    this._client.on('Runtime.consoleAPICalled', event => consoleAPICalled(event.type, event.args.map(jsHandleFactory), event.stackTrace));
+    this._client.on('Runtime.exceptionThrown', exception => exceptionThrown(exception.exceptionDetails));
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @return {!Promise<ExecutionContext>}
+   */
+  async executionContext() {
+    return this._executionContextPromise;
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<*>}
+   */
+  async evaluate(pageFunction, ...args) {
+    return (await this._executionContextPromise).evaluate(pageFunction, ...args);
+  }
+
+  /**
+   * @param {Function|string} pageFunction
+   * @param {!Array<*>} args
+   * @return {!Promise<!JSHandle>}
+   */
+  async evaluateHandle(pageFunction, ...args) {
+    return (await this._executionContextPromise).evaluateHandle(pageFunction, ...args);
+  }
+}
+
+module.exports = {Worker};
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/lib/api.js
+*/
+/**
+ * Copyright 2019 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+module.exports = {
+  Accessibility,
+  Browser,
+  BrowserContext,
+  BrowserFetcher,
+  CDPSession,
+  ConsoleMessage,
+  Coverage,
+  Dialog,
+  ElementHandle,
+  ExecutionContext,
+  FileChooser,
+  Frame,
+  JSHandle,
+  Keyboard,
+  Mouse,
+  Page,
+  Puppeteer,
+  Request,
+  Response,
+  SecurityDetails,
+  Target,
+  TimeoutError,
+  Touchscreen,
+  Tracing,
+  Worker,
+};
+// hack-puppeteer - module.exports
+const api = module.exports;
+
+
+
+/*
+lib https://github.com/GoogleChrome/puppeteer/blob/v1.19.0/index.js
+*/
+/**
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// hack-puppeteer - module.exports
+let asyncawait = true;
+
+if (asyncawait) {
+//   const {helper} = require('./lib/helper');
+//   const api = require('./lib/api');
+  for (const className in api) {
+    // Puppeteer-web excludes certain classes from bundle, e.g. BrowserFetcher.
+    if (typeof api[className] === 'function')
+      helper.installAsyncStackHooks(api[className]);
+  }
+}
+
+// If node does not support async await, use the compiled version.
+// hack-puppeteer - module.exports
+// const Puppeteer = asyncawait ? require('./lib/Puppeteer') : require('./node6/lib/Puppeteer');
+// const packageJson = require('./package.json');
+const preferredRevision = packageJson.puppeteer.chromium_revision;
+const isPuppeteerCore = packageJson.name === 'puppeteer-core';
+
+module.exports = local;
+module.exports.puppeteer = new Puppeteer(__dirname, preferredRevision, isPuppeteerCore);
+module.exports.WebSocketTransport = WebSocketTransport;
+module.exports.Connection = Connection;
+module.exports.Browser = Browser;
+
+
+
+/*
+file none
+*/
+/* jslint ignore:end */
 }());
 }());
 /* script-end /assets.my_app.js */
@@ -57277,7 +82701,7 @@ instruction
 
 
 
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
@@ -57428,7 +82852,7 @@ instruction
 // init local
 local = (
     globalThis.utility2_rollup
-    || globalThis.utility2_puppeteer_lite
+    || globalThis.utility2_puppeteer
     || globalThis.utility2_moduleExports
 );
 // init exports
@@ -57997,7 +83421,7 @@ utility2-comment -->\n\
 <script src="assets.utility2.rollup.js"></script>\n\
 <script>window.utility2_onReadyBefore.counter += 1;</script>\n\
 <script src="jsonp.utility2.stateInit?callback=window.utility2.stateInit"></script>\n\
-<script src="assets.puppeteer_lite.js"></script>\n\
+<script src="assets.puppeteer.js"></script>\n\
 <script src="assets.example.js"></script>\n\
 <script src="assets.test.js"></script>\n\
 <script>window.utility2_onReadyBefore();</script>\n\
@@ -58015,9 +83439,9 @@ utility2-comment -->\n\
 /* jslint ignore:end */
 /* validateLineSortedReset */
 /* jslint ignore:start */
-local.assetsDict["/assets.puppeteer_lite.js"] =
-    local.assetsDict["/assets.puppeteer_lite.js"] ||
-    local.fs.readFileSync(local.__dirname + "/lib.puppeteer_lite.js", "utf8"
+local.assetsDict["/assets.puppeteer.js"] =
+    local.assetsDict["/assets.puppeteer.js"] ||
+    local.fs.readFileSync(local.__dirname + "/lib.puppeteer.js", "utf8"
 ).replace((/^#!\//), "// ");
 /* jslint ignore:end */
 /* validateLineSortedReset */
@@ -58032,7 +83456,7 @@ local.assetsDict["/"] = local.assetsDict[
     case "npm_package_name":
         return "puppeteer-lite";
     case "npm_package_nameLib":
-        return "puppeteer_lite";
+        return "puppeteer";
     case "npm_package_version":
         return "0.0.1";
     default:
@@ -58078,7 +83502,7 @@ local.http.createServer(function (req, res) {
 
 
 /* script-begin /assets.test.js */
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {

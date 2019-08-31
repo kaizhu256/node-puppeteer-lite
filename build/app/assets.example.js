@@ -107,7 +107,7 @@ instruction
 
 
 
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
@@ -258,7 +258,7 @@ instruction
 // init local
 local = (
     globalThis.utility2_rollup
-    || globalThis.utility2_puppeteer_lite
+    || globalThis.utility2_puppeteer
     || globalThis.utility2_moduleExports
 );
 // init exports
@@ -827,7 +827,7 @@ utility2-comment -->\n\
 <script src="assets.utility2.rollup.js"></script>\n\
 <script>window.utility2_onReadyBefore.counter += 1;</script>\n\
 <script src="jsonp.utility2.stateInit?callback=window.utility2.stateInit"></script>\n\
-<script src="assets.puppeteer_lite.js"></script>\n\
+<script src="assets.puppeteer.js"></script>\n\
 <script src="assets.example.js"></script>\n\
 <script src="assets.test.js"></script>\n\
 <script>window.utility2_onReadyBefore();</script>\n\
@@ -845,9 +845,9 @@ utility2-comment -->\n\
 /* jslint ignore:end */
 /* validateLineSortedReset */
 /* jslint ignore:start */
-local.assetsDict["/assets.puppeteer_lite.js"] =
-    local.assetsDict["/assets.puppeteer_lite.js"] ||
-    local.fs.readFileSync(local.__dirname + "/lib.puppeteer_lite.js", "utf8"
+local.assetsDict["/assets.puppeteer.js"] =
+    local.assetsDict["/assets.puppeteer.js"] ||
+    local.fs.readFileSync(local.__dirname + "/lib.puppeteer.js", "utf8"
 ).replace((/^#!\//), "// ");
 /* jslint ignore:end */
 /* validateLineSortedReset */
@@ -862,7 +862,7 @@ local.assetsDict["/"] = local.assetsDict[
     case "npm_package_name":
         return "puppeteer-lite";
     case "npm_package_nameLib":
-        return "puppeteer_lite";
+        return "puppeteer";
     case "npm_package_version":
         return "0.0.1";
     default:

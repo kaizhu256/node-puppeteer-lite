@@ -54,13 +54,40 @@
 
     >puppeteer-lite (2019.8.31)</a>
 </h1>
-<h4>the greatest app in the world!</h4>
+<h4>this package will provide a zero-dependency version puppeteer v1.19.0</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.puppeteer-lite">module puppeteer-lite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.Browser">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>Browser
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.Connection">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>Connection
+            <span class="apidocSignatureSpan">(url, transport, delay = 0)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.WebSocketTransport">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>WebSocketTransport
+            <span class="apidocSignatureSpan">(url)</span>
+            </a>
+
+        </li>
 
         <li>
 
@@ -121,7 +148,7 @@
 
         <li>
 
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">puppeteer-lite.</span>puppeteer_lite</span>
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">puppeteer-lite.</span>puppeteer</span>
 
         </li>
 
@@ -137,6 +164,334 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.puppeteer-lite" id="apidoc.module.puppeteer-lite">module puppeteer-lite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.Browser" id="apidoc.elem.puppeteer-lite.Browser">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>Browser
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Browser extends EventEmitter {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array&lt;string&gt;} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {function()=} closeCallback
+   */
+</span>  static async create(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    const browser = new Browser(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback);
+    await connection.send(&apos;Target.setDiscoverTargets&apos;, {discover: true});
+    return browser;
+  }
+
+  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array&lt;string&gt;} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {(function():Promise)=} closeCallback
+   */
+  constructor(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    super();
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;
+    this._defaultViewport = defaultViewport;
+    this._process = process;
+    this._screenshotTaskQueue = new TaskQueue();
+    this._connection = connection;
+    this._closeCallback = closeCallback || new Function();
+
+    this._defaultContext = new BrowserContext(this._connection, this, null);
+    /** @type {Map&lt;string, BrowserContext&gt;} */
+    this._contexts = new Map();
+    for (const contextId of contextIds)
+      this._contexts.set(contextId, new BrowserContext(this._connection, this, contextId));
+
+    /** @type {Map&lt;string, Target&gt;} */
+    this._targets = new Map();
+    this._connection.on(Events.Connection.Disconnected, () =&gt; this.emit(Events.Browser.Disconnected));
+    this._connection.on(&apos;Target.targetCreated&apos;, this._targetCreated.bind(this));
+    this._connection.on(&apos;Target.targetDestroyed&apos;, this._targetDestroyed.bind(this));
+    this._connection.on(&apos;Target.targetInfoChanged&apos;, this._targetInfoChanged.bind(this));
+  }
+
+  /**
+   * @return {?Puppeteer.ChildProcess}
+   */
+  process() {
+    return this._process;
+  }
+
+  /**
+   * @return {!Promise&lt;!BrowserContext&gt;}
+   */
+  async createIncognitoBrowserContext() {
+    const {browserContextId} = await this._connection.send(&apos;Target.createBrowserContext&apos;);
+    const context = new BrowserContext(this._connection, this, browserContextId);
+    this._contexts.set(browserContextId, context);
+    return context;
+  }
+
+  /**
+   * @return {!Array&lt;!BrowserContext&gt;}
+   */
+  browserContexts() {
+    return [this._defaultContext, ...Array.from(this._contexts.values())];
+  }
+
+  /**
+   * @return {!BrowserContext}
+   */
+  defaultBrowserContext() {
+    return this._defaultContext;
+  }
+
+  /**
+   * @param {?string} contextId
+   */
+  async _disposeContext(contextId) {
+    await this._connection.send(&apos;Target.disposeBrowserContext&apos;, {browserContextId: contextId || undefined});
+    this._contexts.delete(contextId);
+  }
+
+  /**
+   * @param {!Protocol.Target.targetCreatedPayload} event
+   */
+  async _targetCreated(event) {
+    const targetInfo = event.targetInfo;
+    const {browserContextId} = targetInfo;
+    const context = (browserContextId &amp;&amp; this._contexts.has(browserContextId)) ? this._contexts.get(browserContextId) : this._defaultContext
+;
+
+    const target = new Target(targetInfo, context, () =&gt; this._connection.createSession(targetInfo), this._ignoreHTTPSErrors, this
+._defaultViewport, this._screenshotTaskQueue);
+    assert(!this._targets.has(event.targetInfo.targetId), &apos;Target should not exist before targetCreated&apos;);
+    this._targets.set(event.targetInfo.targetId, target);
+
+    if (await target._initializedPromise) {
+      this.emit(Events.Browser.TargetCreated, target);
+      context.emit(Events.BrowserContext.TargetCreated, target);
+    }
+  }
+
+  /**
+   * @param {{targetId: string}} event
+   */
+  async _targetDestroyed(event) {
+    const target = this._targets.get(e...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.Connection" id="apidoc.elem.puppeteer-lite.Connection">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>Connection
+        <span class="apidocSignatureSpan">(url, transport, delay = 0)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Connection extends EventEmitter {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {string} url
+   * @param {!Puppeteer.ConnectionTransport} transport
+   * @param {number=} delay
+   */
+</span>  constructor(url, transport, delay = 0) {
+    super();
+    this._url = url;
+    this._lastId = 0;
+    /** @type {!Map&lt;number, {resolve: function, reject: function, error: !Error, method: string}&gt;}*/
+    this._callbacks = new Map();
+    this._delay = delay;
+
+    this._transport = transport;
+    this._transport.onmessage = this._onMessage.bind(this);
+    this._transport.onclose = this._onClose.bind(this);
+    /** @type {!Map&lt;string, !CDPSession&gt;}*/
+    this._sessions = new Map();
+    this._closed = false;
+  }
+
+  /**
+   * @param {!CDPSession} session
+   * @return {!Connection}
+   */
+  static fromSession(session) {
+    return session._connection;
+  }
+
+  /**
+   * @param {string} sessionId
+   * @return {?CDPSession}
+   */
+  session(sessionId) {
+    return this._sessions.get(sessionId) || null;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Object=} params
+   * @return {!Promise&lt;?Object&gt;}
+   */
+  send(method, params = {}) {
+    const id = this._rawSend({method, params});
+    return new Promise((resolve, reject) =&gt; {
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});
+    });
+  }
+
+  /**
+   * @param {*} message
+   * @return {number}
+   */
+  _rawSend(message) {
+    const id = ++this._lastId;
+    message = JSON.stringify(Object.assign({}, message, {id}));
+    debugProtocol(&apos;SEND ► &apos; + message);
+    this._transport.send(message);
+    return id;
+  }
+
+  /**
+   * @param {string} message
+   */
+  async _onMessage(message) {
+    if (this._delay)
+      await new Promise(f =&gt; setTimeout(f, this._delay));
+    debugProtocol(&apos;◀ RECV &apos; + message);
+    const object = JSON.parse(message);
+    if (object.method === &apos;Target.attachedToTarget&apos;) {
+      const sessionId = object.params.sessionId;
+      const session = new CDPSession(this, object.params.targetInfo.type, sessionId);
+      this._sessions.set(sessionId, session);
+    } else if (object.method === &apos;Target.detachedFromTarget&apos;) {
+      const session = this._sessions.get(object.params.sessionId);
+      if (session) {
+        session._onClosed();
+        this._sessions.delete(object.params.sessionId);
+      }
+    }
+    if (object.sessionId) {
+      const session = this._sessions.get(object.sessionId);
+      if (session)
+        session._onMessage(object);
+    } else if (object.id) {
+      const callback = this._callbacks.get(object.id);
+      // Callbacks could be all rejected if someone has called `.dispose()`.
+      if (callback) {
+        this._callbacks.delete(object.id);
+        if (object.error)
+          callback.reject(createProtocolError(callback.error, callback.method, object));
+        else
+          callback.resolve(object.result);
+      }
+    } else {
+      this.emit(object.method, object.params);
+    }
+  }
+
+  _onClose() {
+    if (this._closed)
+      return;
+    this._closed = true;
+    this._transport.onmessage = null;
+    this._transport.onclose = null;
+    for (const callback of this._callbacks.values())
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));
+    this._callbacks.clear();
+    for (const session of this._sessions.values())
+      session._onClosed();
+    this._sessions.clear();
+    this.emit(Events.Connection.Disconnected);
+  }
+
+  dispose() {
+    this._onClose();
+    this._transport.close();
+  }
+
+  /**
+   * @param {Protocol.Target.TargetInfo} targetInfo
+   * @return {!Promise&lt;!CDPSession&gt;}
+   */
+  async createSession(targetInfo) {
+    const {sessionId} = await this.send(&apos;Target.attachToTarget&apos;, {targetId: targetInfo.targetId, flatten: true});
+    return this._sessions.get(sessionId);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.WebSocketTransport" id="apidoc.elem.puppeteer-lite.WebSocketTransport">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>WebSocketTransport
+        <span class="apidocSignatureSpan">(url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class WebSocketTransport {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {string} url
+   * @return {!Promise&lt;!WebSocketTransport&gt;}
+   */
+</span>  static create(url) {
+    return new Promise((resolve, reject) =&gt; {
+      const ws = new WebSocket(url, [], {
+        perMessageDeflate: false,
+        maxPayload: 256 * 1024 * 1024, // 256Mb
+      });
+      ws.addEventListener(&apos;open&apos;, () =&gt; resolve(new WebSocketTransport(ws)));
+      ws.addEventListener(&apos;error&apos;, reject);
+    });
+  }
+
+  /**
+   * @param {!WebSocket} ws
+   */
+  constructor(ws) {
+    this._ws = ws;
+    this._ws.addEventListener(&apos;message&apos;, event =&gt; {
+      if (this.onmessage)
+        this.onmessage.call(null, event.data);
+    });
+    this._ws.addEventListener(&apos;close&apos;, event =&gt; {
+      if (this.onclose)
+        this.onclose.call(null);
+    });
+    // Silently ignore all errors - we don&apos;t know what to do with them.
+    this._ws.addEventListener(&apos;error&apos;, () =&gt; {});
+    this.onmessage = null;
+    this.onclose = null;
+  }
+
+  /**
+   * @param {string} message
+   */
+  send(message) {
+    this._ws.send(message);
+  }
+
+  close() {
+    this._ws.close();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>

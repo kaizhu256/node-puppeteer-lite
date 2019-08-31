@@ -1,4 +1,4 @@
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
