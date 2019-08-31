@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "the greatest app in the world!",
+    "description": "this package will provide a zero-dependency version puppeteer v1.19.0",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
@@ -11,10 +11,10 @@
     "homepage": "https://github.com/kaizhu256/node-puppeteer-lite",
     "keywords": [],
     "license": "MIT",
-    "main": "lib.puppeteer_lite.js",
+    "main": "lib.puppeteer.js",
     "name": "puppeteer-lite",
     "nameAliasPublish": "",
-    "nameLib": "puppeteer_lite",
+    "nameLib": "puppeteer",
     "nameOriginal": "puppeteer-lite",
     "os": [
         "darwin",

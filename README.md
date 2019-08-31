@@ -1,8 +1,8 @@
 # puppeteer-lite
-the greatest app in the world!
+this package will provide a zero-dependency version puppeteer v1.19.0
 
 # live web demo
-- [https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app)
+- none
 
 
 
@@ -12,7 +12,6 @@ the greatest app in the world!
 
 | git-branch : | [master](https://github.com/kaizhu256/node-puppeteer-lite/tree/master) | [beta](https://github.com/kaizhu256/node-puppeteer-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-puppeteer-lite/tree/alpha)|
 |--:|:--|:--|:--|
-| test-server-github : | [![github.com test-server](https://kaizhu256.github.io/node-puppeteer-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-puppeteer-lite/build..master..travis-ci.org/app) | [![github.com test-server](https://kaizhu256.github.io/node-puppeteer-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app) | [![github.com test-server](https://kaizhu256.github.io/node-puppeteer-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-puppeteer-lite/build..alpha..travis-ci.org/app)|
 | test-report : | [![test-report](https://kaizhu256.github.io/node-puppeteer-lite/build..master..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..master..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-puppeteer-lite/build..alpha..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..alpha..travis-ci.org/test-report.html)|
 | coverage : | [![coverage](https://kaizhu256.github.io/node-puppeteer-lite/build..master..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..master..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-puppeteer-lite/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-puppeteer-lite/build..alpha..travis-ci.org/coverage.html/index.html)|
 | build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-puppeteer-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-puppeteer-lite/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-puppeteer-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-puppeteer-lite/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-puppeteer-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-puppeteer-lite/tree/gh-pages/build..alpha..travis-ci.org)|
@@ -35,7 +34,7 @@ the greatest app in the world!
 
 
 # cdn download
-- [https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app/assets.puppeteer_lite.js](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app/assets.puppeteer_lite.js)
+- [https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app/assets.puppeteer.js](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/app/assets.puppeteer.js)
 
 
 
@@ -49,11 +48,12 @@ the greatest app in the world!
 [![apidoc](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-puppeteer-lite/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
+- flesh out example use-cases in README.md
 - none
 
 #### changelog 2019.8.31
 - npm publish 2019.8.31
-- update build
+- initial publish
 - none
 
 #### this package requires
@@ -107,7 +107,7 @@ instruction
 
 
 
-/* istanbul instrument in package puppeteer_lite */
+/* istanbul instrument in package puppeteer */
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
@@ -258,7 +258,7 @@ instruction
 // init local
 local = (
     globalThis.utility2_rollup
-    || globalThis.utility2_puppeteer_lite
+    || globalThis.utility2_puppeteer
     || require("puppeteer-lite")
 );
 // init exports
@@ -827,7 +827,7 @@ utility2-comment -->\n\
 <script src="assets.utility2.rollup.js"></script>\n\
 <script>window.utility2_onReadyBefore.counter += 1;</script>\n\
 <script src="jsonp.utility2.stateInit?callback=window.utility2.stateInit"></script>\n\
-<script src="assets.puppeteer_lite.js"></script>\n\
+<script src="assets.puppeteer.js"></script>\n\
 <script src="assets.example.js"></script>\n\
 <script src="assets.test.js"></script>\n\
 <script>window.utility2_onReadyBefore();</script>\n\
@@ -845,9 +845,9 @@ utility2-comment -->\n\
 /* jslint ignore:end */
 /* validateLineSortedReset */
 /* jslint ignore:start */
-local.assetsDict["/assets.puppeteer_lite.js"] =
-    local.assetsDict["/assets.puppeteer_lite.js"] ||
-    local.fs.readFileSync(local.__dirname + "/lib.puppeteer_lite.js", "utf8"
+local.assetsDict["/assets.puppeteer.js"] =
+    local.assetsDict["/assets.puppeteer.js"] ||
+    local.fs.readFileSync(local.__dirname + "/lib.puppeteer.js", "utf8"
 ).replace((/^#!\//), "// ");
 /* jslint ignore:end */
 /* validateLineSortedReset */
@@ -862,7 +862,7 @@ local.assetsDict["/"] = local.assetsDict[
     case "npm_package_name":
         return "puppeteer-lite";
     case "npm_package_nameLib":
-        return "puppeteer_lite";
+        return "puppeteer";
     case "npm_package_version":
         return "0.0.1";
     default:
@@ -923,15 +923,6 @@ local.http.createServer(function (req, res) {
 1. [https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
 [![screenshot](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
 
-1. [https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp%252Fassets.swgg.html.png](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp%252Fassets.swgg.html.png)
-[![screenshot](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp%252Fassets.swgg.html.png)](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp%252Fassets.swgg.html.png)
-
-1. [https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)
-[![screenshot](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithub.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)
-
-1. [https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithubTest.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithubTest.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)
-[![screenshot](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithubTest.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.deployGithubTest.browser.%252Fnode-puppeteer-lite%252Fbuild%252Fapp.png)
-
 
 
 1. [https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.npmTest.browser.%252F.png](https://kaizhu256.github.io/node-puppeteer-lite/build/screenshot.npmTest.browser.%252F.png)
@@ -949,7 +940,7 @@ local.http.createServer(function (req, res) {
 ```json
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "the greatest app in the world!",
+    "description": "this package will provide a zero-dependency version puppeteer v1.19.0",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
@@ -960,10 +951,10 @@ local.http.createServer(function (req, res) {
     "homepage": "https://github.com/kaizhu256/node-puppeteer-lite",
     "keywords": [],
     "license": "MIT",
-    "main": "lib.puppeteer_lite.js",
+    "main": "lib.puppeteer.js",
     "name": "puppeteer-lite",
     "nameAliasPublish": "",
-    "nameLib": "puppeteer_lite",
+    "nameLib": "puppeteer",
     "nameOriginal": "puppeteer-lite",
     "os": [
         "darwin",
@@ -1003,7 +994,7 @@ local.http.createServer(function (req, res) {
 
 shBuildCiAfter () {(set -e
     # shDeployCustom
-    shDeployGithub
+    # shDeployGithub
     # shDeployHeroku
     shReadmeTest example.sh
 )}
