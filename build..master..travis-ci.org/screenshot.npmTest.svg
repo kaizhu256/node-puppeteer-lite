@@ -1,9 +1,9 @@
-<svg height="3374" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="3374" fill="#555" width="720"></rect>
+<svg height="2446" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2446" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-09-01T15:34:00.979Z - npm-testing /home/travis/build/\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-09-01T15:37:40.290Z - npm-testing /home/travis/build/\</tspan>
 <tspan x="10" y="58">kaizhu256/node-puppeteer-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -23,351 +23,243 @@
 <tspan x="10" y="202">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/buil\</tspan>
 <tspan x="10" y="218">d/test-report.json</tspan>
 
-<tspan x="10" y="234">jslint - 212ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
+<tspan x="10" y="234">local-function - unused (README.md) local.fsRmrfSync</tspan>
 
-<tspan x="10" y="250">local-function - unused (lib.puppeteer.js) local.fsRmrfSync</tspan>
+<tspan x="10" y="250">local-function - unused (README.md) local.fsWriteFileWithMkdirpSync</tspan>
 
-<tspan x="10" y="266">local-function - unused (lib.puppeteer.js) local.fsWriteFileWithMkdirpSync</tspan>
+<tspan x="10" y="266">jslint - 364ms /home/travis/build/kaizhu256/node-puppeteer-lite/README.md</tspan>
 
-<tspan x="10" y="282">--- /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js.autofix.old	2019-09-01 15:\</tspan>
-<tspan x="10" y="298">34:01.659509091 +0000</tspan>
+<tspan x="10" y="282">local-function - unused (lib.puppeteer.js) local.fsRmrfSync</tspan>
 
-<tspan x="10" y="314">+++ /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js	2019-09-01 15:34:01.659509\</tspan>
-<tspan x="10" y="330">091 +0000</tspan>
+<tspan x="10" y="298">local-function - unused (lib.puppeteer.js) local.fsWriteFileWithMkdirpSync</tspan>
 
-<tspan x="10" y="346">@@ -75,6 +75,54 @@</tspan>
+<tspan x="10" y="314">jslint - 128ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js</tspan>
 
-<tspan x="10" y="362">         );</tspan>
+<tspan x="10" y="330">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="378">         throw err;</tspan>
+<tspan x="10" y="346">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
 
-<tspan x="10" y="394">     };</tspan>
+<tspan x="10" y="362">local-function - unused (test.js) local.fsRmrfSync</tspan>
 
-<tspan x="10" y="410">+    local.fsRmrfSync = function (dir) {</tspan>
+<tspan x="10" y="378">local-function - unused (test.js) local.fsWriteFileWithMkdirpSync</tspan>
 
-<tspan x="10" y="426">+    /*</tspan>
+<tspan x="10" y="394">jslint - 22ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
 
-<tspan x="10" y="442">+     * this function will sync "rm -rf" &lt;dir&gt;</tspan>
+<tspan x="10" y="410">http-server listening on port 35231</tspan>
 
-<tspan x="10" y="458">+     */</tspan>
+<tspan x="10" y="426">db - dropping database ...</tspan>
 
-<tspan x="10" y="474">+        var child_process;</tspan>
+<tspan x="10" y="442">testRunDefault - 209620 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="490">+        try {</tspan>
+<tspan x="10" y="458">testRunDefault - 209654 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="506">+            child_process = require("child_process");</tspan>
+<tspan x="10" y="474">testRunDefault - 209663 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="522">+        } catch (ignore) {</tspan>
+<tspan x="10" y="490">testRunDefault - 209664 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="538">+            return;</tspan>
+<tspan x="10" y="506">testRunDefault - 209665 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="554">+        }</tspan>
+<tspan x="10" y="522">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="570">+        child_process.spawnSync("rm", [</tspan>
+<tspan x="10" y="538">[8310:0901/153743.223905:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="554"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="586">+            "-rf", dir</tspan>
+<tspan x="10" y="570">[8310:0901/153743.239934:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="586"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="602">+        ], {</tspan>
+<tspan x="10" y="602">testRunDefault - 210460 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defa\</tspan>
+<tspan x="10" y="618">ult ...</tspan>
 
-<tspan x="10" y="618">+            stdio: [</tspan>
+<tspan x="10" y="634">[8358:0901/153743.393229:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="650">hreads in process gpu-process.</tspan>
 
-<tspan x="10" y="634">+                "ignore", 1, 2</tspan>
+<tspan x="10" y="666">http-server listening on port 33092</tspan>
 
-<tspan x="10" y="650">+            ]</tspan>
+<tspan x="10" y="682">[8310:0901/153743.768672:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="698">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="714">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="666">+        });</tspan>
+<tspan x="10" y="730">[8310:0901/153743.798643:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="746">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="762">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="682">+    };</tspan>
+<tspan x="10" y="778">[8310:0901/153744.841024:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="794">:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="698">+    local.fsWriteFileWithMkdirpSync = function (file, data) {</tspan>
+<tspan x="10" y="810">[8310:0901/153744.858235:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
+<tspan x="10" y="826">ngs.</tspan>
 
-<tspan x="10" y="714">+    /*</tspan>
+<tspan x="10" y="842">[8310:0901/153744.863085:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="858">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
+<tspan x="10" y="874">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="730">+     * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"</tspan>
+<tspan x="10" y="890">[8310:0901/153744.863849:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="906">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="922">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="746">+     */</tspan>
+<tspan x="10" y="938">[8310:0901/153744.897920:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 1 pas\</tspan>
+<tspan x="10" y="954">sed] - testCase_nop_default", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="762">+        var fs;</tspan>
+<tspan x="10" y="970">[8310:0901/153744.924802:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="986">:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="778">+        try {</tspan>
+<tspan x="10" y="1002">[8310:0901/153744.938988:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="1018">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
+<tspan x="10" y="1034">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="794">+            fs = require("fs");</tspan>
+<tspan x="10" y="1050">[8310:0901/153744.940448:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="1066">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="1082">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="810">+        } catch (ignore) {</tspan>
+<tspan x="10" y="1098">[8310:0901/153744.958096:INFO:CONSOLE(8)] "testRunDefault - 4 ms - [browser test-case 1 of 1 pas\</tspan>
+<tspan x="10" y="1114">sed] - testCase_nop_default", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="826">+            return;</tspan>
+<tspan x="10" y="1130">[8310:0901/153745.913529:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1146">-----|</tspan>
 
-<tspan x="10" y="842">+        }</tspan>
+<tspan x="10" y="1162">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="858">+        // try to write file</tspan>
+<tspan x="10" y="1178">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="874">+        try {</tspan>
+<tspan x="10" y="1194">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="890">+            fs.writeFileSync(file, data);</tspan>
+<tspan x="10" y="1210">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="906">+        } catch (ignore) {</tspan>
+<tspan x="10" y="1226">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="922">+            // mkdir -p</tspan>
+<tspan x="10" y="1242">", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="938">+            require("child_process").spawnSync(</tspan>
+<tspan x="10" y="1258">[8310:0901/153745.920927:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1274">html", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="954">+                "mkdir",</tspan>
+<tspan x="10" y="1290">[8310:0901/153745.969263:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1306">-----|</tspan>
 
-<tspan x="10" y="970">+                [</tspan>
+<tspan x="10" y="1322">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="986">+                    "-p", require("path").dirname(file)</tspan>
+<tspan x="10" y="1338">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1002">+                ],</tspan>
+<tspan x="10" y="1354">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1018">+                {</tspan>
+<tspan x="10" y="1370">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1034">+                    stdio: [</tspan>
+<tspan x="10" y="1386">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1050">+                        "ignore", 1, 2</tspan>
+<tspan x="10" y="1402">", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1066">+                    ]</tspan>
+<tspan x="10" y="1418">[8310:0901/153745.973452:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1434">html", source: http://127.0.0.1:35231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1082">+                }</tspan>
+<tspan x="10" y="1450">testRunDefault - 215336 ms - [node test-case 6 of 7 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="1098">+            );</tspan>
+<tspan x="10" y="1466">testRunDefault - 215548 ms - testCase pending - testCase_webpage_default ...</tspan>
 
-<tspan x="10" y="1114">+            // rewrite file</tspan>
+<tspan x="10" y="1482">[8310:0901/153749.852403:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:35231/assets.example.\</tspan>
+<tspan x="10" y="1498">js (8)</tspan>
 
-<tspan x="10" y="1130">+            fs.writeFileSync(file, data);</tspan>
+<tspan x="10" y="1514">[8310:0901/153750.017165:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
+<tspan x="10" y="1530">me/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.16ced798f6e0.0605645f54ba6.html' -&gt; '\</tspan>
+<tspan x="10" y="1546">/home/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.html'", source: http://127.0.0.1:3\</tspan>
+<tspan x="10" y="1562">5231/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1146">+        }</tspan>
+<tspan x="10" y="1578"></tspan>
 
-<tspan x="10" y="1162">+    };</tspan>
+<tspan x="10" y="1594">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
+<tspan x="10" y="1610">/screenshot.npmTest.browser.%2F.png</tspan>
 
-<tspan x="10" y="1178">     local.functionOrNop = function (fnc) {</tspan>
+<tspan x="10" y="1626"></tspan>
 
-<tspan x="10" y="1194">     /*</tspan>
+<tspan x="10" y="1642">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
+<tspan x="10" y="1658">/screenshot.npmTest.browser.%2F.html</tspan>
 
-<tspan x="10" y="1210">      * this function will if &lt;fnc&gt; exists,</tspan>
+<tspan x="10" y="1674"></tspan>
 
-<tspan x="10" y="1226">jslint-autofix - modified and saved file /home/travis/build/kaizhu256/node-puppeteer-lite/lib.pu\</tspan>
-<tspan x="10" y="1242">ppeteer.js</tspan>
+<tspan x="10" y="1690">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
+<tspan x="10" y="1706">/screenshot.npmTest.browser.%2F.png</tspan>
 
-<tspan x="10" y="1258">jslint - 134ms /home/travis/build/kaizhu256/node-puppeteer-lite/lib.puppeteer.js</tspan>
+<tspan x="10" y="1722"></tspan>
 
-<tspan x="10" y="1274">jslint - 1ms /home/travis/build/kaizhu256/node-puppeteer-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="1738">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
+<tspan x="10" y="1754">/screenshot.npmTest.browser.%2F.html</tspan>
 
-<tspan x="10" y="1290">jslint - 0ms /home/travis/build/kaizhu256/node-puppeteer-lite/package.json</tspan>
+<tspan x="10" y="1770">testRunDefault - 217295 ms - [node test-case 7 of 7 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="1306">jslint - 52ms /home/travis/build/kaizhu256/node-puppeteer-lite/test.js</tspan>
+<tspan x="10" y="1786">------------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1322">http-server listening on port 44887</tspan>
+<tspan x="10" y="1802">File                    |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="1338">db - dropping database ...</tspan>
+<tspan x="10" y="1818">------------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1354">testRunDefault - 173 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="1834">   node-puppeteer-lite/ |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1370">testRunDefault - 206 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="1850">      example.js        |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1386">testRunDefault - 215 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="1866">      lib.puppeteer.js  |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1402">testRunDefault - 216 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="1882">      test.js           |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1418">testRunDefault - 217 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="1898">------------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1434">http-server listening on port 63274</tspan>
+<tspan x="10" y="1914">All files               |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1450">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
+<tspan x="10" y="1930">------------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1466">[6006:0901/153403.870954:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="1482"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="1946"></tspan>
 
-<tspan x="10" y="1498">[6006:0901/153403.880293:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="1514"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="1962">created coverage file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/coverage.html/i\</tspan>
+<tspan x="10" y="1978">ndex.html</tspan>
 
-<tspan x="10" y="1530">[6065:0901/153404.033967:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
-<tspan x="10" y="1546">hreads in process gpu-process.</tspan>
+<tspan x="10" y="1994"></tspan>
 
-<tspan x="10" y="1562">[6006:0901/153404.297707:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="1578">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
-<tspan x="10" y="1594">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="2010">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/buil\</tspan>
+<tspan x="10" y="2026">d/test-report.json</tspan>
 
-<tspan x="10" y="1610">[6006:0901/153404.375791:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="1626">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
-<tspan x="10" y="1642">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="2042"></tspan>
 
-<tspan x="10" y="1658">[6006:0901/153405.346442:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="1674">:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2058">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1690">[6006:0901/153405.373021:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="1706">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
-<tspan x="10" y="1722">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="2074">| test-report - buildApidoc - node - linux v12.9.1 - 2019-09-01T15:34:12.659Z</tspan>
 
-<tspan x="10" y="1738">[6006:0901/153405.375076:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
-<tspan x="10" y="1754">ngs.</tspan>
+<tspan x="10" y="2090">|  217296 ms            0 failed        7 passed      |</tspan>
 
-<tspan x="10" y="1770">[6006:0901/153405.389846:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="1786">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
-<tspan x="10" y="1802">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="2106">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1818">[6006:0901/153405.422647:INFO:CONSOLE(8)] "testRunDefault - 7 ms - [browser test-case 1 of 1 pas\</tspan>
-<tspan x="10" y="1834">sed] - testCase_nop_default", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2122">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="2138">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-09-01T15:34:04.555Z</tspan>
 
-<tspan x="10" y="1850">[6006:0901/153405.479523:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="1866">:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2154">|    1005 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="1882">[6006:0901/153405.496880:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="1898">source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lite/external/res\</tspan>
-<tspan x="10" y="1914">ources/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="2170">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1930">[6006:0901/153405.498771:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="1946">ity-Policy)", source: /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/electron-lit\</tspan>
-<tspan x="10" y="1962">e/external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="2186">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="2202">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-09-01T15:37:44.031Z</tspan>
 
-<tspan x="10" y="1978">[6006:0901/153405.520216:INFO:CONSOLE(8)] "testRunDefault - 4 ms - [browser test-case 1 of 1 pas\</tspan>
-<tspan x="10" y="1994">sed] - testCase_nop_default", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2218">|    1005 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="2010">[6006:0901/153406.443576:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="2026">-----|</tspan>
+<tspan x="10" y="2234">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2042">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="2250">| test-report - npmTest - node - linux v12.9.1 - 2019-09-01T15:34:01.137Z</tspan>
 
-<tspan x="10" y="2058">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="2266">|    7950 ms            0 failed        7 passed      |</tspan>
 
-<tspan x="10" y="2074">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="2282">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2090">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="2298"></tspan>
 
-<tspan x="10" y="2106">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="2314">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="2330">html</tspan>
 
-<tspan x="10" y="2122">", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2346"></tspan>
 
-<tspan x="10" y="2138">[6006:0901/153406.456708:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="2154">html", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
+<tspan x="10" y="2362"></tspan>
 
-<tspan x="10" y="2170">[6006:0901/153406.532044:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="2186">-----|</tspan>
+<tspan x="10" y="2378">npmTest - 0 failed tests</tspan>
 
-<tspan x="10" y="2202">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="2394"></tspan>
 
-<tspan x="10" y="2218">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="2410"></tspan>
 
-<tspan x="10" y="2234">----------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="2250">All files |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="2266">----------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="2282">", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
-
-<tspan x="10" y="2298">[6006:0901/153406.565385:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="2314">html", source: http://127.0.0.1:44887/assets.example.js (8)</tspan>
-
-<tspan x="10" y="2330">testRunDefault - 5100 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
-<tspan x="10" y="2346">t ...</tspan>
-
-<tspan x="10" y="2362">testRunDefault - 5829 ms - [node test-case 6 of 7 passed] - testCase_buildApp_default</tspan>
-
-<tspan x="10" y="2378">[6006:0901/153410.361913:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:44887/assets.example.\</tspan>
-<tspan x="10" y="2394">js (8)</tspan>
-
-<tspan x="10" y="2410">[6006:0901/153410.531512:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
-<tspan x="10" y="2426">me/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.16ced7635a30.0ff3edb04ca17.html' -&gt; '\</tspan>
-<tspan x="10" y="2442">/home/travis/build/kaizhu256/node-puppeteer-lite/tmp/electron.html'", source: http://127.0.0.1:4\</tspan>
-<tspan x="10" y="2458">4887/assets.example.js (8)</tspan>
-
-<tspan x="10" y="2474"></tspan>
-
-<tspan x="10" y="2490">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
-<tspan x="10" y="2506">/screenshot.npmTest.browser.%2F.png</tspan>
-
-<tspan x="10" y="2522"></tspan>
-
-<tspan x="10" y="2538">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
-<tspan x="10" y="2554">/screenshot.npmTest.browser.%2F.html</tspan>
-
-<tspan x="10" y="2570"></tspan>
-
-<tspan x="10" y="2586">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
-<tspan x="10" y="2602">/screenshot.npmTest.browser.%2F.png</tspan>
-
-<tspan x="10" y="2618"></tspan>
-
-<tspan x="10" y="2634">browserTest - created screenshot file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build\</tspan>
-<tspan x="10" y="2650">/screenshot.npmTest.browser.%2F.html</tspan>
-
-<tspan x="10" y="2666">testRunDefault - 7950 ms - [node test-case 7 of 7 passed] - testCase_webpage_default</tspan>
-
-<tspan x="10" y="2682">/home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/utility2/lib.istanbul.js:10684</tspan>
-
-<tspan x="10" y="2698">                var line = statementMap[st].start.line,</tspan>
-
-<tspan x="10" y="2714">                                            ^</tspan>
-
-<tspan x="10" y="2730"></tspan>
-
-<tspan x="10" y="2746">TypeError: Cannot read property 'start' of undefined</tspan>
-
-<tspan x="10" y="2762">    at /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/utility2/lib.istanbul.js:10\</tspan>
-<tspan x="10" y="2778">684:45</tspan>
-
-<tspan x="10" y="2794">    at Array.forEach (&lt;anonymous&gt;)</tspan>
-
-<tspan x="10" y="2810">    at addDerivedInfoForFile (/home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/util\</tspan>
-<tspan x="10" y="2826">ity2/lib.istanbul.js:10683:37)</tspan>
-
-<tspan x="10" y="2842">    at Object.summarizeFileCoverage (/home/travis/build/kaizhu256/node-puppeteer-lite/node_modul\</tspan>
-<tspan x="10" y="2858">es/utility2/lib.istanbul.js:10836:9)</tspan>
-
-<tspan x="10" y="2874">    at /home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/utility2/lib.istanbul.js:12\</tspan>
-<tspan x="10" y="2890">361:58</tspan>
-
-<tspan x="10" y="2906">    at Array.forEach (&lt;anonymous&gt;)</tspan>
-
-<tspan x="10" y="2922">    at TextReport.writeReport (/home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/uti\</tspan>
-<tspan x="10" y="2938">lity2/lib.istanbul.js:12360:27)</tspan>
-
-<tspan x="10" y="2954">    at Object.local.coverageReportCreate (/home/travis/build/kaizhu256/node-puppeteer-lite/node_\</tspan>
-<tspan x="10" y="2970">modules/utility2/lib.istanbul.js:564:31)</tspan>
-
-<tspan x="10" y="2986">    at process.&lt;anonymous&gt; (/home/travis/build/kaizhu256/node-puppeteer-lite/node_modules/utilit\</tspan>
-<tspan x="10" y="3002">y2/lib.istanbul.js:12463:15)</tspan>
-
-<tspan x="10" y="3018">    at process.emit (events.js:209:13)</tspan>
-
-<tspan x="10" y="3034"></tspan>
-
-<tspan x="10" y="3050">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/buil\</tspan>
-<tspan x="10" y="3066">d/test-report.json</tspan>
-
-<tspan x="10" y="3082"></tspan>
-
-<tspan x="10" y="3098">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="3114">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="3130">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-09-01T15:34:04.555Z</tspan>
-
-<tspan x="10" y="3146">|    1005 ms            0 failed        1 passed      |</tspan>
-
-<tspan x="10" y="3162">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="3178">| test-report - npmTest - node - linux v12.9.1 - 2019-09-01T15:34:01.137Z</tspan>
-
-<tspan x="10" y="3194">|    7950 ms            0 failed        7 passed      |</tspan>
-
-<tspan x="10" y="3210">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="3226"></tspan>
-
-<tspan x="10" y="3242">created test-report file /home/travis/build/kaizhu256/node-puppeteer-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="3258">html</tspan>
-
-<tspan x="10" y="3274"></tspan>
-
-<tspan x="10" y="3290"></tspan>
-
-<tspan x="10" y="3306">npmTest - 0 failed tests</tspan>
-
-<tspan x="10" y="3322"></tspan>
-
-<tspan x="10" y="3338"></tspan>
-
-<tspan x="10" y="3354">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-09-01T15:34:11.848Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2426">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-09-01T15:37:51.503Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

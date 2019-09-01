@@ -8,12 +8,12 @@
                     "name": "testCase_buildApp_default",
                     "status": "passed",
                     "errorStack": "",
-                    "timeElapsed": 7365,
-                    "timeStart": 1567352056976,
+                    "timeElapsed": 7319,
+                    "timeStart": 1567352277001,
                     "isDone": true
                 }
             ],
-            "timeElapsed": 11500,
+            "timeElapsed": 231478,
             "testsFailed": 0,
             "testsPassed": 1,
             "testsPending": 0,
@@ -21,7 +21,25 @@
             "timeStart": 1567352052842
         },
         {
+            "name": "buildApidoc - node - linux v12.9.1 - 2019-09-01T15:37:52.306Z",
+            "testCaseList": [],
+            "timeElapsed": 0,
+            "testsFailed": 0,
+            "testsPassed": 0,
+            "testsPending": 0,
+            "status": "passed"
+        },
+        {
             "name": "buildApp - node - linux v12.9.1 - 2019-09-01T15:34:16.813Z",
+            "testCaseList": [],
+            "timeElapsed": 0,
+            "testsFailed": 0,
+            "testsPassed": 0,
+            "testsPending": 0,
+            "status": "passed"
+        },
+        {
+            "name": "buildApp - node - linux v12.9.1 - 2019-09-01T15:37:56.838Z",
             "testCaseList": [],
             "timeElapsed": 0,
             "testsFailed": 0,
@@ -48,6 +66,27 @@
             "testsPending": 0,
             "timeElapsed": 1005,
             "timeStart": 1567352045415,
+            "screenshot": "screenshot.npmTest.browser.%2F.png"
+        },
+        {
+            "name": "npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-09-01T15:37:44.031Z",
+            "status": "passed",
+            "testCaseList": [
+                {
+                    "errorStack": "",
+                    "isBrowser": true,
+                    "isDone": true,
+                    "name": "testCase_nop_default",
+                    "status": "passed",
+                    "timeElapsed": 0,
+                    "timeStart": 1567352264897
+                }
+            ],
+            "testsFailed": 0,
+            "testsPassed": 1,
+            "testsPending": 0,
+            "timeElapsed": 1005,
+            "timeStart": 1567352264891,
             "screenshot": "screenshot.npmTest.browser.%2F.png"
         },
         {
@@ -123,13 +162,22 @@
             "testsPending": 0,
             "status": "passed",
             "timeStart": 1567352042696
+        },
+        {
+            "name": "npmTest - node - linux v12.9.1 - 2019-09-01T15:37:40.460Z",
+            "testCaseList": [],
+            "timeElapsed": 0,
+            "testsFailed": 0,
+            "testsPassed": 0,
+            "testsPending": 0,
+            "status": "passed"
         }
     ],
-    "date": "2019-09-01T15:34:16.819Z",
+    "date": "2019-09-01T15:37:56.844Z",
     "errorStackList": [],
-    "timeElapsed": 7523,
+    "timeElapsed": 7476,
     "testsFailed": 0,
-    "testsPassed": 9,
+    "testsPassed": 10,
     "testsPending": 0,
-    "timeStart": 1567352056819
+    "timeStart": 1567352276844
 }
