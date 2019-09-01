@@ -72,6 +72,54 @@
         );
         throw err;
     };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
+    };
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
@@ -237,6 +285,54 @@
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -1590,6 +1686,54 @@ if (module === require.main && !globalThis.utility2_rollup) {
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -4113,6 +4257,54 @@ if (module === require.main && !globalThis.utility2_rollup) {
         );
         throw err;
     };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
+    };
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
@@ -5520,6 +5712,54 @@ if (module === require.main && !globalThis.utility2_rollup) {
         );
         throw err;
     };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
+    };
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
@@ -5791,41 +6031,6 @@ local.cliRun = function (opt) {
         return;
     }
     local.cliDict._default();
-};
-
-local.fsWriteFileWithMkdirpSync = function (file, data, mode) {
-/*
- * this function will synchronously "mkdir -p" and write <data> to <file>
- */
-    try {
-        if (
-            mode === "noWrite"
-            || typeof require("fs").writeFileSync !== "function"
-        ) {
-            return;
-        }
-    } catch (ignore) {
-        return;
-    }
-    // try to write to file
-    try {
-        require("fs").writeFileSync(file, data);
-    } catch (ignore) {
-        // mkdir -p
-        require("child_process").spawnSync(
-            "mkdir",
-            [
-                "-p", require("path").dirname(file)
-            ],
-            {
-                stdio: [
-                    "ignore", 1, 2
-                ]
-            }
-        );
-        // re-write to file
-        require("fs").writeFileSync(file, data);
-    }
 };
 }());
 
@@ -18034,6 +18239,54 @@ if (module === require.main && !globalThis.utility2_rollup) {
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -34803,6 +35056,7 @@ local.jslintAutofix = function (code, file, opt) {
             });
             rgx1.lastIndex = match0.length;
             ii = rgx1.lastIndex;
+            return "";
         });
         while (rgx1.lastIndex < code.length) {
             tmp = rgx1.exec(code);
@@ -35146,7 +35400,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
             switch (match0.slice(-1)) {
             case " ":
                 if (match0.length % 4 === 0) {
-                    return;
+                    return "";
                 }
                 err = {
                     message: "non 4-space indent"
@@ -35163,7 +35417,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                 };
                 break;
             default:
-                return;
+                return "";
             }
             Object.assign(err, local.jslintGetColumnLine(code2, ii));
             opt.errList.push({
@@ -35172,6 +35426,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                 line: err.line + 1,
                 message: err.message
             });
+            return "";
         });
     }
     switch (opt.utility2 && opt.fileType) {
@@ -35215,6 +35470,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                 line: err.line + 1,
                 message: err.message
             });
+            return "";
         });
         // validate line-sorted - css-selector
         previous = "";
@@ -35248,9 +35504,9 @@ local.jslintUtility2 = function (code, ignore, opt) {
             case "\u0000@":
             case "}\n":
                 previous = "";
-                return;
+                return "";
             case "}":
-                return;
+                return "";
             }
             match0 = match0.trim();
             err = (
@@ -35276,6 +35532,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                 });
             }
             previous = match0;
+            return "";
         });
         break;
     // jslintUtility2 - .html
@@ -35357,6 +35614,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                     message: err.message
                 });
             }
+            return "";
         });
         break;
     // jslintUtility2 - .md
@@ -35392,6 +35650,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                     message: err.message
                 });
             }
+            return "";
         });
         // validate line-sorted - case-esac-statement
         previous = "";
@@ -35432,6 +35691,7 @@ local.jslintUtility2 = function (code, ignore, opt) {
                     message: err.message
                 });
             }
+            return "";
         });
         break;
     }
@@ -35564,6 +35824,54 @@ if (module === require.main && !globalThis.utility2_rollup) {
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -35952,6 +36260,54 @@ if (local.isBrowser) {
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -36746,6 +37102,54 @@ if (local.isBrowser) {
         );
         throw err;
     };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
+    };
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
@@ -37406,6 +37810,54 @@ local.assetsDict["/assets.example.begin.js"] = '\
             )\n\
         );\n\
         throw err;\n\
+    };\n\
+    local.fsRmrfSync = function (dir) {\n\
+    /*\n\
+     * this function will sync "rm -rf" <dir>\n\
+     */\n\
+        var child_process;\n\
+        try {\n\
+            child_process = require("child_process");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        child_process.spawnSync("rm", [\n\
+            "-rf", dir\n\
+        ], {\n\
+            stdio: [\n\
+                "ignore", 1, 2\n\
+            ]\n\
+        });\n\
+    };\n\
+    local.fsWriteFileWithMkdirpSync = function (file, data) {\n\
+    /*\n\
+     * this function will sync write <data> to <file> with "mkdir -p"\n\
+     */\n\
+        var fs;\n\
+        try {\n\
+            fs = require("fs");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        // try to write file\n\
+        try {\n\
+            fs.writeFileSync(file, data);\n\
+        } catch (ignore) {\n\
+            // mkdir -p\n\
+            require("child_process").spawnSync(\n\
+                "mkdir",\n\
+                [\n\
+                    "-p", require("path").dirname(file)\n\
+                ],\n\
+                {\n\
+                    stdio: [\n\
+                        "ignore", 1, 2\n\
+                    ]\n\
+                }\n\
+            );\n\
+            // rewrite file\n\
+            fs.writeFileSync(file, data);\n\
+        }\n\
     };\n\
     local.functionOrNop = function (fnc) {\n\
     /*\n\
@@ -38869,7 +39321,7 @@ local._http.ServerResponse.prototype.end = function (data) {
     that.chunkList.push(data);
     // notify server res is finished
     that.emit("finish");
-    // asynchronously send res from server to client
+    // async send res from server to client
     setTimeout(function () {
         that.onResponse(that);
         that.emit("data", local.bufferConcat(that.chunkList));
@@ -38943,7 +39395,7 @@ local._http.request = function (xhr, onResponse) {
         }
         isDone = true;
         xhr.serverReq.data = data;
-        // asynchronously send req from client -> server
+        // async send req from client -> server
         setTimeout(function () {
             local.serverLocalReqHandler(
                 xhr.serverReq,
@@ -40171,7 +40623,7 @@ local.buildApp = function (opt, onError) {
         assetsList: []
     });
     // build assets
-    local.fsRmrSync("tmp/build/app");
+    local.fsRmrfSync("tmp/build/app");
     local.onParallelList({
         list: [
             {
@@ -40324,11 +40776,12 @@ local.buildLib = function (opt, onError) {
     }
     // save lib
     result = opt.dataTo;
-    local.fsWriteFileWithMkdirpSync(
-        "lib." + local.env.npm_package_nameLib + ".js",
-        result,
-        local.env.npm_config_mode_coverage && local.identity("noWrite")
-    );
+    if (!local.env.npm_config_mode_coverage) {
+        local.fs.writeFileSync(
+            "lib." + local.env.npm_package_nameLib + ".js",
+            result
+        );
+    }
     opt.customize(opt);
     onError();
     return result;
@@ -40399,7 +40852,7 @@ local.buildReadme = function (opt, onError) {
             utility2: "./npm_scripts.sh"
         };
         // save package.json
-        local.fsWriteFileWithMkdirpSync(
+        local.fs.writeFileSync(
             "package.json",
             local.jsonStringifyOrdered(opt.packageJson, null, 4) + "\n"
         );
@@ -40636,11 +41089,12 @@ local.buildReadme = function (opt, onError) {
             !local.env.npm_package_private && match0
         );
     });
-    local.fsWriteFileWithMkdirpSync(
-        "assets.swgg.swagger.json",
-        local.jsonStringifyOrdered(opt.swaggerJson, null, 4) + "\n",
-        !opt.swaggerJson.swagger && local.identity("noWrite")
-    );
+    if (opt.swaggerJson.swagger) {
+        local.fs.writeFileSync(
+            "assets.swgg.swagger.json",
+            local.jsonStringifyOrdered(opt.swaggerJson, null, 4) + "\n"
+        );
+    }
     onError();
     return result;
 };
@@ -41327,54 +41781,6 @@ local.fsReadFileOrEmptyStringSync = function (file, opt) {
             ? {}
             : ""
         );
-    }
-};
-
-local.fsRmrSync = function (dir) {
-/*
- * this function will synchronously "rm -fr" dir
- */
-    local.child_process.spawnSync("rm", [
-        "-fr", local.path.resolve(process.cwd(), dir)
-    ], {
-        stdio: [
-            "ignore", 1, 2
-        ]
-    });
-};
-
-local.fsWriteFileWithMkdirpSync = function (file, data, mode) {
-/*
- * this function will synchronously "mkdir -p" and write <data> to <file>
- */
-    try {
-        if (
-            mode === "noWrite"
-            || typeof require("fs").writeFileSync !== "function"
-        ) {
-            return;
-        }
-    } catch (ignore) {
-        return;
-    }
-    // try to write to file
-    try {
-        require("fs").writeFileSync(file, data);
-    } catch (ignore) {
-        // mkdir -p
-        require("child_process").spawnSync(
-            "mkdir",
-            [
-                "-p", require("path").dirname(file)
-            ],
-            {
-                stdio: [
-                    "ignore", 1, 2
-                ]
-            }
-        );
-        // re-write to file
-        require("fs").writeFileSync(file, data);
     }
 };
 
@@ -45358,6 +45764,54 @@ local.assetsDict["/assets.utility2.rollup.js"] = [
             )
         );
         throw err;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        var child_process;
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        var fs;
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
@@ -51644,6 +52098,54 @@ instruction\n\
         );\n\
         throw err;\n\
     };\n\
+    local.fsRmrfSync = function (dir) {\n\
+    /*\n\
+     * this function will sync \"rm -rf\" <dir>\n\
+     */\n\
+        var child_process;\n\
+        try {\n\
+            child_process = require(\"child_process\");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        child_process.spawnSync(\"rm\", [\n\
+            \"-rf\", dir\n\
+        ], {\n\
+            stdio: [\n\
+                \"ignore\", 1, 2\n\
+            ]\n\
+        });\n\
+    };\n\
+    local.fsWriteFileWithMkdirpSync = function (file, data) {\n\
+    /*\n\
+     * this function will sync write <data> to <file> with \"mkdir -p\"\n\
+     */\n\
+        var fs;\n\
+        try {\n\
+            fs = require(\"fs\");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        // try to write file\n\
+        try {\n\
+            fs.writeFileSync(file, data);\n\
+        } catch (ignore) {\n\
+            // mkdir -p\n\
+            require(\"child_process\").spawnSync(\n\
+                \"mkdir\",\n\
+                [\n\
+                    \"-p\", require(\"path\").dirname(file)\n\
+                ],\n\
+                {\n\
+                    stdio: [\n\
+                        \"ignore\", 1, 2\n\
+                    ]\n\
+                }\n\
+            );\n\
+            // rewrite file\n\
+            fs.writeFileSync(file, data);\n\
+        }\n\
+    };\n\
     local.functionOrNop = function (fnc) {\n\
     /*\n\
      * this function will if <fnc> exists,\n\
@@ -53145,6 +53647,54 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
         );\n\
         throw err;\n\
     };\n\
+    local.fsRmrfSync = function (dir) {\n\
+    /*\n\
+     * this function will sync \"rm -rf\" <dir>\n\
+     */\n\
+        var child_process;\n\
+        try {\n\
+            child_process = require(\"child_process\");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        child_process.spawnSync(\"rm\", [\n\
+            \"-rf\", dir\n\
+        ], {\n\
+            stdio: [\n\
+                \"ignore\", 1, 2\n\
+            ]\n\
+        });\n\
+    };\n\
+    local.fsWriteFileWithMkdirpSync = function (file, data) {\n\
+    /*\n\
+     * this function will sync write <data> to <file> with \"mkdir -p\"\n\
+     */\n\
+        var fs;\n\
+        try {\n\
+            fs = require(\"fs\");\n\
+        } catch (ignore) {\n\
+            return;\n\
+        }\n\
+        // try to write file\n\
+        try {\n\
+            fs.writeFileSync(file, data);\n\
+        } catch (ignore) {\n\
+            // mkdir -p\n\
+            require(\"child_process\").spawnSync(\n\
+                \"mkdir\",\n\
+                [\n\
+                    \"-p\", require(\"path\").dirname(file)\n\
+                ],\n\
+                {\n\
+                    stdio: [\n\
+                        \"ignore\", 1, 2\n\
+                    ]\n\
+                }\n\
+            );\n\
+            // rewrite file\n\
+            fs.writeFileSync(file, data);\n\
+        }\n\
+    };\n\
     local.functionOrNop = function (fnc) {\n\
     /*\n\
      * this function will if <fnc> exists,\n\
@@ -54443,33 +54993,6 @@ local.testCase_exit_err = function (opt, onError) {\n\
  * this function will test exit's err handling-behavior\n\
  */\n\
     local.exit(\"invalid-exitCode\");\n\
-    onError(null, opt);\n\
-};\n\
-\n\
-local.testCase_fsWriteFileWithMkdirpSync_default = function (opt, onError) {\n\
-/*\n\
- * this function will test\n\
- * fsWriteFileWithMkdirpSync's default handling-behavior\n\
- */\n\
-    if (local.isBrowser) {\n\
-        onError(null, opt);\n\
-        return;\n\
-    }\n\
-    local.fsRmrSync(\"tmp/build/testCase_fsWriteFileWithMkdirpSync_default\");\n\
-    // validate data\n\
-    local.assertJsonEqual(local.fsReadFileOrEmptyStringSync(\n\
-        \"tmp/build/testCase_fsWriteFileWithMkdirpSync_default/aa.txt\",\n\
-        \"utf8\"\n\
-    ), \"\");\n\
-    local.fsWriteFileWithMkdirpSync(\n\
-        \"tmp/build/testCase_fsWriteFileWithMkdirpSync_default/aa.txt\",\n\
-        \"aa\"\n\
-    );\n\
-    // validate data\n\
-    local.assertJsonEqual(local.fsReadFileOrEmptyStringSync(\n\
-        \"tmp/build/testCase_fsWriteFileWithMkdirpSync_default/aa.txt\",\n\
-        \"utf8\"\n\
-    ), \"aa\");\n\
     onError(null, opt);\n\
 };\n\
 \n\

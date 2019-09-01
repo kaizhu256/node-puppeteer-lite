@@ -93,6 +93,24 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.fsRmrfSync">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsRmrfSync
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsWriteFileWithMkdirpSync
+            <span class="apidocSignatureSpan">(file, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.functionOrNop">
             function <span class="apidocSignatureSpan">puppeteer-lite.</span>functionOrNop
             <span class="apidocSignatureSpan">(fnc)</span>
@@ -519,6 +537,78 @@
         )
     );
     throw err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.fsRmrfSync" id="apidoc.elem.puppeteer-lite.fsRmrfSync">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsRmrfSync
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsRmrfSync = function (dir) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync "rm -rf" &lt;dir&gt;
+ */
+</span>    var child_process;
+    try {
+        child_process = require("child_process");
+    } catch (ignore) {
+        return;
+    }
+    child_process.spawnSync("rm", [
+        "-rf", dir
+    ], {
+        stdio: [
+            "ignore", 1, 2
+        ]
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync" id="apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsWriteFileWithMkdirpSync
+        <span class="apidocSignatureSpan">(file, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsWriteFileWithMkdirpSync = function (file, data) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"
+ */
+</span>    var fs;
+    try {
+        fs = require("fs");
+    } catch (ignore) {
+        return;
+    }
+    // try to write file
+    try {
+        fs.writeFileSync(file, data);
+    } catch (ignore) {
+        // mkdir -p
+        require("child_process").spawnSync(
+            "mkdir",
+            [
+                "-p", require("path").dirname(file)
+            ],
+            {
+                stdio: [
+                    "ignore", 1, 2
+                ]
+            }
+        );
+        // rewrite file
+        fs.writeFileSync(file, data);
+    }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
