@@ -1,0 +1,735 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    overflow-wrap: break-word;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/kaizhu256/node-puppeteer-lite">puppeteer-lite (2019.8.31)</a>
+</h1>
+<h4>this package will provide a zero-dependency version puppeteer v1.19.0</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.puppeteer-lite">module puppeteer-lite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.Browser">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>Browser
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.Connection">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>Connection
+            <span class="apidocSignatureSpan">(url, transport, delay = 0)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.WebSocketTransport">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>WebSocketTransport
+            <span class="apidocSignatureSpan">(url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.assertThrow">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>assertThrow
+            <span class="apidocSignatureSpan">(passed, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.fsRmrfSync">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsRmrfSync
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsWriteFileWithMkdirpSync
+            <span class="apidocSignatureSpan">(file, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.functionOrNop">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>functionOrNop
+            <span class="apidocSignatureSpan">(fnc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.identity">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>identity
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.nop">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>nop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.puppeteer-lite.objectAssignDefault">
+            function <span class="apidocSignatureSpan">puppeteer-lite.</span>objectAssignDefault
+            <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">puppeteer-lite.</span>timeExit</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">puppeteer-lite.</span>local</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">puppeteer-lite.</span>puppeteer</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">puppeteer-lite.</span>__dirname</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.puppeteer-lite" id="apidoc.module.puppeteer-lite">module puppeteer-lite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.Browser" id="apidoc.elem.puppeteer-lite.Browser">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>Browser
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Browser extends EventEmitter {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array&lt;string&gt;} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {function()=} closeCallback
+   */
+</span>  static async create(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    const browser = new Browser(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback);
+    await connection.send('Target.setDiscoverTargets', {discover: true});
+    return browser;
+  }
+
+  /**
+   * @param {!Puppeteer.Connection} connection
+   * @param {!Array&lt;string&gt;} contextIds
+   * @param {boolean} ignoreHTTPSErrors
+   * @param {?Puppeteer.Viewport} defaultViewport
+   * @param {?Puppeteer.ChildProcess} process
+   * @param {(function():Promise)=} closeCallback
+   */
+  constructor(connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback) {
+    super();
+    this._ignoreHTTPSErrors = ignoreHTTPSErrors;
+    this._defaultViewport = defaultViewport;
+    this._process = process;
+    this._screenshotTaskQueue = new TaskQueue();
+    this._connection = connection;
+    this._closeCallback = closeCallback || new Function();
+
+    this._defaultContext = new BrowserContext(this._connection, this, null);
+    /** @type {Map&lt;string, BrowserContext&gt;} */
+    this._contexts = new Map();
+    for (const contextId of contextIds)
+      this._contexts.set(contextId, new BrowserContext(this._connection, this, contextId));
+
+    /** @type {Map&lt;string, Target&gt;} */
+    this._targets = new Map();
+    this._connection.on(Events.Connection.Disconnected, () =&gt; this.emit(Events.Browser.Disconnected));
+    this._connection.on('Target.targetCreated', this._targetCreated.bind(this));
+    this._connection.on('Target.targetDestroyed', this._targetDestroyed.bind(this));
+    this._connection.on('Target.targetInfoChanged', this._targetInfoChanged.bind(this));
+  }
+
+  /**
+   * @return {?Puppeteer.ChildProcess}
+   */
+  process() {
+    return this._process;
+  }
+
+  /**
+   * @return {!Promise&lt;!BrowserContext&gt;}
+   */
+  async createIncognitoBrowserContext() {
+    const {browserContextId} = await this._connection.send('Target.createBrowserContext');
+    const context = new BrowserContext(this._connection, this, browserContextId);
+    this._contexts.set(browserContextId, context);
+    return context;
+  }
+
+  /**
+   * @return {!Array&lt;!BrowserContext&gt;}
+   */
+  browserContexts() {
+    return [this._defaultContext, ...Array.from(this._contexts.values())];
+  }
+
+  /**
+   * @return {!BrowserContext}
+   */
+  defaultBrowserContext() {
+    return this._defaultContext;
+  }
+
+  /**
+   * @param {?string} contextId
+   */
+  async _disposeContext(contextId) {
+    await this._connection.send('Target.disposeBrowserContext', {browserContextId: contextId || undefined});
+    this._contexts.delete(contextId);
+  }
+
+  /**
+   * @param {!Protocol.Target.targetCreatedPayload} event
+   */
+  async _targetCreated(event) {
+    const targetInfo = event.targetInfo;
+    const {browserContextId} = targetInfo;
+    const context = (browserContextId &amp;&amp; this._contexts.has(browserContextId)) ? this._contexts.get(browserContextId) : this._defaultContext
+;
+
+    const target = new Target(targetInfo, context, () =&gt; this._connection.createSession(targetInfo), this._ignoreHTTPSErrors, this
+._defaultViewport, this._screenshotTaskQueue);
+    assert(!this._targets.has(event.targetInfo.targetId), 'Target should not exist before targetCreated');
+    this._targets.set(event.targetInfo.targetId, target);
+
+    if (await target._initializedPromise) {
+      this.emit(Events.Browser.TargetCreated, target);
+      context.emit(Events.BrowserContext.TargetCreated, target);
+    }
+  }
+
+  /**
+   * @param {{targetId: string}} event
+   */
+  async _targetDestroyed(event) {
+    const target = this._targets.get(e...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.Connection" id="apidoc.elem.puppeteer-lite.Connection">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>Connection
+        <span class="apidocSignatureSpan">(url, transport, delay = 0)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Connection extends EventEmitter {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {string} url
+   * @param {!Puppeteer.ConnectionTransport} transport
+   * @param {number=} delay
+   */
+</span>  constructor(url, transport, delay = 0) {
+    super();
+    this._url = url;
+    this._lastId = 0;
+    /** @type {!Map&lt;number, {resolve: function, reject: function, error: !Error, method: string}&gt;}*/
+    this._callbacks = new Map();
+    this._delay = delay;
+
+    this._transport = transport;
+    this._transport.onmessage = this._onMessage.bind(this);
+    this._transport.onclose = this._onClose.bind(this);
+    /** @type {!Map&lt;string, !CDPSession&gt;}*/
+    this._sessions = new Map();
+    this._closed = false;
+  }
+
+  /**
+   * @param {!CDPSession} session
+   * @return {!Connection}
+   */
+  static fromSession(session) {
+    return session._connection;
+  }
+
+  /**
+   * @param {string} sessionId
+   * @return {?CDPSession}
+   */
+  session(sessionId) {
+    return this._sessions.get(sessionId) || null;
+  }
+
+  /**
+   * @return {string}
+   */
+  url() {
+    return this._url;
+  }
+
+  /**
+   * @param {string} method
+   * @param {!Object=} params
+   * @return {!Promise&lt;?Object&gt;}
+   */
+  send(method, params = {}) {
+    const id = this._rawSend({method, params});
+    return new Promise((resolve, reject) =&gt; {
+      this._callbacks.set(id, {resolve, reject, error: new Error(), method});
+    });
+  }
+
+  /**
+   * @param {*} message
+   * @return {number}
+   */
+  _rawSend(message) {
+    const id = ++this._lastId;
+    message = JSON.stringify(Object.assign({}, message, {id}));
+    debugProtocol('SEND ► ' + message);
+    this._transport.send(message);
+    return id;
+  }
+
+  /**
+   * @param {string} message
+   */
+  async _onMessage(message) {
+    if (this._delay)
+      await new Promise(f =&gt; setTimeout(f, this._delay));
+    debugProtocol('◀ RECV ' + message);
+    const object = JSON.parse(message);
+    if (object.method === 'Target.attachedToTarget') {
+      const sessionId = object.params.sessionId;
+      const session = new CDPSession(this, object.params.targetInfo.type, sessionId);
+      this._sessions.set(sessionId, session);
+    } else if (object.method === 'Target.detachedFromTarget') {
+      const session = this._sessions.get(object.params.sessionId);
+      if (session) {
+        session._onClosed();
+        this._sessions.delete(object.params.sessionId);
+      }
+    }
+    if (object.sessionId) {
+      const session = this._sessions.get(object.sessionId);
+      if (session)
+        session._onMessage(object);
+    } else if (object.id) {
+      const callback = this._callbacks.get(object.id);
+      // Callbacks could be all rejected if someone has called `.dispose()`.
+      if (callback) {
+        this._callbacks.delete(object.id);
+        if (object.error)
+          callback.reject(createProtocolError(callback.error, callback.method, object));
+        else
+          callback.resolve(object.result);
+      }
+    } else {
+      this.emit(object.method, object.params);
+    }
+  }
+
+  _onClose() {
+    if (this._closed)
+      return;
+    this._closed = true;
+    this._transport.onmessage = null;
+    this._transport.onclose = null;
+    for (const callback of this._callbacks.values())
+      callback.reject(rewriteError(callback.error, `Protocol error (${callback.method}): Target closed.`));
+    this._callbacks.clear();
+    for (const session of this._sessions.values())
+      session._onClosed();
+    this._sessions.clear();
+    this.emit(Events.Connection.Disconnected);
+  }
+
+  dispose() {
+    this._onClose();
+    this._transport.close();
+  }
+
+  /**
+   * @param {Protocol.Target.TargetInfo} targetInfo
+   * @return {!Promise&lt;!CDPSession&gt;}
+   */
+  async createSession(targetInfo) {
+    const {sessionId} = await this.send('Target.attachToTarget', {targetId: targetInfo.targetId, flatten: true});
+    return this._sessions.get(sessionId);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.WebSocketTransport" id="apidoc.elem.puppeteer-lite.WebSocketTransport">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>WebSocketTransport
+        <span class="apidocSignatureSpan">(url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class WebSocketTransport {
+<span class="apidocCodeCommentSpan">  /**
+   * @param {string} url
+   * @return {!Promise&lt;!WebSocketTransport&gt;}
+   */
+</span>  static create(url) {
+    return new Promise((resolve, reject) =&gt; {
+      const ws = new WebSocket(url, [], {
+        perMessageDeflate: false,
+        maxPayload: 256 * 1024 * 1024, // 256Mb
+      });
+      ws.addEventListener('open', () =&gt; resolve(new WebSocketTransport(ws)));
+      ws.addEventListener('error', reject);
+    });
+  }
+
+  /**
+   * @param {!WebSocket} ws
+   */
+  constructor(ws) {
+    this._ws = ws;
+    this._ws.addEventListener('message', event =&gt; {
+      if (this.onmessage)
+        this.onmessage.call(null, event.data);
+    });
+    this._ws.addEventListener('close', event =&gt; {
+      if (this.onclose)
+        this.onclose.call(null);
+    });
+    // Silently ignore all errors - we don't know what to do with them.
+    this._ws.addEventListener('error', () =&gt; {});
+    this.onmessage = null;
+    this.onclose = null;
+  }
+
+  /**
+   * @param {string} message
+   */
+  send(message) {
+    this._ws.send(message);
+  }
+
+  close() {
+    this._ws.close();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.assertThrow" id="apidoc.elem.puppeteer-lite.assertThrow">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>assertThrow
+        <span class="apidocSignatureSpan">(passed, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertThrow = function (passed, message) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will throw err.&lt;message&gt; if &lt;passed&gt; is falsy
+ */
+</span>    var err;
+    if (passed) {
+        return;
+    }
+    err = (
+        (
+            message
+            &amp;&amp; typeof message.message === "string"
+            &amp;&amp; typeof message.stack === "string"
+        )
+        // if message is errObj, then leave as is
+        ? message
+        : new Error(
+            typeof message === "string"
+            // if message is a string, then leave as is
+            ? message
+            // else JSON.stringify message
+            : JSON.stringify(message, null, 4)
+        )
+    );
+    throw err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.fsRmrfSync" id="apidoc.elem.puppeteer-lite.fsRmrfSync">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsRmrfSync
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsRmrfSync = function (dir) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync "rm -rf" &lt;dir&gt;
+ */
+</span>    var child_process;
+    try {
+        child_process = require("child_process");
+    } catch (ignore) {
+        return;
+    }
+    child_process.spawnSync("rm", [
+        "-rf", dir
+    ], {
+        stdio: [
+            "ignore", 1, 2
+        ]
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync" id="apidoc.elem.puppeteer-lite.fsWriteFileWithMkdirpSync">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>fsWriteFileWithMkdirpSync
+        <span class="apidocSignatureSpan">(file, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsWriteFileWithMkdirpSync = function (file, data) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"
+ */
+</span>    var fs;
+    try {
+        fs = require("fs");
+    } catch (ignore) {
+        return;
+    }
+    // try to write file
+    try {
+        fs.writeFileSync(file, data);
+    } catch (ignore) {
+        // mkdir -p
+        require("child_process").spawnSync(
+            "mkdir",
+            [
+                "-p", require("path").dirname(file)
+            ],
+            {
+                stdio: [
+                    "ignore", 1, 2
+                ]
+            }
+        );
+        // rewrite file
+        fs.writeFileSync(file, data);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.functionOrNop" id="apidoc.elem.puppeteer-lite.functionOrNop">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>functionOrNop
+        <span class="apidocSignatureSpan">(fnc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">functionOrNop = function (fnc) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will if &lt;fnc&gt; exists,
+ * them return &lt;fnc&gt;,
+ * else return &lt;nop&gt;
+ */
+</span>    return fnc || local.nop;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.identity" id="apidoc.elem.puppeteer-lite.identity">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>identity
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identity = function (value) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will return &lt;value&gt;
+ */
+</span>    return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.nop" id="apidoc.elem.puppeteer-lite.nop">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>nop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nop = function () {
+<span class="apidocCodeCommentSpan">/*
+ * this function will do nothing
+ */
+</span>    return;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.puppeteer-lite.objectAssignDefault" id="apidoc.elem.puppeteer-lite.objectAssignDefault">
+        function <span class="apidocSignatureSpan">puppeteer-lite.</span>objectAssignDefault
+        <span class="apidocSignatureSpan">(target, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">objectAssignDefault = function (target, source) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will if items from &lt;target&gt; are
+ * null, undefined, or empty-string,
+ * then overwrite them with items from &lt;source&gt;
+ */
+</span>    target = target || {};
+    Object.keys(source || {}).forEach(function (key) {
+        if (
+            target[key] === null
+            || target[key] === undefined
+            || target[key] === ""
+        ) {
+            target[key] = target[key] || source[key];
+        }
+    });
+    return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       }).join(" ").replace((
+           /\u001b\[\d*m/g
+       ), "") + "\n";
+       // scroll textarea to bottom
+       elem.scrollTop = elem.scrollHeight;
+   };
+});
+local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(local, globalThis.domOnEventDelegateDict);
+globalThis.domOnEventDelegateDict = local;
+local.onEventDomDb = local.db &amp;&amp; local.db.onEventDomDb;
+local.testRunBrowser = function (evt) {
+/*
+* this function will run browser-tests
+*/
+   switch (
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
